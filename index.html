@@ -124,7 +124,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">0</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">1</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a>
 
   </li>
   </ul>
@@ -160,6 +160,80 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangqiaoli.cn/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="张伟">
+      <meta itemprop="description" content="分享，学习，教程，感悟，生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="龑">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/" class="post-title-link" itemprop="url">爬取小说--战略级天使</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-04 21:54:24 / 修改时间：22:17:11" itemprop="dateCreated datePublished" datetime="2021-05-04T21:54:24+08:00">2021-05-04</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>##目的<br>使用爬虫爬取小说，从而离线阅读。<br>练习R语言。<br>示例网站：<a target="_blank" rel="noopener" href="https://www.-----.com/yuedu/15111/">https://www.-----.com/yuedu/15111/</a></p>
+<figure class="highlight plain"><figcaption><span>echo</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">library(&quot;stringr&quot;)</span><br><span class="line">library(&quot;rvest&quot;)</span><br><span class="line">library(&#39;RCurl&#39;)</span><br><span class="line">library(&#39;curl&#39;)</span><br><span class="line">library(&#39;downloader&#39;)</span><br><span class="line">library(&#39;RSelenium&#39;)</span><br><span class="line">setwd(&#39;H:\\R\\R脚本\\爬虫&#39;)</span><br><span class="line">url &lt;- &quot;https:&#x2F;&#x2F;www.-----.com&#x2F;yuedu&#x2F;15111&#x2F;&quot;</span><br><span class="line">htmlpage &lt;- read_html(url)</span><br><span class="line">xs_chapter &lt;- htmlpage %&gt;% html_nodes(&#39;div#wrapper div.box_con div#list dl dd a&#39;) %&gt;% html_text()</span><br><span class="line">head(xs_chapter)#观察数据形式</span><br><span class="line">xs_link &lt;- htmlpage %&gt;% html_nodes(&#39;div#wrapper div.box_con div#list dl dd a&#39;) %&gt;% html_attrs()</span><br><span class="line">head(xs_link)#观察数据形式</span><br><span class="line">xs_link &lt;- paste(&quot;https:&#x2F;&#x2F;www.-----.com&quot;,unlist(xs_link),sep &#x3D; &#39;&#39;)#构建章节链接</span><br><span class="line">xs_content &lt;- cbind(xs_chapter[-(1:10)],xs_link[-(1:10)])#合并目录链接</span><br><span class="line"></span><br><span class="line">#尝试获取小说内容，并提取。</span><br><span class="line">ms_f1 &lt;- read_html(xs_content[1,2], encoding &#x3D; &quot;GB18030&quot;) %&gt;% html_nodes(&#39;div#content&#39;) %&gt;% html_text()</span><br><span class="line">ms_f2 &lt;- read_html(xs_content[2,2], encoding &#x3D; &quot;GB18030&quot;) %&gt;% html_nodes(&#39;div#content&#39;) %&gt;% html_text()</span><br><span class="line">ms_f &lt;- c(xs_content[1,1],ms_f1,xs_content[2,1],ms_f2)</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, ms_f),file &#x3D; &quot;1.txt&quot;)</span><br><span class="line"></span><br><span class="line">#自定义下载函数</span><br><span class="line">xs_down &lt;- function(x)&#123;</span><br><span class="line">  xs &lt;- c()</span><br><span class="line">  for (i in 1:length(x[,1])) &#123;</span><br><span class="line">  xm &lt;- read_html(x[i,2], encoding &#x3D; &quot;GB18030&quot;) %&gt;% html_nodes(&#39;div#content&#39;) %&gt;% html_text()</span><br><span class="line">  xs &lt;- c(xs, x[i,1], xm)</span><br><span class="line">  &#125;</span><br><span class="line">  xs</span><br><span class="line">&#125;</span><br><span class="line">#导出小说</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, xs_down(xs_content)),file &#x3D; &quot;战略级天使.txt&quot;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -310,9 +384,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -347,12 +425,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">0k</span>
+    <span title="站点总字数">2k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">2 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
