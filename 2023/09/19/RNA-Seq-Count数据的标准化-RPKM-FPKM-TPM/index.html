@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"wangqiaoli.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="测序得到的read counts数量会受到多种因素的影响，如测序深度和基因长度。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 RPKM，FPKM，TPM。其中TPM被更多人认可。 RPKM: Reads per">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://wangqiaoli.cn/2021/03/22/hello-world/index.html">
+<meta property="og:title" content="RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记">
+<meta property="og:url" content="https://wangqiaoli.cn/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/index.html">
 <meta property="og:site_name" content="龑">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="测序得到的read counts数量会受到多种因素的影响，如测序深度和基因长度。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 RPKM，FPKM，TPM。其中TPM被更多人认可。 RPKM: Reads per">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-22T14:28:26.327Z">
-<meta property="article:modified_time" content="2021-03-22T14:28:26.327Z">
+<meta property="article:published_time" content="2023-09-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-20T13:39:39.374Z">
 <meta property="article:author" content="张伟">
-<meta property="article:tag" content="blog, 博客, 生物学, 细胞, 生物信息, 爬虫, 脚本，R语言，果蝇，潜叶虫">
+<meta property="article:tag" content="R语言, RNA-Seq">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wangqiaoli.cn/2021/03/22/hello-world/">
+<link rel="canonical" href="https://wangqiaoli.cn/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Hello World | 龑</title>
+  <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记 | 龑</title>
   
 
 
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangqiaoli.cn/2021/03/22/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://wangqiaoli.cn/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记
         </h1>
 
         <div class="post-meta">
@@ -190,7 +190,23 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-22 22:28:26" itemprop="dateCreated datePublished" datetime="2021-03-22T22:28:26+08:00">2021-03-22</time>
+              <time title="创建时间：2023-09-19 08:00:00" itemprop="dateCreated datePublished" datetime="2023-09-19T08:00:00+08:00">2023-09-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-20 21:39:39" itemprop="dateModified" datetime="2023-09-20T21:39:39+08:00">2023-09-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RNA-Seq/" itemprop="url" rel="index"><span itemprop="name">RNA-Seq</span></a>
+                </span>
             </span>
 
           <br>
@@ -199,14 +215,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>367</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -218,19 +234,60 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>测序得到的read counts数量会受到多种因素的影响，如测序深度和基因长度。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 RPKM，FPKM，TPM。其中TPM被更多人认可。</p>
+<p>RPKM: Reads per kilo base per million mapped reads (single-end sequencing)</p>
+<p>FPKM: Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
+<p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。</p>
+<p>RPKM，FPKM</p>
+<p>{r}</p>
+<p>#x为一个向量存储了每个基因的counts，而gene.length是相应于x中每个基因的长度的一个向量.<br>RPKM &lt;- function(x, gene.length){<br>  lib.size &lt;- sum(x)<br>  rpm &lt;- 1e6 * x/lib.size<br>  rpkm &lt;- 1e3 * rpm/gene.length<br>  return(rpkm)<br>}</p>
+<p>FPKM &lt;- function(x, gene.length){<br>  lib.size &lt;- sum(x)<br>  rpm &lt;- 1e6 * x/lib.size<br>  rpkm &lt;- 1e3 * rpm/gene.length<br>  return(fpkm)<br>}</p>
+<p>TPM</p>
+<p>TPM: Transcript per million</p>
+<p>TPM对基因的长度进行了校正，计算比对到基因上的reads/基因长度得到长度校正的表达量 reads per kilobase (RPK)。再以文库中RPK之和作为Scale Factor求出TPM。</p>
+<p>{r}<br>TPM &lt;- function(x, gene.length){<br>  rpk &lt;- 1e3 * x/gene.length<br>  scale.factor &lt;- sum(rpk)<br>  tpm &lt;- 1e6 * rpk/scale.factor<br>  return(tpm)<br>}</p>
+<p>相比于RPKM使用文库大小（read counts之和）来作为文库校正因子，TPM使用RPK之和作为文库校正因子的好处是考虑了不同样本间的基因长度的分布。因为RPK是一个对基因长度进行校正后的表达量单位，所以RPK之和也不会再带入基因长度的bias。因此，如果需要比较的样本之间转录本分布不一致时（例如不同物种RNA-seq的比较），使用TPM是一个较佳的normalization方案。</p>
+<p>RPKM和TPM这类方法就是为了使不同样本间的总体表达量趋于一致，让不同样本间的基因表达量有可比较性，而TPM能够更好地校正样本间的差异。</p>
+<p>常用的Normalization 方法总结</p>
+<p>Normalization method</p>
+<p>描述</p>
+<p>考虑因素</p>
+<p>使用场景</p>
+<p>CPM (counts per million)</p>
+<p>使用read counts的总和校正counts</p>
+<p>测序深度</p>
+<p>同一样本组重复样本之间的基因counts比较；不适用于样品内的比较或差异分析</p>
+<p>TPM (transcripts per kilobase million)</p>
+<p>每百万mapped reads中每kb转录本上的reads数</p>
+<p>测序深度和基因长度</p>
+<p>样本内或同一样本组样本之间的基因counts比较； 不适用于差异分析</p>
+<p>RPKM/FPKM (reads/fragments per kilobase of exon per million reads/fragments mapped)</p>
+<p>如TPM</p>
+<p>测序深度和基因长度</p>
+<p>样本内基因间的counts比较; 不适用于样本间比较和差异分析</p>
+<p>DESeq2’s median of ratios [1]</p>
+<p>counts除以样本特异的校正因子，该因子由基因计数相对于每个基因的几何平均值的中位数比率确定</p>
+<p>测序深度及RNA组成</p>
+<p>样本之间的基因counts比较以及差异分析; 不适用于样本内比较</p>
+<p>EdgeR’s trimmed mean of M values (TMM) [2]</p>
+<p>使用样本之间的加权截尾的对数表达量比值的均值进行TMM校正</p>
+<p>测序深度，RNA组成以及基因长度</p>
+<p>样品之间和样品内部的基因counts比较，适用于差异分析</p>
+<p>在进行差异表达分析时，我们实际上并不会用到RPKM/FPKM, TPM，而是使用raw counts给到差异分析的工具。这是由于RPKM/FPKM和TPM都没有考虑到样本间文库组成的差异，因而不适合用于样本间差异分析。</p>
+<p>获取基因长度</p>
+<p>计算TPM或RPKM/FPKM等基因表达量时，除了基因的counts信息外，我们还需要知道基因的长度。由于可变剪接的存在，一个基因可能会有多个转录本，在进行基因水平的表达分析时，我们并不会区分各个转录本剪接变体的表达量，而是以基因为单位进行统计。目前，对于基因长度有多种定义，包括：</p>
+<p>基因最长转录本；</p>
+<p>多个转录本长度的平均值；</p>
+<p>非重叠外显子长度之和：</p>
+<p>非重叠CDS序列长度之和。</p>
+<p>Figure Source: Gene structure</p>
+<p>{r message=FALSE}<br>#使用gtf文件在R中获取基因长度（非重叠外显子长度之和）<br>#首先，读取计算基因counts时用的GTF文件，并将其转换为TxDb对象；<br>library(GenomicFeatures)<br>#一般常用的物种基因注释信息都已经有人构建好TxDb对象，以R包的形式上传到Bioconductor里。我们使用时直接加载、赋值即可。BiocManager::install(“TxDb.Dmelanogaster.UCSC.dm6.ensGene”)<br>#从本地读取数据库文件 txdb &lt;- makeTxDbFromGFF(‘gencode.vM23.annotation.gtf’, format=’gtf’)<br>#然后，提取每个基因的外显子注释信息；exons.list.per.gene &lt;- exonsBy(txdb, by=”gene”)<br>library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)<br>exons.list.per.gene &lt;- exonsBy(TxDb.Dmelanogaster.UCSC.dm6.ensGene, by=”gene”)<br>#最后，合并重叠的外显子，计算非重叠外显子的长度作为基因长度（bp）<br>exonic.gene.sizes &lt;- sum(width(reduce(exons.list.per.gene)))</p>
+<p>GenomicFeatures还支持自己手动从指定数据库中构建TxDb对象，例如从 UCSC提取构建的makeTxDbFromUCSC()函数；从BioMart提取构建的makeTxDbFromBiomart()函数等方法可以用作替补方案（没有对应TXDB的R包时）。</p>
+<p>tureCounts统计基因counts时，其输出的counts.txt文件中通常会包含一列长度信息Length。也是采用非重叠外显子作为基因长度。</p>
+<p>参考：</p>
+<p>理论-简述RPKM-FPKM-AND-TPM | Dean’s blog (thereallda.github.io)</p>
+<p>R-获取基因长度 | Dean’s blog (thereallda.github.io)</p>
+<p>[R]bioconductor之GenomicFeatures学习 - 简书 (jianshu.com)</p>
 
     </div>
 
@@ -239,17 +296,20 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/R%E8%AF%AD%E8%A8%80-RNA-Seq/" rel="tag"># R语言, RNA-Seq</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/" rel="next" title="爬取小说--战略级天使">
-      爬取小说--战略级天使 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/" rel="prev" title="爬取小说--战略级天使">
+      <i class="fa fa-chevron-left"></i> 爬取小说--战略级天使
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -308,7 +368,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
