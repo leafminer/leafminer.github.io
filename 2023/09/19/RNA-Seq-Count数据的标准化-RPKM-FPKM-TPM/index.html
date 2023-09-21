@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangqiaoli.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"leafminer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="测序得到的read counts数量会受到多种因素的影响，如测序深度和基因长度。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 RPKM，FPKM，TPM。其中TPM被更多人认可。 RPKM: Reads per">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记">
-<meta property="og:url" content="https://wangqiaoli.cn/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/index.html">
+<meta property="og:url" content="https://leafminer.github.io/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/index.html">
 <meta property="og:site_name" content="龑">
 <meta property="og:description" content="测序得到的read counts数量会受到多种因素的影响，如测序深度和基因长度。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 RPKM，FPKM，TPM。其中TPM被更多人认可。 RPKM: Reads per">
 <meta property="og:locale" content="zh_CN">
@@ -37,7 +37,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png">
 
-<link rel="canonical" href="https://wangqiaoli.cn/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/">
+<link rel="canonical" href="https://leafminer.github.io/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/">
 
 
 <script id="page-configurations">
@@ -171,7 +171,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangqiaoli.cn/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/">
+    <link itemprop="mainEntityOfPage" href="https://leafminer.github.io/2023/09/19/RNA-Seq-Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96-RPKM-FPKM-TPM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
