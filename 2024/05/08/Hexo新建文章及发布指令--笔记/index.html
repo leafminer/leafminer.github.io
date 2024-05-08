@@ -153,10 +153,10 @@
 </tr>
 </tbody></table>
 <h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>windows下使用命令行创建新的博客文章<br>如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br><code>hexo new &quot;post title with whitespace&quot;</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
-<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <span id="more"></span> 进行分段。</p>
-<!--more--> 
+<span id="more"></span> 
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
+<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
 <h3 id="新建独立页面"><a href="#新建独立页面" class="headerlink" title="新建独立页面"></a>新建独立页面</h3><p><code>hexo new page --path about/me &quot;About me&quot;</code><br>以上命令会创建一个 source&#x2F;about&#x2F;me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
 <h3 id="新建草稿"><a href="#新建草稿" class="headerlink" title="新建草稿"></a>新建草稿</h3><p><code>hexo new draft &quot;draft&quot;</code></p>
 <h2 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h2><p><code>hexo generate</code><br>可简写为<code>hexo g</code></p>
@@ -202,6 +202,8 @@
         </div>
 
         
+            
+            <a id="pagenext" href="/leafminer.github.io/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-next" title="RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记"><i class="icon-arrow-right"></i></a>
             
             
             <a id="pageprev" href="/leafminer.github.io/2024/05/08/hello-world/" class="article-prev" title="Hello World"><i class="icon-arrow-left"></i></a>
