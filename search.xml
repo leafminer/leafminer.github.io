@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo新建文章及发布指令--笔记</title>
+    <url>/leafminer.github.io/2024/05/08/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E5%8F%8A%E5%8F%91%E5%B8%83%E6%8C%87%E4%BB%A4--%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><p><code>hexo new [layout] &lt;title&gt;</code><br>布局（Layout）有三种：post、page 和 draft。</p>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>post</td>
+<td>source&#x2F;_posts</td>
+</tr>
+<tr>
+<td>page</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source&#x2F;_drafts</td>
+</tr>
+</tbody></table>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>windows下使用命令行创建新的博客文章<br>如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br><code>hexo new &quot;post title with whitespace&quot;</code></p>
+<span id="more"></span> 
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
+<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
+<h3 id="新建独立页面"><a href="#新建独立页面" class="headerlink" title="新建独立页面"></a>新建独立页面</h3><p><code>hexo new page --path about/me &quot;About me&quot;</code><br>以上命令会创建一个 source&#x2F;about&#x2F;me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
+<h3 id="新建草稿"><a href="#新建草稿" class="headerlink" title="新建草稿"></a>新建草稿</h3><p><code>hexo new draft &quot;draft&quot;</code></p>
+<h2 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h2><p><code>hexo generate</code><br>可简写为<code>hexo g</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
+
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>发表草稿。<br><code>hexo publish [layout] &lt;filename&gt;</code></p>
+<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a><br><code>hexo server</code></p>
+<h2 id="布署-deploy"><a href="#布署-deploy" class="headerlink" title="布署(deploy)"></a>布署(deploy)</h2><p><code>hexo deploy</code><br>可简写为<code>hexo d</code></p>
+<h2 id="渲染文件"><a href="#渲染文件" class="headerlink" title="渲染文件"></a>渲染文件</h2><p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
+<h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p><code>hexo migrate &lt;type&gt;</code></p>
+<h2 id="清除缓存和已生成的静态文件"><a href="#清除缓存和已生成的静态文件" class="headerlink" title="清除缓存和已生成的静态文件"></a>清除缓存和已生成的静态文件</h2><p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br><code>hexo clean</code></p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p>列出网站数据。<br><code>hexo list &lt;type&gt;</code></p>
+<h2 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h2><p><code>hexo --draft</code><br>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
     <url>/leafminer.github.io/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
@@ -82,63 +135,10 @@
         <category>生信</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>RNA-seq</tag>
         <tag>生信</tag>
         <tag>R语言</tag>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo新建文章及发布指令--笔记</title>
-    <url>/leafminer.github.io/2024/05/08/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E5%8F%8A%E5%8F%91%E5%B8%83%E6%8C%87%E4%BB%A4--%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><p><code>hexo new [layout] &lt;title&gt;</code><br>布局（Layout）有三种：post、page 和 draft。</p>
-<table>
-<thead>
-<tr>
-<th>布局</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>post</td>
-<td>source&#x2F;_posts</td>
-</tr>
-<tr>
-<td>page</td>
-<td>source</td>
-</tr>
-<tr>
-<td>draft</td>
-<td>source&#x2F;_drafts</td>
-</tr>
-</tbody></table>
-<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>windows下使用命令行创建新的博客文章<br>如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br><code>hexo new &quot;post title with whitespace&quot;</code></p>
-<span id="more"></span> 
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
-<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
-<h3 id="新建独立页面"><a href="#新建独立页面" class="headerlink" title="新建独立页面"></a>新建独立页面</h3><p><code>hexo new page --path about/me &quot;About me&quot;</code><br>以上命令会创建一个 source&#x2F;about&#x2F;me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
-<h3 id="新建草稿"><a href="#新建草稿" class="headerlink" title="新建草稿"></a>新建草稿</h3><p><code>hexo new draft &quot;draft&quot;</code></p>
-<h2 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h2><p><code>hexo generate</code><br>可简写为<code>hexo g</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
-
-<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>发表草稿。<br><code>hexo publish [layout] &lt;filename&gt;</code></p>
-<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a><br><code>hexo server</code></p>
-<h2 id="布署-deploy"><a href="#布署-deploy" class="headerlink" title="布署(deploy)"></a>布署(deploy)</h2><p><code>hexo deploy</code><br>可简写为<code>hexo d</code></p>
-<h2 id="渲染文件"><a href="#渲染文件" class="headerlink" title="渲染文件"></a>渲染文件</h2><p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
-<h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p><code>hexo migrate &lt;type&gt;</code></p>
-<h2 id="清除缓存和已生成的静态文件"><a href="#清除缓存和已生成的静态文件" class="headerlink" title="清除缓存和已生成的静态文件"></a>清除缓存和已生成的静态文件</h2><p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br><code>hexo clean</code></p>
-<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p>列出网站数据。<br><code>hexo list &lt;type&gt;</code></p>
-<h2 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h2><p><code>hexo --draft</code><br>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>建站</tag>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
