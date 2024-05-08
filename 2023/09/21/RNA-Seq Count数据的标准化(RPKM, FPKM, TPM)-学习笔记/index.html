@@ -1,144 +1,232 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.2.0">
 
-    
+  <link rel="apple-touch-icon" sizes="180x180" href="/leafminer.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/leafminer.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/leafminer.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/leafminer.github.io/images/logo.svg" color="#222">
 
-    
-
-    <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记 | 损不足</title>
-    <meta name="author" content="张 伟" />
-    <meta name="keywords" content="博客，记录，生物，R语言，爬虫，生信，中药，果蝇" />
-    <meta name="description" content="测序得到的 read counts 数量会受到多种因素的影响，如 测序深度 和 基因长度 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 RPKM ， FPKM， TPM 。其中TPM被更多人认可。 RPKM: Reads per kilo base per million mapped reads (sing" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-
-    
-    <link rel="alternate" href="/leafminer.github.io/atom.xml" title="损不足" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/leafminer.github.io/images/favicon.ico">
-    
-
-    <style type="text/css">
-    @font-face {
-        font-family: 'icomoon';
-        src: url("/leafminer.github.io/fonts/icomoon.eot?q628ml");
-        src: url("/leafminer.github.io/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
-             url("/leafminer.github.io/fonts/icomoon.ttf?q628ml") format('truetype'),
-             url("/leafminer.github.io/fonts/icomoon.woff?q628ml") format('woff'),
-             url("/leafminer.github.io/fonts/icomoon.svg?q628ml#icomoon") format('svg');
-        font-weight: normal;
-        font-style: normal;
-    }
-    </style>
-    
-<link rel="stylesheet" href="/leafminer.github.io/css/style.css">
+<link rel="stylesheet" href="/leafminer.github.io/css/main.css">
 
 
-    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-<meta name="generator" content="Hexo 7.2.0"></head>
-<body>
 
-    <main class="app">
-        <header id="header" class="header clearfix">
-    <div id="nav" class="nav">
-    <div class="nav-mobile">
-        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
-        <h1 class="nav-mobile-title nav-mobile-item">损不足</h1>
-        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leafminer.github.io","root":"/leafminer.github.io/","images":"/leafminer.github.io/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/leafminer.github.io/js/config.js"></script>
+
+    <meta name="description" content="测序得到的 read counts 数量会受到多种因素的影响，如 测序深度 和 基因长度 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 RPKM ， FPKM， TPM 。其中TPM被更多人认可。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记">
+<meta property="og:url" content="https://leafminer.github.io/leafminer.github.io/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+<meta property="og:site_name" content="损不足">
+<meta property="og:description" content="测序得到的 read counts 数量会受到多种因素的影响，如 测序深度 和 基因长度 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 RPKM ， FPKM， TPM 。其中TPM被更多人认可。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png">
+<meta property="og:image" content="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png">
+<meta property="og:image" content="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png">
+<meta property="article:published_time" content="2023-09-21T07:37:35.000Z">
+<meta property="article:modified_time" content="2024-05-08T14:08:49.138Z">
+<meta property="article:author" content="张 伟">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="RNA-seq">
+<meta property="article:tag" content="生信">
+<meta property="article:tag" content="R语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png">
+
+
+<link rel="canonical" href="https://leafminer.github.io/leafminer.github.io/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leafminer.github.io/leafminer.github.io/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"2023/09/21/RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记/","title":"RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记 | 损不足</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/leafminer.github.io/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
+  </div>
 
-    <nav id="nav-inner" class="nav-inner">
-        
-            <a class="nav-item" href="/leafminer.github.io/">
-                <span class="nav-text">首页</span>
-            </a>
-        
-            <a class="nav-item" href="/leafminer.github.io/categories/front-end">
-                <span class="nav-text">前端</span>
-            </a>
-        
-            <a class="nav-item" href="/leafminer.github.io/categories/back-end">
-                <span class="nav-text">后端</span>
-            </a>
-        
-            <a class="nav-item" href="/leafminer.github.io/tags">
-                <span class="nav-text">标签</span>
-            </a>
-        
-            <a class="nav-item" href="/leafminer.github.io/archives">
-                <span class="nav-text">归档</span>
-            </a>
-        
-            <a class="nav-item" href="/leafminer.github.io/atom.xml">
-                <span class="nav-text">订阅</span>
-            </a>
-        
-            <a class="nav-item" href="/leafminer.github.io/about">
-                <span class="nav-text">关于</span>
-            </a>
-        
-    </nav>
+  <div class="site-meta">
+
+    <a href="/leafminer.github.io/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">损不足</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">奉有余</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
 </div>
 
-    <aside id="aside" class="aside">
-    <div id="aside-mask" class="aside-mask"></div>
-    <div id="aside-inner" class="aside-inner">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://leafminer.github.io/leafminer.github.io"></form>
 
-        
-        
-        
-        
 
-        
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#RPKM%EF%BC%8CFPKM"><span class="toc-number">1.</span> <span class="toc-text">RPKM，FPKM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TPM"><span class="toc-number">2.</span> <span class="toc-text">TPM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%9F%BA%E5%9B%A0%E9%95%BF%E5%BA%A6"><span class="toc-number"></span> <span class="toc-text">获取基因长度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">参考：</span></a>
-        
-    </div>
-</aside>
+
+
+
 
 </header>
-
-        <div id="content" class="content">
-            <div id="wrapper" class="wrapper" style="max-width: 800px">
-                <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
         
-        <h1 itemprop="name">
-            RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://leafminer.github.io/leafminer.github.io/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2023-09-21T07:37:35.000Z" itemprop="datePublished">2023-09-21</time>
-</a>
+  
+  <aside class="sidebar">
 
-            
-<div class="article-tag-list">
-    <i class="icon-tag vm"></i>
-    <a class="article-tag-link" href="/leafminer.github.io/tags/RNA-seq/" rel="tag">RNA-seq</a>, <a class="article-tag-link" href="/leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/" rel="tag">R语言</a>, <a class="article-tag-link" href="/leafminer.github.io/tags/%E7%94%9F%E4%BF%A1/" rel="tag">生信</a>, <a class="article-tag-link" href="/leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RPKM%EF%BC%8CFPKM"><span class="nav-number">1.</span> <span class="nav-text">RPKM，FPKM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TPM"><span class="nav-number">2.</span> <span class="nav-text">TPM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%9F%BA%E5%9B%A0%E9%95%BF%E5%BA%A6"><span class="nav-number"></span> <span class="nav-text">获取基因长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">参考：</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">张 伟</p>
+  <div class="site-description" itemprop="description">生命有限，知无涯。分享，记录，闹着玩！生物，技术，啥都行！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/leafminer.github.io/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
 </div>
 
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leafminer.github.io/leafminer.github.io/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leafminer.github.io/images/avatar.gif">
+      <meta itemprop="name" content="张 伟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="损不足">
+      <meta itemprop="description" content="生命有限，知无涯。分享，记录，闹着玩！生物，技术，啥都行！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记 | 损不足">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-21 15:37:35" itemprop="dateCreated datePublished" datetime="2023-09-21T15:37:35+08:00">2023-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-08 22:08:49" itemprop="dateModified" datetime="2024-05-08T22:08:49+08:00">2024-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/leafminer.github.io/categories/%E7%94%9F%E4%BF%A1/" itemprop="url" rel="index"><span itemprop="name">生信</span></a>
+        </span>
+    </span>
+
+  
+</div>
 
         </div>
-    </header>
+      </header>
+
     
-    <section class="article-body markdown-body">
-        
-        <p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
 <span id="more"></span> 
 <p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
 <p><strong>FPKM:</strong> Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
-<p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。<br><a target="_blank" rel="noopener" href="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png">公式1</a></p>
+<p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。<br><img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png" alt="公式1"></p>
 <h3 id="RPKM，FPKM"><a href="#RPKM，FPKM" class="headerlink" title="RPKM，FPKM"></a>RPKM，FPKM</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#x为一个向量存储了每个基因的counts，而gene.length是相应于x中每个基因的长度的一个向量.</span><br><span class="line">RPKM &lt;- function(x, gene.length)&#123; </span><br><span class="line">  lib.size &lt;- sum(x)</span><br><span class="line">  rpm &lt;- 1e6 * x/lib.size</span><br><span class="line">  rpkm &lt;- 1e3 * rpm/gene.length</span><br><span class="line">  return(rpkm)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FPKM &lt;- function(x, gene.length)&#123; </span><br><span class="line">  lib.size &lt;- sum(x)</span><br><span class="line">  rpm &lt;- 1e6 * x/lib.size</span><br><span class="line">  rpkm &lt;- 1e3 * rpm/gene.length</span><br><span class="line">  return(fpkm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="TPM"><a href="#TPM" class="headerlink" title="TPM"></a>TPM</h3><p>TPM: Transcript per million<br><a target="_blank" rel="noopener" href="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png">公式2</a></p>
+<h3 id="TPM"><a href="#TPM" class="headerlink" title="TPM"></a>TPM</h3><p>TPM: Transcript per million<br><img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png" alt="公式2"></p>
 <p>TPM对基因的长度进行了校正，计算比对到基因上的reads&#x2F;基因长度得到长度校正的表达量 reads per kilobase (RPK)。再以文库中RPK之和作为Scale Factor求出TPM。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TPM &lt;- function(x, gene.length)&#123;</span><br><span class="line">  rpk &lt;- 1e3 * x/gene.length</span><br><span class="line">  scale.factor &lt;- sum(rpk)</span><br><span class="line">  tpm &lt;- 1e6 * rpk/scale.factor</span><br><span class="line">  return(tpm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>相比于RPKM使用文库大小（read counts之和）来作为文库校正因子，TPM使用RPK之和作为文库校正因子的好处是考虑了不同样本间的基因长度的分布。因为RPK是一个对基因长度进行校正后的表达量单位，所以RPK之和也不会再带入基因长度的bias。因此，如果需要比较的样本之间转录本分布不一致时（例如不同物种RNA-seq的比较），使用TPM是一个较佳的normalization方案。</p>
@@ -192,7 +280,7 @@
 <li>非重叠外显子长度之和：</li>
 <li>非重叠CDS序列长度之和。</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png">3</a></p>
+<p><img src="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png" alt="3"></p>
 <p>Figure Source: Gene structure</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#使用gtf文件在R中获取基因长度（非重叠外显子长度之和）</span><br><span class="line">#首先，读取计算基因counts时用的GTF文件，并将其转换为TxDb对象；</span><br><span class="line">library(GenomicFeatures)</span><br><span class="line">#一般常用的物种基因注释信息都已经有人构建好TxDb对象，以R包的形式上传到Bioconductor里。我们使用时直接加载、赋值即可。BiocManager::install(&quot;TxDb.Dmelanogaster.UCSC.dm6.ensGene&quot;)</span><br><span class="line">#从本地读取数据库文件 txdb &lt;- makeTxDbFromGFF(&#x27;gencode.vM23.annotation.gtf&#x27;, format=&#x27;gtf&#x27;)</span><br><span class="line">#然后，提取每个基因的外显子注释信息；exons.list.per.gene &lt;- exonsBy(txdb, by=&quot;gene&quot;)</span><br><span class="line">library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)</span><br><span class="line">exons.list.per.gene &lt;- exonsBy(TxDb.Dmelanogaster.UCSC.dm6.ensGene, by=&quot;gene&quot;)</span><br><span class="line">#最后，合并重叠的外显子，计算非重叠外显子的长度作为基因长度（bp）</span><br><span class="line">exonic.gene.sizes &lt;- sum(width(reduce(exons.list.per.gene)))</span><br></pre></td></tr></table></figure>
 <p><code>GenomicFeatures</code>还支持自己手动从指定数据库中构建TxDb对象，例如从 UCSC提取构建的<code>makeTxDbFromUCSC()</code>函数；从BioMart提取构建的<code>makeTxDbFromBiomart()</code>函数等方法可以用作替补方案（没有对应TXDB的R包时）。</p>
@@ -206,144 +294,96 @@
 </li>
 </ol>
 
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/leafminer.github.io/tags/RNA-seq/" rel="tag"># RNA-seq</a>
+              <a href="/leafminer.github.io/tags/%E7%94%9F%E4%BF%A1/" rel="tag"># 生信</a>
+              <a href="/leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/" rel="tag"># R语言</a>
+          </div>
+
         
-    </section>
-</article>
 
-
-
-<div class="comments">
-    <div id="comments"></div>
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-    new Gitalk({
-        clientID: "7fbe80427f54741e289f",
-        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "sanonz.github.io",
-        owner: "sanonz",
-        admin: ["sanonz"],
-        id: "ba60ad293239af02b2a5282f75f4f9ad",
-        distractionFreeMode: true,
-        title: "RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记",
-        body: "https://leafminer.github.io/leafminer.github.io/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/",
-        labels: ["笔记","RNA-seq","生信","R语言"]
-    }).render('comments');
-    </script>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/leafminer.github.io/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/" rel="prev" title="爬取小说--战略级天使">
+                  <i class="fa fa-angle-left"></i> 爬取小说--战略级天使
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/leafminer.github.io/2024/05/08/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E5%8F%8A%E5%8F%91%E5%B8%83%E6%8C%87%E4%BB%A4--%E7%AC%94%E8%AE%B0/" rel="next" title="Hexo新建文章及发布指令--笔记">
+                  Hexo新建文章及发布指令--笔记 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
 </div>
 
 
 
-            </div>
-        </div>
 
-        
-            
-            <a id="pagenext" href="/leafminer.github.io/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/" class="article-next" title="爬取小说--战略级天使"><i class="icon-arrow-right"></i></a>
-            
-            
-            <a id="pageprev" href="/leafminer.github.io/2024/05/08/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E5%8F%8A%E5%8F%91%E5%B8%83%E6%8C%87%E4%BB%A4--%E7%AC%94%E8%AE%B0/" class="article-prev" title="Hexo新建文章及发布指令--笔记"><i class="icon-arrow-left"></i></a>
-            
-        
 
-        <footer class="footer">
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
 
-    
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    
-</footer>
+</div>
+  </main>
 
-    </main>
+  <footer class="footer">
+    <div class="footer-inner">
 
-    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        var nodes = {
-            nav: $('#nav'),
-            aside: $('#aside'),
-            asideInner: $('#aside-inner'),
-            navInner: $('#nav-inner')
-        };
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">张 伟</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
-        var doing = false;
-        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
-            if (nodes.aside.hasClass('mobile-open')) {
-                nodes.aside.removeClass('mobile-open');
-            } else {
-                nodes.aside.removeClass('mobile-close panel-show');
-            }
-            doing = false;
-        });
-        $('#open-panel, #aside-mask').on('click', function() {
-            if (doing) {
-                return;
-            }
+    </div>
+  </footer>
 
-            if (nodes.aside.hasClass('panel-show')) {
-                nodes.aside.addClass('mobile-close');
-            } else {
-                nodes.aside.addClass('mobile-open panel-show');
-            }
-        });
-        $('#open-menus').on('click', function() {
-            nodes.navInner.slideToggle('normal', slideDone);
-        });
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
 
-        if (window.innerWidth <= 960) {
-            setTimeout(function() {
-                nodes.navInner.slideUp('normal', slideDone);
-            }, 3000);
-        }
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-        function slideDone() {
-            if (nodes.navInner.css('display') !== 'none') {
-                nodes.navInner.css('display', '');
-            }
-        }
 
-        $(window).on('resize', function() {
-            if ($(this).width() > 960) {
-                nodes.navInner.css('display', '');
-            }
-        });
-    });
-    </script>
-    
-        
-<script src="/leafminer.github.io/js/scrollspy.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/leafminer.github.io/js/comments.js"></script><script src="/leafminer.github.io/js/utils.js"></script><script src="/leafminer.github.io/js/motion.js"></script><script src="/leafminer.github.io/js/schemes/muse.js"></script><script src="/leafminer.github.io/js/sidebar.js"></script><script src="/leafminer.github.io/js/next-boot.js"></script>
 
-        <script type="text/javascript">
-        $(document.body).scrollspy({target: '#aside-inner'});
+  
 
-        $(window).on('resize', function() {
-            var hw = $('#header').width();
-            var ww = $('#wrapper').width();
-            var space = ($(this).width() - hw - ww) / 2 / 2;
 
-            var pageprev = $('#pageprev');
-            var pagenext = $('#pagenext');
-            var avg = (pageprev.width() + pagenext.width()) / 2
 
-            if(space > avg) {
-                var len = space - avg / 2;
-                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
-                pageprev.css($.extend({left: hw + len}, styles));
-                pagenext.css($.extend({right: len}, styles));
-            } else {
-                pageprev.removeAttr('style');
-                pagenext.removeAttr('style');
-            }
-        }).trigger('resize');
-        </script>
-    
+
+
+
+  
+
+
+
+
 
 </body>
 </html>
