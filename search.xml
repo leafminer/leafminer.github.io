@@ -54,6 +54,44 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2024/05/08/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span> 
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="生成静态"><a href="#生成静态" class="headerlink" title="生成静态"></a>生成静态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="部署到远程"><a href="#部署到远程" class="headerlink" title="部署到远程"></a>部署到远程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>默认, 你好</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爬取小说--战略级天使</title>
+    <url>/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/</url>
+    <content><![CDATA[<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>小说离线阅读,保存。练习R语言。<br>示例网站：<a href="https://www.-----.com/yuedu/15111/">https://www.-----.com/yuedu/15111/</a></p>
+<span id="more"></span> 
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">library(&quot;stringr&quot;)</span><br><span class="line">library(&quot;rvest&quot;)</span><br><span class="line">library(&#x27;RCurl&#x27;)</span><br><span class="line">library(&#x27;curl&#x27;)</span><br><span class="line">library(&#x27;downloader&#x27;)</span><br><span class="line">library(&#x27;RSelenium&#x27;)</span><br><span class="line">setwd(&#x27;H:\\R\\R脚本\\爬虫&#x27;)</span><br><span class="line">url &lt;- &quot;https://www.-----.com/yuedu/15111/&quot;</span><br><span class="line">htmlpage &lt;- read_html(url)</span><br><span class="line">xs_chapter &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_text()</span><br><span class="line">head(xs_chapter)#观察数据形式</span><br><span class="line">xs_link &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_attrs()</span><br><span class="line">head(xs_link)#观察数据形式</span><br><span class="line">xs_link &lt;- paste(&quot;https://www.-----.com&quot;,unlist(xs_link),sep = &#x27;&#x27;)#构建章节链接</span><br><span class="line">xs_content &lt;- cbind(xs_chapter[-(1:10)],xs_link[-(1:10)])#合并目录链接</span><br><span class="line"></span><br><span class="line">#尝试获取小说内容，并提取。</span><br><span class="line">ms_f1 &lt;- read_html(xs_content[1,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f2 &lt;- read_html(xs_content[2,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f &lt;- c(xs_content[1,1],ms_f1,xs_content[2,1],ms_f2)</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, ms_f),file = &quot;1.txt&quot;)</span><br><span class="line"></span><br><span class="line">#自定义下载函数</span><br><span class="line">xs_down &lt;- function(x)&#123;</span><br><span class="line">  xs &lt;- c()</span><br><span class="line">  for (i in 1:length(x[,1])) &#123;</span><br><span class="line">  xm &lt;- read_html(x[i,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">  xs &lt;- c(xs, x[i,1], xm)</span><br><span class="line">  &#125;</span><br><span class="line">  xs</span><br><span class="line">&#125;</span><br><span class="line">#导出小说</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, xs_down(xs_content)),file = &quot;战略级天使.txt&quot;)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+        <tag>小说</tag>
+        <tag>R语言</tag>
+        <tag>实例</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
     <url>/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
@@ -136,47 +174,9 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+        <tag>R语言</tag>
         <tag>RNA-seq</tag>
         <tag>生信</tag>
-        <tag>R语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>爬取小说--战略级天使</title>
-    <url>/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/</url>
-    <content><![CDATA[<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>小说离线阅读,保存。练习R语言。<br>示例网站：<a href="https://www.-----.com/yuedu/15111/">https://www.-----.com/yuedu/15111/</a></p>
-<span id="more"></span> 
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">library(&quot;stringr&quot;)</span><br><span class="line">library(&quot;rvest&quot;)</span><br><span class="line">library(&#x27;RCurl&#x27;)</span><br><span class="line">library(&#x27;curl&#x27;)</span><br><span class="line">library(&#x27;downloader&#x27;)</span><br><span class="line">library(&#x27;RSelenium&#x27;)</span><br><span class="line">setwd(&#x27;H:\\R\\R脚本\\爬虫&#x27;)</span><br><span class="line">url &lt;- &quot;https://www.-----.com/yuedu/15111/&quot;</span><br><span class="line">htmlpage &lt;- read_html(url)</span><br><span class="line">xs_chapter &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_text()</span><br><span class="line">head(xs_chapter)#观察数据形式</span><br><span class="line">xs_link &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_attrs()</span><br><span class="line">head(xs_link)#观察数据形式</span><br><span class="line">xs_link &lt;- paste(&quot;https://www.-----.com&quot;,unlist(xs_link),sep = &#x27;&#x27;)#构建章节链接</span><br><span class="line">xs_content &lt;- cbind(xs_chapter[-(1:10)],xs_link[-(1:10)])#合并目录链接</span><br><span class="line"></span><br><span class="line">#尝试获取小说内容，并提取。</span><br><span class="line">ms_f1 &lt;- read_html(xs_content[1,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f2 &lt;- read_html(xs_content[2,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f &lt;- c(xs_content[1,1],ms_f1,xs_content[2,1],ms_f2)</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, ms_f),file = &quot;1.txt&quot;)</span><br><span class="line"></span><br><span class="line">#自定义下载函数</span><br><span class="line">xs_down &lt;- function(x)&#123;</span><br><span class="line">  xs &lt;- c()</span><br><span class="line">  for (i in 1:length(x[,1])) &#123;</span><br><span class="line">  xm &lt;- read_html(x[i,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">  xs &lt;- c(xs, x[i,1], xm)</span><br><span class="line">  &#125;</span><br><span class="line">  xs</span><br><span class="line">&#125;</span><br><span class="line">#导出小说</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, xs_down(xs_content)),file = &quot;战略级天使.txt&quot;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>爬虫</tag>
-        <tag>小说</tag>
-        <tag>实例</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/05/08/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span> 
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态"><a href="#生成静态" class="headerlink" title="生成静态"></a>生成静态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程"><a href="#部署到远程" class="headerlink" title="部署到远程"></a>部署到远程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>默认, 你好</tag>
       </tags>
   </entry>
 </search>
