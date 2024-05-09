@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo新建文章及发布指令--笔记</title>
+    <url>/2024/05/08/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E5%8F%8A%E5%8F%91%E5%B8%83%E6%8C%87%E4%BB%A4--%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><p><code>hexo new [layout] &lt;title&gt;</code><br>布局（Layout）有三种：post、page 和 draft。</p>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>post</td>
+<td>source&#x2F;_posts</td>
+</tr>
+<tr>
+<td>page</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source&#x2F;_drafts</td>
+</tr>
+</tbody></table>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>windows下使用命令行创建新的博客文章<br>如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br><code>hexo new &quot;post title with whitespace&quot;</code></p>
+<span id="more"></span> 
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
+<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
+<h3 id="新建独立页面"><a href="#新建独立页面" class="headerlink" title="新建独立页面"></a>新建独立页面</h3><p><code>hexo new page --path about/me &quot;About me&quot;</code><br>以上命令会创建一个 source&#x2F;about&#x2F;me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
+<h3 id="新建草稿"><a href="#新建草稿" class="headerlink" title="新建草稿"></a>新建草稿</h3><p><code>hexo new draft &quot;draft&quot;</code></p>
+<h2 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h2><p><code>hexo generate</code><br>可简写为<code>hexo g</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
+
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>发表草稿。<br><code>hexo publish [layout] &lt;filename&gt;</code></p>
+<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a><br><code>hexo server</code></p>
+<h2 id="布署-deploy"><a href="#布署-deploy" class="headerlink" title="布署(deploy)"></a>布署(deploy)</h2><p><code>hexo deploy</code><br>可简写为<code>hexo d</code></p>
+<h2 id="渲染文件"><a href="#渲染文件" class="headerlink" title="渲染文件"></a>渲染文件</h2><p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
+<h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p><code>hexo migrate &lt;type&gt;</code></p>
+<h2 id="清除缓存和已生成的静态文件"><a href="#清除缓存和已生成的静态文件" class="headerlink" title="清除缓存和已生成的静态文件"></a>清除缓存和已生成的静态文件</h2><p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br><code>hexo clean</code></p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p>列出网站数据。<br><code>hexo list &lt;type&gt;</code></p>
+<h2 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h2><p><code>hexo --draft</code><br>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
+    <url>/2023/09/21/RNA-Seq%20Count%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A0%87%E5%87%86%E5%8C%96(RPKM,%20FPKM,%20TPM)-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
+<span id="more"></span> 
+<p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
+<p><strong>FPKM:</strong> Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
+<p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。<br><img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png" alt="公式1"></p>
+<h3 id="RPKM，FPKM"><a href="#RPKM，FPKM" class="headerlink" title="RPKM，FPKM"></a>RPKM，FPKM</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#x为一个向量存储了每个基因的counts，而gene.length是相应于x中每个基因的长度的一个向量.</span><br><span class="line">RPKM &lt;- function(x, gene.length)&#123; </span><br><span class="line">  lib.size &lt;- sum(x)</span><br><span class="line">  rpm &lt;- 1e6 * x/lib.size</span><br><span class="line">  rpkm &lt;- 1e3 * rpm/gene.length</span><br><span class="line">  return(rpkm)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FPKM &lt;- function(x, gene.length)&#123; </span><br><span class="line">  lib.size &lt;- sum(x)</span><br><span class="line">  rpm &lt;- 1e6 * x/lib.size</span><br><span class="line">  rpkm &lt;- 1e3 * rpm/gene.length</span><br><span class="line">  return(fpkm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="TPM"><a href="#TPM" class="headerlink" title="TPM"></a>TPM</h3><p>TPM: Transcript per million<br><img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png" alt="公式2"></p>
+<p>TPM对基因的长度进行了校正，计算比对到基因上的reads&#x2F;基因长度得到长度校正的表达量 reads per kilobase (RPK)。再以文库中RPK之和作为Scale Factor求出TPM。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TPM &lt;- function(x, gene.length)&#123;</span><br><span class="line">  rpk &lt;- 1e3 * x/gene.length</span><br><span class="line">  scale.factor &lt;- sum(rpk)</span><br><span class="line">  tpm &lt;- 1e6 * rpk/scale.factor</span><br><span class="line">  return(tpm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相比于RPKM使用文库大小（read counts之和）来作为文库校正因子，TPM使用RPK之和作为文库校正因子的好处是考虑了不同样本间的基因长度的分布。因为RPK是一个对基因长度进行校正后的表达量单位，所以RPK之和也不会再带入基因长度的bias。因此，如果需要比较的样本之间转录本分布不一致时（例如不同物种RNA-seq的比较），使用TPM是一个较佳的normalization方案。</p>
+<p>RPKM和TPM这类方法就是为了使不同样本间的总体表达量趋于一致，让不同样本间的基因表达量有可比较性，而TPM能够更好地校正样本间的差异。</p>
+<p>常用的Normalization 方法总结</p>
+<table>
+<thead>
+<tr>
+<th>Normalization method</th>
+<th>描述</th>
+<th>考虑因素</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPM (counts per million)</td>
+<td>使用read counts的总和校正counts</td>
+<td>测序深度</td>
+<td>同一样本组重复样本之间的基因counts比较；不适用于样品内的比较或差异分析</td>
+</tr>
+<tr>
+<td>TPM (transcripts per kilobase million)</td>
+<td>每百万mapped reads中每kb转录本上的reads数</td>
+<td>测序深度和基因长度</td>
+<td>样本内或同一样本组样本之间的基因counts比较； 不适用于差异分析</td>
+</tr>
+<tr>
+<td>RPKM&#x2F;FPKM (reads&#x2F;fragments per kilobase of exon per million reads&#x2F;fragments mapped)</td>
+<td>如TPM</td>
+<td>测序深度和基因长度</td>
+<td>样本内基因间的counts比较; 不适用于样本间比较和差异分析</td>
+</tr>
+<tr>
+<td>DESeq2’s median of ratios [1]</td>
+<td>counts除以样本特异的校正因子，该因子由基因计数相对于每个基因的几何平均值的中位数比率确定</td>
+<td>测序深度及RNA组成</td>
+<td>样本之间的基因counts比较以及差异分析; 不适用于样本内比较</td>
+</tr>
+<tr>
+<td>EdgeR’s trimmed mean of M values (TMM) [2]</td>
+<td>使用样本之间的加权截尾的对数表达量比值的均值进行TMM校正</td>
+<td>测序深度，RNA组成以及基因长度</td>
+<td>样品之间和样品内部的基因counts比较，适用于差异分析</td>
+</tr>
+</tbody></table>
+<p>在进行差异表达分析时，我们实际上并不会用到RPKM&#x2F;FPKM, TPM，而是使用raw counts给到差异分析的工具。这是由于RPKM&#x2F;FPKM和TPM都没有考虑到样本间文库组成的差异，因而不适合用于样本间差异分析。</p>
+<h2 id="获取基因长度"><a href="#获取基因长度" class="headerlink" title="获取基因长度"></a>获取基因长度</h2><p>计算TPM或RPKM&#x2F;FPKM等基因表达量时，除了基因的counts信息外，我们还需要知道基因的长度。由于可变剪接的存在，一个基因可能会有多个转录本，在进行基因水平的表达分析时，我们并不会区分各个转录本剪接变体的表达量，而是以基因为单位进行统计。目前，对于基因长度有多种定义，包括：</p>
+<ul>
+<li>基因最长转录本；</li>
+<li>多个转录本长度的平均值；</li>
+<li>非重叠外显子长度之和：</li>
+<li>非重叠CDS序列长度之和。</li>
+</ul>
+<p><img src="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png" alt="3"></p>
+<p>Figure Source: Gene structure</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#使用gtf文件在R中获取基因长度（非重叠外显子长度之和）</span><br><span class="line">#首先，读取计算基因counts时用的GTF文件，并将其转换为TxDb对象；</span><br><span class="line">library(GenomicFeatures)</span><br><span class="line">#一般常用的物种基因注释信息都已经有人构建好TxDb对象，以R包的形式上传到Bioconductor里。我们使用时直接加载、赋值即可。BiocManager::install(&quot;TxDb.Dmelanogaster.UCSC.dm6.ensGene&quot;)</span><br><span class="line">#从本地读取数据库文件 txdb &lt;- makeTxDbFromGFF(&#x27;gencode.vM23.annotation.gtf&#x27;, format=&#x27;gtf&#x27;)</span><br><span class="line">#然后，提取每个基因的外显子注释信息；exons.list.per.gene &lt;- exonsBy(txdb, by=&quot;gene&quot;)</span><br><span class="line">library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)</span><br><span class="line">exons.list.per.gene &lt;- exonsBy(TxDb.Dmelanogaster.UCSC.dm6.ensGene, by=&quot;gene&quot;)</span><br><span class="line">#最后，合并重叠的外显子，计算非重叠外显子的长度作为基因长度（bp）</span><br><span class="line">exonic.gene.sizes &lt;- sum(width(reduce(exons.list.per.gene)))</span><br></pre></td></tr></table></figure>
+<p><code>GenomicFeatures</code>还支持自己手动从指定数据库中构建TxDb对象，例如从 UCSC提取构建的<code>makeTxDbFromUCSC()</code>函数；从BioMart提取构建的<code>makeTxDbFromBiomart()</code>函数等方法可以用作替补方案（没有对应TXDB的R包时）。</p>
+<p><code>tureCounts</code>统计基因counts时，其输出的counts.txt文件中通常会包含一列长度信息Length。也是采用非重叠外显子作为基因长度。</p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ol>
+<li><p>理论-简述RPKM-FPKM-AND-TPM | Dean’s blog (thereallda.github.io)</p>
+</li>
+<li><p>R-获取基因长度 | Dean’s blog (thereallda.github.io)</p>
+</li>
+<li><p>[R]bioconductor之GenomicFeatures学习 - 简书 (jianshu.com)</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>生信</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>RNA-seq</tag>
+        <tag>生信</tag>
+        <tag>R语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/05/09/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span> 
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="生成静态"><a href="#生成静态" class="headerlink" title="生成静态"></a>生成静态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="部署到远程"><a href="#部署到远程" class="headerlink" title="部署到远程"></a>部署到远程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>默认</tag>
+        <tag>你好</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爬取小说--战略级天使</title>
+    <url>/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/</url>
+    <content><![CDATA[<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>小说离线阅读,保存。练习R语言。<br>示例网站：<a href="https://www.-----.com/yuedu/15111/">https://www.-----.com/yuedu/15111/</a></p>
+<span id="more"></span> 
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">library(&quot;stringr&quot;)</span><br><span class="line">library(&quot;rvest&quot;)</span><br><span class="line">library(&#x27;RCurl&#x27;)</span><br><span class="line">library(&#x27;curl&#x27;)</span><br><span class="line">library(&#x27;downloader&#x27;)</span><br><span class="line">library(&#x27;RSelenium&#x27;)</span><br><span class="line">setwd(&#x27;H:\\R\\R脚本\\爬虫&#x27;)</span><br><span class="line">url &lt;- &quot;https://www.-----.com/yuedu/15111/&quot;</span><br><span class="line">htmlpage &lt;- read_html(url)</span><br><span class="line">xs_chapter &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_text()</span><br><span class="line">head(xs_chapter)#观察数据形式</span><br><span class="line">xs_link &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_attrs()</span><br><span class="line">head(xs_link)#观察数据形式</span><br><span class="line">xs_link &lt;- paste(&quot;https://www.-----.com&quot;,unlist(xs_link),sep = &#x27;&#x27;)#构建章节链接</span><br><span class="line">xs_content &lt;- cbind(xs_chapter[-(1:10)],xs_link[-(1:10)])#合并目录链接</span><br><span class="line"></span><br><span class="line">#尝试获取小说内容，并提取。</span><br><span class="line">ms_f1 &lt;- read_html(xs_content[1,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f2 &lt;- read_html(xs_content[2,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f &lt;- c(xs_content[1,1],ms_f1,xs_content[2,1],ms_f2)</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, ms_f),file = &quot;1.txt&quot;)</span><br><span class="line"></span><br><span class="line">#自定义下载函数</span><br><span class="line">xs_down &lt;- function(x)&#123;</span><br><span class="line">  xs &lt;- c()</span><br><span class="line">  for (i in 1:length(x[,1])) &#123;</span><br><span class="line">  xm &lt;- read_html(x[i,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">  xs &lt;- c(xs, x[i,1], xm)</span><br><span class="line">  &#125;</span><br><span class="line">  xs</span><br><span class="line">&#125;</span><br><span class="line">#导出小说</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, xs_down(xs_content)),file = &quot;战略级天使.txt&quot;)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>爬虫</tag>
+        <tag>小说</tag>
+        <tag>实例</tag>
+      </tags>
+  </entry>
+</search>
