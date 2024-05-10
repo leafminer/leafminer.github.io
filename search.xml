@@ -183,7 +183,9 @@
   <entry>
     <title>ImageJ--Feature Finder插件</title>
     <url>/2024/05/09/ImageJ--%E5%9B%BE%E5%83%8F%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D-Feature%20Finder%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<p><img src="https://github.com/imagej/imagej.github.io/blob/main/media/plugins/feature-finder/feature-finder-screenshot.jpg?raw=true"><br><strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。”相似 “是指图像与原型之间的均方偏差应该很小。<br><img src="/./images/20240509_223918_00000.png"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/./images/feature-finder-screenshot.jpg"><br><strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。”相似 “是指图像与原型之间的均方偏差应该很小。</p>
+<span id="more"></span> 
+<p><img src="/./images/20240509_223918_00000.png"></p>
 <h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><blockquote>
 <ul>
 <li>目标检测：通过将已知目标作为模板，在图像中寻找与模板最相似的区域，从而实现目标的检测。</li>
