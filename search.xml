@@ -6,7 +6,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <h1>完成后部署</h1>
 <p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">&gt;**简写**</span><br><span class="line">&gt;上面两个命令可以简写为</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
 </blockquote>
 <span id="more"></span> 
 <h2 id="新建">新建</h2>
@@ -108,7 +108,7 @@
   <entry>
     <title>ImageJ--Feature Finder插件</title>
     <url>/2024/05/09/ImageJ--%E5%9B%BE%E5%83%8F%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D-Feature%20Finder%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="./images/feature-finder-screenshot.jpg" alt=""><br>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="./images/feature-finder-screenshot.jpg=100x100" alt=""><br>
 <strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
 <span id="more"></span> 
 <p><img src="./images/20240509_223918_00000.png" alt=""></p>
