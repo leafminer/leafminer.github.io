@@ -62,11 +62,11 @@
     <category term="ImageJ" scheme="https://leafminer.github.io/categories/ImageJ/"/>
     
     
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
     <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
     
     <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
-    
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -114,13 +114,13 @@
     <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="指令" scheme="https://leafminer.github.io/tags/%E6%8C%87%E4%BB%A4/"/>
     
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

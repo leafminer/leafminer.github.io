@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo新建文章及发布指令--笔记</title>
+    <url>/2024/05/08/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E5%8F%8A%E5%8F%91%E5%B8%83%E6%8C%87%E4%BB%A4--%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<h1>完成后部署</h1>
+<p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
+</blockquote>
+<span id="more"></span> 
+<h2 id="新建">新建</h2>
+<p><code>hexo new [layout] &lt;title&gt;</code><br>
+布局（Layout）有三种：post、page 和 draft。</p>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post</td>
+<td>source/_posts</td>
+</tr>
+<tr>
+<td>page</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source/_drafts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="新建文章">新建文章</h3>
+<p>windows下使用命令行创建新的博客文章如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
+<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
+<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
+<h3 id="新建独立页面">新建独立页面</h3>
+<p><code>hexo new page --path about/me &quot;About me&quot;</code><br>
+以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
+<h3 id="新建草稿">新建草稿</h3>
+<p><code>hexo new draft &quot;draft&quot;</code></p>
+<h2 id="生成静态网页">生成静态网页</h2>
+<p><code>hexo generate</code><br>
+可简写为<code>hexo g</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
+<h2 id="发布">发布</h2>
+<p>发表草稿。<br>
+<code>hexo publish [layout] &lt;filename&gt;</code></p>
+<h2 id="server">server</h2>
+<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a><br>
+<code>hexo server</code></p>
+<h2 id="布署-deploy">布署(deploy)</h2>
+<p><code>hexo deploy</code><br>
+可简写为<code>hexo d</code></p>
+<h2 id="渲染文件">渲染文件</h2>
+<p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
+<h2 id="迁移">迁移</h2>
+<p><code>hexo migrate &lt;type&gt;</code></p>
+<h2 id="清除缓存和已生成的静态文件">清除缓存和已生成的静态文件</h2>
+<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+<code>hexo clean</code></p>
+<h2 id="list">list</h2>
+<p>列出网站数据。<br>
+<code>hexo list &lt;type&gt;</code></p>
+<h2 id="显示草稿">显示草稿</h2>
+<p><code>hexo --draft</code><br>
+显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ImageJ--Feature Finder插件</title>
     <url>/2024/05/09/ImageJ--%E5%9B%BE%E5%83%8F%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D-Feature%20Finder%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
@@ -126,91 +207,10 @@
         <category>ImageJ</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>笔记</tag>
         <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo新建文章及发布指令--笔记</title>
-    <url>/2024/05/08/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E5%8F%8A%E5%8F%91%E5%B8%83%E6%8C%87%E4%BB%A4--%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<h1>完成后部署</h1>
-<p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
-</blockquote>
-<span id="more"></span> 
-<h2 id="新建">新建</h2>
-<p><code>hexo new [layout] &lt;title&gt;</code><br>
-布局（Layout）有三种：post、page 和 draft。</p>
-<table>
-<thead>
-<tr>
-<th>布局</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>post</td>
-<td>source/_posts</td>
-</tr>
-<tr>
-<td>page</td>
-<td>source</td>
-</tr>
-<tr>
-<td>draft</td>
-<td>source/_drafts</td>
-</tr>
-</tbody>
-</table>
-<h3 id="新建文章">新建文章</h3>
-<p>windows下使用命令行创建新的博客文章如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
-<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
-<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
-<h3 id="新建独立页面">新建独立页面</h3>
-<p><code>hexo new page --path about/me &quot;About me&quot;</code><br>
-以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
-<h3 id="新建草稿">新建草稿</h3>
-<p><code>hexo new draft &quot;draft&quot;</code></p>
-<h2 id="生成静态网页">生成静态网页</h2>
-<p><code>hexo generate</code><br>
-可简写为<code>hexo g</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
-<h2 id="发布">发布</h2>
-<p>发表草稿。<br>
-<code>hexo publish [layout] &lt;filename&gt;</code></p>
-<h2 id="server">server</h2>
-<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a><br>
-<code>hexo server</code></p>
-<h2 id="布署-deploy">布署(deploy)</h2>
-<p><code>hexo deploy</code><br>
-可简写为<code>hexo d</code></p>
-<h2 id="渲染文件">渲染文件</h2>
-<p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
-<h2 id="迁移">迁移</h2>
-<p><code>hexo migrate &lt;type&gt;</code></p>
-<h2 id="清除缓存和已生成的静态文件">清除缓存和已生成的静态文件</h2>
-<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-<code>hexo clean</code></p>
-<h2 id="list">list</h2>
-<p>列出网站数据。<br>
-<code>hexo list &lt;type&gt;</code></p>
-<h2 id="显示草稿">显示草稿</h2>
-<p><code>hexo --draft</code><br>
-显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>指令</tag>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -344,24 +344,6 @@
       </tags>
   </entry>
   <entry>
-    <title>爬取小说--战略级天使</title>
-    <url>/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">library(&quot;stringr&quot;)</span><br><span class="line">library(&quot;rvest&quot;)</span><br><span class="line">library(&#x27;RCurl&#x27;)</span><br><span class="line">library(&#x27;curl&#x27;)</span><br><span class="line">library(&#x27;downloader&#x27;)</span><br><span class="line">library(&#x27;RSelenium&#x27;)</span><br><span class="line">setwd(&#x27;H:\\R\\R脚本\\爬虫&#x27;)</span><br><span class="line">url &lt;- &quot;https://www.-----.com/yuedu/15111/&quot;</span><br><span class="line">htmlpage &lt;- read_html(url)</span><br><span class="line">xs_chapter &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_text()</span><br><span class="line">head(xs_chapter)#观察数据形式</span><br><span class="line">xs_link &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_attrs()</span><br><span class="line">head(xs_link)#观察数据形式</span><br><span class="line">xs_link &lt;- paste(&quot;https://www.-----.com&quot;,unlist(xs_link),sep = &#x27;&#x27;)#构建章节链接</span><br><span class="line">xs_content &lt;- cbind(xs_chapter[-(1:10)],xs_link[-(1:10)])#合并目录链接</span><br><span class="line"></span><br><span class="line">#尝试获取小说内容，并提取。</span><br><span class="line">ms_f1 &lt;- read_html(xs_content[1,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f2 &lt;- read_html(xs_content[2,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f &lt;- c(xs_content[1,1],ms_f1,xs_content[2,1],ms_f2)</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, ms_f),file = &quot;1.txt&quot;)</span><br><span class="line"></span><br><span class="line">#自定义下载函数</span><br><span class="line">xs_down &lt;- function(x)&#123;</span><br><span class="line">  xs &lt;- c()</span><br><span class="line">  for (i in 1:length(x[,1])) &#123;</span><br><span class="line">  xm &lt;- read_html(x[i,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">  xs &lt;- c(xs, x[i,1], xm)</span><br><span class="line">  &#125;</span><br><span class="line">  xs</span><br><span class="line">&#125;</span><br><span class="line">#导出小说</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, xs_down(xs_content)),file = &quot;战略级天使.txt&quot;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>爬虫</tag>
-        <tag>小说</tag>
-        <tag>实例</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>从出生那天开始，你就是“局外人”</title>
     <url>/2024/05/10/%E4%BB%8E%E5%87%BA%E7%94%9F%E9%82%A3%E5%A4%A9%E5%BC%80%E5%A7%8B%EF%BC%8C%E4%BD%A0%E5%B0%B1%E6%98%AF%E2%80%9C%E5%B1%80%E5%A4%96%E4%BA%BA%E2%80%9D/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>你</h1>
@@ -399,6 +381,24 @@
         <tag>随笔</tag>
         <tag>牢骚</tag>
         <tag>时代</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爬取小说--战略级天使</title>
+    <url>/2021/05/04/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4--%E6%88%98%E7%95%A5%E7%BA%A7%E5%A4%A9%E4%BD%BF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">library(&quot;stringr&quot;)</span><br><span class="line">library(&quot;rvest&quot;)</span><br><span class="line">library(&#x27;RCurl&#x27;)</span><br><span class="line">library(&#x27;curl&#x27;)</span><br><span class="line">library(&#x27;downloader&#x27;)</span><br><span class="line">library(&#x27;RSelenium&#x27;)</span><br><span class="line">setwd(&#x27;H:\\R\\R脚本\\爬虫&#x27;)</span><br><span class="line">url &lt;- &quot;https://www.-----.com/yuedu/15111/&quot;</span><br><span class="line">htmlpage &lt;- read_html(url)</span><br><span class="line">xs_chapter &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_text()</span><br><span class="line">head(xs_chapter)#观察数据形式</span><br><span class="line">xs_link &lt;- htmlpage %&gt;% html_nodes(&#x27;div#wrapper div.box_con div#list dl dd a&#x27;) %&gt;% html_attrs()</span><br><span class="line">head(xs_link)#观察数据形式</span><br><span class="line">xs_link &lt;- paste(&quot;https://www.-----.com&quot;,unlist(xs_link),sep = &#x27;&#x27;)#构建章节链接</span><br><span class="line">xs_content &lt;- cbind(xs_chapter[-(1:10)],xs_link[-(1:10)])#合并目录链接</span><br><span class="line"></span><br><span class="line">#尝试获取小说内容，并提取。</span><br><span class="line">ms_f1 &lt;- read_html(xs_content[1,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f2 &lt;- read_html(xs_content[2,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">ms_f &lt;- c(xs_content[1,1],ms_f1,xs_content[2,1],ms_f2)</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, ms_f),file = &quot;1.txt&quot;)</span><br><span class="line"></span><br><span class="line">#自定义下载函数</span><br><span class="line">xs_down &lt;- function(x)&#123;</span><br><span class="line">  xs &lt;- c()</span><br><span class="line">  for (i in 1:length(x[,1])) &#123;</span><br><span class="line">  xm &lt;- read_html(x[i,2], encoding = &quot;GB18030&quot;) %&gt;% html_nodes(&#x27;div#content&#x27;) %&gt;% html_text()</span><br><span class="line">  xs &lt;- c(xs, x[i,1], xm)</span><br><span class="line">  &#125;</span><br><span class="line">  xs</span><br><span class="line">&#125;</span><br><span class="line">#导出小说</span><br><span class="line">write(gsub(&quot;\u00A0&quot;,&quot; &quot;, xs_down(xs_content)),file = &quot;战略级天使.txt&quot;)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>爬虫</tag>
+        <tag>小说</tag>
+        <tag>实例</tag>
       </tags>
   </entry>
 </search>
