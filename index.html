@@ -261,7 +261,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-05-16 17:02:40 / 修改时间：17:01:30" itemprop="dateCreated datePublished" datetime="2024-05-16T17:02:40+08:00">2024-05-16</time>
+      <time title="创建时间：2024-05-16 17:02:40 / 修改时间：18:15:36" itemprop="dateCreated datePublished" datetime="2024-05-16T17:02:40+08:00">2024-05-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -299,127 +299,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>TrakEM2 是一个 ImageJ 插件，用于形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释。</p>
-<h2 id="设备要求">设备要求</h2>
-<p>要运行 TrakEM2，该为 Fiji 的 JVM 分配多少内存？<br>
-取数据集中最大的单个二维图像，然后将其大小乘以 10，并确保 CPU 的每个内核至少有这么多可用内存。<br>
-例如，对于 4096x4096 16 位图像，每个内核至少需要 335 Mb，因此 16 个内核至少需要 5.4 Gb 内存。8 Gb 可能会更好。32GB 的内存使用起来会很方便。<br>
-至于显卡，在计算能力和内置内存方面都要买你能负担得起的最大显卡。</p>
-<h2 id="特征">特征</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>特征分割：</strong> 在堆栈(stack)上手动绘制区域，用球和管道勾勒结构。骨架化整个神经元轴突，用关系连接器对象表示突触。</p>
-</li>
-<li class="lvl-2">
-<p><strong>测量：</strong> 体积、表面、长度，以及通过 ImageJ ROI 进行测量。</p>
-</li>
-<li class="lvl-2">
-<p><strong>图像配准：</strong> 使用 SIFT 和全局优化算法将浮动图块相互配准。</p>
-</li>
-<li class="lvl-2">
-<p><strong>三维可视化：</strong> 通过与三维浏览器插件交互，TrakEM2 可显示图像体积和各种三维网格。</p>
-</li>
-<li class="lvl-2">
-<p><strong>图像注释：</strong> 浮动文本标签。</p>
-</li>
-<li class="lvl-2">
-<p><strong>语义分割：</strong> 以树状层次排列分割，其模板可导出供其他类似项目重复使用。</p>
-</li>
-</ul>
-<h2 id=""></h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>通过 &quot;File - New - TrakEM2 (blank)&quot;创建新项目</p>
-</li>
-<li class="lvl-2">
-<p>通过将 .xml 文件拖到工具栏上或通过 &quot;文件 - 打开 &quot;打开现有项目。</p>
-</li>
-</ul>
-<h2 id="TrakEM2最佳性能设定">TrakEM2最佳性能设定</h2>
-<h3 id="加快图层浏览">加快图层浏览</h3>
-<p>右键单击画布，选择 “Display - Properties…”。然后确保</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>&quot;snapshots mode &quot;设置为 “Disabled”，或最多设置为 “Outlines”。</p>
-</li>
-<li class="lvl-2">
-<p>取消&quot;Prepaint&quot;，使其处于禁用状态。</p>
-</li>
-</ul>
-<h3 id="导入大量图像，并在导入后立即进行编辑">导入大量图像，并在导入后立即进行编辑</h3>
-<p>避免多次生成 mip，不启用 “enable mipmaps”，使其处于禁用状态。由于不会生成贴图，将无法在导入时快速浏览图层。现在要纠正对比度，首先要重新启用 mipmaps，方法是：&quot;Display - Properties&quot;并选中 “enable mipmaps” 复选框。然后有两个（非排他性）选项：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>A. 使用右键菜单中的内置命令，例如</p>
-<ul class="lvl-2">
-<li class="lvl-6">“Adjust images - Enhance contrast layer-wise”</li>
-<li class="lvl-6">“Adjust images - Set min and max layer-wise”。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>B. 创建一个预处理器脚本并将其设置为所有图像。例如，在每个图像上运行 CLAHE 的 beanshell 脚本。在脚本中，patch 和 imp 变量自动存在，分别代表 Patch 实例和 Patch 封装的 ImagePlus 实例。</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ij.IJ;</span><br><span class="line">IJ.run(imp, <span class="string">&quot;Enhance Local Contrast (CLAHE)&quot;</span>, <span class="string">&quot;blocksize=127&quot;</span></span><br><span class="line">   + <span class="string">&quot; histogram=256 maximum=3 mask=*None* fast_(less_accurate)&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>要将脚本设置为所有图像，请将上述内容保存到名为 “whatever.bsh “的文件中（注意文件名扩展名为”.bsh”），然后右键单击 TrakEM2 画布，选择 “Script - Set preprocessor script layer-wise”，并选择整个图层范围。这会将脚本设置到每个图层的每个图像上，并触发每个图像的 mipmap 再生。当 TrakEM2 加载图像时，脚本将在 TrakEM2 看到图像内容之前在图像上运行。</p>
-<h3 id="快速重新生成-mipmap">快速重新生成 mipmap</h3>
-<p>mipmap 的默认生成方式是平均生成，速度相当快。不过，还可以考虑将其并行化：进入 “Project - Properties…”，将 mipmap 线程数设置为您机器的内核数，例如 12。如果选择使用高斯模式生成 mipmaps，请进入 “Project - Properties…”，将 mipmaps 模式设置为 “Gaussian”。必须注意以下事项：<br>
-在 TrakEM2 0.9a 及更高版本中，mipmaps 机器可以使用最新 ImageJ 中的多线程高斯实现。这意味着现在有两组线程：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>线程集，每个线程重新生成单张图像的 mipmap 金字塔。</p>
-</li>
-<li class="lvl-2">
-<p>在生成 mipmap 金字塔的过程中，每迭代一次缩放，就会有一组线程执行高斯模糊降采样。</p>
-</li>
-</ul>
-<p>如果您的机器有 12 个内核，默认设置将使用 1 个线程处理 mipmap，12 个线程处理高斯模糊。这可能不符合您的数据属性：如果图像较小，您可能需要等待很长时间才能生成 mipmap。有两种策略可以加速基于高斯的 mipmaps 生成：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>策略 A：您的数据由大图像组成（超过 4000x4000）。右键单击 TrakEM2 显示屏，选择 “Project - Properties…”，将 mipmap 线程设置为 1（默认值）。现在，将使用 12 个线程（给定 12 个内核）计算高斯，每次为单个图像重新生成 mipmap。</p>
-</li>
-<li class="lvl-2">
-<p>策略 B：您的数据由小图像组成（小于 4000x4000）。进入 Fiji 窗口，选择 “Edit - Options - Memory &amp; Threads…”，将线程数设为 1。 然后进入 “Project - Properties…”，将 mipmap 线程数设为 12。现在，mipmap 将一次生成 12 幅图像（给定 12 个内核），每幅图像使用一个线程计算高斯。</p>
-</li>
-</ul>
-<p>如果您的电脑内存较少，或者访问图像的速度较慢（例如数据保存在 USB 硬盘中），也可以使用策略 A。这就是为什么默认情况下只用一个线程生成 mipmaps。<br>
-如果将生成 mipmaps 的方法改为非高斯方法，就不会出现上述情况。将生成 mipmaps 的线程数设置为内核数，如果电脑内存不多，则设置为更少的线程数。</p>
-<h3 id="使用更大的quadtree-buckets，XML-加载更快，内存消耗更少">使用更大的quadtree buckets，XML 加载更快，内存消耗更少</h3>
-<p>除了为大图像选择合适的 mipmap 生成策略外，还要确保适当设置bucket的大小。<br>
-<strong>什么是 TrakEM2 中的 “bucket”：</strong> 每个层（每个部分）都有一个内部四叉树，用于查找鼠标下的对象（如图像），或快速查找与其他图像重叠的图像。换句话说，就是能够执行快速空间查询，例如查找与给定矩形相交的所有图像列表。<br>
-如果图像bucket的尺寸很小（默认边长为 4096 像素，那么一个图像桶就是一个 4096x4096 像素的正方形，这可以说是相当小了），再加上画布尺寸很大，生成的图像桶就会太多。这将耗费大量时间和内存。如果您的每个部分只有大约 100 张图片，而且图片都比较大（例如，每张图片的尺寸为 8096x8096 像素），那么请将bucket大小设置为比默认值大得多的值，例如 100000。这样实际上就只有一个bucket了。<br>
-当一个图层中有许多小对象或许多小的 zdisplayable 对象时，就需要使用小的数据bucket。在这种情况下，例如每个图层只有一个图像，但其中有许多较小的 Ball 或 Pipe 或 AreaList 对象，那么可以使用默认的数据bucket大小（4096）或更小。否则，可以选择大尺寸甚至超大尺寸，这样就能有效地移除bucket功能，并简化为列表搜索，而列表搜索对于 100 张左右的小图像列表来说是没有问题的。    在配准/对齐分布在 5000 个部分的 400,000 张图片时，将图片桶设置为大（如 40960，默认值的 10 倍，甚至更大）是合理的。    将数据bucket大小设置为较大值将大大减少 XML 的加载时间。    要设置数据bucket大小，请右键单击并选择 “Display - Properties …”，然后写入数据桶大小值。</p>
-<h2 id="TrakEM2-一些脚本">TrakEM2 一些脚本</h2>
-<p>打开 “Plugins - Scripting - Jython Interpreter”（请参阅 “<a target="_blank" rel="noopener" href="https://imagej.net/scripting">脚本帮助</a>”），确保打开了 TrakEM2 项目，并打开显示图片。然后键入或粘贴下面的示例。或者使用 &quot;File - New - Script&quot;打开一个新的脚本编辑器窗口，然后粘贴示例，选择 “Language - Python”，并按下 &quot;Run &quot;按钮。基础：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>拖动图像并将其可视化的画布是显示对象的一部分。后者拥有访问其 &quot;选区 &quot;以及 &quot;显示 &quot;正在查看的 &quot;图层 &quot;和 &quot;图层集 &quot;的方法。</p>
-</li>
-<li class="lvl-2">
-<p>图层包含 Patch（每个 Patch 都包裹着一幅图像）和 DLabel（浮动文本）等 2D 对象。</p>
-</li>
-<li class="lvl-2">
-<p>LayerSet 包含三维对象，如 AreaList、Pipe、Polyline、Ball、Dissector、Treeline 和 Stack（后者封装了包含 ij.ImageStack 的 ij.ImagePlus）。</p>
-</li>
-</ul>
-<h3 id="获取所选图像实例">获取所选图像实例</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p = Display.getFront().getActive()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> p</span><br><span class="line">    090504_0314_ex0768.mrc z=<span class="number">0.0</span> <span class="comment">#67398</span></span><br></pre></td></tr></table></figure>
-<h3 id="获取选定图像的ImagePlus">获取选定图像的ImagePlus</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p = Display.getFront().getActive()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>imp = p.getImagePlus()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> imp.width, imp.height</span><br><span class="line">    <span class="number">2048</span> <span class="number">2048</span></span><br></pre></td></tr></table></figure>
-<h2 id="访问图层和选择显示">访问图层和选择显示</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>front = Display.getFront()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>layer = front.getLayer()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>layer_set = front.getLayerSet()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sel = front.getSelection()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> sel.getSelected().size()</span><br><span class="line">    <span class="number">10</span></span><br><span class="line">    &gt;&gt;&gt; <span class="built_in">print</span> sel.isEmpty()</span><br><span class="line">    <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><a target="_blank" rel="noopener" href="https://imagej.net/plugins/trakem2/">https://imagej.net/plugins/trakem2/</a></p>
-</li>
-<li class="lvl-3">
-<p>Cardona, A., Saalfeld, S., Schindelin, J., Arganda-Carreras, I., Preibisch, S., Longair, M., … Douglas, R. J. (2012). TrakEM2 Software for Neural Circuit Reconstruction. PLoS ONE, 7(6), e38011. doi:10.1371/journal.pone.0038011</p>
-</li>
-<li class="lvl-3">
-<p><a target="_blank" rel="noopener" href="https://syn.mrc-lmb.cam.ac.uk/acardona/INI-2008-2011/data.html">https://syn.mrc-lmb.cam.ac.uk/acardona/INI-2008-2011/data.html</a></p>
-</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/16/ImageJ--%E5%BD%A2%E6%80%81%E5%AD%A6%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%81%E4%B8%89%E7%BB%B4%E5%BB%BA%E6%A8%A1%E4%BB%A5%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5%E3%80%81%E9%85%8D%E5%87%86%E3%80%81%E7%BC%96%E8%BE%91%E5%92%8C%E6%B3%A8%E9%87%8A-TrakEM2%E7%AE%80%E4%BB%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
