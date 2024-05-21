@@ -214,136 +214,6 @@
       </tags>
   </entry>
   <entry>
-    <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
-    <url>/undefined/2023/09/21/8308e10eb1be/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
-<span id="more"></span> 
-<p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
-<p><strong>FPKM:</strong> Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
-<p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。<br>
-<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png" alt="公式1"></p>
-<h3 id="RPKM，FPKM">RPKM，FPKM</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#x为一个向量存储了每个基因的counts，而gene.length是相应于x中每个基因的长度的一个向量.</span><br><span class="line">RPKM &lt;- function(x, gene.length)&#123; </span><br><span class="line">  lib.size &lt;- sum(x)</span><br><span class="line">  rpm &lt;- 1e6 * x/lib.size</span><br><span class="line">  rpkm &lt;- 1e3 * rpm/gene.length</span><br><span class="line">  return(rpkm)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FPKM &lt;- function(x, gene.length)&#123; </span><br><span class="line">  lib.size &lt;- sum(x)</span><br><span class="line">  rpm &lt;- 1e6 * x/lib.size</span><br><span class="line">  rpkm &lt;- 1e3 * rpm/gene.length</span><br><span class="line">  return(fpkm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="TPM">TPM</h3>
-<p>TPM: Transcript per million<br>
-<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png" alt="公式2"></p>
-<p>TPM对基因的长度进行了校正，计算比对到基因上的reads/基因长度得到长度校正的表达量 reads per kilobase (RPK)。再以文库中RPK之和作为Scale Factor求出TPM。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TPM &lt;- function(x, gene.length)&#123;</span><br><span class="line">  rpk &lt;- 1e3 * x/gene.length</span><br><span class="line">  scale.factor &lt;- sum(rpk)</span><br><span class="line">  tpm &lt;- 1e6 * rpk/scale.factor</span><br><span class="line">  return(tpm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>相比于RPKM使用文库大小（read counts之和）来作为文库校正因子，TPM使用RPK之和作为文库校正因子的好处是考虑了不同样本间的基因长度的分布。因为RPK是一个对基因长度进行校正后的表达量单位，所以RPK之和也不会再带入基因长度的bias。因此，如果需要比较的样本之间转录本分布不一致时（例如不同物种RNA-seq的比较），使用TPM是一个较佳的normalization方案。</p>
-<p>RPKM和TPM这类方法就是为了使不同样本间的总体表达量趋于一致，让不同样本间的基因表达量有可比较性，而TPM能够更好地校正样本间的差异。</p>
-<p>常用的Normalization 方法总结</p>
-<table>
-<thead>
-<tr>
-<th>Normalization method</th>
-<th>描述</th>
-<th>考虑因素</th>
-<th>使用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CPM (counts per million)</td>
-<td>使用read counts的总和校正counts</td>
-<td>测序深度</td>
-<td>同一样本组重复样本之间的基因counts比较；不适用于样品内的比较或差异分析</td>
-</tr>
-<tr>
-<td>TPM (transcripts per kilobase million)</td>
-<td>每百万mapped reads中每kb转录本上的reads数</td>
-<td>测序深度和基因长度</td>
-<td>样本内或同一样本组样本之间的基因counts比较； 不适用于差异分析</td>
-</tr>
-<tr>
-<td>RPKM/FPKM (reads/fragments per kilobase of exon per million reads/fragments mapped)</td>
-<td>如TPM</td>
-<td>测序深度和基因长度</td>
-<td>样本内基因间的counts比较; 不适用于样本间比较和差异分析</td>
-</tr>
-<tr>
-<td>DESeq2’s median of ratios [1]</td>
-<td>counts除以样本特异的校正因子，该因子由基因计数相对于每个基因的几何平均值的中位数比率确定</td>
-<td>测序深度及RNA组成</td>
-<td>样本之间的基因counts比较以及差异分析; 不适用于样本内比较</td>
-</tr>
-<tr>
-<td>EdgeR’s trimmed mean of M values (TMM) [2]</td>
-<td>使用样本之间的加权截尾的对数表达量比值的均值进行TMM校正</td>
-<td>测序深度，RNA组成以及基因长度</td>
-<td>样品之间和样品内部的基因counts比较，适用于差异分析</td>
-</tr>
-</tbody>
-</table>
-<p>在进行差异表达分析时，我们实际上并不会用到RPKM/FPKM, TPM，而是使用raw counts给到差异分析的工具。这是由于RPKM/FPKM和TPM都没有考虑到样本间文库组成的差异，因而不适合用于样本间差异分析。</p>
-<h2 id="获取基因长度">获取基因长度</h2>
-<p>计算TPM或RPKM/FPKM等基因表达量时，除了基因的counts信息外，我们还需要知道基因的长度。由于可变剪接的存在，一个基因可能会有多个转录本，在进行基因水平的表达分析时，我们并不会区分各个转录本剪接变体的表达量，而是以基因为单位进行统计。目前，对于基因长度有多种定义，包括：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>基因最长转录本；</p>
-</li>
-<li class="lvl-2">
-<p>多个转录本长度的平均值；</p>
-</li>
-<li class="lvl-2">
-<p>非重叠外显子长度之和：</p>
-</li>
-<li class="lvl-2">
-<p>非重叠CDS序列长度之和。</p>
-</li>
-</ul>
-<p><img src="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png" alt="3"></p>
-<p>Figure Source: Gene structure</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#使用gtf文件在R中获取基因长度（非重叠外显子长度之和）</span><br><span class="line">#首先，读取计算基因counts时用的GTF文件，并将其转换为TxDb对象；</span><br><span class="line">library(GenomicFeatures)</span><br><span class="line">#一般常用的物种基因注释信息都已经有人构建好TxDb对象，以R包的形式上传到Bioconductor里。我们使用时直接加载、赋值即可。BiocManager::install(&quot;TxDb.Dmelanogaster.UCSC.dm6.ensGene&quot;)</span><br><span class="line">#从本地读取数据库文件 txdb &lt;- makeTxDbFromGFF(&#x27;gencode.vM23.annotation.gtf&#x27;, format=&#x27;gtf&#x27;)</span><br><span class="line">#然后，提取每个基因的外显子注释信息；exons.list.per.gene &lt;- exonsBy(txdb, by=&quot;gene&quot;)</span><br><span class="line">library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)</span><br><span class="line">exons.list.per.gene &lt;- exonsBy(TxDb.Dmelanogaster.UCSC.dm6.ensGene, by=&quot;gene&quot;)</span><br><span class="line">#最后，合并重叠的外显子，计算非重叠外显子的长度作为基因长度（bp）</span><br><span class="line">exonic.gene.sizes &lt;- sum(width(reduce(exons.list.per.gene)))</span><br></pre></td></tr></table></figure>
-<p><code>GenomicFeatures</code>还支持自己手动从指定数据库中构建TxDb对象，例如从 UCSC提取构建的<code>makeTxDbFromUCSC()</code>函数；从BioMart提取构建的<code>makeTxDbFromBiomart()</code>函数等方法可以用作替补方案（没有对应TXDB的R包时）。</p>
-<p><code>tureCounts</code>统计基因counts时，其输出的counts.txt文件中通常会包含一列长度信息Length。也是采用非重叠外显子作为基因长度。</p>
-<h2 id="参考：">参考：</h2>
-<ol>
-<li class="lvl-3">
-<p>理论-简述RPKM-FPKM-AND-TPM | Dean’s blog (<a href="http://thereallda.github.io">thereallda.github.io</a>)</p>
-</li>
-<li class="lvl-3">
-<p>R-获取基因长度 | Dean’s blog (<a href="http://thereallda.github.io">thereallda.github.io</a>)</p>
-</li>
-<li class="lvl-3">
-<p>[R]bioconductor之GenomicFeatures学习 - 简书 (<a href="http://jianshu.com">jianshu.com</a>)</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>生信</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>RNA-seq</tag>
-        <tag>生信</tag>
-        <tag>R语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/undefined/2024/05/09/3a7879a613a7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span> 
-<h2 id="快速开始">快速开始</h2>
-<h3 id="创建文章">创建文章</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="查看效果">查看效果</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态">生成静态</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程">部署到远程</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>默认</tag>
-        <tag>你好</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ImageJ--形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释-TrakEM2简介</title>
     <url>/undefined/2024/05/16/88aba7486b49/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>TrakEM2 是一个 ImageJ 插件，用于形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释。</p>
@@ -478,6 +348,136 @@
         <tag>图像</tag>
         <tag>插件</tag>
         <tag>简介</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/undefined/2024/05/09/3a7879a613a7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span> 
+<h2 id="快速开始">快速开始</h2>
+<h3 id="创建文章">创建文章</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="查看效果">查看效果</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="生成静态">生成静态</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>默认</tag>
+        <tag>你好</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
+    <url>/undefined/2023/09/21/8308e10eb1be/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
+<span id="more"></span> 
+<p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
+<p><strong>FPKM:</strong> Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
+<p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。<br>
+<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png" alt="公式1"></p>
+<h3 id="RPKM，FPKM">RPKM，FPKM</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#x为一个向量存储了每个基因的counts，而gene.length是相应于x中每个基因的长度的一个向量.</span><br><span class="line">RPKM &lt;- function(x, gene.length)&#123; </span><br><span class="line">  lib.size &lt;- sum(x)</span><br><span class="line">  rpm &lt;- 1e6 * x/lib.size</span><br><span class="line">  rpkm &lt;- 1e3 * rpm/gene.length</span><br><span class="line">  return(rpkm)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FPKM &lt;- function(x, gene.length)&#123; </span><br><span class="line">  lib.size &lt;- sum(x)</span><br><span class="line">  rpm &lt;- 1e6 * x/lib.size</span><br><span class="line">  rpkm &lt;- 1e3 * rpm/gene.length</span><br><span class="line">  return(fpkm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="TPM">TPM</h3>
+<p>TPM: Transcript per million<br>
+<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png" alt="公式2"></p>
+<p>TPM对基因的长度进行了校正，计算比对到基因上的reads/基因长度得到长度校正的表达量 reads per kilobase (RPK)。再以文库中RPK之和作为Scale Factor求出TPM。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TPM &lt;- function(x, gene.length)&#123;</span><br><span class="line">  rpk &lt;- 1e3 * x/gene.length</span><br><span class="line">  scale.factor &lt;- sum(rpk)</span><br><span class="line">  tpm &lt;- 1e6 * rpk/scale.factor</span><br><span class="line">  return(tpm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相比于RPKM使用文库大小（read counts之和）来作为文库校正因子，TPM使用RPK之和作为文库校正因子的好处是考虑了不同样本间的基因长度的分布。因为RPK是一个对基因长度进行校正后的表达量单位，所以RPK之和也不会再带入基因长度的bias。因此，如果需要比较的样本之间转录本分布不一致时（例如不同物种RNA-seq的比较），使用TPM是一个较佳的normalization方案。</p>
+<p>RPKM和TPM这类方法就是为了使不同样本间的总体表达量趋于一致，让不同样本间的基因表达量有可比较性，而TPM能够更好地校正样本间的差异。</p>
+<p>常用的Normalization 方法总结</p>
+<table>
+<thead>
+<tr>
+<th>Normalization method</th>
+<th>描述</th>
+<th>考虑因素</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPM (counts per million)</td>
+<td>使用read counts的总和校正counts</td>
+<td>测序深度</td>
+<td>同一样本组重复样本之间的基因counts比较；不适用于样品内的比较或差异分析</td>
+</tr>
+<tr>
+<td>TPM (transcripts per kilobase million)</td>
+<td>每百万mapped reads中每kb转录本上的reads数</td>
+<td>测序深度和基因长度</td>
+<td>样本内或同一样本组样本之间的基因counts比较； 不适用于差异分析</td>
+</tr>
+<tr>
+<td>RPKM/FPKM (reads/fragments per kilobase of exon per million reads/fragments mapped)</td>
+<td>如TPM</td>
+<td>测序深度和基因长度</td>
+<td>样本内基因间的counts比较; 不适用于样本间比较和差异分析</td>
+</tr>
+<tr>
+<td>DESeq2’s median of ratios [1]</td>
+<td>counts除以样本特异的校正因子，该因子由基因计数相对于每个基因的几何平均值的中位数比率确定</td>
+<td>测序深度及RNA组成</td>
+<td>样本之间的基因counts比较以及差异分析; 不适用于样本内比较</td>
+</tr>
+<tr>
+<td>EdgeR’s trimmed mean of M values (TMM) [2]</td>
+<td>使用样本之间的加权截尾的对数表达量比值的均值进行TMM校正</td>
+<td>测序深度，RNA组成以及基因长度</td>
+<td>样品之间和样品内部的基因counts比较，适用于差异分析</td>
+</tr>
+</tbody>
+</table>
+<p>在进行差异表达分析时，我们实际上并不会用到RPKM/FPKM, TPM，而是使用raw counts给到差异分析的工具。这是由于RPKM/FPKM和TPM都没有考虑到样本间文库组成的差异，因而不适合用于样本间差异分析。</p>
+<h2 id="获取基因长度">获取基因长度</h2>
+<p>计算TPM或RPKM/FPKM等基因表达量时，除了基因的counts信息外，我们还需要知道基因的长度。由于可变剪接的存在，一个基因可能会有多个转录本，在进行基因水平的表达分析时，我们并不会区分各个转录本剪接变体的表达量，而是以基因为单位进行统计。目前，对于基因长度有多种定义，包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>基因最长转录本；</p>
+</li>
+<li class="lvl-2">
+<p>多个转录本长度的平均值；</p>
+</li>
+<li class="lvl-2">
+<p>非重叠外显子长度之和：</p>
+</li>
+<li class="lvl-2">
+<p>非重叠CDS序列长度之和。</p>
+</li>
+</ul>
+<p><img src="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png" alt="3"></p>
+<p>Figure Source: Gene structure</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#使用gtf文件在R中获取基因长度（非重叠外显子长度之和）</span><br><span class="line">#首先，读取计算基因counts时用的GTF文件，并将其转换为TxDb对象；</span><br><span class="line">library(GenomicFeatures)</span><br><span class="line">#一般常用的物种基因注释信息都已经有人构建好TxDb对象，以R包的形式上传到Bioconductor里。我们使用时直接加载、赋值即可。BiocManager::install(&quot;TxDb.Dmelanogaster.UCSC.dm6.ensGene&quot;)</span><br><span class="line">#从本地读取数据库文件 txdb &lt;- makeTxDbFromGFF(&#x27;gencode.vM23.annotation.gtf&#x27;, format=&#x27;gtf&#x27;)</span><br><span class="line">#然后，提取每个基因的外显子注释信息；exons.list.per.gene &lt;- exonsBy(txdb, by=&quot;gene&quot;)</span><br><span class="line">library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)</span><br><span class="line">exons.list.per.gene &lt;- exonsBy(TxDb.Dmelanogaster.UCSC.dm6.ensGene, by=&quot;gene&quot;)</span><br><span class="line">#最后，合并重叠的外显子，计算非重叠外显子的长度作为基因长度（bp）</span><br><span class="line">exonic.gene.sizes &lt;- sum(width(reduce(exons.list.per.gene)))</span><br></pre></td></tr></table></figure>
+<p><code>GenomicFeatures</code>还支持自己手动从指定数据库中构建TxDb对象，例如从 UCSC提取构建的<code>makeTxDbFromUCSC()</code>函数；从BioMart提取构建的<code>makeTxDbFromBiomart()</code>函数等方法可以用作替补方案（没有对应TXDB的R包时）。</p>
+<p><code>tureCounts</code>统计基因counts时，其输出的counts.txt文件中通常会包含一列长度信息Length。也是采用非重叠外显子作为基因长度。</p>
+<h2 id="参考：">参考：</h2>
+<ol>
+<li class="lvl-3">
+<p>理论-简述RPKM-FPKM-AND-TPM | Dean’s blog (<a href="http://thereallda.github.io">thereallda.github.io</a>)</p>
+</li>
+<li class="lvl-3">
+<p>R-获取基因长度 | Dean’s blog (<a href="http://thereallda.github.io">thereallda.github.io</a>)</p>
+</li>
+<li class="lvl-3">
+<p>[R]bioconductor之GenomicFeatures学习 - 简书 (<a href="http://jianshu.com">jianshu.com</a>)</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>生信</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>RNA-seq</tag>
+        <tag>生信</tag>
+        <tag>R语言</tag>
       </tags>
   </entry>
   <entry>
