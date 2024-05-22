@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hexo新建文章及发布指令--笔记</title>
-    <url>/undefined/2024/05/08/a18440ea295e/</url>
+    <url>/2024/05/08/a18440ea295e/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <h1>完成后部署</h1>
 <p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
@@ -83,7 +83,7 @@
   </entry>
   <entry>
     <title>ImageJ--Feature Finder插件</title>
-    <url>/undefined/2024/05/09/d89cea932371/</url>
+    <url>/2024/05/09/d89cea932371/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
 <strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
 <span id="more"></span> 
@@ -215,7 +215,7 @@
   </entry>
   <entry>
     <title>ImageJ--形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释-TrakEM2简介</title>
-    <url>/undefined/2024/05/16/88aba7486b49/</url>
+    <url>/2024/05/16/88aba7486b49/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>TrakEM2 是一个 ImageJ 插件，用于形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释。</p>
 <span id="more"></span> 
 <h2 id="设备要求">设备要求</h2>
@@ -351,32 +351,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/undefined/2024/05/09/3a7879a613a7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span> 
-<h2 id="快速开始">快速开始</h2>
-<h3 id="创建文章">创建文章</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="查看效果">查看效果</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态">生成静态</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程">部署到远程</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>默认</tag>
-        <tag>你好</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
-    <url>/undefined/2023/09/21/8308e10eb1be/</url>
+    <url>/2023/09/21/8308e10eb1be/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
 <span id="more"></span> 
 <p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
@@ -481,8 +457,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2024/05/09/3a7879a613a7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span> 
+<h2 id="快速开始">快速开始</h2>
+<h3 id="创建文章">创建文章</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="查看效果">查看效果</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="生成静态">生成静态</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>默认</tag>
+        <tag>你好</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>从出生那天开始，你就是“局外人”</title>
-    <url>/undefined/2024/05/10/51fa0d872217/</url>
+    <url>/2024/05/10/51fa0d872217/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>你</h1>
 <p>如果你是中国的90后，那你的出生就已经是个错误。这个错是谁跟你定的呢？谁管呢，谁让你赶在了这个糟糕的年代。</p>
 <span id="more"></span>
@@ -522,7 +522,7 @@
   </entry>
   <entry>
     <title>爬取小说--战略级天使</title>
-    <url>/undefined/2021/05/04/860f752b827d/</url>
+    <url>/2021/05/04/860f752b827d/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
 <p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
 <span id="more"></span> 
