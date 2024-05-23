@@ -261,7 +261,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-05-23 16:56:40 / 修改时间：16:56:54" itemprop="dateCreated datePublished" datetime="2024-05-23T16:56:40+08:00">2024-05-23</time>
+      <time title="创建时间：2024-05-23 16:56:40 / 修改时间：17:18:50" itemprop="dateCreated datePublished" datetime="2024-05-23T16:56:40+08:00">2024-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -280,7 +280,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>864</span>
+      <span>820</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -298,83 +298,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><a name="1a63ac23"></a></p>
-<h2 id="示例">示例</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"><br>
-<a name="e05dce83"></a></p>
+          <p><a name="e05dce83"></a></p>
 <h2 id="简介">简介</h2>
 <p>StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。<br /><strong>作者：</strong> Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne</p>
-<p>该插件的目的是配准（换句话说，对齐或匹配）图像堆栈。每张图片用作下一张图片对齐的模板，以便通过转换进行对齐。当插件启动时，当前图片充当全局锚点。StackReg 插件要求安装有TurboReg 插件。该插件（<strong>StackReg</strong>）是<strong>TurboReg</strong> 插件的前端。这些插件之间有几种数据交换机制，其中之一是将临时文件写入 ImageJ 定义的临时目录。该目录的位置可以通过宏命令 &quot;<code>print(getDirectory(&quot;temp&quot;));</code> &quot;查看。文件名称是：StackRegSource，StackRegSourceR，StackRegSourceG，StackRegSourceB，StackRegTarget。</p>
-<p>配准完成后，原始堆栈将被销毁，取而代之的是配准结果。堆栈的名称和类型保持不变；除 <strong>RGB 堆栈</strong>和 <strong>HSB 堆</strong>栈外，所有数据类型均可使用。(请注意，RGB-stack 是由三个颜色分量组成的堆栈，不应与 RGB 彩色图像堆栈混淆：后者可以使用，而前者不能使用。如有疑问，请尝试一下)。如果提供的是彩色图像堆栈，则会在灰度版本上进行配准，灰度版本是由红色、绿色和蓝色分量加权求和而成的，即使堆栈是伪彩色图像也是如此。权重取决于整个图像堆栈，并通过主成分分析确定，以提供最大可能的对比度。一旦根据中间灰度表示确定了几何图形，就可以重建真正的彩色图像，如果需要生成伪彩色图像，还可以重新量化。</p>
-<p><a name="AX0GW"></a></p>
-<h2 id="参数">参数</h2>
-<p>有四种类型的转换：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Translation</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 $x = u + Δu$。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Rigid Body</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br />$x = { {cos θ, −sin θ}, {sin θ, cos θ} } ⋅ u + Δu$<br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Scaled rotation</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br />$x = λ { {cos θ, −sin θ}, {sin θ, cos θ} }⋅ u + Δu$<br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Affine</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br />$x = { {a_{11}, a_{12}}, {a_{21}, a_{22}} } ⋅ u + Δu$<br />由于四个系数 $a_{11}$、$a_{12}$、$a_{21}$ 和 $a_{22}$ 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
-<a name="1c53b310"></a></p>
-<h2 id="操作步骤">操作步骤</h2>
-<p>使用的Fiji ImageJ</p>
-<ol>
-<li class="lvl-3">
-<p>拖动图片文件夹到Fiji，默认为堆栈。</p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433448190-6bcdcea1-090b-4b6e-844b-db57f09551a9.png#averageHue=%23eeeeed&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=285&amp;id=R4VvP&amp;originHeight=424&amp;originWidth=428&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14771&amp;status=done&amp;style=none&amp;taskId=ue08112ae-4ce1-4d16-97b5-adb9378c3cd&amp;title=&amp;width=287.3999938964844" alt="image.png"></p>
-<ol start="2">
-<li class="lvl-3">
-<p>插件启动前，选择合适的图片，当前图片会被充当全局锚点。</p>
-</li>
-<li class="lvl-3">
-<p>打开<strong>StackReg。</strong></p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433608518-f4f2cfa8-5406-4ef7-876d-c4ffb225cf73.png#averageHue=%23b3a180&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=313&amp;id=pzPnz&amp;originHeight=491&amp;originWidth=605&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=213183&amp;status=done&amp;style=none&amp;taskId=u427dd8d1-e0e2-49ce-9122-31b6a47e994&amp;title=&amp;width=386" alt="image.png"></p>
-<ol start="4">
-<li class="lvl-3">
-<p>选择对齐方式，点击确定按钮。</p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433643863-8b44a1f7-eb00-4ac3-9f28-b4da3cb4d467.png#averageHue=%23edebe9&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=125&amp;id=cH9EB&amp;originHeight=156&amp;originWidth=236&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7246&amp;status=done&amp;style=none&amp;taskId=u745533d0-9a3d-4fde-8597-410e8b9e3eb&amp;title=&amp;width=188.8" alt="image.png"><br>
-<a name="zAAf8"></a></p>
-<h4 id="配准结果展示">配准结果展示</h4>
-<p><strong>Translation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437482059-89fc3429-bad3-4efb-8f57-e2b6980bd685.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u815598a6&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4864016&amp;status=done&amp;style=none&amp;taskId=ua36500ba-dce8-49d3-a2dd-78c2e561927&amp;title=" alt="攀爬2-移动-缩小.gif"><br /><strong>Rigid Body</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437732425-3650fea3-632c-496f-a40a-27c5a7adc316.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u66c7948b&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4902674&amp;status=done&amp;style=none&amp;taskId=u45d2d0ba-9870-43ee-8089-153602f6b05&amp;title=" alt="攀爬2-rigid-缩小.gif"><br /><strong>Scaled rotation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u5e78df36&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=" alt="WT-处-control-20211218-scaled.gif"><br /><strong>Affine</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438247733-91b6a52e-7abe-4303-a27b-b9389f62063c.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=uc96e2e67&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4699672&amp;status=done&amp;style=none&amp;taskId=u77f49e48-451d-4b37-876b-5276b590ccd&amp;title=" alt="攀爬2-affine-缩小.gif"><br>
-<a name="ba311d8a"></a></p>
-<h2 id="脚本">脚本</h2>
-<p>StackReg 是可编写脚本和使用宏记录的。下面是一个从宏调用 StackReg 的示例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run(<span class="string">&quot;StackReg &quot;</span>, <span class="string">&quot;transformation=[Rigid Body]&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p><a name="d17a0f0b"></a></p>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><a target="_blank" rel="noopener" href="https://bigwww.epfl.ch/thevenaz/stackreg/">https://bigwww.epfl.ch/thevenaz/stackreg/</a></p>
-</li>
-<li class="lvl-3">
-<p>P. Thévenaz, U.E. Ruttimann, M. Unser, “A Pyramid Approach to Subpixel Registration Based on Intensity,” IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998. Other relevant on-line publications are available at <a target="_blank" rel="noopener" href="http://bigwww.epfl.ch/publications/">http://bigwww.epfl.ch/publications/</a>.</p>
-</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/23/109a1e8436e7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -834,7 +768,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">31 分钟</span>
+    <span title="站点阅读时长">30 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

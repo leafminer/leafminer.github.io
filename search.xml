@@ -82,138 +82,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ImageJ--Feature Finder插件</title>
-    <url>/2024/05/09/d89cea932371/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
-<strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
-<span id="more"></span> 
-<p><img src="/images/20240509_223918_00000.png" alt=""></p>
-<h2 id="用途">用途</h2>
-<blockquote>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>目标检测：通过将已知目标作为模板，在图像中寻找与模板最相似的区域，从而实现目标的检测。</p>
-</li>
-<li class="lvl-2">
-<p>物体跟踪：通过不断更新模板，可以实现对移动目标在视频序列中的跟踪。</p>
-</li>
-<li class="lvl-2">
-<p>字符识别：通过利用字符的模板，可以识别文本中的字符或数字。</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="特点">特点</h2>
-<p><strong>优点：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>经过（缓慢的）初始计算后，预览提供了一种快速确定相似度阈值的方法。</p>
-</li>
-<li class="lvl-2">
-<p>亚像素精度。</p>
-</li>
-<li class="lvl-2">
-<p>在预览过程中，可以通过对找到的特征进行平均来完善原型。</p>
-</li>
-</ul>
-<p><strong>局限：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>仅适用于灰度图像；像素值的任何校准都会被忽略。</p>
-</li>
-<li class="lvl-2">
-<p>只能搜索未旋转（或圆形）和未缩放的特征。</p>
-</li>
-<li class="lvl-2">
-<p>速度较慢，小原型除外（暴力算法，无 FFT）。</p>
-</li>
-<li class="lvl-2">
-<p>预览期间，当进度条处于激活状态时：不要更改对话框中的任何输入，否则会重新启动，耗时更长。</p>
-</li>
-<li class="lvl-2">
-<p>不处理堆栈。</p>
-</li>
-</ul>
-<h2 id="安装">安装</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>下载<a href="https://github.com/imagej/imagej.github.io/blob/main/media/plugins/feature-finder/Feature_Finder.java">Feature_Finder.java</a></p>
-</li>
-<li class="lvl-2">
-<p>将原始的 <code>Feature_Finder.java</code> 文件复制到 ImageJ 插件文件夹 (plugins) 或其子文件夹中。确保将下载的文件命名为 “Feature_Finder.java”；大写/小写都很重要。</p>
-</li>
-<li class="lvl-2">
-<p>使用 &quot;编译并运行 (Compile and Run)&quot;进行编译，然后按 “确定”。请注意，&quot;编译并运行 &quot;功能目前在 Fiji 上无法使用；作为一种变通方法，请使用文件&gt;新建&gt;脚本，打开 Feature_Finder.java 文件并按 “运行”。</p>
-</li>
-<li class="lvl-2">
-<p>使用 “帮助”&gt;&quot;更新菜单 &quot;或重新启动 ImageJ 使其出现在插件菜单中（如果您已使用 Fiji 脚本编辑器，则无需使用）。</p>
-</li>
-</ul>
-<h2 id="参数选项-Dialog-Options">参数选项 (Dialog Options)</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Prototype from</strong> 选择原型 (prototype)。这可以是当前图像或不同图像的 ROI。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Output Type</strong> 可以是：</p>
-<ul class="lvl-2">
-<li class="lvl-6">点选择：所有特征中心的点 ROI。</li>
-<li class="lvl-6">计数：找到的特征数量写入结果表。</li>
-<li class="lvl-6">列表：中心的 x 和 y 像素坐标列表被写入结果表。</li>
-<li class="lvl-6">列表（校准）：与“列表”类似，但将校准的 x 和 y 坐标写入结果表。</li>
-<li class="lvl-6">点图：一个单独的二值图像，每个特征的中心有一个像素 = 255。</li>
-<li class="lvl-6">偏差图：单独的浮点（32 位）图像。每个点的值表示原始图像中该位置的周围环境与原型的偏离程度。偏差图独立于“公差”设置。</li>
-<li class="lvl-6">特征平均值：单独的浮点（32 位）输出图像，所有特征的平均值移动到同一位置。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p><strong>Subtract Background</strong>使用减去背景，特征被认为是相同的，独立于任何恒定（相加）背景。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Soft Edges</strong> 软边缘为原型的近边缘像素赋予的权重小于靠近中心的像素的权重。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Distance Min</strong>如果要素靠得很近，小于“最小距离”，则仅保留最匹配的要素。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Tolerance</strong>公差决定了特征与原型的偏差程度。值 0 表示完全匹配，100 表示偏差等于原型的方差。启用“减去背景”后，在公差为 100% 的情况下，原型区域上具有恒定值的图像区域也符合特征。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Refine</strong> 在预览过程中，设置容差后，您可以按“调整”按钮。这会根据当前选择的所有特征的平均值计算出新的原型。例如，如果原型受到噪声影响，“优化”很有用。在预览期间，该对话框还显示特征数量与原型偏差的直方图以及包含找到的特征数量的消息。</p>
-</li>
-</ul>
-<h2 id="提示和技巧">提示和技巧</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>在预览过程中，直方图右侧经常会出现一个宽阔的峰值。这就是假匹配。请将阈值保持在该峰值以下。</p>
-</li>
-<li class="lvl-2">
-<p>特征应与原型具有相同的灰度对比度。如果不是这种情况，建议选择图像中可能出现的对比度最高的模板。</p>
-</li>
-<li class="lvl-2">
-<p>如果阈值法失败，也可以尝试创建偏差图并对其进行处理（背景减除、高通滤波器、查找最大值…）。</p>
-</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><a href="https://imagej.github.io/plugins/feature-finder">https://imagej.github.io/plugins/feature-finder</a></p>
-</li>
-<li class="lvl-3">
-<p><a href="https://blog.csdn.net/twnkie/article/details/132154253">https://blog.csdn.net/twnkie/article/details/132154253</a></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ImageJ</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>ImageJ</tag>
-        <tag>图像</tag>
-        <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ImageJ--形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释-TrakEM2简介</title>
     <url>/2024/05/16/88aba7486b49/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>TrakEM2 是一个 ImageJ 插件，用于形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释。</p>
@@ -353,14 +221,15 @@
   <entry>
     <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
     <url>/2024/05/23/109a1e8436e7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a name="1a63ac23"></a></p>
-<h2 id="示例">示例</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"><br>
-<a name="e05dce83"></a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a name="e05dce83"></a></p>
 <h2 id="简介">简介</h2>
 <p>StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。<br /><strong>作者：</strong> Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne</p>
+<span id="more"></span>
 <p>该插件的目的是配准（换句话说，对齐或匹配）图像堆栈。每张图片用作下一张图片对齐的模板，以便通过转换进行对齐。当插件启动时，当前图片充当全局锚点。StackReg 插件要求安装有TurboReg 插件。该插件（<strong>StackReg</strong>）是<strong>TurboReg</strong> 插件的前端。这些插件之间有几种数据交换机制，其中之一是将临时文件写入 ImageJ 定义的临时目录。该目录的位置可以通过宏命令 &quot;<code>print(getDirectory(&quot;temp&quot;));</code> &quot;查看。文件名称是：StackRegSource，StackRegSourceR，StackRegSourceG，StackRegSourceB，StackRegTarget。</p>
 <p>配准完成后，原始堆栈将被销毁，取而代之的是配准结果。堆栈的名称和类型保持不变；除 <strong>RGB 堆栈</strong>和 <strong>HSB 堆</strong>栈外，所有数据类型均可使用。(请注意，RGB-stack 是由三个颜色分量组成的堆栈，不应与 RGB 彩色图像堆栈混淆：后者可以使用，而前者不能使用。如有疑问，请尝试一下)。如果提供的是彩色图像堆栈，则会在灰度版本上进行配准，灰度版本是由红色、绿色和蓝色分量加权求和而成的，即使堆栈是伪彩色图像也是如此。权重取决于整个图像堆栈，并通过主成分分析确定，以提供最大可能的对比度。一旦根据中间灰度表示确定了几何图形，就可以重建真正的彩色图像，如果需要生成伪彩色图像，还可以重新量化。</p>
+<p><a name="1a63ac23"></a></p>
+<h2 id="示例">示例</h2>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"></p>
 <p><a name="AX0GW"></a></p>
 <h2 id="参数">参数</h2>
 <p>有四种类型的转换：</p>
@@ -369,25 +238,25 @@
 <p><strong>Translation</strong>：</p>
 </li>
 </ul>
-<p>映射公式为 $x = u + Δu$。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
+<p>映射公式为 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?x%20%3D%20u%20%2B%20%CE%94u#card=math&amp;code=x%20%3D%20u%20%2B%20%CE%94u&amp;id=I1f4r" alt="">。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>Rigid Body</strong>：</p>
 </li>
 </ul>
-<p>映射公式为 <br />$x = { {cos θ, −sin θ}, {sin θ, cos θ} } ⋅ u + Δu$<br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/e386340d2860de58527e61d4dc5de7cd.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HGnJ1" alt=""><br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>Scaled rotation</strong>：</p>
 </li>
 </ul>
-<p>映射公式为 <br />$x = λ { {cos θ, −sin θ}, {sin θ, cos θ} }⋅ u + Δu$<br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/1678623c5ac84d63fb37a0c24914e4bf.svg#card=math&amp;code=x%20%3D%20%CE%BB%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HxAmA" alt=""><br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>Affine</strong>：</p>
 </li>
 </ul>
-<p>映射公式为 <br />$x = { {a_{11}, a_{12}}, {a_{21}, a_{22}} } ⋅ u + Δu$<br />由于四个系数 $a_{11}$、$a_{12}$、$a_{21}$ 和 $a_{22}$ 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/56c72e021aeb8d05a197e959c33a45b2.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Ba_%7B11%7D%2C%20a_%7B12%7D%5C%7D%2C%20%5C%7Ba_%7B21%7D%2C%20a_%7B22%7D%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=CCeB3" alt=""><br />由于四个系数 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B11%7D#card=math&amp;code=a_%7B11%7D&amp;id=NPdDU" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B12%7D#card=math&amp;code=a_%7B12%7D&amp;id=X1Pob" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B21%7D#card=math&amp;code=a_%7B21%7D&amp;id=Hro5t" alt=""> 和 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B22%7D#card=math&amp;code=a_%7B22%7D&amp;id=msruk" alt=""> 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
 <a name="1c53b310"></a></p>
 <h2 id="操作步骤">操作步骤</h2>
 <p>使用的Fiji ImageJ</p>
@@ -645,6 +514,138 @@
         <tag>实例</tag>
         <tag>爬虫</tag>
         <tag>小说</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ImageJ--Feature Finder插件</title>
+    <url>/2024/05/09/d89cea932371/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
+<strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
+<span id="more"></span> 
+<p><img src="/images/20240509_223918_00000.png" alt=""></p>
+<h2 id="用途">用途</h2>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>目标检测：通过将已知目标作为模板，在图像中寻找与模板最相似的区域，从而实现目标的检测。</p>
+</li>
+<li class="lvl-2">
+<p>物体跟踪：通过不断更新模板，可以实现对移动目标在视频序列中的跟踪。</p>
+</li>
+<li class="lvl-2">
+<p>字符识别：通过利用字符的模板，可以识别文本中的字符或数字。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="特点">特点</h2>
+<p><strong>优点：</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>经过（缓慢的）初始计算后，预览提供了一种快速确定相似度阈值的方法。</p>
+</li>
+<li class="lvl-2">
+<p>亚像素精度。</p>
+</li>
+<li class="lvl-2">
+<p>在预览过程中，可以通过对找到的特征进行平均来完善原型。</p>
+</li>
+</ul>
+<p><strong>局限：</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>仅适用于灰度图像；像素值的任何校准都会被忽略。</p>
+</li>
+<li class="lvl-2">
+<p>只能搜索未旋转（或圆形）和未缩放的特征。</p>
+</li>
+<li class="lvl-2">
+<p>速度较慢，小原型除外（暴力算法，无 FFT）。</p>
+</li>
+<li class="lvl-2">
+<p>预览期间，当进度条处于激活状态时：不要更改对话框中的任何输入，否则会重新启动，耗时更长。</p>
+</li>
+<li class="lvl-2">
+<p>不处理堆栈。</p>
+</li>
+</ul>
+<h2 id="安装">安装</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>下载<a href="https://github.com/imagej/imagej.github.io/blob/main/media/plugins/feature-finder/Feature_Finder.java">Feature_Finder.java</a></p>
+</li>
+<li class="lvl-2">
+<p>将原始的 <code>Feature_Finder.java</code> 文件复制到 ImageJ 插件文件夹 (plugins) 或其子文件夹中。确保将下载的文件命名为 “Feature_Finder.java”；大写/小写都很重要。</p>
+</li>
+<li class="lvl-2">
+<p>使用 &quot;编译并运行 (Compile and Run)&quot;进行编译，然后按 “确定”。请注意，&quot;编译并运行 &quot;功能目前在 Fiji 上无法使用；作为一种变通方法，请使用文件&gt;新建&gt;脚本，打开 Feature_Finder.java 文件并按 “运行”。</p>
+</li>
+<li class="lvl-2">
+<p>使用 “帮助”&gt;&quot;更新菜单 &quot;或重新启动 ImageJ 使其出现在插件菜单中（如果您已使用 Fiji 脚本编辑器，则无需使用）。</p>
+</li>
+</ul>
+<h2 id="参数选项-Dialog-Options">参数选项 (Dialog Options)</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Prototype from</strong> 选择原型 (prototype)。这可以是当前图像或不同图像的 ROI。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Output Type</strong> 可以是：</p>
+<ul class="lvl-2">
+<li class="lvl-6">点选择：所有特征中心的点 ROI。</li>
+<li class="lvl-6">计数：找到的特征数量写入结果表。</li>
+<li class="lvl-6">列表：中心的 x 和 y 像素坐标列表被写入结果表。</li>
+<li class="lvl-6">列表（校准）：与“列表”类似，但将校准的 x 和 y 坐标写入结果表。</li>
+<li class="lvl-6">点图：一个单独的二值图像，每个特征的中心有一个像素 = 255。</li>
+<li class="lvl-6">偏差图：单独的浮点（32 位）图像。每个点的值表示原始图像中该位置的周围环境与原型的偏离程度。偏差图独立于“公差”设置。</li>
+<li class="lvl-6">特征平均值：单独的浮点（32 位）输出图像，所有特征的平均值移动到同一位置。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>Subtract Background</strong>使用减去背景，特征被认为是相同的，独立于任何恒定（相加）背景。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Soft Edges</strong> 软边缘为原型的近边缘像素赋予的权重小于靠近中心的像素的权重。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Distance Min</strong>如果要素靠得很近，小于“最小距离”，则仅保留最匹配的要素。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Tolerance</strong>公差决定了特征与原型的偏差程度。值 0 表示完全匹配，100 表示偏差等于原型的方差。启用“减去背景”后，在公差为 100% 的情况下，原型区域上具有恒定值的图像区域也符合特征。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Refine</strong> 在预览过程中，设置容差后，您可以按“调整”按钮。这会根据当前选择的所有特征的平均值计算出新的原型。例如，如果原型受到噪声影响，“优化”很有用。在预览期间，该对话框还显示特征数量与原型偏差的直方图以及包含找到的特征数量的消息。</p>
+</li>
+</ul>
+<h2 id="提示和技巧">提示和技巧</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在预览过程中，直方图右侧经常会出现一个宽阔的峰值。这就是假匹配。请将阈值保持在该峰值以下。</p>
+</li>
+<li class="lvl-2">
+<p>特征应与原型具有相同的灰度对比度。如果不是这种情况，建议选择图像中可能出现的对比度最高的模板。</p>
+</li>
+<li class="lvl-2">
+<p>如果阈值法失败，也可以尝试创建偏差图并对其进行处理（背景减除、高通滤波器、查找最大值…）。</p>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><a href="https://imagej.github.io/plugins/feature-finder">https://imagej.github.io/plugins/feature-finder</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://blog.csdn.net/twnkie/article/details/132154253">https://blog.csdn.net/twnkie/article/details/132154253</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ImageJ</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>ImageJ</tag>
+        <tag>图像</tag>
+        <tag>插件</tag>
       </tags>
   </entry>
 </search>
