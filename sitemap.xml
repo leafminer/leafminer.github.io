@@ -205,20 +205,6 @@
   </url>
   
   <url>
-    <loc>https://leafminer.github.io/tags/%E9%BB%98%E8%AE%A4/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://leafminer.github.io/tags/%E4%BD%A0%E5%A5%BD/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/</loc>
     <lastmod>2024-05-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -234,6 +220,20 @@
   
   <url>
     <loc>https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://leafminer.github.io/tags/%E9%BB%98%E8%AE%A4/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://leafminer.github.io/tags/%E4%BD%A0%E5%A5%BD/</loc>
     <lastmod>2024-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
