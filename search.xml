@@ -52,7 +52,7 @@
 <p>发表草稿。<br>
 <code>hexo publish [layout] &lt;filename&gt;</code></p>
 <h2 id="server">server</h2>
-<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/%E3%80%82">http://localhost:4000/。</a><br>
+<p>启动服务器。默认情况下，访问网址为： <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLyVFMyU4MCU4Mg==">http://localhost:4000/。<i class="fa fa-external-link-alt"></i></span><br>
 <code>hexo server</code></p>
 <h2 id="布署-deploy">布署(deploy)</h2>
 <p><code>hexo deploy</code><br>
@@ -136,7 +136,7 @@
 <h2 id="安装">安装</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>下载<a href="https://github.com/imagej/imagej.github.io/blob/main/media/plugins/feature-finder/Feature_Finder.java">Feature_Finder.java</a></p>
+<p>下载<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWdlai9pbWFnZWouZ2l0aHViLmlvL2Jsb2IvbWFpbi9tZWRpYS9wbHVnaW5zL2ZlYXR1cmUtZmluZGVyL0ZlYXR1cmVfRmluZGVyLmphdmE=">Feature_Finder.java<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 <li class="lvl-2">
 <p>将原始的 <code>Feature_Finder.java</code> 文件复制到 ImageJ 插件文件夹 (plugins) 或其子文件夹中。确保将下载的文件命名为 “Feature_Finder.java”；大写/小写都很重要。</p>
@@ -196,10 +196,10 @@
 <h2 id="参考">参考</h2>
 <ol>
 <li class="lvl-3">
-<p><a href="https://imagej.github.io/plugins/feature-finder">https://imagej.github.io/plugins/feature-finder</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9pbWFnZWouZ2l0aHViLmlvL3BsdWdpbnMvZmVhdHVyZS1maW5kZXI=">https://imagej.github.io/plugins/feature-finder<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 <li class="lvl-3">
-<p><a href="https://blog.csdn.net/twnkie/article/details/132154253">https://blog.csdn.net/twnkie/article/details/132154253</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R3bmtpZS9hcnRpY2xlL2RldGFpbHMvMTMyMTU0MjUz">https://blog.csdn.net/twnkie/article/details/132154253<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 </ol>
 ]]></content>
@@ -308,7 +308,7 @@
 如果图像bucket的尺寸很小（默认边长为 4096 像素，那么一个图像桶就是一个 4096x4096 像素的正方形，这可以说是相当小了），再加上画布尺寸很大，生成的图像桶就会太多。这将耗费大量时间和内存。如果您的每个部分只有大约 100 张图片，而且图片都比较大（例如，每张图片的尺寸为 8096x8096 像素），那么请将bucket大小设置为比默认值大得多的值，例如 100000。这样实际上就只有一个bucket了。<br>
 当一个图层中有许多小对象或许多小的 zdisplayable 对象时，就需要使用小的数据bucket。在这种情况下，例如每个图层只有一个图像，但其中有许多较小的 Ball 或 Pipe 或 AreaList 对象，那么可以使用默认的数据bucket大小（4096）或更小。否则，可以选择大尺寸甚至超大尺寸，这样就能有效地移除bucket功能，并简化为列表搜索，而列表搜索对于 100 张左右的小图像列表来说是没有问题的。    在配准/对齐分布在 5000 个部分的 400,000 张图片时，将图片桶设置为大（如 40960，默认值的 10 倍，甚至更大）是合理的。    将数据bucket大小设置为较大值将大大减少 XML 的加载时间。    要设置数据bucket大小，请右键单击并选择 “Display - Properties …”，然后写入数据桶大小值。</p>
 <h2 id="TrakEM2-一些脚本">TrakEM2 一些脚本</h2>
-<p>打开 “Plugins - Scripting - Jython Interpreter”（请参阅 “<a href="https://imagej.net/scripting">脚本帮助</a>”），确保打开了 TrakEM2 项目，并打开显示图片。然后键入或粘贴下面的示例。或者使用 &quot;File - New - Script&quot;打开一个新的脚本编辑器窗口，然后粘贴示例，选择 “Language - Python”，并按下 &quot;Run &quot;按钮。基础：</p>
+<p>打开 “Plugins - Scripting - Jython Interpreter”（请参阅 “<span class="exturl" data-url="aHR0cHM6Ly9pbWFnZWoubmV0L3NjcmlwdGluZw==">脚本帮助<i class="fa fa-external-link-alt"></i></span>”），确保打开了 TrakEM2 项目，并打开显示图片。然后键入或粘贴下面的示例。或者使用 &quot;File - New - Script&quot;打开一个新的脚本编辑器窗口，然后粘贴示例，选择 “Language - Python”，并按下 &quot;Run &quot;按钮。基础：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>拖动图像并将其可视化的画布是显示对象的一部分。后者拥有访问其 &quot;选区 &quot;以及 &quot;显示 &quot;正在查看的 &quot;图层 &quot;和 &quot;图层集 &quot;的方法。</p>
@@ -329,13 +329,13 @@
 <h2 id="参考">参考</h2>
 <ol>
 <li class="lvl-3">
-<p><a href="https://imagej.net/plugins/trakem2/">https://imagej.net/plugins/trakem2/</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9pbWFnZWoubmV0L3BsdWdpbnMvdHJha2VtMi8=">https://imagej.net/plugins/trakem2/<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 <li class="lvl-3">
 <p>Cardona, A., Saalfeld, S., Schindelin, J., Arganda-Carreras, I., Preibisch, S., Longair, M., … Douglas, R. J. (2012). TrakEM2 Software for Neural Circuit Reconstruction. PLoS ONE, 7(6), e38011. doi:10.1371/journal.pone.0038011</p>
 </li>
 <li class="lvl-3">
-<p><a href="https://syn.mrc-lmb.cam.ac.uk/acardona/INI-2008-2011/data.html">https://syn.mrc-lmb.cam.ac.uk/acardona/INI-2008-2011/data.html</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zeW4ubXJjLWxtYi5jYW0uYWMudWsvYWNhcmRvbmEvSU5JLTIwMDgtMjAxMS9kYXRhLmh0bWw=">https://syn.mrc-lmb.cam.ac.uk/acardona/INI-2008-2011/data.html<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 </ol>
 ]]></content>
@@ -424,10 +424,10 @@
 <h2 id="参考">参考</h2>
 <ol>
 <li class="lvl-3">
-<p><a href="https://bigwww.epfl.ch/thevenaz/stackreg/">https://bigwww.epfl.ch/thevenaz/stackreg/</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9iaWd3d3cuZXBmbC5jaC90aGV2ZW5hei9zdGFja3JlZy8=">https://bigwww.epfl.ch/thevenaz/stackreg/<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 <li class="lvl-3">
-<p>P. Thévenaz, U.E. Ruttimann, M. Unser, “A Pyramid Approach to Subpixel Registration Based on Intensity,” IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998. Other relevant on-line publications are available at <a href="http://bigwww.epfl.ch/publications/">http://bigwww.epfl.ch/publications/</a>.</p>
+<p>P. Thévenaz, U.E. Ruttimann, M. Unser, “A Pyramid Approach to Subpixel Registration Based on Intensity,” IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998. Other relevant on-line publications are available at <span class="exturl" data-url="aHR0cDovL2JpZ3d3dy5lcGZsLmNoL3B1YmxpY2F0aW9ucy8=">http://bigwww.epfl.ch/publications/<i class="fa fa-external-link-alt"></i></span>.</p>
 </li>
 </ol>
 ]]></content>
@@ -527,13 +527,13 @@
 <h2 id="参考：">参考：</h2>
 <ol>
 <li class="lvl-3">
-<p>理论-简述RPKM-FPKM-AND-TPM | Dean’s blog (<a href="http://thereallda.github.io">thereallda.github.io</a>)</p>
+<p>理论-简述RPKM-FPKM-AND-TPM | Dean’s blog (<span class="exturl" data-url="aHR0cDovL3RoZXJlYWxsZGEuZ2l0aHViLmlv">thereallda.github.io<i class="fa fa-external-link-alt"></i></span>)</p>
 </li>
 <li class="lvl-3">
-<p>R-获取基因长度 | Dean’s blog (<a href="http://thereallda.github.io">thereallda.github.io</a>)</p>
+<p>R-获取基因长度 | Dean’s blog (<span class="exturl" data-url="aHR0cDovL3RoZXJlYWxsZGEuZ2l0aHViLmlv">thereallda.github.io<i class="fa fa-external-link-alt"></i></span>)</p>
 </li>
 <li class="lvl-3">
-<p>[R]bioconductor之GenomicFeatures学习 - 简书 (<a href="http://jianshu.com">jianshu.com</a>)</p>
+<p>[R]bioconductor之GenomicFeatures学习 - 简书 (<span class="exturl" data-url="aHR0cDovL2ppYW5zaHUuY29t">jianshu.com<i class="fa fa-external-link-alt"></i></span>)</p>
 </li>
 </ol>
 ]]></content>
@@ -545,6 +545,30 @@
         <tag>RNA-seq</tag>
         <tag>生信</tag>
         <tag>R语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/05/09/3a7879a613a7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<span id="more"></span> 
+<h2 id="快速开始">快速开始</h2>
+<h3 id="创建文章">创建文章</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="查看效果">查看效果</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="生成静态">生成静态</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>默认</tag>
+        <tag>你好</tag>
       </tags>
   </entry>
   <entry>
@@ -563,30 +587,6 @@
         <tag>批量</tag>
         <tag>解压</tag>
         <tag>实例</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/05/09/3a7879a613a7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span> 
-<h2 id="快速开始">快速开始</h2>
-<h3 id="创建文章">创建文章</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="查看效果">查看效果</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态">生成静态</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程">部署到远程</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>默认</tag>
-        <tag>你好</tag>
       </tags>
   </entry>
   <entry>
