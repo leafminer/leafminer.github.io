@@ -82,6 +82,138 @@
       </tags>
   </entry>
   <entry>
+    <title>ImageJ--Feature Finder插件</title>
+    <url>/2024/05/09/d89cea932371/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
+<strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
+<span id="more"></span> 
+<p><img src="/images/20240509_223918_00000.png" alt=""></p>
+<h2 id="用途">用途</h2>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>目标检测：通过将已知目标作为模板，在图像中寻找与模板最相似的区域，从而实现目标的检测。</p>
+</li>
+<li class="lvl-2">
+<p>物体跟踪：通过不断更新模板，可以实现对移动目标在视频序列中的跟踪。</p>
+</li>
+<li class="lvl-2">
+<p>字符识别：通过利用字符的模板，可以识别文本中的字符或数字。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="特点">特点</h2>
+<p><strong>优点：</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>经过（缓慢的）初始计算后，预览提供了一种快速确定相似度阈值的方法。</p>
+</li>
+<li class="lvl-2">
+<p>亚像素精度。</p>
+</li>
+<li class="lvl-2">
+<p>在预览过程中，可以通过对找到的特征进行平均来完善原型。</p>
+</li>
+</ul>
+<p><strong>局限：</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>仅适用于灰度图像；像素值的任何校准都会被忽略。</p>
+</li>
+<li class="lvl-2">
+<p>只能搜索未旋转（或圆形）和未缩放的特征。</p>
+</li>
+<li class="lvl-2">
+<p>速度较慢，小原型除外（暴力算法，无 FFT）。</p>
+</li>
+<li class="lvl-2">
+<p>预览期间，当进度条处于激活状态时：不要更改对话框中的任何输入，否则会重新启动，耗时更长。</p>
+</li>
+<li class="lvl-2">
+<p>不处理堆栈。</p>
+</li>
+</ul>
+<h2 id="安装">安装</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>下载<a href="https://github.com/imagej/imagej.github.io/blob/main/media/plugins/feature-finder/Feature_Finder.java">Feature_Finder.java</a></p>
+</li>
+<li class="lvl-2">
+<p>将原始的 <code>Feature_Finder.java</code> 文件复制到 ImageJ 插件文件夹 (plugins) 或其子文件夹中。确保将下载的文件命名为 “Feature_Finder.java”；大写/小写都很重要。</p>
+</li>
+<li class="lvl-2">
+<p>使用 &quot;编译并运行 (Compile and Run)&quot;进行编译，然后按 “确定”。请注意，&quot;编译并运行 &quot;功能目前在 Fiji 上无法使用；作为一种变通方法，请使用文件&gt;新建&gt;脚本，打开 Feature_Finder.java 文件并按 “运行”。</p>
+</li>
+<li class="lvl-2">
+<p>使用 “帮助”&gt;&quot;更新菜单 &quot;或重新启动 ImageJ 使其出现在插件菜单中（如果您已使用 Fiji 脚本编辑器，则无需使用）。</p>
+</li>
+</ul>
+<h2 id="参数选项-Dialog-Options">参数选项 (Dialog Options)</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Prototype from</strong> 选择原型 (prototype)。这可以是当前图像或不同图像的 ROI。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Output Type</strong> 可以是：</p>
+<ul class="lvl-2">
+<li class="lvl-6">点选择：所有特征中心的点 ROI。</li>
+<li class="lvl-6">计数：找到的特征数量写入结果表。</li>
+<li class="lvl-6">列表：中心的 x 和 y 像素坐标列表被写入结果表。</li>
+<li class="lvl-6">列表（校准）：与“列表”类似，但将校准的 x 和 y 坐标写入结果表。</li>
+<li class="lvl-6">点图：一个单独的二值图像，每个特征的中心有一个像素 = 255。</li>
+<li class="lvl-6">偏差图：单独的浮点（32 位）图像。每个点的值表示原始图像中该位置的周围环境与原型的偏离程度。偏差图独立于“公差”设置。</li>
+<li class="lvl-6">特征平均值：单独的浮点（32 位）输出图像，所有特征的平均值移动到同一位置。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>Subtract Background</strong>使用减去背景，特征被认为是相同的，独立于任何恒定（相加）背景。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Soft Edges</strong> 软边缘为原型的近边缘像素赋予的权重小于靠近中心的像素的权重。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Distance Min</strong>如果要素靠得很近，小于“最小距离”，则仅保留最匹配的要素。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Tolerance</strong>公差决定了特征与原型的偏差程度。值 0 表示完全匹配，100 表示偏差等于原型的方差。启用“减去背景”后，在公差为 100% 的情况下，原型区域上具有恒定值的图像区域也符合特征。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Refine</strong> 在预览过程中，设置容差后，您可以按“调整”按钮。这会根据当前选择的所有特征的平均值计算出新的原型。例如，如果原型受到噪声影响，“优化”很有用。在预览期间，该对话框还显示特征数量与原型偏差的直方图以及包含找到的特征数量的消息。</p>
+</li>
+</ul>
+<h2 id="提示和技巧">提示和技巧</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在预览过程中，直方图右侧经常会出现一个宽阔的峰值。这就是假匹配。请将阈值保持在该峰值以下。</p>
+</li>
+<li class="lvl-2">
+<p>特征应与原型具有相同的灰度对比度。如果不是这种情况，建议选择图像中可能出现的对比度最高的模板。</p>
+</li>
+<li class="lvl-2">
+<p>如果阈值法失败，也可以尝试创建偏差图并对其进行处理（背景减除、高通滤波器、查找最大值…）。</p>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><a href="https://imagej.github.io/plugins/feature-finder">https://imagej.github.io/plugins/feature-finder</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://blog.csdn.net/twnkie/article/details/132154253">https://blog.csdn.net/twnkie/article/details/132154253</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ImageJ</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>ImageJ</tag>
+        <tag>图像</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ImageJ--形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释-TrakEM2简介</title>
     <url>/2024/05/16/88aba7486b49/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>TrakEM2 是一个 ImageJ 插件，用于形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释。</p>
@@ -219,138 +351,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ImageJ--Feature Finder插件</title>
-    <url>/2024/05/09/d89cea932371/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
-<strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
-<span id="more"></span> 
-<p><img src="/images/20240509_223918_00000.png" alt=""></p>
-<h2 id="用途">用途</h2>
-<blockquote>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>目标检测：通过将已知目标作为模板，在图像中寻找与模板最相似的区域，从而实现目标的检测。</p>
-</li>
-<li class="lvl-2">
-<p>物体跟踪：通过不断更新模板，可以实现对移动目标在视频序列中的跟踪。</p>
-</li>
-<li class="lvl-2">
-<p>字符识别：通过利用字符的模板，可以识别文本中的字符或数字。</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="特点">特点</h2>
-<p><strong>优点：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>经过（缓慢的）初始计算后，预览提供了一种快速确定相似度阈值的方法。</p>
-</li>
-<li class="lvl-2">
-<p>亚像素精度。</p>
-</li>
-<li class="lvl-2">
-<p>在预览过程中，可以通过对找到的特征进行平均来完善原型。</p>
-</li>
-</ul>
-<p><strong>局限：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>仅适用于灰度图像；像素值的任何校准都会被忽略。</p>
-</li>
-<li class="lvl-2">
-<p>只能搜索未旋转（或圆形）和未缩放的特征。</p>
-</li>
-<li class="lvl-2">
-<p>速度较慢，小原型除外（暴力算法，无 FFT）。</p>
-</li>
-<li class="lvl-2">
-<p>预览期间，当进度条处于激活状态时：不要更改对话框中的任何输入，否则会重新启动，耗时更长。</p>
-</li>
-<li class="lvl-2">
-<p>不处理堆栈。</p>
-</li>
-</ul>
-<h2 id="安装">安装</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>下载<a href="https://github.com/imagej/imagej.github.io/blob/main/media/plugins/feature-finder/Feature_Finder.java">Feature_Finder.java</a></p>
-</li>
-<li class="lvl-2">
-<p>将原始的 <code>Feature_Finder.java</code> 文件复制到 ImageJ 插件文件夹 (plugins) 或其子文件夹中。确保将下载的文件命名为 “Feature_Finder.java”；大写/小写都很重要。</p>
-</li>
-<li class="lvl-2">
-<p>使用 &quot;编译并运行 (Compile and Run)&quot;进行编译，然后按 “确定”。请注意，&quot;编译并运行 &quot;功能目前在 Fiji 上无法使用；作为一种变通方法，请使用文件&gt;新建&gt;脚本，打开 Feature_Finder.java 文件并按 “运行”。</p>
-</li>
-<li class="lvl-2">
-<p>使用 “帮助”&gt;&quot;更新菜单 &quot;或重新启动 ImageJ 使其出现在插件菜单中（如果您已使用 Fiji 脚本编辑器，则无需使用）。</p>
-</li>
-</ul>
-<h2 id="参数选项-Dialog-Options">参数选项 (Dialog Options)</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Prototype from</strong> 选择原型 (prototype)。这可以是当前图像或不同图像的 ROI。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Output Type</strong> 可以是：</p>
-<ul class="lvl-2">
-<li class="lvl-6">点选择：所有特征中心的点 ROI。</li>
-<li class="lvl-6">计数：找到的特征数量写入结果表。</li>
-<li class="lvl-6">列表：中心的 x 和 y 像素坐标列表被写入结果表。</li>
-<li class="lvl-6">列表（校准）：与“列表”类似，但将校准的 x 和 y 坐标写入结果表。</li>
-<li class="lvl-6">点图：一个单独的二值图像，每个特征的中心有一个像素 = 255。</li>
-<li class="lvl-6">偏差图：单独的浮点（32 位）图像。每个点的值表示原始图像中该位置的周围环境与原型的偏离程度。偏差图独立于“公差”设置。</li>
-<li class="lvl-6">特征平均值：单独的浮点（32 位）输出图像，所有特征的平均值移动到同一位置。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p><strong>Subtract Background</strong>使用减去背景，特征被认为是相同的，独立于任何恒定（相加）背景。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Soft Edges</strong> 软边缘为原型的近边缘像素赋予的权重小于靠近中心的像素的权重。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Distance Min</strong>如果要素靠得很近，小于“最小距离”，则仅保留最匹配的要素。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Tolerance</strong>公差决定了特征与原型的偏差程度。值 0 表示完全匹配，100 表示偏差等于原型的方差。启用“减去背景”后，在公差为 100% 的情况下，原型区域上具有恒定值的图像区域也符合特征。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Refine</strong> 在预览过程中，设置容差后，您可以按“调整”按钮。这会根据当前选择的所有特征的平均值计算出新的原型。例如，如果原型受到噪声影响，“优化”很有用。在预览期间，该对话框还显示特征数量与原型偏差的直方图以及包含找到的特征数量的消息。</p>
-</li>
-</ul>
-<h2 id="提示和技巧">提示和技巧</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>在预览过程中，直方图右侧经常会出现一个宽阔的峰值。这就是假匹配。请将阈值保持在该峰值以下。</p>
-</li>
-<li class="lvl-2">
-<p>特征应与原型具有相同的灰度对比度。如果不是这种情况，建议选择图像中可能出现的对比度最高的模板。</p>
-</li>
-<li class="lvl-2">
-<p>如果阈值法失败，也可以尝试创建偏差图并对其进行处理（背景减除、高通滤波器、查找最大值…）。</p>
-</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><a href="https://imagej.github.io/plugins/feature-finder">https://imagej.github.io/plugins/feature-finder</a></p>
-</li>
-<li class="lvl-3">
-<p><a href="https://blog.csdn.net/twnkie/article/details/132154253">https://blog.csdn.net/twnkie/article/details/132154253</a></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ImageJ</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>ImageJ</tag>
-        <tag>图像</tag>
-        <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
     <url>/2024/05/23/109a1e8436e7/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a name="e05dce83"></a></p>
@@ -439,6 +439,24 @@
         <tag>ImageJ</tag>
         <tag>图像</tag>
         <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R语言--批量解压文件--示例</title>
+    <url>/2024/05/23/a4e9d30f08ea/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>用R语言批量解压文件到指定目录</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>R语言</category>
+      </categories>
+      <tags>
+        <tag>批量</tag>
+        <tag>解压</tag>
+        <tag>R语言</tag>
+        <tag>实例</tag>
       </tags>
   </entry>
   <entry>
@@ -542,76 +560,15 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+        <tag>R语言</tag>
         <tag>RNA-seq</tag>
         <tag>生信</tag>
-        <tag>R语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>R语言--批量解压文件--示例</title>
-    <url>/2024/05/23/a4e9d30f08ea/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>用R语言批量解压文件到指定目录</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>R语言</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>批量</tag>
-        <tag>解压</tag>
-        <tag>实例</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/05/09/3a7879a613a7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span> 
-<h2 id="快速开始">快速开始</h2>
-<h3 id="创建文章">创建文章</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="查看效果">查看效果</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="生成静态">生成静态</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="部署到远程">部署到远程</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>默认</tag>
-        <tag>你好</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>R语言--爬取小说-战略级天使</title>
-    <url>/2021/05/04/dfc6fd522f6c/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;rvest&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RCurl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;curl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;downloader&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RSelenium&#x27;</span><span class="punctuation">)</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&#x27;H:\\R\\R脚本\\爬虫&#x27;</span><span class="punctuation">)</span></span><br><span class="line">url <span class="operator">&lt;-</span> <span class="string">&quot;https://www.-----.com/yuedu/15111/&quot;</span></span><br><span class="line">htmlpage <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>url<span class="punctuation">)</span></span><br><span class="line">xs_chapter <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_chapter<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_attrs<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> paste<span class="punctuation">(</span><span class="string">&quot;https://www.-----.com&quot;</span><span class="punctuation">,</span>unlist<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">)</span><span class="comment">#构建章节链接</span></span><br><span class="line">xs_content <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>xs_chapter<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>xs_link<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="comment">#合并目录链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#尝试获取小说内容，并提取。</span></span><br><span class="line">ms_f1 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f2 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f1<span class="punctuation">,</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f2<span class="punctuation">)</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> ms_f<span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;1.txt&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义下载函数</span></span><br><span class="line">xs_down <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  xm <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs<span class="punctuation">,</span> x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> xm<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  xs</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment">#导出小说</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> xs_down<span class="punctuation">(</span>xs_content<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;战略级天使.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>爬虫</category>
-        <category>R语言</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>实例</tag>
-        <tag>爬虫</tag>
-        <tag>小说</tag>
       </tags>
   </entry>
   <entry>
     <title>从出生那天开始，你就是“局外人”</title>
     <url>/2024/05/10/51fa0d872217/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>你</h1>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="你">你</h2>
 <p>如果你是中国的90后，那你的出生就已经是个错误。这个错是谁跟你定的呢？谁管呢，谁让你赶在了这个糟糕的年代。</p>
 <span id="more"></span>
 <p>20世纪90年代正是计划生育实行最没“人性”的时代，你出生了。不是独生子，就是“计划外”。独生子的你以后要独自承担这个家，而计划外的你现在就要面临活下去的困难。好了，挨过了出生这道屏障。上小学到5年级，突然多了一个6年级。<br>
@@ -646,6 +603,49 @@
         <tag>随笔</tag>
         <tag>牢骚</tag>
         <tag>时代</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R语言--爬取小说-战略级天使</title>
+    <url>/2021/05/04/dfc6fd522f6c/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;rvest&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RCurl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;curl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;downloader&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RSelenium&#x27;</span><span class="punctuation">)</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&#x27;H:\\R\\R脚本\\爬虫&#x27;</span><span class="punctuation">)</span></span><br><span class="line">url <span class="operator">&lt;-</span> <span class="string">&quot;https://www.-----.com/yuedu/15111/&quot;</span></span><br><span class="line">htmlpage <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>url<span class="punctuation">)</span></span><br><span class="line">xs_chapter <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_chapter<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_attrs<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> paste<span class="punctuation">(</span><span class="string">&quot;https://www.-----.com&quot;</span><span class="punctuation">,</span>unlist<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">)</span><span class="comment">#构建章节链接</span></span><br><span class="line">xs_content <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>xs_chapter<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>xs_link<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="comment">#合并目录链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#尝试获取小说内容，并提取。</span></span><br><span class="line">ms_f1 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f2 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f1<span class="punctuation">,</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f2<span class="punctuation">)</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> ms_f<span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;1.txt&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义下载函数</span></span><br><span class="line">xs_down <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  xm <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs<span class="punctuation">,</span> x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> xm<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  xs</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment">#导出小说</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> xs_down<span class="punctuation">(</span>xs_content<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;战略级天使.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>爬虫</category>
+        <category>R语言</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>实例</tag>
+        <tag>爬虫</tag>
+        <tag>小说</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/05/09/3a7879a613a7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span> 
+<h2 id="快速开始">快速开始</h2>
+<h3 id="创建文章">创建文章</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="查看效果">查看效果</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="生成静态">生成静态</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>默认</tag>
+        <tag>你好</tag>
       </tags>
   </entry>
 </search>
