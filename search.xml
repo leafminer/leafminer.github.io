@@ -548,48 +548,6 @@
       </tags>
   </entry>
   <entry>
-    <title>R语言--批量解压文件--示例</title>
-    <url>/2024/05/23/a4e9d30f08ea/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>用R语言批量解压文件到指定目录</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>R语言</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>批量</tag>
-        <tag>解压</tag>
-        <tag>实例</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/05/09/3a7879a613a7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<span id="more"></span> 
-<h2 id="快速开始">快速开始</h2>
-<h3 id="创建文章">创建文章</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="查看效果">查看效果</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="生成静态">生成静态</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="部署到远程">部署到远程</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <tags>
-        <tag>默认</tag>
-        <tag>你好</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>从出生那天开始，你就是“局外人”</title>
     <url>/2024/05/10/51fa0d872217/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="你">你</h2>
@@ -627,6 +585,48 @@
         <tag>随笔</tag>
         <tag>牢骚</tag>
         <tag>时代</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/05/09/3a7879a613a7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<span id="more"></span> 
+<h2 id="快速开始">快速开始</h2>
+<h3 id="创建文章">创建文章</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="查看效果">查看效果</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="生成静态">生成静态</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>默认</tag>
+        <tag>你好</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R语言--批量解压文件--示例</title>
+    <url>/2024/05/23/a4e9d30f08ea/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>用R语言批量解压文件到指定目录</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>R语言</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>批量</tag>
+        <tag>解压</tag>
+        <tag>实例</tag>
       </tags>
   </entry>
   <entry>
