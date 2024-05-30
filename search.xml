@@ -1,87 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo新建文章及发布指令--笔记</title>
-    <url>/2024/05/08/a18440ea295e/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<h1>完成后部署</h1>
-<p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
-</blockquote>
-<span id="more"></span> 
-<h2 id="新建">新建</h2>
-<p><code>hexo new [layout] &lt;title&gt;</code><br>
-布局（Layout）有三种：post、page 和 draft。</p>
-<table>
-<thead>
-<tr>
-<th>布局</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>post</td>
-<td>source/_posts</td>
-</tr>
-<tr>
-<td>page</td>
-<td>source</td>
-</tr>
-<tr>
-<td>draft</td>
-<td>source/_drafts</td>
-</tr>
-</tbody>
-</table>
-<h3 id="新建文章">新建文章</h3>
-<p>windows下使用命令行创建新的博客文章如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
-<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
-<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
-<h3 id="新建独立页面">新建独立页面</h3>
-<p><code>hexo new page --path about/me &quot;About me&quot;</code><br>
-以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
-<h3 id="新建草稿">新建草稿</h3>
-<p><code>hexo new draft &quot;draft&quot;</code></p>
-<h2 id="生成静态网页">生成静态网页</h2>
-<p><code>hexo generate</code><br>
-可简写为<code>hexo g</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
-<h2 id="发布">发布</h2>
-<p>发表草稿。<br>
-<code>hexo publish [layout] &lt;filename&gt;</code></p>
-<h2 id="server">server</h2>
-<p>启动服务器。默认情况下，访问网址为： <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLyVFMyU4MCU4Mg==">http://localhost:4000/。<i class="fa fa-external-link-alt"></i></span><br>
-<code>hexo server</code></p>
-<h2 id="布署-deploy">布署(deploy)</h2>
-<p><code>hexo deploy</code><br>
-可简写为<code>hexo d</code></p>
-<h2 id="渲染文件">渲染文件</h2>
-<p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
-<h2 id="迁移">迁移</h2>
-<p><code>hexo migrate &lt;type&gt;</code></p>
-<h2 id="清除缓存和已生成的静态文件">清除缓存和已生成的静态文件</h2>
-<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-<code>hexo clean</code></p>
-<h2 id="list">list</h2>
-<p>列出网站数据。<br>
-<code>hexo list &lt;type&gt;</code></p>
-<h2 id="显示草稿">显示草稿</h2>
-<p><code>hexo --draft</code><br>
-显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ImageJ--Feature Finder插件</title>
     <url>/2024/05/09/d89cea932371/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
@@ -207,10 +126,91 @@
         <category>ImageJ</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
+        <tag>笔记</tag>
         <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo新建文章及发布指令--笔记</title>
+    <url>/2024/05/08/a18440ea295e/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<h1>完成后部署</h1>
+<p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
+</blockquote>
+<span id="more"></span> 
+<h2 id="新建">新建</h2>
+<p><code>hexo new [layout] &lt;title&gt;</code><br>
+布局（Layout）有三种：post、page 和 draft。</p>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post</td>
+<td>source/_posts</td>
+</tr>
+<tr>
+<td>page</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source/_drafts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="新建文章">新建文章</h3>
+<p>windows下使用命令行创建新的博客文章如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
+<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
+<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
+<h3 id="新建独立页面">新建独立页面</h3>
+<p><code>hexo new page --path about/me &quot;About me&quot;</code><br>
+以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
+<h3 id="新建草稿">新建草稿</h3>
+<p><code>hexo new draft &quot;draft&quot;</code></p>
+<h2 id="生成静态网页">生成静态网页</h2>
+<p><code>hexo generate</code><br>
+可简写为<code>hexo g</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
+<h2 id="发布">发布</h2>
+<p>发表草稿。<br>
+<code>hexo publish [layout] &lt;filename&gt;</code></p>
+<h2 id="server">server</h2>
+<p>启动服务器。默认情况下，访问网址为： <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLyVFMyU4MCU4Mg==">http://localhost:4000/。<i class="fa fa-external-link-alt"></i></span><br>
+<code>hexo server</code></p>
+<h2 id="布署-deploy">布署(deploy)</h2>
+<p><code>hexo deploy</code><br>
+可简写为<code>hexo d</code></p>
+<h2 id="渲染文件">渲染文件</h2>
+<p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
+<h2 id="迁移">迁移</h2>
+<p><code>hexo migrate &lt;type&gt;</code></p>
+<h2 id="清除缓存和已生成的静态文件">清除缓存和已生成的静态文件</h2>
+<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+<code>hexo clean</code></p>
+<h2 id="list">list</h2>
+<p>列出网站数据。<br>
+<code>hexo list &lt;type&gt;</code></p>
+<h2 id="显示草稿">显示草稿</h2>
+<p><code>hexo --draft</code><br>
+显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>指令</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -343,9 +343,9 @@
         <category>ImageJ</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
+        <tag>笔记</tag>
         <tag>插件</tag>
         <tag>简介</tag>
       </tags>
@@ -435,10 +435,76 @@
         <category>ImageJ</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
+        <tag>笔记</tag>
         <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web API--学习笔记（1）</title>
+    <url>/2024/05/29/21820beb8945/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介">简介</h2>
+<p>应用程序接口（<strong>API</strong>，Application Programming Interface）是基于编程语言构建的结构，使开发人员更容易地创建复杂的功能。它们抽象了复杂的代码，并提供一些简单的接口规则直接使用。</p>
+<span id="more"></span> 
+<blockquote>
+<p>通常分为两类：</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>浏览器 API</strong>内置于 Web 浏览器中，能从浏览器和电脑周边环境中提取数据，并用来做有用的复杂的事情。例如<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0dlb2xvY2F0aW9uX0FQSQ==">Geolocation API<i class="fa fa-external-link-alt"></i></span>提供了一些简单的 JavaScript 结构以获得位置数据，因此你可以在 Google 地图上标示你的位置。在后台，浏览器确实使用一些复杂的低级代码（例如 C++）与设备的 GPS 硬件（或可以决定位置数据的任何设施）通信来获取位置数据并把这些数据返回给你的代码中使用浏览器环境；但是，这种复杂性通过 API 抽象出来，因而与你无关。</p>
+</li>
+<li class="lvl-2">
+<p><strong>第三方 API</strong>缺省情况下不会内置于浏览器中，通常必须在 Web 中的某个地方获取代码和信息。例如<span class="exturl" data-url="aHR0cHM6Ly9kZXYudHdpdHRlci5jb20vb3ZlcnZpZXcvZG9jdW1lbnRhdGlvbg==">Twitter API<i class="fa fa-external-link-alt"></i></span> 使你能做一些显示最新推文这样的事情，它提供一系列特殊的结构，可以用来请求 Twitter 服务并返回特殊的信息。</p>
+</li>
+</ul>
+<blockquote>
+<p>浏览器 API 类别</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>操作文档的 API</strong>内置于浏览器中。最明显的例子是<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0RvY3VtZW50X09iamVjdF9Nb2RlbA==">DOM（文档对象模型）<i class="fa fa-external-link-alt"></i></span>API，它允许你操作 HTML 和 CSS — 创建、移除以及修改 HTML，动态地将新样式应用到你的页面，等等。每当你看到一个弹出窗口出现在一个页面上，或者显示一些新的内容时，这都是 DOM 的行为。你可以在在<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL01hbmlwdWxhdGluZ19kb2N1bWVudHM=">Manipulating documents<i class="fa fa-external-link-alt"></i></span>中找到关于这些类型的 API 的更多信息。</p>
+</li>
+<li class="lvl-2">
+<p><strong>从服务器获取数据的 API</strong> 用于更新网页的一小部分是相当好用的。这个看似很小的细节能对网站的性能和行为产生巨大的影响 — 如果你只是更新一个股票列表或者一些可用的新故事而不需要从服务器重新加载整个页面将使网站或应用程序感觉更加敏感和“活泼”。使这成为可能的 API 包括<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1hNTEh0dHBSZXF1ZXN0">XMLHttpRequest<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0ZldGNoX0FQSQ==">Fetch API<i class="fa fa-external-link-alt"></i></span>。你也可能会遇到描述这种技术的术语<strong>Ajax</strong>。你可以在<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL0ZldGNoaW5nX2RhdGE=">Fetching data from the server<i class="fa fa-external-link-alt"></i></span>找到关于类似的 API 的更多信息。</p>
+</li>
+<li class="lvl-2">
+<p><strong>用于绘制和操作图形的 API</strong>目前已被浏览器广泛支持 — 最流行的是允许你以编程方式更新包含在 HTML <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas"><canvas></a> 元素中的像素数据以创建 2D 和 3D 场景的<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0NhbnZhc19BUEk=">Canvas<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYkdMX0FQSQ==">WebGL<i class="fa fa-external-link-alt"></i></span>。例如，你可以绘制矩形或圆形等形状，将图像导入到画布上，然后使用 Canvas API 对其应用滤镜（如棕褐色滤镜或灰度滤镜），或使用 WebGL 创建具有光照和纹理的复杂 3D 场景。这些 API 经常与用于创建动画循环的 API（例如<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dpbmRvdy9yZXF1ZXN0QW5pbWF0aW9uRnJhbWU=">window.requestAnimationFrame()<i class="fa fa-external-link-alt"></i></span>）和其他 API 一起不断更新诸如动画和游戏之类的场景。</p>
+</li>
+<li class="lvl-2">
+<p><strong>音频和视频 API</strong> 例如 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hUTUxNZWRpYUVsZW1lbnQ=">HTMLMediaElement<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYl9BdWRpb19BUEk=">Web Audio API<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYlJUQ19BUEk=">WebRTC<i class="fa fa-external-link-alt"></i></span> 允许你使用多媒体来做一些非常有趣的事情，比如创建用于播放音频和视频的自定义 UI 控件，显示字幕字幕和你的视频，从网络摄像机抓取视频，通过画布操纵（见上），或在网络会议中显示在别人的电脑上，或者添加效果到音轨（如增益、失真、平移等） 。</p>
+</li>
+<li class="lvl-2">
+<p><strong>设备 API</strong>基本上是以对网络应用程序有用的方式操作和检索现代设备硬件中的数据的 API。我们已经讨论过访问设备位置数据的地理定位 API，因此你可以在地图上标注你的位置。其他示例还包括通过系统通知（参见<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL05vdGlmaWNhdGlvbnNfQVBJ">Notifications API<i class="fa fa-external-link-alt"></i></span>）或振动硬件（参见<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1ZpYnJhdGlvbl9BUEk=">Vibration API<i class="fa fa-external-link-alt"></i></span>）告诉用户 Web 应用程序有用的更新可用。</p>
+</li>
+<li class="lvl-2">
+<p><strong>客户端存储 API</strong>在 Web 浏览器中的使用变得越来越普遍 - 如果你想创建一个应用程序来保存页面加载之间的状态，甚至让设备在处于脱机状态时可用，那么在客户端存储数据将会是非常有用的。例如使用<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYl9TdG9yYWdlX0FQSQ==">Web Storage API<i class="fa fa-external-link-alt"></i></span>的简单的键 - 值存储以及使用<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0luZGV4ZWREQl9BUEk=">IndexedDB API<i class="fa fa-external-link-alt"></i></span>的更复杂的表格数据存储。</p>
+</li>
+</ul>
+<blockquote>
+<p>第三方 API</p>
+</blockquote>
+<h2 id="API-如何工作？">API 如何工作？</h2>
+<p>API 使用一个或多个 JavaScript objects 在你的代码中进行交互，这些对象用作 API 使用的数据（包含在对象属性中）的容器以及 API 提供的功能（包含在对象方法中）。</p>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL0ludHJvZHVjdGlvbg==">https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Introduction<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC84Nzg4NSMh">https://sspai.com/post/87885#!<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>建站</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>博客</tag>
+        <tag>建站</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -548,6 +614,24 @@
       </tags>
   </entry>
   <entry>
+    <title>R语言--批量解压文件--示例</title>
+    <url>/2024/05/23/a4e9d30f08ea/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>用R语言批量解压文件到指定目录</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>R语言</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>批量</tag>
+        <tag>解压</tag>
+        <tag>实例</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>从出生那天开始，你就是“局外人”</title>
     <url>/2024/05/10/51fa0d872217/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="你">你</h2>
@@ -612,24 +696,6 @@
       </tags>
   </entry>
   <entry>
-    <title>R语言--批量解压文件--示例</title>
-    <url>/2024/05/23/a4e9d30f08ea/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>用R语言批量解压文件到指定目录</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>R语言</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>批量</tag>
-        <tag>解压</tag>
-        <tag>实例</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>R语言--爬取小说-战略级天使</title>
     <url>/2021/05/04/dfc6fd522f6c/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
@@ -646,76 +712,6 @@
         <tag>实例</tag>
         <tag>爬虫</tag>
         <tag>小说</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Web API--学习笔记</title>
-    <url>/2024/05/29/21820beb8945/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介">简介</h2>
-<p>应用程序接口（<strong>API</strong>，Application Programming Interface）是基于编程语言构建的结构，使开发人员更容易地创建复杂的功能。它们抽象了复杂的代码，并提供一些简单的接口规则直接使用。</p>
-<span id="more"></span> 
-<blockquote>
-<p>通常分为两类：</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>浏览器 API</strong>内置于 Web 浏览器中，能从浏览器和电脑周边环境中提取数据，并用来做有用的复杂的事情。例如<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0dlb2xvY2F0aW9uX0FQSQ==">Geolocation API<i class="fa fa-external-link-alt"></i></span>提供了一些简单的 JavaScript 结构以获得位置数据，因此你可以在 Google 地图上标示你的位置。在后台，浏览器确实使用一些复杂的低级代码（例如 C++）与设备的 GPS 硬件（或可以决定位置数据的任何设施）通信来获取位置数据并把这些数据返回给你的代码中使用浏览器环境；但是，这种复杂性通过 API 抽象出来，因而与你无关。</p>
-</li>
-<li class="lvl-2">
-<p><strong>第三方 API</strong>缺省情况下不会内置于浏览器中，通常必须在 Web 中的某个地方获取代码和信息。例如<span class="exturl" data-url="aHR0cHM6Ly9kZXYudHdpdHRlci5jb20vb3ZlcnZpZXcvZG9jdW1lbnRhdGlvbg==">Twitter API<i class="fa fa-external-link-alt"></i></span> 使你能做一些显示最新推文这样的事情，它提供一系列特殊的结构，可以用来请求 Twitter 服务并返回特殊的信息。</p>
-</li>
-</ul>
-<blockquote>
-<p>浏览器 API 类别</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>操作文档的 API</strong>内置于浏览器中。最明显的例子是<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0RvY3VtZW50X09iamVjdF9Nb2RlbA==">DOM（文档对象模型）<i class="fa fa-external-link-alt"></i></span>API，它允许你操作 HTML 和 CSS — 创建、移除以及修改 HTML，动态地将新样式应用到你的页面，等等。每当你看到一个弹出窗口出现在一个页面上，或者显示一些新的内容时，这都是 DOM 的行为。你可以在在<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL01hbmlwdWxhdGluZ19kb2N1bWVudHM=">Manipulating documents<i class="fa fa-external-link-alt"></i></span>中找到关于这些类型的 API 的更多信息。</p>
-</li>
-<li class="lvl-2">
-<p><strong>从服务器获取数据的 API</strong> 用于更新网页的一小部分是相当好用的。这个看似很小的细节能对网站的性能和行为产生巨大的影响 — 如果你只是更新一个股票列表或者一些可用的新故事而不需要从服务器重新加载整个页面将使网站或应用程序感觉更加敏感和“活泼”。使这成为可能的 API 包括<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1hNTEh0dHBSZXF1ZXN0">XMLHttpRequest<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0ZldGNoX0FQSQ==">Fetch API<i class="fa fa-external-link-alt"></i></span>。你也可能会遇到描述这种技术的术语<strong>Ajax</strong>。你可以在<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL0ZldGNoaW5nX2RhdGE=">Fetching data from the server<i class="fa fa-external-link-alt"></i></span>找到关于类似的 API 的更多信息。</p>
-</li>
-<li class="lvl-2">
-<p><strong>用于绘制和操作图形的 API</strong>目前已被浏览器广泛支持 — 最流行的是允许你以编程方式更新包含在 HTML <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas"><canvas></a> 元素中的像素数据以创建 2D 和 3D 场景的<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0NhbnZhc19BUEk=">Canvas<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYkdMX0FQSQ==">WebGL<i class="fa fa-external-link-alt"></i></span>。例如，你可以绘制矩形或圆形等形状，将图像导入到画布上，然后使用 Canvas API 对其应用滤镜（如棕褐色滤镜或灰度滤镜），或使用 WebGL 创建具有光照和纹理的复杂 3D 场景。这些 API 经常与用于创建动画循环的 API（例如<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dpbmRvdy9yZXF1ZXN0QW5pbWF0aW9uRnJhbWU=">window.requestAnimationFrame()<i class="fa fa-external-link-alt"></i></span>）和其他 API 一起不断更新诸如动画和游戏之类的场景。</p>
-</li>
-<li class="lvl-2">
-<p><strong>音频和视频 API</strong> 例如 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hUTUxNZWRpYUVsZW1lbnQ=">HTMLMediaElement<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYl9BdWRpb19BUEk=">Web Audio API<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYlJUQ19BUEk=">WebRTC<i class="fa fa-external-link-alt"></i></span> 允许你使用多媒体来做一些非常有趣的事情，比如创建用于播放音频和视频的自定义 UI 控件，显示字幕字幕和你的视频，从网络摄像机抓取视频，通过画布操纵（见上），或在网络会议中显示在别人的电脑上，或者添加效果到音轨（如增益、失真、平移等） 。</p>
-</li>
-<li class="lvl-2">
-<p><strong>设备 API</strong>基本上是以对网络应用程序有用的方式操作和检索现代设备硬件中的数据的 API。我们已经讨论过访问设备位置数据的地理定位 API，因此你可以在地图上标注你的位置。其他示例还包括通过系统通知（参见<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL05vdGlmaWNhdGlvbnNfQVBJ">Notifications API<i class="fa fa-external-link-alt"></i></span>）或振动硬件（参见<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1ZpYnJhdGlvbl9BUEk=">Vibration API<i class="fa fa-external-link-alt"></i></span>）告诉用户 Web 应用程序有用的更新可用。</p>
-</li>
-<li class="lvl-2">
-<p><strong>客户端存储 API</strong>在 Web 浏览器中的使用变得越来越普遍 - 如果你想创建一个应用程序来保存页面加载之间的状态，甚至让设备在处于脱机状态时可用，那么在客户端存储数据将会是非常有用的。例如使用<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYl9TdG9yYWdlX0FQSQ==">Web Storage API<i class="fa fa-external-link-alt"></i></span>的简单的键 - 值存储以及使用<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0luZGV4ZWREQl9BUEk=">IndexedDB API<i class="fa fa-external-link-alt"></i></span>的更复杂的表格数据存储。</p>
-</li>
-</ul>
-<blockquote>
-<p>第三方 API</p>
-</blockquote>
-<h2 id="API-如何工作？">API 如何工作？</h2>
-<p>API 使用一个或多个 JavaScript objects 在你的代码中进行交互，这些对象用作 API 使用的数据（包含在对象属性中）的容器以及 API 提供的功能（包含在对象方法中）。</p>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL0ludHJvZHVjdGlvbg==">https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Introduction<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC84Nzg4NSMh">https://sspai.com/post/87885#!<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ol>
-<blockquote>
-<p><strong>版权声明：</strong> This work is licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LXNhLzQuMC9kZWVkLnpoLWhhbnM=">CC BY-SA 4.0<i class="fa fa-external-link-alt"></i></span> 转载请注明出处！<br>
-<strong>联系方式：</strong> <span class="exturl" data-url="bWFpbHRvOnpoYW5nNjQxMDMxOUBob3RtYWlsLmNvbQ==">zhang6410319@hotmail.com<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>建站</category>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>笔记</tag>
-        <tag>建站</tag>
-        <tag>API</tag>
       </tags>
   </entry>
 </search>
