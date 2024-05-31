@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo新建文章及发布指令--笔记</title>
+    <url>/2024/05/08/a18440ea295e/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<h1>完成后部署</h1>
+<p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
+</blockquote>
+<span id="more"></span> 
+<h2 id="新建">新建</h2>
+<p><code>hexo new [layout] &lt;title&gt;</code><br>
+布局（Layout）有三种：post、page 和 draft。</p>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post</td>
+<td>source/_posts</td>
+</tr>
+<tr>
+<td>page</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source/_drafts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="新建文章">新建文章</h3>
+<p>windows下使用命令行创建新的博客文章如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
+<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
+<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
+<h3 id="新建独立页面">新建独立页面</h3>
+<p><code>hexo new page --path about/me &quot;About me&quot;</code><br>
+以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
+<h3 id="新建草稿">新建草稿</h3>
+<p><code>hexo new draft &quot;draft&quot;</code></p>
+<h2 id="生成静态网页">生成静态网页</h2>
+<p><code>hexo generate</code><br>
+可简写为<code>hexo g</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
+<h2 id="发布">发布</h2>
+<p>发表草稿。<br>
+<code>hexo publish [layout] &lt;filename&gt;</code></p>
+<h2 id="server">server</h2>
+<p>启动服务器。默认情况下，访问网址为： <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLyVFMyU4MCU4Mg==">http://localhost:4000/。<i class="fa fa-external-link-alt"></i></span><br>
+<code>hexo server</code></p>
+<h2 id="布署-deploy">布署(deploy)</h2>
+<p><code>hexo deploy</code><br>
+可简写为<code>hexo d</code></p>
+<h2 id="渲染文件">渲染文件</h2>
+<p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
+<h2 id="迁移">迁移</h2>
+<p><code>hexo migrate &lt;type&gt;</code></p>
+<h2 id="清除缓存和已生成的静态文件">清除缓存和已生成的静态文件</h2>
+<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+<code>hexo clean</code></p>
+<h2 id="list">list</h2>
+<p>列出网站数据。<br>
+<code>hexo list &lt;type&gt;</code></p>
+<h2 id="显示草稿">显示草稿</h2>
+<p><code>hexo --draft</code><br>
+显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ImageJ--Feature Finder插件</title>
     <url>/2024/05/09/d89cea932371/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
@@ -126,91 +207,10 @@
         <category>ImageJ</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>笔记</tag>
         <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo新建文章及发布指令--笔记</title>
-    <url>/2024/05/08/a18440ea295e/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<h1>完成后部署</h1>
-<p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
-</blockquote>
-<span id="more"></span> 
-<h2 id="新建">新建</h2>
-<p><code>hexo new [layout] &lt;title&gt;</code><br>
-布局（Layout）有三种：post、page 和 draft。</p>
-<table>
-<thead>
-<tr>
-<th>布局</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>post</td>
-<td>source/_posts</td>
-</tr>
-<tr>
-<td>page</td>
-<td>source</td>
-</tr>
-<tr>
-<td>draft</td>
-<td>source/_drafts</td>
-</tr>
-</tbody>
-</table>
-<h3 id="新建文章">新建文章</h3>
-<p>windows下使用命令行创建新的博客文章如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
-<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">参数	描述</span><br><span class="line">-p, --path	自定义新文章的路径</span><br><span class="line">-r, --replace	如果存在同名文章，将其替换</span><br><span class="line">-s, --slug	文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure>
-<p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p>
-<h3 id="新建独立页面">新建独立页面</h3>
-<p><code>hexo new page --path about/me &quot;About me&quot;</code><br>
-以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
-<h3 id="新建草稿">新建草稿</h3>
-<p><code>hexo new draft &quot;draft&quot;</code></p>
-<h2 id="生成静态网页">生成静态网页</h2>
-<p><code>hexo generate</code><br>
-可简写为<code>hexo g</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选项	描述</span><br><span class="line">-d, --deploy	文件生成后立即部署网站</span><br><span class="line">-w, --watch	监视文件变动</span><br><span class="line">-b, --bail	生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force	强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency	最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure>
-<h2 id="发布">发布</h2>
-<p>发表草稿。<br>
-<code>hexo publish [layout] &lt;filename&gt;</code></p>
-<h2 id="server">server</h2>
-<p>启动服务器。默认情况下，访问网址为： <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLyVFMyU4MCU4Mg==">http://localhost:4000/。<i class="fa fa-external-link-alt"></i></span><br>
-<code>hexo server</code></p>
-<h2 id="布署-deploy">布署(deploy)</h2>
-<p><code>hexo deploy</code><br>
-可简写为<code>hexo d</code></p>
-<h2 id="渲染文件">渲染文件</h2>
-<p><code>hexo render &lt;file1&gt; [file2] ...</code></p>
-<h2 id="迁移">迁移</h2>
-<p><code>hexo migrate &lt;type&gt;</code></p>
-<h2 id="清除缓存和已生成的静态文件">清除缓存和已生成的静态文件</h2>
-<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-<code>hexo clean</code></p>
-<h2 id="list">list</h2>
-<p>列出网站数据。<br>
-<code>hexo list &lt;type&gt;</code></p>
-<h2 id="显示草稿">显示草稿</h2>
-<p><code>hexo --draft</code><br>
-显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>指令</tag>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -343,102 +343,11 @@
         <category>ImageJ</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>笔记</tag>
         <tag>插件</tag>
         <tag>简介</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
-    <url>/2024/05/23/109a1e8436e7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a name="e05dce83"></a></p>
-<h2 id="简介">简介</h2>
-<p>StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。<br /><strong>作者：</strong> Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne</p>
-<span id="more"></span>
-<p>该插件的目的是配准（换句话说，对齐或匹配）图像堆栈。每张图片用作下一张图片对齐的模板，以便通过转换进行对齐。当插件启动时，当前图片充当全局锚点。StackReg 插件要求安装有TurboReg 插件。该插件（<strong>StackReg</strong>）是<strong>TurboReg</strong> 插件的前端。这些插件之间有几种数据交换机制，其中之一是将临时文件写入 ImageJ 定义的临时目录。该目录的位置可以通过宏命令 &quot;<code>print(getDirectory(&quot;temp&quot;));</code> &quot;查看。文件名称是：StackRegSource，StackRegSourceR，StackRegSourceG，StackRegSourceB，StackRegTarget。</p>
-<p>配准完成后，原始堆栈将被销毁，取而代之的是配准结果。堆栈的名称和类型保持不变；除 <strong>RGB 堆栈</strong>和 <strong>HSB 堆</strong>栈外，所有数据类型均可使用。(请注意，RGB-stack 是由三个颜色分量组成的堆栈，不应与 RGB 彩色图像堆栈混淆：后者可以使用，而前者不能使用。如有疑问，请尝试一下)。如果提供的是彩色图像堆栈，则会在灰度版本上进行配准，灰度版本是由红色、绿色和蓝色分量加权求和而成的，即使堆栈是伪彩色图像也是如此。权重取决于整个图像堆栈，并通过主成分分析确定，以提供最大可能的对比度。一旦根据中间灰度表示确定了几何图形，就可以重建真正的彩色图像，如果需要生成伪彩色图像，还可以重新量化。</p>
-<p><a name="1a63ac23"></a></p>
-<h2 id="示例">示例</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"></p>
-<p><a name="AX0GW"></a></p>
-<h2 id="参数">参数</h2>
-<p>有四种类型的转换：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Translation</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?x%20%3D%20u%20%2B%20%CE%94u#card=math&amp;code=x%20%3D%20u%20%2B%20%CE%94u&amp;id=I1f4r" alt="">。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Rigid Body</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/e386340d2860de58527e61d4dc5de7cd.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HGnJ1" alt=""><br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Scaled rotation</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/1678623c5ac84d63fb37a0c24914e4bf.svg#card=math&amp;code=x%20%3D%20%CE%BB%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HxAmA" alt=""><br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Affine</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/56c72e021aeb8d05a197e959c33a45b2.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Ba_%7B11%7D%2C%20a_%7B12%7D%5C%7D%2C%20%5C%7Ba_%7B21%7D%2C%20a_%7B22%7D%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=CCeB3" alt=""><br />由于四个系数 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B11%7D#card=math&amp;code=a_%7B11%7D&amp;id=NPdDU" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B12%7D#card=math&amp;code=a_%7B12%7D&amp;id=X1Pob" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B21%7D#card=math&amp;code=a_%7B21%7D&amp;id=Hro5t" alt=""> 和 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B22%7D#card=math&amp;code=a_%7B22%7D&amp;id=msruk" alt=""> 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
-<a name="1c53b310"></a></p>
-<h2 id="操作步骤">操作步骤</h2>
-<p>使用的Fiji ImageJ</p>
-<ol>
-<li class="lvl-3">
-<p>拖动图片文件夹到Fiji，默认为堆栈。</p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433448190-6bcdcea1-090b-4b6e-844b-db57f09551a9.png#averageHue=%23eeeeed&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=285&amp;id=R4VvP&amp;originHeight=424&amp;originWidth=428&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14771&amp;status=done&amp;style=none&amp;taskId=ue08112ae-4ce1-4d16-97b5-adb9378c3cd&amp;title=&amp;width=287.3999938964844" alt="image.png"></p>
-<ol start="2">
-<li class="lvl-3">
-<p>插件启动前，选择合适的图片，当前图片会被充当全局锚点。</p>
-</li>
-<li class="lvl-3">
-<p>打开<strong>StackReg。</strong></p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433608518-f4f2cfa8-5406-4ef7-876d-c4ffb225cf73.png#averageHue=%23b3a180&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=313&amp;id=pzPnz&amp;originHeight=491&amp;originWidth=605&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=213183&amp;status=done&amp;style=none&amp;taskId=u427dd8d1-e0e2-49ce-9122-31b6a47e994&amp;title=&amp;width=386" alt="image.png"></p>
-<ol start="4">
-<li class="lvl-3">
-<p>选择对齐方式，点击确定按钮。</p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433643863-8b44a1f7-eb00-4ac3-9f28-b4da3cb4d467.png#averageHue=%23edebe9&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=125&amp;id=cH9EB&amp;originHeight=156&amp;originWidth=236&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7246&amp;status=done&amp;style=none&amp;taskId=u745533d0-9a3d-4fde-8597-410e8b9e3eb&amp;title=&amp;width=188.8" alt="image.png"><br>
-<a name="zAAf8"></a></p>
-<h4 id="配准结果展示">配准结果展示</h4>
-<p><strong>Translation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437482059-89fc3429-bad3-4efb-8f57-e2b6980bd685.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u815598a6&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4864016&amp;status=done&amp;style=none&amp;taskId=ua36500ba-dce8-49d3-a2dd-78c2e561927&amp;title=" alt="攀爬2-移动-缩小.gif"><br /><strong>Rigid Body</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437732425-3650fea3-632c-496f-a40a-27c5a7adc316.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u66c7948b&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4902674&amp;status=done&amp;style=none&amp;taskId=u45d2d0ba-9870-43ee-8089-153602f6b05&amp;title=" alt="攀爬2-rigid-缩小.gif"><br /><strong>Scaled rotation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u5e78df36&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=" alt="WT-处-control-20211218-scaled.gif"><br /><strong>Affine</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438247733-91b6a52e-7abe-4303-a27b-b9389f62063c.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=uc96e2e67&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4699672&amp;status=done&amp;style=none&amp;taskId=u77f49e48-451d-4b37-876b-5276b590ccd&amp;title=" alt="攀爬2-affine-缩小.gif"><br>
-<a name="ba311d8a"></a></p>
-<h2 id="脚本">脚本</h2>
-<p>StackReg 是可编写脚本和使用宏记录的。下面是一个从宏调用 StackReg 的示例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">run(<span class="string">&quot;StackReg &quot;</span>, <span class="string">&quot;transformation=[Rigid Body]&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p><a name="d17a0f0b"></a></p>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9iaWd3d3cuZXBmbC5jaC90aGV2ZW5hei9zdGFja3JlZy8=">https://bigwww.epfl.ch/thevenaz/stackreg/<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p>P. Thévenaz, U.E. Ruttimann, M. Unser, “A Pyramid Approach to Subpixel Registration Based on Intensity,” IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998. Other relevant on-line publications are available at <span class="exturl" data-url="aHR0cDovL2JpZ3d3dy5lcGZsLmNoL3B1YmxpY2F0aW9ucy8=">http://bigwww.epfl.ch/publications/<i class="fa fa-external-link-alt"></i></span>.</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ImageJ</category>
-      </categories>
-      <tags>
-        <tag>ImageJ</tag>
-        <tag>图像</tag>
-        <tag>笔记</tag>
-        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -548,6 +457,97 @@
       </tags>
   </entry>
   <entry>
+    <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
+    <url>/2024/05/23/109a1e8436e7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a name="e05dce83"></a></p>
+<h2 id="简介">简介</h2>
+<p>StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。<br /><strong>作者：</strong> Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne</p>
+<span id="more"></span>
+<p>该插件的目的是配准（换句话说，对齐或匹配）图像堆栈。每张图片用作下一张图片对齐的模板，以便通过转换进行对齐。当插件启动时，当前图片充当全局锚点。StackReg 插件要求安装有TurboReg 插件。该插件（<strong>StackReg</strong>）是<strong>TurboReg</strong> 插件的前端。这些插件之间有几种数据交换机制，其中之一是将临时文件写入 ImageJ 定义的临时目录。该目录的位置可以通过宏命令 &quot;<code>print(getDirectory(&quot;temp&quot;));</code> &quot;查看。文件名称是：StackRegSource，StackRegSourceR，StackRegSourceG，StackRegSourceB，StackRegTarget。</p>
+<p>配准完成后，原始堆栈将被销毁，取而代之的是配准结果。堆栈的名称和类型保持不变；除 <strong>RGB 堆栈</strong>和 <strong>HSB 堆</strong>栈外，所有数据类型均可使用。(请注意，RGB-stack 是由三个颜色分量组成的堆栈，不应与 RGB 彩色图像堆栈混淆：后者可以使用，而前者不能使用。如有疑问，请尝试一下)。如果提供的是彩色图像堆栈，则会在灰度版本上进行配准，灰度版本是由红色、绿色和蓝色分量加权求和而成的，即使堆栈是伪彩色图像也是如此。权重取决于整个图像堆栈，并通过主成分分析确定，以提供最大可能的对比度。一旦根据中间灰度表示确定了几何图形，就可以重建真正的彩色图像，如果需要生成伪彩色图像，还可以重新量化。</p>
+<p><a name="1a63ac23"></a></p>
+<h2 id="示例">示例</h2>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"></p>
+<p><a name="AX0GW"></a></p>
+<h2 id="参数">参数</h2>
+<p>有四种类型的转换：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Translation</strong>：</p>
+</li>
+</ul>
+<p>映射公式为 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?x%20%3D%20u%20%2B%20%CE%94u#card=math&amp;code=x%20%3D%20u%20%2B%20%CE%94u&amp;id=I1f4r" alt="">。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Rigid Body</strong>：</p>
+</li>
+</ul>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/e386340d2860de58527e61d4dc5de7cd.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HGnJ1" alt=""><br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Scaled rotation</strong>：</p>
+</li>
+</ul>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/1678623c5ac84d63fb37a0c24914e4bf.svg#card=math&amp;code=x%20%3D%20%CE%BB%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HxAmA" alt=""><br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Affine</strong>：</p>
+</li>
+</ul>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/56c72e021aeb8d05a197e959c33a45b2.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Ba_%7B11%7D%2C%20a_%7B12%7D%5C%7D%2C%20%5C%7Ba_%7B21%7D%2C%20a_%7B22%7D%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=CCeB3" alt=""><br />由于四个系数 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B11%7D#card=math&amp;code=a_%7B11%7D&amp;id=NPdDU" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B12%7D#card=math&amp;code=a_%7B12%7D&amp;id=X1Pob" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B21%7D#card=math&amp;code=a_%7B21%7D&amp;id=Hro5t" alt=""> 和 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B22%7D#card=math&amp;code=a_%7B22%7D&amp;id=msruk" alt=""> 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
+<a name="1c53b310"></a></p>
+<h2 id="操作步骤">操作步骤</h2>
+<p>使用的Fiji ImageJ</p>
+<ol>
+<li class="lvl-3">
+<p>拖动图片文件夹到Fiji，默认为堆栈。</p>
+</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433448190-6bcdcea1-090b-4b6e-844b-db57f09551a9.png#averageHue=%23eeeeed&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=285&amp;id=R4VvP&amp;originHeight=424&amp;originWidth=428&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14771&amp;status=done&amp;style=none&amp;taskId=ue08112ae-4ce1-4d16-97b5-adb9378c3cd&amp;title=&amp;width=287.3999938964844" alt="image.png"></p>
+<ol start="2">
+<li class="lvl-3">
+<p>插件启动前，选择合适的图片，当前图片会被充当全局锚点。</p>
+</li>
+<li class="lvl-3">
+<p>打开<strong>StackReg。</strong></p>
+</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433608518-f4f2cfa8-5406-4ef7-876d-c4ffb225cf73.png#averageHue=%23b3a180&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=313&amp;id=pzPnz&amp;originHeight=491&amp;originWidth=605&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=213183&amp;status=done&amp;style=none&amp;taskId=u427dd8d1-e0e2-49ce-9122-31b6a47e994&amp;title=&amp;width=386" alt="image.png"></p>
+<ol start="4">
+<li class="lvl-3">
+<p>选择对齐方式，点击确定按钮。</p>
+</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433643863-8b44a1f7-eb00-4ac3-9f28-b4da3cb4d467.png#averageHue=%23edebe9&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=125&amp;id=cH9EB&amp;originHeight=156&amp;originWidth=236&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7246&amp;status=done&amp;style=none&amp;taskId=u745533d0-9a3d-4fde-8597-410e8b9e3eb&amp;title=&amp;width=188.8" alt="image.png"><br>
+<a name="zAAf8"></a></p>
+<h4 id="配准结果展示">配准结果展示</h4>
+<p><strong>Translation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437482059-89fc3429-bad3-4efb-8f57-e2b6980bd685.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u815598a6&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4864016&amp;status=done&amp;style=none&amp;taskId=ua36500ba-dce8-49d3-a2dd-78c2e561927&amp;title=" alt="攀爬2-移动-缩小.gif"><br /><strong>Rigid Body</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437732425-3650fea3-632c-496f-a40a-27c5a7adc316.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u66c7948b&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4902674&amp;status=done&amp;style=none&amp;taskId=u45d2d0ba-9870-43ee-8089-153602f6b05&amp;title=" alt="攀爬2-rigid-缩小.gif"><br /><strong>Scaled rotation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u5e78df36&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=" alt="WT-处-control-20211218-scaled.gif"><br /><strong>Affine</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438247733-91b6a52e-7abe-4303-a27b-b9389f62063c.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=uc96e2e67&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4699672&amp;status=done&amp;style=none&amp;taskId=u77f49e48-451d-4b37-876b-5276b590ccd&amp;title=" alt="攀爬2-affine-缩小.gif"><br>
+<a name="ba311d8a"></a></p>
+<h2 id="脚本">脚本</h2>
+<p>StackReg 是可编写脚本和使用宏记录的。下面是一个从宏调用 StackReg 的示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">run(<span class="string">&quot;StackReg &quot;</span>, <span class="string">&quot;transformation=[Rigid Body]&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p><a name="d17a0f0b"></a></p>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9iaWd3d3cuZXBmbC5jaC90aGV2ZW5hei9zdGFja3JlZy8=">https://bigwww.epfl.ch/thevenaz/stackreg/<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p>P. Thévenaz, U.E. Ruttimann, M. Unser, “A Pyramid Approach to Subpixel Registration Based on Intensity,” IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998. Other relevant on-line publications are available at <span class="exturl" data-url="aHR0cDovL2JpZ3d3dy5lcGZsLmNoL3B1YmxpY2F0aW9ucy8=">http://bigwww.epfl.ch/publications/<i class="fa fa-external-link-alt"></i></span>.</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ImageJ</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>ImageJ</tag>
+        <tag>图像</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>R语言--批量解压文件--示例</title>
     <url>/2024/05/23/a4e9d30f08ea/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
@@ -625,10 +625,29 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>博客</tag>
+        <tag>笔记</tag>
         <tag>建站</tag>
         <tag>API</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R语言--爬取小说-战略级天使</title>
+    <url>/2021/05/04/dfc6fd522f6c/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;rvest&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RCurl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;curl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;downloader&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RSelenium&#x27;</span><span class="punctuation">)</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&#x27;H:\\R\\R脚本\\爬虫&#x27;</span><span class="punctuation">)</span></span><br><span class="line">url <span class="operator">&lt;-</span> <span class="string">&quot;https://www.-----.com/yuedu/15111/&quot;</span></span><br><span class="line">htmlpage <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>url<span class="punctuation">)</span></span><br><span class="line">xs_chapter <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_chapter<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_attrs<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> paste<span class="punctuation">(</span><span class="string">&quot;https://www.-----.com&quot;</span><span class="punctuation">,</span>unlist<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">)</span><span class="comment">#构建章节链接</span></span><br><span class="line">xs_content <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>xs_chapter<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>xs_link<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="comment">#合并目录链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#尝试获取小说内容，并提取。</span></span><br><span class="line">ms_f1 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f2 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f1<span class="punctuation">,</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f2<span class="punctuation">)</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> ms_f<span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;1.txt&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义下载函数</span></span><br><span class="line">xs_down <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  xm <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs<span class="punctuation">,</span> x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> xm<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  xs</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment">#导出小说</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> xs_down<span class="punctuation">(</span>xs_content<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;战略级天使.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>爬虫</category>
+        <category>R语言</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>实例</tag>
+        <tag>爬虫</tag>
+        <tag>小说</tag>
       </tags>
   </entry>
   <entry>
@@ -693,25 +712,6 @@
       <tags>
         <tag>默认</tag>
         <tag>你好</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>R语言--爬取小说-战略级天使</title>
-    <url>/2021/05/04/dfc6fd522f6c/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;rvest&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RCurl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;curl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;downloader&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RSelenium&#x27;</span><span class="punctuation">)</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&#x27;H:\\R\\R脚本\\爬虫&#x27;</span><span class="punctuation">)</span></span><br><span class="line">url <span class="operator">&lt;-</span> <span class="string">&quot;https://www.-----.com/yuedu/15111/&quot;</span></span><br><span class="line">htmlpage <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>url<span class="punctuation">)</span></span><br><span class="line">xs_chapter <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_chapter<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_attrs<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> paste<span class="punctuation">(</span><span class="string">&quot;https://www.-----.com&quot;</span><span class="punctuation">,</span>unlist<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">)</span><span class="comment">#构建章节链接</span></span><br><span class="line">xs_content <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>xs_chapter<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>xs_link<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="comment">#合并目录链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#尝试获取小说内容，并提取。</span></span><br><span class="line">ms_f1 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f2 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f1<span class="punctuation">,</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f2<span class="punctuation">)</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> ms_f<span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;1.txt&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义下载函数</span></span><br><span class="line">xs_down <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  xm <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs<span class="punctuation">,</span> x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> xm<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  xs</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment">#导出小说</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> xs_down<span class="punctuation">(</span>xs_content<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;战略级天使.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>爬虫</category>
-        <category>R语言</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>实例</tag>
-        <tag>爬虫</tag>
-        <tag>小说</tag>
       </tags>
   </entry>
 </search>
