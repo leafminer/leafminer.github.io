@@ -6,7 +6,7 @@
   <link href="https://leafminer.github.io/atom.xml" rel="self"/>
   
   <link href="https://leafminer.github.io/"/>
-  <updated>2024-05-30T03:35:14.515Z</updated>
+  <updated>2024-06-11T08:33:03.838Z</updated>
   <id>https://leafminer.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Process--&gt;Noise&#92;Filters笔记</title>
+    <link href="https://leafminer.github.io/2024/06/11/a27cd932ea95/"/>
+    <id>https://leafminer.github.io/2024/06/11/a27cd932ea95/</id>
+    <published>2024-06-11T13:53:40.000Z</published>
+    <updated>2024-06-11T08:33:03.838Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>Process–&gt;Noise\Filters笔记</h1><h2 id="Noise">Noise</h2><p><img src="./imgs/20240605_223251_00000.png" alt=""><br><strong>Add noise</strong> 对图片增加随机噪声，噪声服从均值为0、标准差为25的高斯分布。<br><strong>Add Specified Noise</strong> 增加一个均值为0、手动输入标准差的高斯噪声。</p><span id="more"></span> <p><strong>Salt and Pepper</strong> 通过随机替换2.5%的黑色像素和2.5%的白色像素来增加椒盐噪声。该命令仅适用于8-bit图片。<br><strong>Despeckle</strong> 这是一种中值滤波器，它将像素值替换为它周围3*3的像素点的均值。中值滤波器对于去掉上面的椒盐噪声很有用。<br><strong>Remove Outliers</strong> 如果一个像素点离它周围点的均值超过一定数值，该命令就会去除这个像素点。该命令对CCD相机的hot pixels或dead pixels很有用。</p><ul class="lvl-0"><li class="lvl-2"><strong>Radius</strong>：决定计算均值的范围（单位是像素）。使用Process-Filter-Show Circular Masks来显示半径是如何转变为面积的。</li><li class="lvl-2"><strong>Threshold</strong>：决定阈值（单位是像素）</li><li class="lvl-2"><strong>Which Outliers</strong>：决定比均值更亮还是更暗的像素点去除。</li></ul><p><strong>Remove NANs</strong> 该滤波器将32-bit图片中的NaN像素点替换成由Radius定义的圆形kernel区域内部的像素点的平均值。<br><strong>ROF Denoise</strong> 降噪</p><h2 id="Filters">Filters</h2><p>该菜单包含五花八门的滤波器。<br><strong>Convolve</strong> 使用填入文本区域的kernel进行空间卷积。一个kernel就是一个矩阵，它的中心是源像素，其他的元素是该像素的邻居。通过对像素点乘以相应的kernel中的系数然后相加得到结果。对kernel的尺寸没有限制，但它必须是方形，且必须是奇数宽度。勾选<code>Normalize Kernel</code>可以使得每个系数都除以所有系数的和，从而保持图片的亮度。<br><strong>Gaussian Blur</strong> 该过滤器使用一个高斯函数进行卷积，从而实现平滑效果。<br><strong>Gaussian Blur 3D</strong> 计算一个三维高斯低通滤波。<br><strong>Median</strong> 将像素替换为周围点的平均像素值，从而实现<strong>降噪</strong>效果。<br><strong>Mean</strong> 怎么感觉跟上面的Median是一个意思呢。<br><strong>Minimum</strong> 将像素替换为周围点的最小值，从而实现灰度腐蚀。<br><strong>Maximum</strong> 将像素替换为周围点的最大值，从而实现灰度膨胀。<br><strong>Unsharp Mas</strong>k 通过从原图片中提出一个模糊的版本，从而锐化和加强边缘。<br><strong>Variance</strong> 将每个像素替换为邻居的方差，从而高亮边缘。<br><strong>Show Circular Masks</strong> 产生一个包含上面Median、Mean、Minimum、Maximum和Variance滤波器使用的圆形mask产生的事例。</p><h2 id="参考">参考</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamluZ2VnZS53YW5nLzIwMjEvMTAvMDEvaW1hZ2VqLSVlNyU5NCVhOCVlNiU4OCViNyVlNiU4YyU4NyVlNSU4ZCU5Ny85Lw==">https://www.jingege.wang/2021/10/01/imagej-用户指南/9/<i class="fa fa-external-link-alt"></i></span></p></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;h1&gt;Process–&amp;gt;Noise&#92;Filters笔记&lt;/h1&gt;
+&lt;h2 id=&quot;Noise&quot;&gt;Noise&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;./imgs/20240605_223251_00000.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+&lt;strong&gt;Add noise&lt;/strong&gt; 对图片增加随机噪声，噪声服从均值为0、标准差为25的高斯分布。&lt;br&gt;
+&lt;strong&gt;Add Specified Noise&lt;/strong&gt; 增加一个均值为0、手动输入标准差的高斯噪声。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ImageJ" scheme="https://leafminer.github.io/categories/ImageJ/"/>
+    
+    
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
+    
+    <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
+    
+    <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+    <category term="降噪" scheme="https://leafminer.github.io/tags/%E9%99%8D%E5%99%AA/"/>
+    
+  </entry>
   
   <entry>
     <title>Web API--学习笔记（1）</title>
@@ -93,11 +126,11 @@
     <category term="R语言" scheme="https://leafminer.github.io/categories/R%E8%AF%AD%E8%A8%80/"/>
     
     
-    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
     <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
     
     <category term="解压" scheme="https://leafminer.github.io/tags/%E8%A7%A3%E5%8E%8B/"/>
+    
+    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
     <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
     
@@ -259,11 +292,11 @@
     
     <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
+    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
     <category term="RNA-seq" scheme="https://leafminer.github.io/tags/RNA-seq/"/>
     
     <category term="生信" scheme="https://leafminer.github.io/tags/%E7%94%9F%E4%BF%A1/"/>
-    
-    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
