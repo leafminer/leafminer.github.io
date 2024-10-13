@@ -51,35 +51,6 @@
   </entry>
   
   <entry>
-    <title>蛋白互作网络PPI分析流程示例</title>
-    <link href="https://leafminer.github.io/2024/09/25/35832a441121/"/>
-    <id>https://leafminer.github.io/2024/09/25/35832a441121/</id>
-    <published>2024-09-24T16:00:00.000Z</published>
-    <updated>2024-09-25T02:12:48.203Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><font style="color:rgb(25, 27, 31);">蛋白互作网络（PPI, Protein-Protein Interaction Networks）可以查看基因之间的联系，进而锁定关键基因。一般使用STRING数据库获取蛋白互作信息。</font></p><span id="more"></span> <p><font style="color:rgb(25, 27, 31);">STRING数据库：</font><span class="exturl" data-url="aHR0cHM6Ly9jbi5zdHJpbmctZGIub3JnL2NnaS9pbnB1dD9zZXNzaW9uSWQ9YmRiUXh1UjdWZjFJJmlucHV0X3BhZ2Vfc2hvd19zZWFyY2g9b24=">STRING: functional protein association networks (string-db.org)<i class="fa fa-external-link-alt"></i></span></p><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236168597-fa4b7dc9-3e68-4f4a-a1c4-791d5b326152.png" alt=""></p><hr><h2 id="KnEId">数据准备</h2>要分析蛋白的名称列表，例如：<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236540343-3aa2552f-62b4-43d7-be97-2fb54ca1847f.png" alt=""></p><h2 id="hdfCg">使用STRING数据库获取PPI结果</h2>1. 选择Multiple proteins，将蛋白名称粘贴到List Of Names框中。我这里使用的是果蝇的相关蛋白，因此Organisms选择了Drosophila。点击search。<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236801356-1779aa35-2c61-4581-a206-4591430c849c.png" alt=""></p><ol start="2"><li class="lvl-3"><p>通过复选框选择对应的蛋白（默认选择的有时候不一定对），点击MAPPING可以下载当前查询到的蛋白信息，点击CONTINUE可以获得蛋白互作结果。</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237115167-5b3a04dd-d4c5-429f-958b-3ee7a9f2726b.png" alt=""></p><ol start="3"><li class="lvl-3"><p>蛋白互作网络图如下</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237331664-344fada0-da40-403b-9e2e-7a2d8fed7740.png" alt=""></p><ol start="4"><li class="lvl-3"><p>图例信息在Legend中</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237463565-20d7d1dc-04c3-43d7-8983-a7ccd38f8787.png" alt=""></p><ol start="5"><li class="lvl-3"><p>Settings中可以根据需要改变网络样式。</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237695058-0f548c7f-755c-4d4f-b363-cb0df29028c9.png" alt=""></p><ol start="6"><li class="lvl-3"><p>Exports可以将图片和蛋白互作信息导出。</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237789676-78fab9a7-f1da-4c25-8db2-71fc95e00c67.png" alt=""></p><ul class="lvl-0"><li class="lvl-2"><p>在网页界面，可以通过鼠标拖动改变蛋白分布。</p></li><li class="lvl-2"><p>点击对应的蛋白节点能够查看蛋白结构信息。<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726238035654-78ea00d9-9ba6-4d7a-9f63-35502f62146e.png" alt=""></p></li><li class="lvl-2"><p>点击连接线可以获得详细的连接数据<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726238149300-1600416f-39de-452f-98e8-cf1c2b172cdc.png" alt=""></p></li></ul><p><font style="color:rgb(26, 32, 41);">PPI（Protein-Protein Interaction，蛋白质-蛋白质相互作用）网络图是生物信息学中的一种图形表示，它展示了细胞内不同蛋白质之间的相互作用关系。</font></p><ul class="lvl-0"><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">网络布局</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">节点（Node）</font></strong><font style="color:rgb(26, 32, 41);">：通常代表一个蛋白质。节点的大小可能表示蛋白质的度（与多少其他蛋白质相互作用）或者其他属性，如表达水平。</font></li><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">边（Edge）</font></strong><font style="color:rgb(26, 32, 41);">：代表两个蛋白质之间的相互作用。边的粗细可能表示相互作用的强度或者置信度。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">节点属性</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">颜色</font></strong><font style="color:rgb(26, 32, 41);">：可以表示蛋白质的属性，如功能分类、亚细胞定位、是否为已知疾病相关蛋白等。</font></li><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">形状</font></strong><font style="color:rgb(26, 32, 41);">：不同的形状可以代表不同的蛋白质属性，如是否为酶、受体或其他类型。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">网络特性</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">连通性</font></strong><font style="color:rgb(26, 32, 41);">：高连通性的节点通常是网络中的关键蛋白，它们的缺失可能导致网络功能的显著变化。</font></li><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">模块性</font></strong><font style="color:rgb(26, 32, 41);">：网络中可能存在几个紧密连接的节点群，这些群被称为模块，可能代表特定的生物学过程。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">功能分析</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><font style="color:rgb(26, 32, 41);">使用GO（Gene Ontology）注释或其他功能数据库，对网络中的蛋白质进行功能富集分析，以识别网络中的主要生物学功能。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">路径分析</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><font style="color:rgb(26, 32, 41);">寻找网络中的关键路径，这些路径可能代表信号传导、代谢途径或其他生物学过程。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">动态变化</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><font style="color:rgb(26, 32, 41);">如果PPI网络图展示的是随时间或不同条件下变化的数据，分析这些动态变化可以帮助理解生物学过程如何响应外部刺激。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">实验验证</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><font style="color:rgb(26, 32, 41);">PPI网络图通常是基于高通量实验数据（如酵母双杂交、质谱分析）构建的，因此实验验证是解读结果的关键步骤。</font></li></ul></li></ul><h2 id="axzNC">参考：</h2>[RNA-seq入门实战（九）：PPI蛋白互作网络构建（上）——STRING数据库的使用 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/532037554)]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;font style=&quot;color:rgb(25, 27, 31);&quot;&gt;蛋白互作网络（PPI, Protein-Protein Interaction Networks）可以查看基因之间的联系，进而锁定关键基因。一般使用STRING数据库获取蛋白互作信息。&lt;/font&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="数据分析" scheme="https://leafminer.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-    <category term="生物" scheme="https://leafminer.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%94%9F%E7%89%A9/"/>
-    
-    
-    <category term="STRING" scheme="https://leafminer.github.io/tags/STRING/"/>
-    
-    <category term="分析" scheme="https://leafminer.github.io/tags/%E5%88%86%E6%9E%90/"/>
-    
-    <category term="PPI" scheme="https://leafminer.github.io/tags/PPI/"/>
-    
-    <category term="蛋白互作网络" scheme="https://leafminer.github.io/tags/%E8%9B%8B%E7%99%BD%E4%BA%92%E4%BD%9C%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>大模型读文献之腾讯元宝--深度阅读</title>
     <link href="https://leafminer.github.io/2024/09/25/7453fb1cbc6c/"/>
     <id>https://leafminer.github.io/2024/09/25/7453fb1cbc6c/</id>
@@ -106,6 +77,35 @@
     <category term="大模型" scheme="https://leafminer.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
     
     <category term="元宝" scheme="https://leafminer.github.io/tags/%E5%85%83%E5%AE%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>蛋白互作网络PPI分析流程示例</title>
+    <link href="https://leafminer.github.io/2024/09/25/35832a441121/"/>
+    <id>https://leafminer.github.io/2024/09/25/35832a441121/</id>
+    <published>2024-09-24T16:00:00.000Z</published>
+    <updated>2024-09-25T02:12:48.203Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><font style="color:rgb(25, 27, 31);">蛋白互作网络（PPI, Protein-Protein Interaction Networks）可以查看基因之间的联系，进而锁定关键基因。一般使用STRING数据库获取蛋白互作信息。</font></p><span id="more"></span> <p><font style="color:rgb(25, 27, 31);">STRING数据库：</font><span class="exturl" data-url="aHR0cHM6Ly9jbi5zdHJpbmctZGIub3JnL2NnaS9pbnB1dD9zZXNzaW9uSWQ9YmRiUXh1UjdWZjFJJmlucHV0X3BhZ2Vfc2hvd19zZWFyY2g9b24=">STRING: functional protein association networks (string-db.org)<i class="fa fa-external-link-alt"></i></span></p><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236168597-fa4b7dc9-3e68-4f4a-a1c4-791d5b326152.png" alt=""></p><hr><h2 id="KnEId">数据准备</h2>要分析蛋白的名称列表，例如：<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236540343-3aa2552f-62b4-43d7-be97-2fb54ca1847f.png" alt=""></p><h2 id="hdfCg">使用STRING数据库获取PPI结果</h2>1. 选择Multiple proteins，将蛋白名称粘贴到List Of Names框中。我这里使用的是果蝇的相关蛋白，因此Organisms选择了Drosophila。点击search。<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236801356-1779aa35-2c61-4581-a206-4591430c849c.png" alt=""></p><ol start="2"><li class="lvl-3"><p>通过复选框选择对应的蛋白（默认选择的有时候不一定对），点击MAPPING可以下载当前查询到的蛋白信息，点击CONTINUE可以获得蛋白互作结果。</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237115167-5b3a04dd-d4c5-429f-958b-3ee7a9f2726b.png" alt=""></p><ol start="3"><li class="lvl-3"><p>蛋白互作网络图如下</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237331664-344fada0-da40-403b-9e2e-7a2d8fed7740.png" alt=""></p><ol start="4"><li class="lvl-3"><p>图例信息在Legend中</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237463565-20d7d1dc-04c3-43d7-8983-a7ccd38f8787.png" alt=""></p><ol start="5"><li class="lvl-3"><p>Settings中可以根据需要改变网络样式。</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237695058-0f548c7f-755c-4d4f-b363-cb0df29028c9.png" alt=""></p><ol start="6"><li class="lvl-3"><p>Exports可以将图片和蛋白互作信息导出。</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237789676-78fab9a7-f1da-4c25-8db2-71fc95e00c67.png" alt=""></p><ul class="lvl-0"><li class="lvl-2"><p>在网页界面，可以通过鼠标拖动改变蛋白分布。</p></li><li class="lvl-2"><p>点击对应的蛋白节点能够查看蛋白结构信息。<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726238035654-78ea00d9-9ba6-4d7a-9f63-35502f62146e.png" alt=""></p></li><li class="lvl-2"><p>点击连接线可以获得详细的连接数据<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726238149300-1600416f-39de-452f-98e8-cf1c2b172cdc.png" alt=""></p></li></ul><p><font style="color:rgb(26, 32, 41);">PPI（Protein-Protein Interaction，蛋白质-蛋白质相互作用）网络图是生物信息学中的一种图形表示，它展示了细胞内不同蛋白质之间的相互作用关系。</font></p><ul class="lvl-0"><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">网络布局</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">节点（Node）</font></strong><font style="color:rgb(26, 32, 41);">：通常代表一个蛋白质。节点的大小可能表示蛋白质的度（与多少其他蛋白质相互作用）或者其他属性，如表达水平。</font></li><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">边（Edge）</font></strong><font style="color:rgb(26, 32, 41);">：代表两个蛋白质之间的相互作用。边的粗细可能表示相互作用的强度或者置信度。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">节点属性</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">颜色</font></strong><font style="color:rgb(26, 32, 41);">：可以表示蛋白质的属性，如功能分类、亚细胞定位、是否为已知疾病相关蛋白等。</font></li><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">形状</font></strong><font style="color:rgb(26, 32, 41);">：不同的形状可以代表不同的蛋白质属性，如是否为酶、受体或其他类型。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">网络特性</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">连通性</font></strong><font style="color:rgb(26, 32, 41);">：高连通性的节点通常是网络中的关键蛋白，它们的缺失可能导致网络功能的显著变化。</font></li><li class="lvl-6"><strong><font style="color:rgb(26, 32, 41);">模块性</font></strong><font style="color:rgb(26, 32, 41);">：网络中可能存在几个紧密连接的节点群，这些群被称为模块，可能代表特定的生物学过程。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">功能分析</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><font style="color:rgb(26, 32, 41);">使用GO（Gene Ontology）注释或其他功能数据库，对网络中的蛋白质进行功能富集分析，以识别网络中的主要生物学功能。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">路径分析</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><font style="color:rgb(26, 32, 41);">寻找网络中的关键路径，这些路径可能代表信号传导、代谢途径或其他生物学过程。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">动态变化</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><font style="color:rgb(26, 32, 41);">如果PPI网络图展示的是随时间或不同条件下变化的数据，分析这些动态变化可以帮助理解生物学过程如何响应外部刺激。</font></li></ul></li><li class="lvl-2"><p><strong><font style="color:rgb(26, 32, 41);">实验验证</font></strong><font style="color:rgb(26, 32, 41);">：</font></p><ul class="lvl-2"><li class="lvl-6"><font style="color:rgb(26, 32, 41);">PPI网络图通常是基于高通量实验数据（如酵母双杂交、质谱分析）构建的，因此实验验证是解读结果的关键步骤。</font></li></ul></li></ul><h2 id="axzNC">参考：</h2>[RNA-seq入门实战（九）：PPI蛋白互作网络构建（上）——STRING数据库的使用 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/532037554)]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;font style=&quot;color:rgb(25, 27, 31);&quot;&gt;蛋白互作网络（PPI, Protein-Protein Interaction Networks）可以查看基因之间的联系，进而锁定关键基因。一般使用STRING数据库获取蛋白互作信息。&lt;/font&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据分析" scheme="https://leafminer.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    <category term="生物" scheme="https://leafminer.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%94%9F%E7%89%A9/"/>
+    
+    
+    <category term="STRING" scheme="https://leafminer.github.io/tags/STRING/"/>
+    
+    <category term="分析" scheme="https://leafminer.github.io/tags/%E5%88%86%E6%9E%90/"/>
+    
+    <category term="PPI" scheme="https://leafminer.github.io/tags/PPI/"/>
+    
+    <category term="蛋白互作网络" scheme="https://leafminer.github.io/tags/%E8%9B%8B%E7%99%BD%E4%BA%92%E4%BD%9C%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -205,9 +205,9 @@
     <category term="R语言" scheme="https://leafminer.github.io/categories/R%E8%AF%AD%E8%A8%80/"/>
     
     
-    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
     <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
+    
+    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
     <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
     
@@ -238,11 +238,11 @@
     <category term="ImageJ" scheme="https://leafminer.github.io/categories/ImageJ/"/>
     
     
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
     
     <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
+    
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -270,9 +270,9 @@
     <category term="笔记" scheme="https://leafminer.github.io/categories/%E5%BB%BA%E7%AB%99/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="建站" scheme="https://leafminer.github.io/tags/%E5%BB%BA%E7%AB%99/"/>
     
@@ -299,11 +299,11 @@
     <category term="ImageJ" scheme="https://leafminer.github.io/categories/ImageJ/"/>
     
     
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
     
     <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
+    
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -327,11 +327,11 @@
     <category term="R语言" scheme="https://leafminer.github.io/categories/R%E8%AF%AD%E8%A8%80/"/>
     
     
-    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
     <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
     
     <category term="解压" scheme="https://leafminer.github.io/tags/%E8%A7%A3%E5%8E%8B/"/>
+    
+    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
     <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
     
@@ -354,11 +354,11 @@
     <category term="ImageJ" scheme="https://leafminer.github.io/categories/ImageJ/"/>
     
     
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
     
     <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
+    
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -383,11 +383,11 @@
     <category term="ImageJ" scheme="https://leafminer.github.io/categories/ImageJ/"/>
     
     
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
     
     <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
+    
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -441,11 +441,11 @@
     <category term="ImageJ" scheme="https://leafminer.github.io/categories/ImageJ/"/>
     
     
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
     
     <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
+    
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -472,13 +472,13 @@
     <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
     <category term="指令" scheme="https://leafminer.github.io/tags/%E6%8C%87%E4%BB%A4/"/>
     
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
-    
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -501,11 +501,11 @@
     
     <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
+    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
     <category term="RNA-seq" scheme="https://leafminer.github.io/tags/RNA-seq/"/>
     
     <category term="生信" scheme="https://leafminer.github.io/tags/%E7%94%9F%E4%BF%A1/"/>
-    
-    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
