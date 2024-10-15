@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Process--&gt;Noise&#92;Filters笔记</title>
-    <url>/2024/06/11/a27cd932ea95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>Process–&gt;Noise\Filters笔记</h1>
-<h2 id="Noise">Noise</h2>
-<p><img src="./imgs/20240605_223251_00000.png" alt=""><br>
-<strong>Add noise</strong> 对图片增加随机噪声，噪声服从均值为0、标准差为25的高斯分布。<br>
-<strong>Add Specified Noise</strong> 增加一个均值为0、手动输入标准差的高斯噪声。</p>
-<span id="more"></span> 
-<p><strong>Salt and Pepper</strong> 通过随机替换2.5%的黑色像素和2.5%的白色像素来增加椒盐噪声。该命令仅适用于8-bit图片。<br>
-<strong>Despeckle</strong> 这是一种中值滤波器，它将像素值替换为它周围3*3的像素点的均值。中值滤波器对于去掉上面的椒盐噪声很有用。<br>
-<strong>Remove Outliers</strong> 如果一个像素点离它周围点的均值超过一定数值，该命令就会去除这个像素点。该命令对CCD相机的hot pixels或dead pixels很有用。</p>
-<ul class="lvl-0">
-<li class="lvl-2"><strong>Radius</strong>：决定计算均值的范围（单位是像素）。使用Process-Filter-Show Circular Masks来显示半径是如何转变为面积的。</li>
-<li class="lvl-2"><strong>Threshold</strong>：决定阈值（单位是像素）</li>
-<li class="lvl-2"><strong>Which Outliers</strong>：决定比均值更亮还是更暗的像素点去除。</li>
-</ul>
-<p><strong>Remove NANs</strong> 该滤波器将32-bit图片中的NaN像素点替换成由Radius定义的圆形kernel区域内部的像素点的平均值。<br>
-<strong>ROF Denoise</strong> 降噪</p>
-<h2 id="Filters">Filters</h2>
-<p>该菜单包含五花八门的滤波器。<br>
-<strong>Convolve</strong> 使用填入文本区域的kernel进行空间卷积。一个kernel就是一个矩阵，它的中心是源像素，其他的元素是该像素的邻居。通过对像素点乘以相应的kernel中的系数然后相加得到结果。对kernel的尺寸没有限制，但它必须是方形，且必须是奇数宽度。勾选<code>Normalize Kernel</code>可以使得每个系数都除以所有系数的和，从而保持图片的亮度。<br>
-<strong>Gaussian Blur</strong> 该过滤器使用一个高斯函数进行卷积，从而实现平滑效果。<br>
-<strong>Gaussian Blur 3D</strong> 计算一个三维高斯低通滤波。<br>
-<strong>Median</strong> 将像素替换为周围点的平均像素值，从而实现<strong>降噪</strong>效果。<br>
-<strong>Mean</strong> 怎么感觉跟上面的Median是一个意思呢。<br>
-<strong>Minimum</strong> 将像素替换为周围点的最小值，从而实现灰度腐蚀。<br>
-<strong>Maximum</strong> 将像素替换为周围点的最大值，从而实现灰度膨胀。<br>
-<strong>Unsharp Mas</strong>k 通过从原图片中提出一个模糊的版本，从而锐化和加强边缘。<br>
-<strong>Variance</strong> 将每个像素替换为邻居的方差，从而高亮边缘。<br>
-<strong>Show Circular Masks</strong> 产生一个包含上面Median、Mean、Minimum、Maximum和Variance滤波器使用的圆形mask产生的事例。</p>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamluZ2VnZS53YW5nLzIwMjEvMTAvMDEvaW1hZ2VqLSVlNyU5NCVhOCVlNiU4OCViNyVlNiU4YyU4NyVlNSU4ZCU5Ny85Lw==">https://www.jingege.wang/2021/10/01/imagej-用户指南/9/<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ImageJ</category>
-      </categories>
-      <tags>
-        <tag>ImageJ</tag>
-        <tag>图像</tag>
-        <tag>笔记</tag>
-        <tag>插件</tag>
-        <tag>降噪</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo新建文章及发布指令--笔记</title>
     <url>/2024/05/08/a18440ea295e/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
@@ -124,10 +75,191 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>指令</tag>
         <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Process--&gt;Noise&#92;Filters笔记</title>
+    <url>/2024/06/11/a27cd932ea95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>Process–&gt;Noise\Filters笔记</h1>
+<h2 id="Noise">Noise</h2>
+<p><img src="./imgs/20240605_223251_00000.png" alt=""><br>
+<strong>Add noise</strong> 对图片增加随机噪声，噪声服从均值为0、标准差为25的高斯分布。<br>
+<strong>Add Specified Noise</strong> 增加一个均值为0、手动输入标准差的高斯噪声。</p>
+<span id="more"></span> 
+<p><strong>Salt and Pepper</strong> 通过随机替换2.5%的黑色像素和2.5%的白色像素来增加椒盐噪声。该命令仅适用于8-bit图片。<br>
+<strong>Despeckle</strong> 这是一种中值滤波器，它将像素值替换为它周围3*3的像素点的均值。中值滤波器对于去掉上面的椒盐噪声很有用。<br>
+<strong>Remove Outliers</strong> 如果一个像素点离它周围点的均值超过一定数值，该命令就会去除这个像素点。该命令对CCD相机的hot pixels或dead pixels很有用。</p>
+<ul class="lvl-0">
+<li class="lvl-2"><strong>Radius</strong>：决定计算均值的范围（单位是像素）。使用Process-Filter-Show Circular Masks来显示半径是如何转变为面积的。</li>
+<li class="lvl-2"><strong>Threshold</strong>：决定阈值（单位是像素）</li>
+<li class="lvl-2"><strong>Which Outliers</strong>：决定比均值更亮还是更暗的像素点去除。</li>
+</ul>
+<p><strong>Remove NANs</strong> 该滤波器将32-bit图片中的NaN像素点替换成由Radius定义的圆形kernel区域内部的像素点的平均值。<br>
+<strong>ROF Denoise</strong> 降噪</p>
+<h2 id="Filters">Filters</h2>
+<p>该菜单包含五花八门的滤波器。<br>
+<strong>Convolve</strong> 使用填入文本区域的kernel进行空间卷积。一个kernel就是一个矩阵，它的中心是源像素，其他的元素是该像素的邻居。通过对像素点乘以相应的kernel中的系数然后相加得到结果。对kernel的尺寸没有限制，但它必须是方形，且必须是奇数宽度。勾选<code>Normalize Kernel</code>可以使得每个系数都除以所有系数的和，从而保持图片的亮度。<br>
+<strong>Gaussian Blur</strong> 该过滤器使用一个高斯函数进行卷积，从而实现平滑效果。<br>
+<strong>Gaussian Blur 3D</strong> 计算一个三维高斯低通滤波。<br>
+<strong>Median</strong> 将像素替换为周围点的平均像素值，从而实现<strong>降噪</strong>效果。<br>
+<strong>Mean</strong> 怎么感觉跟上面的Median是一个意思呢。<br>
+<strong>Minimum</strong> 将像素替换为周围点的最小值，从而实现灰度腐蚀。<br>
+<strong>Maximum</strong> 将像素替换为周围点的最大值，从而实现灰度膨胀。<br>
+<strong>Unsharp Mas</strong>k 通过从原图片中提出一个模糊的版本，从而锐化和加强边缘。<br>
+<strong>Variance</strong> 将每个像素替换为邻居的方差，从而高亮边缘。<br>
+<strong>Show Circular Masks</strong> 产生一个包含上面Median、Mean、Minimum、Maximum和Variance滤波器使用的圆形mask产生的事例。</p>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamluZ2VnZS53YW5nLzIwMjEvMTAvMDEvaW1hZ2VqLSVlNyU5NCVhOCVlNiU4OCViNyVlNiU4YyU4NyVlNSU4ZCU5Ny85Lw==">https://www.jingege.wang/2021/10/01/imagej-用户指南/9/<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ImageJ</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>ImageJ</tag>
+        <tag>图像</tag>
+        <tag>插件</tag>
+        <tag>降噪</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ImageJ--Feature Finder插件</title>
+    <url>/2024/05/09/d89cea932371/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
+<strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
+<span id="more"></span> 
+<p><img src="/images/20240509_223918_00000.png" alt=""></p>
+<h2 id="用途">用途</h2>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>目标检测：通过将已知目标作为模板，在图像中寻找与模板最相似的区域，从而实现目标的检测。</p>
+</li>
+<li class="lvl-2">
+<p>物体跟踪：通过不断更新模板，可以实现对移动目标在视频序列中的跟踪。</p>
+</li>
+<li class="lvl-2">
+<p>字符识别：通过利用字符的模板，可以识别文本中的字符或数字。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="特点">特点</h2>
+<p><strong>优点：</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>经过（缓慢的）初始计算后，预览提供了一种快速确定相似度阈值的方法。</p>
+</li>
+<li class="lvl-2">
+<p>亚像素精度。</p>
+</li>
+<li class="lvl-2">
+<p>在预览过程中，可以通过对找到的特征进行平均来完善原型。</p>
+</li>
+</ul>
+<p><strong>局限：</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>仅适用于灰度图像；像素值的任何校准都会被忽略。</p>
+</li>
+<li class="lvl-2">
+<p>只能搜索未旋转（或圆形）和未缩放的特征。</p>
+</li>
+<li class="lvl-2">
+<p>速度较慢，小原型除外（暴力算法，无 FFT）。</p>
+</li>
+<li class="lvl-2">
+<p>预览期间，当进度条处于激活状态时：不要更改对话框中的任何输入，否则会重新启动，耗时更长。</p>
+</li>
+<li class="lvl-2">
+<p>不处理堆栈。</p>
+</li>
+</ul>
+<h2 id="安装">安装</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>下载<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWdlai9pbWFnZWouZ2l0aHViLmlvL2Jsb2IvbWFpbi9tZWRpYS9wbHVnaW5zL2ZlYXR1cmUtZmluZGVyL0ZlYXR1cmVfRmluZGVyLmphdmE=">Feature_Finder.java<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p>将原始的 <code>Feature_Finder.java</code> 文件复制到 ImageJ 插件文件夹 (plugins) 或其子文件夹中。确保将下载的文件命名为 “Feature_Finder.java”；大写/小写都很重要。</p>
+</li>
+<li class="lvl-2">
+<p>使用 &quot;编译并运行 (Compile and Run)&quot;进行编译，然后按 “确定”。请注意，&quot;编译并运行 &quot;功能目前在 Fiji 上无法使用；作为一种变通方法，请使用文件&gt;新建&gt;脚本，打开 Feature_Finder.java 文件并按 “运行”。</p>
+</li>
+<li class="lvl-2">
+<p>使用 “帮助”&gt;&quot;更新菜单 &quot;或重新启动 ImageJ 使其出现在插件菜单中（如果您已使用 Fiji 脚本编辑器，则无需使用）。</p>
+</li>
+</ul>
+<h2 id="参数选项-Dialog-Options">参数选项 (Dialog Options)</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Prototype from</strong> 选择原型 (prototype)。这可以是当前图像或不同图像的 ROI。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Output Type</strong> 可以是：</p>
+<ul class="lvl-2">
+<li class="lvl-6">点选择：所有特征中心的点 ROI。</li>
+<li class="lvl-6">计数：找到的特征数量写入结果表。</li>
+<li class="lvl-6">列表：中心的 x 和 y 像素坐标列表被写入结果表。</li>
+<li class="lvl-6">列表（校准）：与“列表”类似，但将校准的 x 和 y 坐标写入结果表。</li>
+<li class="lvl-6">点图：一个单独的二值图像，每个特征的中心有一个像素 = 255。</li>
+<li class="lvl-6">偏差图：单独的浮点（32 位）图像。每个点的值表示原始图像中该位置的周围环境与原型的偏离程度。偏差图独立于“公差”设置。</li>
+<li class="lvl-6">特征平均值：单独的浮点（32 位）输出图像，所有特征的平均值移动到同一位置。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>Subtract Background</strong>使用减去背景，特征被认为是相同的，独立于任何恒定（相加）背景。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Soft Edges</strong> 软边缘为原型的近边缘像素赋予的权重小于靠近中心的像素的权重。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Distance Min</strong>如果要素靠得很近，小于“最小距离”，则仅保留最匹配的要素。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Tolerance</strong>公差决定了特征与原型的偏差程度。值 0 表示完全匹配，100 表示偏差等于原型的方差。启用“减去背景”后，在公差为 100% 的情况下，原型区域上具有恒定值的图像区域也符合特征。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Refine</strong> 在预览过程中，设置容差后，您可以按“调整”按钮。这会根据当前选择的所有特征的平均值计算出新的原型。例如，如果原型受到噪声影响，“优化”很有用。在预览期间，该对话框还显示特征数量与原型偏差的直方图以及包含找到的特征数量的消息。</p>
+</li>
+</ul>
+<h2 id="提示和技巧">提示和技巧</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在预览过程中，直方图右侧经常会出现一个宽阔的峰值。这就是假匹配。请将阈值保持在该峰值以下。</p>
+</li>
+<li class="lvl-2">
+<p>特征应与原型具有相同的灰度对比度。如果不是这种情况，建议选择图像中可能出现的对比度最高的模板。</p>
+</li>
+<li class="lvl-2">
+<p>如果阈值法失败，也可以尝试创建偏差图并对其进行处理（背景减除、高通滤波器、查找最大值…）。</p>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9pbWFnZWouZ2l0aHViLmlvL3BsdWdpbnMvZmVhdHVyZS1maW5kZXI=">https://imagej.github.io/plugins/feature-finder<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R3bmtpZS9hcnRpY2xlL2RldGFpbHMvMTMyMTU0MjUz">https://blog.csdn.net/twnkie/article/details/132154253<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ImageJ</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>ImageJ</tag>
+        <tag>图像</tag>
+        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -260,143 +392,11 @@
         <category>ImageJ</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>笔记</tag>
         <tag>插件</tag>
         <tag>简介</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ImageJ--Feature Finder插件</title>
-    <url>/2024/05/09/d89cea932371/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
-<strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
-<span id="more"></span> 
-<p><img src="/images/20240509_223918_00000.png" alt=""></p>
-<h2 id="用途">用途</h2>
-<blockquote>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>目标检测：通过将已知目标作为模板，在图像中寻找与模板最相似的区域，从而实现目标的检测。</p>
-</li>
-<li class="lvl-2">
-<p>物体跟踪：通过不断更新模板，可以实现对移动目标在视频序列中的跟踪。</p>
-</li>
-<li class="lvl-2">
-<p>字符识别：通过利用字符的模板，可以识别文本中的字符或数字。</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="特点">特点</h2>
-<p><strong>优点：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>经过（缓慢的）初始计算后，预览提供了一种快速确定相似度阈值的方法。</p>
-</li>
-<li class="lvl-2">
-<p>亚像素精度。</p>
-</li>
-<li class="lvl-2">
-<p>在预览过程中，可以通过对找到的特征进行平均来完善原型。</p>
-</li>
-</ul>
-<p><strong>局限：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>仅适用于灰度图像；像素值的任何校准都会被忽略。</p>
-</li>
-<li class="lvl-2">
-<p>只能搜索未旋转（或圆形）和未缩放的特征。</p>
-</li>
-<li class="lvl-2">
-<p>速度较慢，小原型除外（暴力算法，无 FFT）。</p>
-</li>
-<li class="lvl-2">
-<p>预览期间，当进度条处于激活状态时：不要更改对话框中的任何输入，否则会重新启动，耗时更长。</p>
-</li>
-<li class="lvl-2">
-<p>不处理堆栈。</p>
-</li>
-</ul>
-<h2 id="安装">安装</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>下载<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWdlai9pbWFnZWouZ2l0aHViLmlvL2Jsb2IvbWFpbi9tZWRpYS9wbHVnaW5zL2ZlYXR1cmUtZmluZGVyL0ZlYXR1cmVfRmluZGVyLmphdmE=">Feature_Finder.java<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p>将原始的 <code>Feature_Finder.java</code> 文件复制到 ImageJ 插件文件夹 (plugins) 或其子文件夹中。确保将下载的文件命名为 “Feature_Finder.java”；大写/小写都很重要。</p>
-</li>
-<li class="lvl-2">
-<p>使用 &quot;编译并运行 (Compile and Run)&quot;进行编译，然后按 “确定”。请注意，&quot;编译并运行 &quot;功能目前在 Fiji 上无法使用；作为一种变通方法，请使用文件&gt;新建&gt;脚本，打开 Feature_Finder.java 文件并按 “运行”。</p>
-</li>
-<li class="lvl-2">
-<p>使用 “帮助”&gt;&quot;更新菜单 &quot;或重新启动 ImageJ 使其出现在插件菜单中（如果您已使用 Fiji 脚本编辑器，则无需使用）。</p>
-</li>
-</ul>
-<h2 id="参数选项-Dialog-Options">参数选项 (Dialog Options)</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Prototype from</strong> 选择原型 (prototype)。这可以是当前图像或不同图像的 ROI。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Output Type</strong> 可以是：</p>
-<ul class="lvl-2">
-<li class="lvl-6">点选择：所有特征中心的点 ROI。</li>
-<li class="lvl-6">计数：找到的特征数量写入结果表。</li>
-<li class="lvl-6">列表：中心的 x 和 y 像素坐标列表被写入结果表。</li>
-<li class="lvl-6">列表（校准）：与“列表”类似，但将校准的 x 和 y 坐标写入结果表。</li>
-<li class="lvl-6">点图：一个单独的二值图像，每个特征的中心有一个像素 = 255。</li>
-<li class="lvl-6">偏差图：单独的浮点（32 位）图像。每个点的值表示原始图像中该位置的周围环境与原型的偏离程度。偏差图独立于“公差”设置。</li>
-<li class="lvl-6">特征平均值：单独的浮点（32 位）输出图像，所有特征的平均值移动到同一位置。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p><strong>Subtract Background</strong>使用减去背景，特征被认为是相同的，独立于任何恒定（相加）背景。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Soft Edges</strong> 软边缘为原型的近边缘像素赋予的权重小于靠近中心的像素的权重。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Distance Min</strong>如果要素靠得很近，小于“最小距离”，则仅保留最匹配的要素。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Tolerance</strong>公差决定了特征与原型的偏差程度。值 0 表示完全匹配，100 表示偏差等于原型的方差。启用“减去背景”后，在公差为 100% 的情况下，原型区域上具有恒定值的图像区域也符合特征。</p>
-</li>
-<li class="lvl-2">
-<p><strong>Refine</strong> 在预览过程中，设置容差后，您可以按“调整”按钮。这会根据当前选择的所有特征的平均值计算出新的原型。例如，如果原型受到噪声影响，“优化”很有用。在预览期间，该对话框还显示特征数量与原型偏差的直方图以及包含找到的特征数量的消息。</p>
-</li>
-</ul>
-<h2 id="提示和技巧">提示和技巧</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>在预览过程中，直方图右侧经常会出现一个宽阔的峰值。这就是假匹配。请将阈值保持在该峰值以下。</p>
-</li>
-<li class="lvl-2">
-<p>特征应与原型具有相同的灰度对比度。如果不是这种情况，建议选择图像中可能出现的对比度最高的模板。</p>
-</li>
-<li class="lvl-2">
-<p>如果阈值法失败，也可以尝试创建偏差图并对其进行处理（背景减除、高通滤波器、查找最大值…）。</p>
-</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9pbWFnZWouZ2l0aHViLmlvL3BsdWdpbnMvZmVhdHVyZS1maW5kZXI=">https://imagej.github.io/plugins/feature-finder<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R3bmtpZS9hcnRpY2xlL2RldGFpbHMvMTMyMTU0MjUz">https://blog.csdn.net/twnkie/article/details/132154253<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ImageJ</category>
-      </categories>
-      <tags>
-        <tag>ImageJ</tag>
-        <tag>图像</tag>
-        <tag>笔记</tag>
-        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -484,28 +484,10 @@
         <category>ImageJ</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>笔记</tag>
         <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>R语言--批量解压文件--示例</title>
-    <url>/2024/05/23/a4e9d30f08ea/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>用R语言批量解压文件到指定目录</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>R语言</category>
-      </categories>
-      <tags>
-        <tag>批量</tag>
-        <tag>解压</tag>
-        <tag>R语言</tag>
-        <tag>实例</tag>
       </tags>
   </entry>
   <entry>
@@ -609,9 +591,63 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>R语言</tag>
         <tag>RNA-seq</tag>
         <tag>生信</tag>
+        <tag>R语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R语言--SimpleITK</title>
+    <url>/2024/05/16/ef7e309aa1eb/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>SimpleITK</strong> 是 Insight 工具包（ITK）算法和数据结构的简化编程接口。它支持多种编程语言的接口，包括 C++、Python、R、Java、C#、Lua、Ruby 和 TCL。这些绑定使科学家能够用他们最熟悉的编程语言开发图像分析工作流。该工具包支持 15 种以上不同的图像文件格式，提供 280 多种图像分析过滤器，并为 ITK 基于强度的配准框架实现了统一接口。</p>
+<span id="more"></span>
+<h2 id="特点">特点</h2>
+<p>使用 Python、R、Java、C#、Lua、Ruby、TCL 和 C++ 进行开源多维图像分析。由 Insight 工具包社区为生物医学科学及其他领域开发。</p>
+<ul class="lvl-0">
+<li class="lvl-2">被视为空间对象而非像素阵列的图像。计算在二维或三维物理空间中进行。</li>
+<li class="lvl-2">利用刚性或可变形变换快速配准二维和三维模内和模间图像的配准框架。</li>
+<li class="lvl-2">从经典的Otsu thresholding到水平集(level sets) 和分水岭(watersheds)，为图像分割工作流程提供了丰富的过滤器。</li>
+<li class="lvl-2">评估分割结果（豪斯多夫距离、雅卡德值和骰子值、表面距离等&lt;Hausdorff distance, Jaccard and Dice values, surface distances etc.&gt; ）和分析分割形状特征（定向边界框、主矩、周长、伸长率、费雷特直径等&lt;oriented bounding box, principal moments, perimeter, elongation, Feret diameter etc.&gt;）的工具。</li>
+<li class="lvl-2">图像文件输入/输出，支持 20 多种图像文件格式（jpg、png、DICOM、TIFF 等），并可在不同格式间轻松转换。</li>
+<li class="lvl-2">通过基于进程和线程的并行化，可随时集成到集群或台式机的并行处理框架中。</li>
+</ul>
+<h2 id="安装R包-SimpleITKRInstaller">安装R包-SimpleITKRInstaller</h2>
+<p><code>devtools::install_github(&quot;SimpleITK/SimpleITKRInstaller&quot;)</code></p>
+<h2 id="Fiji">Fiji</h2>
+<p>SimpleITK 有一个内置函数 <code>itk::simple::Show()</code>，可用于在交互会话中查看图像。默认情况下，该 Show 函数会搜索已安装的 Fiji 来显示图像。如果找不到 Fiji，则会搜索 ImageJ。选择 Fiji/ImageJ 是因为它们可以处理 SimpleITK 支持的所有图像类型，包括每像素有 n 个分量的 3D 矢量图像。    Show 函数会在多个标准位置搜索 Fiji/ImageJ。具体位置取决于系统类型（Linux、Mac 或 Windows）。启用 &quot;Show &quot;的 &quot;debugOn &quot;选项后，用户可以看到 SimpleITK 正在搜索 Fiji（或其他查看应用程序）的位置，以及用于启动查看应用程序的实际命令。    Show 是 ImageViewer 类的功能接口。可以使用 ImageViewer 对象配置其他查看应用程序.</p>
+<hr>
+<h2 id="图片导入和导出">图片导入和导出</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>SimpleITK<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">reader <span class="operator">&lt;-</span> ImageFileReader<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">reader<span class="operator">$</span>SetImageIO<span class="punctuation">(</span><span class="string">&quot;PNGImageIO&quot;</span><span class="punctuation">)</span></span><br><span class="line">reader<span class="operator">$</span>SetFileName<span class="punctuation">(</span>inputImageFileName<span class="punctuation">)</span></span><br><span class="line">image <span class="operator">&lt;-</span> reader<span class="operator">$</span>Execute<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">writer <span class="operator">&lt;-</span> ImageFileWriter<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">writer<span class="operator">$</span>SetFileName<span class="punctuation">(</span>outputImageFileName<span class="punctuation">)</span></span><br><span class="line">writer<span class="operator">$</span>Execute<span class="punctuation">(</span>image<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p>上面的示例指定使用 PNGImageIO 来读取文件。如果省略该行，SimpleITK 将根据文件名的后缀和/或文件头自动确定要使用哪个 IO。</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">image <span class="operator">&lt;-</span> ReadImage<span class="punctuation">(</span>inputImageFileName<span class="punctuation">)</span></span><br><span class="line">WriteImage<span class="punctuation">(</span>image<span class="punctuation">,</span> outputImageFileName<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>ImageJ</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>ImageJ</tag>
+        <tag>图像</tag>
+        <tag>插件</tag>
+        <tag>简介</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R语言--批量解压文件--示例</title>
+    <url>/2024/05/23/a4e9d30f08ea/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>用R语言批量解压文件到指定目录</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>R语言</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>批量</tag>
+        <tag>解压</tag>
+        <tag>实例</tag>
       </tags>
   </entry>
   <entry>
@@ -626,8 +662,8 @@
         <category>R语言</category>
       </categories>
       <tags>
-        <tag>批量</tag>
         <tag>R语言</tag>
+        <tag>批量</tag>
         <tag>实例</tag>
         <tag>数据处理</tag>
         <tag>果蝇</tag>
@@ -693,8 +729,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>博客</tag>
+        <tag>笔记</tag>
         <tag>建站</tag>
         <tag>API</tag>
       </tags>
@@ -724,42 +760,6 @@
       <tags>
         <tag>默认</tag>
         <tag>你好</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>R语言--SimpleITK</title>
-    <url>/2024/05/16/ef7e309aa1eb/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>SimpleITK</strong> 是 Insight 工具包（ITK）算法和数据结构的简化编程接口。它支持多种编程语言的接口，包括 C++、Python、R、Java、C#、Lua、Ruby 和 TCL。这些绑定使科学家能够用他们最熟悉的编程语言开发图像分析工作流。该工具包支持 15 种以上不同的图像文件格式，提供 280 多种图像分析过滤器，并为 ITK 基于强度的配准框架实现了统一接口。</p>
-<span id="more"></span>
-<h2 id="特点">特点</h2>
-<p>使用 Python、R、Java、C#、Lua、Ruby、TCL 和 C++ 进行开源多维图像分析。由 Insight 工具包社区为生物医学科学及其他领域开发。</p>
-<ul class="lvl-0">
-<li class="lvl-2">被视为空间对象而非像素阵列的图像。计算在二维或三维物理空间中进行。</li>
-<li class="lvl-2">利用刚性或可变形变换快速配准二维和三维模内和模间图像的配准框架。</li>
-<li class="lvl-2">从经典的Otsu thresholding到水平集(level sets) 和分水岭(watersheds)，为图像分割工作流程提供了丰富的过滤器。</li>
-<li class="lvl-2">评估分割结果（豪斯多夫距离、雅卡德值和骰子值、表面距离等&lt;Hausdorff distance, Jaccard and Dice values, surface distances etc.&gt; ）和分析分割形状特征（定向边界框、主矩、周长、伸长率、费雷特直径等&lt;oriented bounding box, principal moments, perimeter, elongation, Feret diameter etc.&gt;）的工具。</li>
-<li class="lvl-2">图像文件输入/输出，支持 20 多种图像文件格式（jpg、png、DICOM、TIFF 等），并可在不同格式间轻松转换。</li>
-<li class="lvl-2">通过基于进程和线程的并行化，可随时集成到集群或台式机的并行处理框架中。</li>
-</ul>
-<h2 id="安装R包-SimpleITKRInstaller">安装R包-SimpleITKRInstaller</h2>
-<p><code>devtools::install_github(&quot;SimpleITK/SimpleITKRInstaller&quot;)</code></p>
-<h2 id="Fiji">Fiji</h2>
-<p>SimpleITK 有一个内置函数 <code>itk::simple::Show()</code>，可用于在交互会话中查看图像。默认情况下，该 Show 函数会搜索已安装的 Fiji 来显示图像。如果找不到 Fiji，则会搜索 ImageJ。选择 Fiji/ImageJ 是因为它们可以处理 SimpleITK 支持的所有图像类型，包括每像素有 n 个分量的 3D 矢量图像。    Show 函数会在多个标准位置搜索 Fiji/ImageJ。具体位置取决于系统类型（Linux、Mac 或 Windows）。启用 &quot;Show &quot;的 &quot;debugOn &quot;选项后，用户可以看到 SimpleITK 正在搜索 Fiji（或其他查看应用程序）的位置，以及用于启动查看应用程序的实际命令。    Show 是 ImageViewer 类的功能接口。可以使用 ImageViewer 对象配置其他查看应用程序.</p>
-<hr>
-<h2 id="图片导入和导出">图片导入和导出</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>SimpleITK<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">reader <span class="operator">&lt;-</span> ImageFileReader<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">reader<span class="operator">$</span>SetImageIO<span class="punctuation">(</span><span class="string">&quot;PNGImageIO&quot;</span><span class="punctuation">)</span></span><br><span class="line">reader<span class="operator">$</span>SetFileName<span class="punctuation">(</span>inputImageFileName<span class="punctuation">)</span></span><br><span class="line">image <span class="operator">&lt;-</span> reader<span class="operator">$</span>Execute<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">writer <span class="operator">&lt;-</span> ImageFileWriter<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">writer<span class="operator">$</span>SetFileName<span class="punctuation">(</span>outputImageFileName<span class="punctuation">)</span></span><br><span class="line">writer<span class="operator">$</span>Execute<span class="punctuation">(</span>image<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-<p>上面的示例指定使用 PNGImageIO 来读取文件。如果省略该行，SimpleITK 将根据文件名的后缀和/或文件头自动确定要使用哪个 IO。</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">image <span class="operator">&lt;-</span> ReadImage<span class="punctuation">(</span>inputImageFileName<span class="punctuation">)</span></span><br><span class="line">WriteImage<span class="punctuation">(</span>image<span class="punctuation">,</span> outputImageFileName<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>ImageJ</category>
-      </categories>
-      <tags>
-        <tag>ImageJ</tag>
-        <tag>图像</tag>
-        <tag>笔记</tag>
-        <tag>插件</tag>
-        <tag>简介</tag>
       </tags>
   </entry>
   <entry>
@@ -802,6 +802,49 @@
         <tag>疾病</tag>
         <tag>心理</tag>
         <tag>情诗</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【翻译】什么是兔子洞效应？--为什么上网有瘾</title>
+    <url>/2024/09/07/21cab1afdb14/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文链接：<span class="exturl" data-url="aHR0cHM6Ly9hd2llYmUub3JnL2VuL3JhYmJpdC1ob2xlLWVmZmVjdC8=">What is the rabbit hole effect? (awiebe.org)<i class="fa fa-external-link-alt"></i></span></p>
+<p>&quot;兔子洞效应&quot;一词在当今数字世界中被广泛使用，它描述了这样一种现象：当一个人原本只是在寻找一条简单的信息时，却往往不自觉地深入到一个或一组特定的主题中去。这种现象得名于刘易斯-卡罗尔的《爱丽丝梦游仙境》中著名的兔子洞，爱丽丝掉进兔子洞后，突然发现自己置身于一个奇异而迷人的世界。<u>在数字时代，我们经常在网上体验到这种现象，因为我们会从一个话题转到下一个话题，从而忘记了时间。</u></p>
+<span id="more"></span> 
+<h2 id="起源和意义">起源和意义</h2>
+<p>兔子洞效应起源于互联网，尤其是 YouTube、维基百科和 Facebook 等社交媒体和平台造成的数字信息超载。这些平台旨在吸引用户不断深入相关内容。点击一个有趣的链接或视频，就会得到进一步的推荐，从而进一步激发用户的兴趣。例如，搜索一个简单的问题，如 “如何烹饪意大利面？”，几个小时后就能让你深入了解一部关于意大利美食历史的纪录片。</p>
+<h2 id="其背后的机制和心理学原理">其背后的机制和心理学原理</h2>
+<p>兔子洞效应基于各种心理机制。其中一个主要驱动力就是人类的 <strong>好奇心</strong>。人脑追求知识，并在吸收新信息时通过释放多巴胺来奖励自己。这促使我们不断搜索和点击，以了解更多信息。</p>
+<p>另一个重要方面是许多 <strong>平台的算法</strong>工作方式。它们会分析网站访问者的行为，并不断推荐与之前的点击和兴趣相匹配的新内容。这就形成了一个相关内容的个性化无休止循环，很难打断这一过程。</p>
+<h2 id="兔子洞效应的积极方面">兔子洞效应的积极方面</h2>
+<p>除了一些消极方面，兔子洞效应也有积极方面。一方面，它能促进学习和获取知识。通过深入研究一个主题，用户可以大大扩展自己的知识面，发现新的兴趣和爱好。另一个积极的方面是有机会获得灵感。通过结合不同的信息来源和视角，可以产生许多创造性的想法，而这些都可以通过进入数字兔子洞来找到。</p>
+<h2 id="危险和消极方面">危险和消极方面</h2>
+<p>尽管有这些积极方面，但兔子洞效应也隐藏着一些危险。最大的挑战之一就是时间的损失。由于无意识地上网冲浪，原本计划用于其他任务的时间很快就会丢失。这会导致任务无休止地推迟，降低工作效率。另一个负面影响是有可能成为虚假信息的牺牲品。互联网深处潜伏着大量错误信息和不可靠的信息来源。如果用户遇到这些信息并信以为真，就会导致错误的信念和错误的信息。最后但并非最不重要的一点是，兔子洞效应也会造成社会隔离。当人们花太多时间上网时，会影响他们在现实生活中的社交互动和人际关系。</p>
+<h2 id="应对兔子洞效应的策略">应对兔子洞效应的策略</h2>
+<p>可以使用多种策略来控制兔子洞效应，将其负面影响降到最低：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>时间管理</strong>：为自己设定明确的在线研究时间限制，并严格遵守。</p>
+</li>
+<li class="lvl-2">
+<p><strong>有意识地浏览</strong>：意识到自己何时以及为何进入数字兔子洞，并尝试有针对性地搜索信息。</p>
+</li>
+<li class="lvl-2">
+<p><strong>批判性思维</strong>：仔细检查信息来源，确保其可靠可信。</p>
+</li>
+<li class="lvl-2">
+<p><strong>休息</strong>：从屏幕时间中定期休息，放松眼睛和精神，专注于其他活动。<br>
+定期自我反思是控制兔子洞效应的重要工具。网民应不断质疑自己，目前访问的内容是否真的与最初的目标相关，或者是否偏离了主题。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>翻译</category>
+        <category>心理</category>
+      </categories>
+      <tags>
+        <tag>效应</tag>
+        <tag>网络</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -886,108 +929,6 @@
       </tags>
   </entry>
   <entry>
-    <title>R语言--爬取小说-战略级天使</title>
-    <url>/2021/05/04/dfc6fd522f6c/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;rvest&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RCurl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;curl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;downloader&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RSelenium&#x27;</span><span class="punctuation">)</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&#x27;H:\\R\\R脚本\\爬虫&#x27;</span><span class="punctuation">)</span></span><br><span class="line">url <span class="operator">&lt;-</span> <span class="string">&quot;https://www.-----.com/yuedu/15111/&quot;</span></span><br><span class="line">htmlpage <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>url<span class="punctuation">)</span></span><br><span class="line">xs_chapter <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_chapter<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_attrs<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> paste<span class="punctuation">(</span><span class="string">&quot;https://www.-----.com&quot;</span><span class="punctuation">,</span>unlist<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">)</span><span class="comment">#构建章节链接</span></span><br><span class="line">xs_content <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>xs_chapter<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>xs_link<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="comment">#合并目录链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#尝试获取小说内容，并提取。</span></span><br><span class="line">ms_f1 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f2 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f1<span class="punctuation">,</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f2<span class="punctuation">)</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> ms_f<span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;1.txt&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义下载函数</span></span><br><span class="line">xs_down <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  xm <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs<span class="punctuation">,</span> x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> xm<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  xs</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment">#导出小说</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> xs_down<span class="punctuation">(</span>xs_content<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;战略级天使.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>爬虫</category>
-        <category>R语言</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>实例</tag>
-        <tag>爬虫</tag>
-        <tag>小说</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【翻译】什么是兔子洞效应？--为什么上网有瘾</title>
-    <url>/2024/09/07/21cab1afdb14/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文链接：<span class="exturl" data-url="aHR0cHM6Ly9hd2llYmUub3JnL2VuL3JhYmJpdC1ob2xlLWVmZmVjdC8=">What is the rabbit hole effect? (awiebe.org)<i class="fa fa-external-link-alt"></i></span></p>
-<p>&quot;兔子洞效应&quot;一词在当今数字世界中被广泛使用，它描述了这样一种现象：当一个人原本只是在寻找一条简单的信息时，却往往不自觉地深入到一个或一组特定的主题中去。这种现象得名于刘易斯-卡罗尔的《爱丽丝梦游仙境》中著名的兔子洞，爱丽丝掉进兔子洞后，突然发现自己置身于一个奇异而迷人的世界。<u>在数字时代，我们经常在网上体验到这种现象，因为我们会从一个话题转到下一个话题，从而忘记了时间。</u></p>
-<span id="more"></span> 
-<h2 id="起源和意义">起源和意义</h2>
-<p>兔子洞效应起源于互联网，尤其是 YouTube、维基百科和 Facebook 等社交媒体和平台造成的数字信息超载。这些平台旨在吸引用户不断深入相关内容。点击一个有趣的链接或视频，就会得到进一步的推荐，从而进一步激发用户的兴趣。例如，搜索一个简单的问题，如 “如何烹饪意大利面？”，几个小时后就能让你深入了解一部关于意大利美食历史的纪录片。</p>
-<h2 id="其背后的机制和心理学原理">其背后的机制和心理学原理</h2>
-<p>兔子洞效应基于各种心理机制。其中一个主要驱动力就是人类的 <strong>好奇心</strong>。人脑追求知识，并在吸收新信息时通过释放多巴胺来奖励自己。这促使我们不断搜索和点击，以了解更多信息。</p>
-<p>另一个重要方面是许多 <strong>平台的算法</strong>工作方式。它们会分析网站访问者的行为，并不断推荐与之前的点击和兴趣相匹配的新内容。这就形成了一个相关内容的个性化无休止循环，很难打断这一过程。</p>
-<h2 id="兔子洞效应的积极方面">兔子洞效应的积极方面</h2>
-<p>除了一些消极方面，兔子洞效应也有积极方面。一方面，它能促进学习和获取知识。通过深入研究一个主题，用户可以大大扩展自己的知识面，发现新的兴趣和爱好。另一个积极的方面是有机会获得灵感。通过结合不同的信息来源和视角，可以产生许多创造性的想法，而这些都可以通过进入数字兔子洞来找到。</p>
-<h2 id="危险和消极方面">危险和消极方面</h2>
-<p>尽管有这些积极方面，但兔子洞效应也隐藏着一些危险。最大的挑战之一就是时间的损失。由于无意识地上网冲浪，原本计划用于其他任务的时间很快就会丢失。这会导致任务无休止地推迟，降低工作效率。另一个负面影响是有可能成为虚假信息的牺牲品。互联网深处潜伏着大量错误信息和不可靠的信息来源。如果用户遇到这些信息并信以为真，就会导致错误的信念和错误的信息。最后但并非最不重要的一点是，兔子洞效应也会造成社会隔离。当人们花太多时间上网时，会影响他们在现实生活中的社交互动和人际关系。</p>
-<h2 id="应对兔子洞效应的策略">应对兔子洞效应的策略</h2>
-<p>可以使用多种策略来控制兔子洞效应，将其负面影响降到最低：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>时间管理</strong>：为自己设定明确的在线研究时间限制，并严格遵守。</p>
-</li>
-<li class="lvl-2">
-<p><strong>有意识地浏览</strong>：意识到自己何时以及为何进入数字兔子洞，并尝试有针对性地搜索信息。</p>
-</li>
-<li class="lvl-2">
-<p><strong>批判性思维</strong>：仔细检查信息来源，确保其可靠可信。</p>
-</li>
-<li class="lvl-2">
-<p><strong>休息</strong>：从屏幕时间中定期休息，放松眼睛和精神，专注于其他活动。<br>
-定期自我反思是控制兔子洞效应的重要工具。网民应不断质疑自己，目前访问的内容是否真的与最初的目标相关，或者是否偏离了主题。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>翻译</category>
-        <category>心理</category>
-      </categories>
-      <tags>
-        <tag>效应</tag>
-        <tag>网络</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>从出生那天开始，你就是“局外人”</title>
-    <url>/2024/05/10/51fa0d872217/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="你">你</h2>
-<p>如果你是中国的90后，那你的出生就已经是个错误。这个错是谁跟你定的呢？谁管呢，谁让你赶在了这个糟糕的年代。</p>
-<span id="more"></span>
-<p>20世纪90年代正是计划生育实行最没“人性”的时代，你出生了。不是独生子，就是“计划外”。独生子的你以后要独自承担这个家，而计划外的你现在就要面临活下去的困难。好了，挨过了出生这道屏障。上小学到5年级，突然多了一个6年级。<br>
-2003年，你又赶上了非典。接着又赶上了高考改革。后来你又赶上了考研公费取消。都这样了你还不死心考了博士，硕博的毕业条件一年比一年离谱，而教育水平似乎并没有改变。你迟迟没有毕业，等到的却是新冠肺炎。毕业条件提高，盲审条件提高，毕业难度加大。以后你将面临人口老龄化。这于你来说就是最糟糕的年代。你被抛弃之人，就没有家。却还要对这个屋檐感恩戴德。</p>
-<hr>
-<blockquote>
-<p>智谱清言修改</p>
-</blockquote>
-<h1>90后的挑战与机遇</h1>
-<h2 id="出生背景">出生背景</h2>
-<p><strong>20世纪90年代的中国</strong>，你作为90后的一员，出生在一个社会变革的时期。计划生育政策在这一时期达到了严格的顶峰，你的出生或许被标记为“错误”，但这个“错误”并非由你造成，而是那个时代的社会环境所决定。作为独生子女，你将承担家庭的重任；若是“计划外”的孩子，你则面临更多的生存挑战。</p>
-<h2 id="教育经历">教育经历</h2>
-<p><strong>教育之路</strong>，从小学到五年级，教育体系的变化让你不得不适应新的六年级。2003年，非典疫情爆发，给你带来了关于生命和健康的新认知。随后，高考改革对你提出了新的要求，你需要适应新的考试制度和教育模式。</p>
-<h2 id="高等教育">高等教育</h2>
-<p><strong>高等教育的挑战</strong>，考研公费的取消增加了你的经济负担，但你仍选择继续深造，攻读硕士和博士学位。然而，毕业条件逐年提高，盲审制度变得更加严格，使得毕业难度不断加大。</p>
-<h2 id="新冠肺炎疫情">新冠肺炎疫情</h2>
-<p><strong>疫情的冲击</strong>，当你即将完成学业之际，新冠肺炎疫情爆发，就业市场急剧萎缩，你面临着更加激烈的竞争和不确定性。</p>
-<h2 id="人口老龄化">人口老龄化</h2>
-<p><strong>面对未来</strong>，中国正面临人口老龄化的挑战。随着生育率的下降和人口结构的变化，你需要在工作和生活中承担更多的责任，并为未来的养老问题做好准备。</p>
-<h2 id="坚持与希望">坚持与希望</h2>
-<p>在这个充满挑战的时代，90后似乎成了被抛弃的一代。然而，你们依然坚持着自己的梦想，努力寻找属于自己的位置。或许对现状感到不满，但你们明白，只有通过自己的努力，才能在这个不断变化的世界中找到属于自己的道路。</p>
-<details open>
-<summary><span class="pre-summary">&nbsp;</span><strong>修改前</strong></summary><p>在中国的90后，出生在一个特殊的历史时期，这个时期的社会变革和发展对他们的成长产生了深远的影响。20世纪90年代，中国实行了一项具有深远历史意义的人口政策——计划生育。这项政策旨在控制人口增长，提高人口素质，但由于其严格的实施方式，也引发了一系列社会问题。对于90后来说，他们的出生就伴随着这样的背景，这无疑是一个巨大的挑战。如果你是中国的90后，那么你的出生就已经是个错误。这个错误不是由你决定的，而是由那个时代的社会环境决定的。在当时，计划生育政策被视为控制人口增长的必要手段，但对于许多家庭来说，这却是一种痛苦的选择。如果你是独生子女，那么你将承担起家庭的重任，独自面对未来的挑战。如果你是“计划外”的孩子，那么你的出生将面临更多的困难和挑战，你可能需要为生存而奋斗。在度过了出生这道难关后，90后的孩子们开始接受教育。然而，他们又遇到了新的挑战。在上小学到5年级的过程中，突然多出了一个6年级。这一变化让许多学生感到困惑和不适，他们不得不适应新的教育体系。然而，这仅仅是他们成长过程中的一部分。<br>
-2003年，中国爆发了非典疫情。这场突如其来的灾难对整个社会造成了巨大的冲击，也影响了90后的成长。他们不得不学会面对疾病和死亡，学会珍惜生命和健康。这场疫情也让人们意识到公共卫生的重要性，推动了中国医疗卫生体系的改革和发展。随着90后的成长，他们又迎来了高考改革。这一改革旨在减轻学生的学业压力，提高教育的公平性和质量。然而，对于90后来说，这又是一次挑战。他们需要适应新的考试制度和教育模式，努力提高自己的综合素质和能力。在经历了高考改革后，90后又迎来了考研公费的取消。这一政策变化使得研究生教育变得更加市场化，也增加了学生的经济负担。对于许多90后来说，这无疑是一个巨大的压力。他们需要为自己的未来付出更多的努力和汗水，才能实现自己的梦想。随着就业困难，物价疯涨，90后一代中很多的人选择继续深造，攻读硕士和博士学位。然而，他们发现，硕博的毕业条件逐年提高，盲审制度变得更加严格，毕业难度不断加大。这些变化对他们的学术生涯和心理健康都带来了巨大的压力。即便如此，他们依然坚持不懈地追求知识，希望能够在学术领域取得突破。然而，就在他们即将完成学业之际，新冠肺炎的爆发给了他们新的打击。疫情导致毕业生的就业市场急剧萎缩，许多行业受到重创，就业机会减少。对于即将步入社会的博士生来说，这意味着他们需要面对更加激烈的竞争和不确定性。与此同时，中国正面临着人口老龄化的严峻挑战。随着生育率的下降和人口结构的变化，年轻劳动力市场的供给将逐渐减少，而老年人口的比例将不断上升。这对于90后来说，不仅意味着他们需要在工作和生活中承担更多的责任，还意味着他们需要为未来的养老问题做好准备。在这个充满挑战的时代，90后似乎成了被抛弃的一代。他们不仅要应对现实的压力，还要为未来的不确定性做好准备。然而，他们依然坚持着自己的梦想，努力寻找属于自己的位置。他们或许对现状感到不满，但他们也明白，只有通过自己的努力，才能在这个不断变化的世界中找到属于自己的道路。</p>
-</details>
-]]></content>
-      <categories>
-        <category>活着</category>
-      </categories>
-      <tags>
-        <tag>局外人</tag>
-        <tag>随笔</tag>
-        <tag>牢骚</tag>
-        <tag>时代</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>大模型读文献之腾讯元宝--深度阅读</title>
     <url>/2024/09/25/7453fb1cbc6c/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="font-style-color-rgba-0-0-0-0-9-简介-font"><font style="color:rgba(0, 0, 0, 0.9);">简介</font></h2>
@@ -1035,6 +976,65 @@
         <tag>腾讯</tag>
         <tag>大模型</tag>
         <tag>元宝</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从出生那天开始，你就是“局外人”</title>
+    <url>/2024/05/10/51fa0d872217/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="你">你</h2>
+<p>如果你是中国的90后，那你的出生就已经是个错误。这个错是谁跟你定的呢？谁管呢，谁让你赶在了这个糟糕的年代。</p>
+<span id="more"></span>
+<p>20世纪90年代正是计划生育实行最没“人性”的时代，你出生了。不是独生子，就是“计划外”。独生子的你以后要独自承担这个家，而计划外的你现在就要面临活下去的困难。好了，挨过了出生这道屏障。上小学到5年级，突然多了一个6年级。<br>
+2003年，你又赶上了非典。接着又赶上了高考改革。后来你又赶上了考研公费取消。都这样了你还不死心考了博士，硕博的毕业条件一年比一年离谱，而教育水平似乎并没有改变。你迟迟没有毕业，等到的却是新冠肺炎。毕业条件提高，盲审条件提高，毕业难度加大。以后你将面临人口老龄化。这于你来说就是最糟糕的年代。你被抛弃之人，就没有家。却还要对这个屋檐感恩戴德。</p>
+<hr>
+<blockquote>
+<p>智谱清言修改</p>
+</blockquote>
+<h1>90后的挑战与机遇</h1>
+<h2 id="出生背景">出生背景</h2>
+<p><strong>20世纪90年代的中国</strong>，你作为90后的一员，出生在一个社会变革的时期。计划生育政策在这一时期达到了严格的顶峰，你的出生或许被标记为“错误”，但这个“错误”并非由你造成，而是那个时代的社会环境所决定。作为独生子女，你将承担家庭的重任；若是“计划外”的孩子，你则面临更多的生存挑战。</p>
+<h2 id="教育经历">教育经历</h2>
+<p><strong>教育之路</strong>，从小学到五年级，教育体系的变化让你不得不适应新的六年级。2003年，非典疫情爆发，给你带来了关于生命和健康的新认知。随后，高考改革对你提出了新的要求，你需要适应新的考试制度和教育模式。</p>
+<h2 id="高等教育">高等教育</h2>
+<p><strong>高等教育的挑战</strong>，考研公费的取消增加了你的经济负担，但你仍选择继续深造，攻读硕士和博士学位。然而，毕业条件逐年提高，盲审制度变得更加严格，使得毕业难度不断加大。</p>
+<h2 id="新冠肺炎疫情">新冠肺炎疫情</h2>
+<p><strong>疫情的冲击</strong>，当你即将完成学业之际，新冠肺炎疫情爆发，就业市场急剧萎缩，你面临着更加激烈的竞争和不确定性。</p>
+<h2 id="人口老龄化">人口老龄化</h2>
+<p><strong>面对未来</strong>，中国正面临人口老龄化的挑战。随着生育率的下降和人口结构的变化，你需要在工作和生活中承担更多的责任，并为未来的养老问题做好准备。</p>
+<h2 id="坚持与希望">坚持与希望</h2>
+<p>在这个充满挑战的时代，90后似乎成了被抛弃的一代。然而，你们依然坚持着自己的梦想，努力寻找属于自己的位置。或许对现状感到不满，但你们明白，只有通过自己的努力，才能在这个不断变化的世界中找到属于自己的道路。</p>
+<details open>
+<summary><span class="pre-summary">&nbsp;</span><strong>修改前</strong></summary><p>在中国的90后，出生在一个特殊的历史时期，这个时期的社会变革和发展对他们的成长产生了深远的影响。20世纪90年代，中国实行了一项具有深远历史意义的人口政策——计划生育。这项政策旨在控制人口增长，提高人口素质，但由于其严格的实施方式，也引发了一系列社会问题。对于90后来说，他们的出生就伴随着这样的背景，这无疑是一个巨大的挑战。如果你是中国的90后，那么你的出生就已经是个错误。这个错误不是由你决定的，而是由那个时代的社会环境决定的。在当时，计划生育政策被视为控制人口增长的必要手段，但对于许多家庭来说，这却是一种痛苦的选择。如果你是独生子女，那么你将承担起家庭的重任，独自面对未来的挑战。如果你是“计划外”的孩子，那么你的出生将面临更多的困难和挑战，你可能需要为生存而奋斗。在度过了出生这道难关后，90后的孩子们开始接受教育。然而，他们又遇到了新的挑战。在上小学到5年级的过程中，突然多出了一个6年级。这一变化让许多学生感到困惑和不适，他们不得不适应新的教育体系。然而，这仅仅是他们成长过程中的一部分。<br>
+2003年，中国爆发了非典疫情。这场突如其来的灾难对整个社会造成了巨大的冲击，也影响了90后的成长。他们不得不学会面对疾病和死亡，学会珍惜生命和健康。这场疫情也让人们意识到公共卫生的重要性，推动了中国医疗卫生体系的改革和发展。随着90后的成长，他们又迎来了高考改革。这一改革旨在减轻学生的学业压力，提高教育的公平性和质量。然而，对于90后来说，这又是一次挑战。他们需要适应新的考试制度和教育模式，努力提高自己的综合素质和能力。在经历了高考改革后，90后又迎来了考研公费的取消。这一政策变化使得研究生教育变得更加市场化，也增加了学生的经济负担。对于许多90后来说，这无疑是一个巨大的压力。他们需要为自己的未来付出更多的努力和汗水，才能实现自己的梦想。随着就业困难，物价疯涨，90后一代中很多的人选择继续深造，攻读硕士和博士学位。然而，他们发现，硕博的毕业条件逐年提高，盲审制度变得更加严格，毕业难度不断加大。这些变化对他们的学术生涯和心理健康都带来了巨大的压力。即便如此，他们依然坚持不懈地追求知识，希望能够在学术领域取得突破。然而，就在他们即将完成学业之际，新冠肺炎的爆发给了他们新的打击。疫情导致毕业生的就业市场急剧萎缩，许多行业受到重创，就业机会减少。对于即将步入社会的博士生来说，这意味着他们需要面对更加激烈的竞争和不确定性。与此同时，中国正面临着人口老龄化的严峻挑战。随着生育率的下降和人口结构的变化，年轻劳动力市场的供给将逐渐减少，而老年人口的比例将不断上升。这对于90后来说，不仅意味着他们需要在工作和生活中承担更多的责任，还意味着他们需要为未来的养老问题做好准备。在这个充满挑战的时代，90后似乎成了被抛弃的一代。他们不仅要应对现实的压力，还要为未来的不确定性做好准备。然而，他们依然坚持着自己的梦想，努力寻找属于自己的位置。他们或许对现状感到不满，但他们也明白，只有通过自己的努力，才能在这个不断变化的世界中找到属于自己的道路。</p>
+</details>
+]]></content>
+      <categories>
+        <category>活着</category>
+      </categories>
+      <tags>
+        <tag>局外人</tag>
+        <tag>随笔</tag>
+        <tag>牢骚</tag>
+        <tag>时代</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R语言--爬取小说-战略级天使</title>
+    <url>/2021/05/04/dfc6fd522f6c/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;rvest&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RCurl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;curl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;downloader&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RSelenium&#x27;</span><span class="punctuation">)</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&#x27;H:\\R\\R脚本\\爬虫&#x27;</span><span class="punctuation">)</span></span><br><span class="line">url <span class="operator">&lt;-</span> <span class="string">&quot;https://www.-----.com/yuedu/15111/&quot;</span></span><br><span class="line">htmlpage <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>url<span class="punctuation">)</span></span><br><span class="line">xs_chapter <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_chapter<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_attrs<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> paste<span class="punctuation">(</span><span class="string">&quot;https://www.-----.com&quot;</span><span class="punctuation">,</span>unlist<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">)</span><span class="comment">#构建章节链接</span></span><br><span class="line">xs_content <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>xs_chapter<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>xs_link<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="comment">#合并目录链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#尝试获取小说内容，并提取。</span></span><br><span class="line">ms_f1 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f2 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f1<span class="punctuation">,</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f2<span class="punctuation">)</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> ms_f<span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;1.txt&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义下载函数</span></span><br><span class="line">xs_down <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  xm <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs<span class="punctuation">,</span> x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> xm<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  xs</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment">#导出小说</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> xs_down<span class="punctuation">(</span>xs_content<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;战略级天使.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>爬虫</category>
+        <category>R语言</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>实例</tag>
+        <tag>爬虫</tag>
+        <tag>小说</tag>
       </tags>
   </entry>
   <entry>
@@ -1152,6 +1152,44 @@
         <tag>分析</tag>
         <tag>PPI</tag>
         <tag>蛋白互作网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【文献阅读】药食两用的枸杞属</title>
+    <url>/2024/10/15/74a70a62f3b4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>枸杞(<em>Lycium barbarum</em> and <em>Lycium chinense</em>)作为国内的保健品，深受人们喜爱。它既是中药，也是饮食中常用的调料。很多人也将枸杞饮品，当做养生职务。尽管它如此受欢迎，但是现有研究仍缺少对枸杞完整而严格的价值评估。</p>
+<span id="more"></span> 
+<hr>
+<h4 id="研究目的">研究目的</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">使用了哪些品种，以及枸杞的用途在空间和时间上是如何发展的。</label></p>
+</li>
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox1" checked="true"><label for="checkbox1">不同文化背景的地区之间的用途如何不同。</label></p>
+</li>
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox2" checked="true"><label for="checkbox2">传统和当前的治疗和预防性健康主张与药理学发现之间的关系。</label></p>
+</li>
+</ul>
+<h4 id="研究方法">研究方法</h4>
+<p>从植物区系、分类学、植物学和民族植物学数据库、研究文章、近2000年历史中草药的最新版本以及药典中检索信息。</p>
+<h4 id="研究结果">研究结果</h4>
+<p>在总共97个物种中，有31个在世界范围内被用作食物和/或药物。通常使用。虽然85%的枸杞品种出现在美洲和非洲，但26%的枸杞被使用，但14种枸杞中有9种在欧亚大陆。在中国，枸杞属有七种两变种，其中四种已被不同民族使用。只有L. barbarum和L. chinense被转化为全球贸易商品。在中国，基于“名字”枸杞”, 它们的使用可以追溯到过去两千年。枸杞果实用于抗衰老、改善视力和营养，早在公元前500年就有记载。最近的发现解释了传统用途的药理学基础。特别是枸杞多糖、玉米黄质双棕榈酸酯、维生素、甜菜碱和混合提取物被报道具有抗衰老、改善视力和抗疲劳的作用。</p>
+<h4 id="结论">结论</h4>
+<p>历史、民族植物学、植物学、植物化学和药理学数据的整合使人们能够详细了解枸杞及其更广泛的潜力。它强调，到目前为止，人们只关注了两个物种，该属植物可能会产生多种不同性质的其他产品。</p>
+<hr>
+<p>参考资料：</p>
+<p>Ruyu, Yao, Michael, et al. The genus Lycium as food and medicine: A botanical, ethnobotanical and historical review.[J]. Journal of ethnopharmacology, 2018.</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>生物</tag>
+        <tag>中药</tag>
+        <tag>文献</tag>
+        <tag>枸杞</tag>
       </tags>
   </entry>
 </search>
