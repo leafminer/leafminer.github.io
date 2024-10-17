@@ -6,7 +6,7 @@
   <link href="https://leafminer.github.io/atom.xml" rel="self"/>
   
   <link href="https://leafminer.github.io/"/>
-  <updated>2024-10-15T10:12:15.179Z</updated>
+  <updated>2024-10-17T16:40:42.068Z</updated>
   <id>https://leafminer.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用npm升级Hexo版本</title>
+    <link href="https://leafminer.github.io/2024/10/18/de291accc282/"/>
+    <id>https://leafminer.github.io/2024/10/18/de291accc282/</id>
+    <published>2024-10-17T16:00:00.000Z</published>
+    <updated>2024-10-17T16:40:42.068Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用npm命令简单快捷的升级Hexo，主题和插件的版本。</p><span id="more"></span> <h1>用npm升级Hexo版本</h1><h2 id="npm镜像服务器更换">npm镜像服务器更换</h2><p>国内的镜像服务器</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 镜像服务器</span><br><span class="line">npm config set registry https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line"># 更新npm</span><br><span class="line">npm install -g npm@latest</span><br></pre></td></tr></table></figure><h2 id="查看当前Hexo版本">查看当前Hexo版本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo --version</span><br></pre></td></tr></table></figure><h2 id="安装npm-check和npm-upgrade">安装npm-check和npm-upgrade</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm-check</span><br><span class="line">npm install -g npm-upgrade</span><br><span class="line">npm-check</span><br></pre></td></tr></table></figure><h2 id="升级Hexo">升级Hexo</h2><p>首先进入Hexo的主目录，执行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 更新package.json</span><br><span class="line">npm upgrade</span><br><span class="line"></span><br><span class="line">npm update</span><br></pre></td></tr></table></figure><h2 id="参考">参考</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly91cHdub3RoaW5nLmdpdGh1Yi5pby96aC1DTi8zYmEzYmU5Lz9oaWdobGlnaHQ9aGV4bw==">Hexo版本升级指南 | UPWNothing's Playground<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9ucG1taXJyb3IuY29tLw==">npmmirror 镜像站<i class="fa fa-external-link-alt"></i></span></p></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;使用npm命令简单快捷的升级Hexo，主题和插件的版本。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/Hexo/"/>
+    
+    
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="升级" scheme="https://leafminer.github.io/tags/%E5%8D%87%E7%BA%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>【文献阅读】药食两用的枸杞属</title>
@@ -79,8 +108,8 @@
   
   <entry>
     <title>大模型读文献之腾讯元宝--深度阅读</title>
-    <link href="https://leafminer.github.io/2024/09/25/7453fb1cbc6c/"/>
-    <id>https://leafminer.github.io/2024/09/25/7453fb1cbc6c/</id>
+    <link href="https://leafminer.github.io/2024/09/25/e2a7186bc189/"/>
+    <id>https://leafminer.github.io/2024/09/25/e2a7186bc189/</id>
     <published>2024-09-24T16:00:00.000Z</published>
     <updated>2024-09-25T02:16:50.962Z</updated>
     
@@ -97,11 +126,11 @@
     <category term="大模型" scheme="https://leafminer.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
     
     
+    <category term="阅读" scheme="https://leafminer.github.io/tags/%E9%98%85%E8%AF%BB/"/>
+    
     <category term="腾讯" scheme="https://leafminer.github.io/tags/%E8%85%BE%E8%AE%AF/"/>
     
     <category term="大模型" scheme="https://leafminer.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
-    
-    <category term="阅读" scheme="https://leafminer.github.io/tags/%E9%98%85%E8%AF%BB/"/>
     
     <category term="元宝" scheme="https://leafminer.github.io/tags/%E5%85%83%E5%AE%9D/"/>
     
@@ -138,8 +167,8 @@
   
   <entry>
     <title>【翻译】什么是兔子洞效应？--为什么上网有瘾</title>
-    <link href="https://leafminer.github.io/2024/09/07/21cab1afdb14/"/>
-    <id>https://leafminer.github.io/2024/09/07/21cab1afdb14/</id>
+    <link href="https://leafminer.github.io/2024/09/07/916f7cda781a/"/>
+    <id>https://leafminer.github.io/2024/09/07/916f7cda781a/</id>
     <published>2024-09-06T16:00:00.000Z</published>
     <updated>2024-10-10T01:20:41.743Z</updated>
     
@@ -166,8 +195,8 @@
   
   <entry>
     <title>《高效阅读》--渡边康弘</title>
-    <link href="https://leafminer.github.io/2024/08/20/b3ad7dffc9cc/"/>
-    <id>https://leafminer.github.io/2024/08/20/b3ad7dffc9cc/</id>
+    <link href="https://leafminer.github.io/2024/08/20/51029141b91f/"/>
+    <id>https://leafminer.github.io/2024/08/20/51029141b91f/</id>
     <published>2024-08-19T16:00:00.000Z</published>
     <updated>2024-08-20T06:36:53.689Z</updated>
     
@@ -216,8 +245,8 @@
   
   <entry>
     <title>R语言--果蝇攀爬--ImageJ测量数据处理</title>
-    <link href="https://leafminer.github.io/2024/07/03/edfd8de9558b/"/>
-    <id>https://leafminer.github.io/2024/07/03/edfd8de9558b/</id>
+    <link href="https://leafminer.github.io/2024/07/03/c8db0b087a94/"/>
+    <id>https://leafminer.github.io/2024/07/03/c8db0b087a94/</id>
     <published>2024-07-03T06:04:00.000Z</published>
     <updated>2024-07-03T06:05:27.055Z</updated>
     
@@ -234,9 +263,9 @@
     
     <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
-    <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
-    
     <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
+    
+    <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
     
     <category term="数据处理" scheme="https://leafminer.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
@@ -246,8 +275,8 @@
   
   <entry>
     <title>Process--&gt;Noise&#92;Filters笔记</title>
-    <link href="https://leafminer.github.io/2024/06/11/a27cd932ea95/"/>
-    <id>https://leafminer.github.io/2024/06/11/a27cd932ea95/</id>
+    <link href="https://leafminer.github.io/2024/06/11/7890000bc707/"/>
+    <id>https://leafminer.github.io/2024/06/11/7890000bc707/</id>
     <published>2024-06-11T13:53:40.000Z</published>
     <updated>2024-06-11T08:33:03.838Z</updated>
     
@@ -279,8 +308,8 @@
   
   <entry>
     <title>Web API--学习笔记（1）</title>
-    <link href="https://leafminer.github.io/2024/05/29/21820beb8945/"/>
-    <id>https://leafminer.github.io/2024/05/29/21820beb8945/</id>
+    <link href="https://leafminer.github.io/2024/05/29/15d7b13129c0/"/>
+    <id>https://leafminer.github.io/2024/05/29/15d7b13129c0/</id>
     <published>2024-05-28T16:00:00.000Z</published>
     <updated>2024-05-30T03:35:14.515Z</updated>
     
@@ -309,8 +338,8 @@
   
   <entry>
     <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
-    <link href="https://leafminer.github.io/2024/05/23/109a1e8436e7/"/>
-    <id>https://leafminer.github.io/2024/05/23/109a1e8436e7/</id>
+    <link href="https://leafminer.github.io/2024/05/23/d5d33bdaa68f/"/>
+    <id>https://leafminer.github.io/2024/05/23/d5d33bdaa68f/</id>
     <published>2024-05-23T08:56:40.000Z</published>
     <updated>2024-05-23T09:18:50.851Z</updated>
     
@@ -338,8 +367,8 @@
   
   <entry>
     <title>R语言--批量解压文件--示例</title>
-    <link href="https://leafminer.github.io/2024/05/23/a4e9d30f08ea/"/>
-    <id>https://leafminer.github.io/2024/05/23/a4e9d30f08ea/</id>
+    <link href="https://leafminer.github.io/2024/05/23/979fc3b16655/"/>
+    <id>https://leafminer.github.io/2024/05/23/979fc3b16655/</id>
     <published>2024-05-23T08:40:00.000Z</published>
     <updated>2024-05-24T13:36:15.277Z</updated>
     
@@ -356,18 +385,18 @@
     
     <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
+    <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
+    
     <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
     
     <category term="解压" scheme="https://leafminer.github.io/tags/%E8%A7%A3%E5%8E%8B/"/>
-    
-    <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
     
   </entry>
   
   <entry>
     <title>ImageJ--形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释-TrakEM2简介</title>
-    <link href="https://leafminer.github.io/2024/05/16/88aba7486b49/"/>
-    <id>https://leafminer.github.io/2024/05/16/88aba7486b49/</id>
+    <link href="https://leafminer.github.io/2024/05/16/4681ff84ccf3/"/>
+    <id>https://leafminer.github.io/2024/05/16/4681ff84ccf3/</id>
     <published>2024-05-16T09:02:40.000Z</published>
     <updated>2024-05-16T10:15:36.030Z</updated>
     
@@ -452,8 +481,8 @@
   
   <entry>
     <title>ImageJ--Feature Finder插件</title>
-    <link href="https://leafminer.github.io/2024/05/09/d89cea932371/"/>
-    <id>https://leafminer.github.io/2024/05/09/d89cea932371/</id>
+    <link href="https://leafminer.github.io/2024/05/09/0673e2301734/"/>
+    <id>https://leafminer.github.io/2024/05/09/0673e2301734/</id>
     <published>2024-05-09T13:53:40.000Z</published>
     <updated>2024-05-10T09:39:10.707Z</updated>
     
@@ -480,10 +509,10 @@
   
   <entry>
     <title>Hexo新建文章及发布指令--笔记</title>
-    <link href="https://leafminer.github.io/2024/05/08/a18440ea295e/"/>
-    <id>https://leafminer.github.io/2024/05/08/a18440ea295e/</id>
+    <link href="https://leafminer.github.io/2024/05/08/eda54285e852/"/>
+    <id>https://leafminer.github.io/2024/05/08/eda54285e852/</id>
     <published>2024-05-08T07:37:35.000Z</published>
-    <updated>2024-05-10T06:06:42.995Z</updated>
+    <updated>2024-10-17T16:16:37.714Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><h1>完成后部署</h1><p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure></blockquote><span id="more"></span> <h2 id="新建">新建</h2><p><code>hexo new [layout] &lt;title&gt;</code><br>布局（Layout）有三种：post、page 和 draft。</p><table><thead><tr><th>布局</th><th>路径</th></tr></thead><tbody><tr><td>post</td><td>source/_posts</td></tr><tr><td>page</td><td>source</td></tr><tr><td>draft</td><td>source/_drafts</td></tr></tbody></table><h3 id="新建文章">新建文章</h3><p>windows下使用命令行创建新的博客文章如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br><code>hexo new &quot;post title with whitespace&quot;</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参数描述</span><br><span class="line">-p, --path自定义新文章的路径</span><br><span class="line">-r, --replace如果存在同名文章，将其替换</span><br><span class="line">-s, --slug文章的 Slug，作为新文章的文件名和发布后的 URL</span><br></pre></td></tr></table></figure><p>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <!--more--> 进行分段。</p><h3 id="新建独立页面">新建独立页面</h3><p><code>hexo new page --path about/me &quot;About me&quot;</code><br>以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 “About me”</p><h3 id="新建草稿">新建草稿</h3><p><code>hexo new draft &quot;draft&quot;</code></p><h2 id="生成静态网页">生成静态网页</h2><p><code>hexo generate</code><br>可简写为<code>hexo g</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">选项描述</span><br><span class="line">-d, --deploy文件生成后立即部署网站</span><br><span class="line">-w, --watch监视文件变动</span><br><span class="line">-b, --bail生成过程中如果发生任何未处理的异常则抛出异常</span><br><span class="line">-f, --force强制重新生成文件Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</span><br><span class="line">-c, --concurrency最大同时生成文件的数量，默认无限制</span><br></pre></td></tr></table></figure><h2 id="发布">发布</h2><p>发表草稿。<br><code>hexo publish [layout] &lt;filename&gt;</code></p><h2 id="server">server</h2><p>启动服务器。默认情况下，访问网址为： <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLyVFMyU4MCU4Mg==">http://localhost:4000/。<i class="fa fa-external-link-alt"></i></span><br><code>hexo server</code></p><h2 id="布署-deploy">布署(deploy)</h2><p><code>hexo deploy</code><br>可简写为<code>hexo d</code></p><h2 id="渲染文件">渲染文件</h2><p><code>hexo render &lt;file1&gt; [file2] ...</code></p><h2 id="迁移">迁移</h2><p><code>hexo migrate &lt;type&gt;</code></p><h2 id="清除缓存和已生成的静态文件">清除缓存和已生成的静态文件</h2><p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br><code>hexo clean</code></p><h2 id="list">list</h2><p>列出网站数据。<br><code>hexo list &lt;type&gt;</code></p><h2 id="显示草稿">显示草稿</h2><p><code>hexo --draft</code><br>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>]]></content>
     
@@ -498,6 +527,8 @@
     
     <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
+    <category term="Hexo" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/Hexo/"/>
+    
     
     <category term="指令" scheme="https://leafminer.github.io/tags/%E6%8C%87%E4%BB%A4/"/>
     
@@ -511,8 +542,8 @@
   
   <entry>
     <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
-    <link href="https://leafminer.github.io/2023/09/21/8308e10eb1be/"/>
-    <id>https://leafminer.github.io/2023/09/21/8308e10eb1be/</id>
+    <link href="https://leafminer.github.io/2023/09/21/037b43cd53d9/"/>
+    <id>https://leafminer.github.io/2023/09/21/037b43cd53d9/</id>
     <published>2023-09-21T07:37:35.000Z</published>
     <updated>2024-05-08T14:08:49.138Z</updated>
     
@@ -538,8 +569,8 @@
   
   <entry>
     <title>R语言--爬取小说-战略级天使</title>
-    <link href="https://leafminer.github.io/2021/05/04/dfc6fd522f6c/"/>
-    <id>https://leafminer.github.io/2021/05/04/dfc6fd522f6c/</id>
+    <link href="https://leafminer.github.io/2021/05/04/290fbc002946/"/>
+    <id>https://leafminer.github.io/2021/05/04/290fbc002946/</id>
     <published>2021-05-03T16:00:00.000Z</published>
     <updated>2024-05-25T09:54:55.322Z</updated>
     
@@ -558,11 +589,11 @@
     
     <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
-    <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
-    
     <category term="爬虫" scheme="https://leafminer.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
     <category term="小说" scheme="https://leafminer.github.io/tags/%E5%B0%8F%E8%AF%B4/"/>
+    
+    <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
     
   </entry>
   
