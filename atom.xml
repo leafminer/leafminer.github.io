@@ -6,7 +6,7 @@
   <link href="https://leafminer.github.io/atom.xml" rel="self"/>
   
   <link href="https://leafminer.github.io/"/>
-  <updated>2024-10-21T14:55:49.092Z</updated>
+  <updated>2024-10-21T17:34:15.422Z</updated>
   <id>https://leafminer.github.io/</id>
   
   <author>
@@ -17,11 +17,137 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo博客Next主题添加动态标签词云</title>
+    <link href="https://leafminer.github.io/2024/10/22/4de2bfd9848b/"/>
+    <id>https://leafminer.github.io/2024/10/22/4de2bfd9848b/</id>
+    <published>2024-10-21T17:57:06.000Z</published>
+    <updated>2024-10-21T17:34:15.422Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="效果">效果</h2><p><a href="https://leafminer.github.io/">损不足 - 奉有余 (leafminer.github.io)</a></p><span id="more"></span><h2 id="安装插件">安装插件</h2><ul class="lvl-0"><li class="lvl-2"><p>进入到 hexo 的根目录，然后在 package.json 中添加依赖: “hexo-tag-cloud”: “2.1.*”</p></li><li class="lvl-2"><p>然后执行<code>npm install</code>命令</p></li><li class="lvl-2"><p>或者<code>npm install --save hexo-tag-cloud</code>进行安装</p></li></ul><h2 id="配置主题">配置主题</h2><p>找到文件 hexo\node_modules\hexo-theme-next\layout\_macrosidebar.njk, 然后添加如下内容。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if site.tags.length &gt; 1 %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; url_for(&#x27;/js/tagcloud.js&#x27;) &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; url_for(&#x27;/js/tagcanvas.js&#x27;) &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-wrap&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;widget-title&quot;</span>&gt;</span>标签云<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myCanvasContainer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;widget tagcloud&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;250&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">id</span>=<span class="string">&quot;resCanvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:100%&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123; list_tags() &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>在你的Hexo博客根目录，找到 _config.yml 文件然后添加如下的配置项:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hexo-tag-cloud</span></span><br><span class="line"><span class="attr">tag_cloud:</span></span><br><span class="line">    <span class="attr">textFont:</span> <span class="string">Trebuchet</span> <span class="string">MS,</span> <span class="string">Helvetica</span></span><br><span class="line">    <span class="attr">textColor:</span> <span class="string">&#x27;#333&#x27;</span></span><br><span class="line">    <span class="attr">textHeight:</span> <span class="number">25</span></span><br><span class="line">    <span class="attr">outlineColor:</span> <span class="string">&#x27;#E2E1D1&#x27;</span></span><br><span class="line">    <span class="attr">maxSpeed:</span> <span class="number">0.5</span></span><br><span class="line">    <span class="attr">pauseOnSelected:</span> <span class="literal">false</span> <span class="comment"># true 意味着当选中对应 tag 时,停止转动</span></span><br></pre></td></tr></table></figure><h2 id="预览部署">预览部署</h2><ul class="lvl-0"><li class="lvl-2"><p>完成安装和显示，可以通过 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> 来进行本地预览, <code>hexo clean</code>为必须选项。</p></li><li class="lvl-2"><p>PS:不要使用<code>hexo g -d</code> 或者<code> hexo d -g</code>这类组合命令。</p></li></ul><h2 id="参考">参考</h2><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvaGV4by10YWctY2xvdWQ=">hexo-tag-cloud - npm (npmjs.com)<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://leafminer.github.io/&quot;&gt;损不足 - 奉有余 (leafminer.github.io)&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="标签云" scheme="https://leafminer.github.io/tags/%E6%A0%87%E7%AD%BE%E4%BA%91/"/>
+    
+    <category term="动态" scheme="https://leafminer.github.io/tags/%E5%8A%A8%E6%80%81/"/>
+    
+    <category term="tag_cloud" scheme="https://leafminer.github.io/tags/tag-cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客Next主题修改加载特效</title>
+    <link href="https://leafminer.github.io/2024/10/22/f85ae47c487c/"/>
+    <id>https://leafminer.github.io/2024/10/22/f85ae47c487c/</id>
+    <published>2024-10-21T16:49:35.000Z</published>
+    <updated>2024-10-21T17:32:36.337Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>修改主题配置文件<code>_config.next.yml</code></p><span id="more"></span><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pace:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># All available colors:</span></span><br><span class="line">  <span class="comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">black</span></span><br><span class="line">  <span class="comment"># All available themes:</span></span><br><span class="line">  <span class="comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span></span><br><span class="line">  <span class="comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">loading-bar</span></span><br></pre></td></tr></table></figure><h1>参考</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vamlud2VpMjYvYXJ0aWNsZXMvMTg0NjAzMTI=">hexo next8.20.0 主题美化 - 悠心不已 - 博客园 (cnblogs.com)<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;修改主题配置文件&lt;code&gt;_config.next.yml&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    
+    <category term="加载" scheme="https://leafminer.github.io/tags/%E5%8A%A0%E8%BD%BD/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="pace" scheme="https://leafminer.github.io/tags/pace/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客Next主题解决不显示外链图片的问题</title>
+    <link href="https://leafminer.github.io/2024/10/22/68f75ac070e2/"/>
+    <id>https://leafminer.github.io/2024/10/22/68f75ac070e2/</id>
+    <published>2024-10-21T16:23:40.000Z</published>
+    <updated>2024-10-21T16:27:17.553Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>问题描述</h1><p>Hexo文章中采用外链加载的图片无法显示。</p><span id="more"></span><h1>问题原因</h1><p>防盗链。部分网站不允许图片外链，只允许本网站才能显示图片，外部网站加载图片就会报错。通过对请求方的 <strong>Referer</strong> 进行判断过滤，确认是否可以访问。</p><h1>解决办法</h1><p>【Next主题】主题文件夹内的(hexo\node_modules\hexo-theme-next\layout\_partials\head) <strong>head.njk</strong>文件中，添加meta信息</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;</span><br></pre></td></tr></table></figure><p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729527335903-a66b9a72-3937-4216-b2b0-8e4cc9b392a7.png" alt="">​</p><h1>参考</h1><p><span class="exturl" data-url="aHR0cHM6Ly9saXhpYW95YW45OTkuZ2l0aHViLmlvLzIwMjQvMDQvMDIvJUU4JUE3JUEzJUU1JTg2JUIzaGV4byVFNSVCQyU5NSVFNSU4NSVBNSVFNSU5QiVCRSVFNSVCQSU4QSVFRiVCQyU4QyVFNiU4OSU4QiVFNiU5QyVCQSVFNSU5MiU4Q3dlYiVFNCVCOCU4RCVFNiU5OCVCRSVFNyVBNCVCQSVFNSU5QiVCRSVFNyU4OSU4NyVFNyU5QSU4NCVFOSU5NyVBRSVFOSVBMiU5OC8j">解决hexo引入图床，不显示图片的问题 - 一叶知秋<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1&gt;问题描述&lt;/h1&gt;
+&lt;p&gt;Hexo文章中采用外链加载的图片无法显示。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="图片显示" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/"/>
+    
+    <category term="防盗链" scheme="https://leafminer.github.io/tags/%E9%98%B2%E7%9B%97%E9%93%BE/"/>
+    
+    <category term="meta" scheme="https://leafminer.github.io/tags/meta/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日早报--认识世界</title>
+    <link href="https://leafminer.github.io/2024/10/21/ad715d53afba/"/>
+    <id>https://leafminer.github.io/2024/10/21/ad715d53afba/</id>
+    <published>2024-10-21T15:57:06.000Z</published>
+    <updated>2024-10-21T17:31:38.308Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>今日新闻</center></h1><center><span id="date"></span></center><script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script><span id="more"></span><p><img src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1&gt;&lt;center&gt;今日新闻&lt;/center&gt;&lt;/h1&gt;
+&lt;center&gt;&lt;span id=&quot;date&quot;&gt;&lt;/span&gt;&lt;/center&gt;
+&lt;script&gt;document.getElementById(&#39;date&#39;).textContent = new Date().toLocaleDateString();&lt;/script&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="新闻" scheme="https://leafminer.github.io/tags/%E6%96%B0%E9%97%BB/"/>
+    
+    <category term="API" scheme="https://leafminer.github.io/tags/API/"/>
+    
+    <category term="热点" scheme="https://leafminer.github.io/tags/%E7%83%AD%E7%82%B9/"/>
+    
+    <category term="全球" scheme="https://leafminer.github.io/tags/%E5%85%A8%E7%90%83/"/>
+    
+    <category term="今日" scheme="https://leafminer.github.io/tags/%E4%BB%8A%E6%97%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo博客Next主题添加动态标题</title>
     <link href="https://leafminer.github.io/2024/10/21/8803d6a9e06d/"/>
     <id>https://leafminer.github.io/2024/10/21/8803d6a9e06d/</id>
     <published>2024-10-21T13:57:06.000Z</published>
-    <updated>2024-10-21T14:55:49.092Z</updated>
+    <updated>2024-10-21T15:17:04.240Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>直接在<code>hexo\node_modules\hexo-theme-next\layout\_layout.njk</code>​文件中添加如下代码：</p><span id="more"></span><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> <span class="title class_">OriginTitile</span>=<span class="variable language_">document</span>.<span class="property">title</span>,st;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;visibilitychange&quot;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">hidden</span>?(<span class="variable language_">document</span>.<span class="property">title</span>=<span class="string">&quot;ヽ(●-`Д´-)ノ别走啊！&quot;</span>,<span class="built_in">clearTimeout</span>(st)):(<span class="variable language_">document</span>.<span class="property">title</span>=<span class="string">&quot;(Ő∀Ő3)ノ来了啊！&quot;</span>,st=<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">document</span>.<span class="property">title</span>=<span class="title class_">OriginTitile</span>&#125;,<span class="number">3e3</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729158708074-c3c3fbe9-a4ea-45ae-8ba8-760cb5514c17.png" alt="">​</p><h2 id="参考">参考</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAyMTYxNDMwNz9zb3J0PW5ld2VzdCNpdGVtLTctMTA=">hexo+github搭建博客(超级详细版，精细入微) - 个人文章 - SegmentFault 思否<i class="fa fa-external-link-alt"></i></span></p>]]></content>
     
@@ -35,11 +161,11 @@
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
     
@@ -71,11 +197,11 @@
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="公众号" scheme="https://leafminer.github.io/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
     
@@ -104,9 +230,9 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E8%BD%AC%E8%BD%BD/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="category_map" scheme="https://leafminer.github.io/tags/category-map/"/>
     
@@ -119,9 +245,9 @@
     <link href="https://leafminer.github.io/2024/10/21/1d2a6f85d3f7/"/>
     <id>https://leafminer.github.io/2024/10/21/1d2a6f85d3f7/</id>
     <published>2024-10-21T08:27:37.000Z</published>
-    <updated>2024-10-21T12:46:14.657Z</updated>
+    <updated>2024-10-21T15:33:23.833Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。</p><span id="more"></span><h1>Hexo博客Next主题添加每日早报</h1><p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p><h1>Alapi官网注册</h1><p>Alapi官网地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24v">https://www.alapi.cn/<i class="fa fa-external-link-alt"></i></span></p><h2 id="获得Token密钥">获得Token密钥</h2><p><strong>接口管理</strong>，<strong>更新Token密钥</strong></p><p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729509991587-6f6a2973-9959-4a75-87cb-943936032ff3.png" alt="">​</p><h1>生成</h1><p>复制密钥放到下面的网址中：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image</span><br></pre></td></tr></table></figure><p>API文档：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24vYXBpL3ZpZXcvOTM=">每日60秒早报-ALAPI<i class="fa fa-external-link-alt"></i></span></p><h2 id="插入文章">插入文章</h2><p>在Markdown文档中加入：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[](<span class="link">https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image</span>)</span><br></pre></td></tr></table></figure><h2 id="Html页面">Html页面</h2><p>在html页面中加入：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>全屏图片展示<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">      <span class="selector-tag">body</span>, <span class="selector-tag">html</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.full-screen-image</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">object-fit</span>: cover; <span class="comment">/* 图片将覆盖整个容器 */</span></span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;全屏图片&quot;</span> <span class="attr">class</span>=<span class="string">&quot;full-screen-image&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h1>参考</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYW9tYW5oYW8udG9wL2FyY2hpdmVzLzMxNi8=">博客新增每日早报api，网站增加每日早报功能 - AomanHao的博客空间<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。</p><span id="more"></span><h1>Hexo博客Next主题添加每日早报</h1><p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p><h1>Alapi官网注册</h1><p>Alapi官网地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24v">https://www.alapi.cn/<i class="fa fa-external-link-alt"></i></span></p><h2 id="获得Token密钥">获得Token密钥</h2><p><strong>接口管理</strong>，<strong>更新Token密钥</strong></p><p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729509991587-6f6a2973-9959-4a75-87cb-943936032ff3.png" alt="">​</p><h1>生成</h1><p>复制密钥放到下面的网址中：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image</span><br></pre></td></tr></table></figure><p>API文档：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24vYXBpL3ZpZXcvOTM=">每日60秒早报-ALAPI<i class="fa fa-external-link-alt"></i></span></p><h2 id="插入文章">插入文章</h2><p>在Markdown文档中加入：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](<span class="link">https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image</span>)</span><br></pre></td></tr></table></figure><h2 id="Html页面">Html页面</h2><p>在html页面中加入：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>全屏图片展示<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">      <span class="selector-tag">body</span>, <span class="selector-tag">html</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.full-screen-image</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">object-fit</span>: cover; <span class="comment">/* 图片将覆盖整个容器 */</span></span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;全屏图片&quot;</span> <span class="attr">class</span>=<span class="string">&quot;full-screen-image&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h1>参考</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYW9tYW5oYW8udG9wL2FyY2hpdmVzLzMxNi8=">博客新增每日早报api，网站增加每日早报功能 - AomanHao的博客空间<i class="fa fa-external-link-alt"></i></span></p>]]></content>
     
     
     <summary type="html">&lt;p&gt;通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。&lt;/p&gt;</summary>
@@ -133,9 +259,9 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="新闻" scheme="https://leafminer.github.io/tags/%E6%96%B0%E9%97%BB/"/>
     
@@ -167,11 +293,11 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E8%BD%AC%E8%BD%BD/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="动态背景" scheme="https://leafminer.github.io/tags/%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF/"/>
     
@@ -198,13 +324,13 @@
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="升级" scheme="https://leafminer.github.io/tags/%E5%8D%87%E7%BA%A7/"/>
     
@@ -229,9 +355,9 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E5%8E%9F%E5%88%9B/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="分类" scheme="https://leafminer.github.io/tags/%E5%88%86%E7%B1%BB/"/>
     
@@ -287,17 +413,17 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
     
     
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
     <category term="搜索" scheme="https://leafminer.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
     
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
-    
     <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="algolia" scheme="https://leafminer.github.io/tags/algolia/"/>
-    
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
   </entry>
   
@@ -529,147 +655,15 @@
     
     <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
     
-    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
     <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
-    
-    <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
     
     <category term="数据处理" scheme="https://leafminer.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
-    <category term="果蝇" scheme="https://leafminer.github.io/tags/%E6%9E%9C%E8%9D%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Process--&gt;Noise&#92;Filters笔记</title>
-    <link href="https://leafminer.github.io/2024/06/11/7890000bc707/"/>
-    <id>https://leafminer.github.io/2024/06/11/7890000bc707/</id>
-    <published>2024-06-11T13:53:40.000Z</published>
-    <updated>2024-10-18T19:53:16.718Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>Process–&gt;Noise\Filters笔记</h1><h2 id="Noise">Noise</h2><p><img src="./imgs/20240605_223251_00000.png" alt=""><br><strong>Add noise</strong> 对图片增加随机噪声，噪声服从均值为0、标准差为25的高斯分布。<br><strong>Add Specified Noise</strong> 增加一个均值为0、手动输入标准差的高斯噪声。</p><span id="more"></span> <p><strong>Salt and Pepper</strong> 通过随机替换2.5%的黑色像素和2.5%的白色像素来增加椒盐噪声。该命令仅适用于8-bit图片。<br><strong>Despeckle</strong> 这是一种中值滤波器，它将像素值替换为它周围3*3的像素点的均值。中值滤波器对于去掉上面的椒盐噪声很有用。<br><strong>Remove Outliers</strong> 如果一个像素点离它周围点的均值超过一定数值，该命令就会去除这个像素点。该命令对CCD相机的hot pixels或dead pixels很有用。</p><ul class="lvl-0"><li class="lvl-2"><strong>Radius</strong>：决定计算均值的范围（单位是像素）。使用Process-Filter-Show Circular Masks来显示半径是如何转变为面积的。</li><li class="lvl-2"><strong>Threshold</strong>：决定阈值（单位是像素）</li><li class="lvl-2"><strong>Which Outliers</strong>：决定比均值更亮还是更暗的像素点去除。</li></ul><p><strong>Remove NANs</strong> 该滤波器将32-bit图片中的NaN像素点替换成由Radius定义的圆形kernel区域内部的像素点的平均值。<br><strong>ROF Denoise</strong> 降噪</p><h2 id="Filters">Filters</h2><p>该菜单包含五花八门的滤波器。<br><strong>Convolve</strong> 使用填入文本区域的kernel进行空间卷积。一个kernel就是一个矩阵，它的中心是源像素，其他的元素是该像素的邻居。通过对像素点乘以相应的kernel中的系数然后相加得到结果。对kernel的尺寸没有限制，但它必须是方形，且必须是奇数宽度。勾选<code>Normalize Kernel</code>可以使得每个系数都除以所有系数的和，从而保持图片的亮度。<br><strong>Gaussian Blur</strong> 该过滤器使用一个高斯函数进行卷积，从而实现平滑效果。<br><strong>Gaussian Blur 3D</strong> 计算一个三维高斯低通滤波。<br><strong>Median</strong> 将像素替换为周围点的平均像素值，从而实现<strong>降噪</strong>效果。<br><strong>Mean</strong> 怎么感觉跟上面的Median是一个意思呢。<br><strong>Minimum</strong> 将像素替换为周围点的最小值，从而实现灰度腐蚀。<br><strong>Maximum</strong> 将像素替换为周围点的最大值，从而实现灰度膨胀。<br><strong>Unsharp Mas</strong>k 通过从原图片中提出一个模糊的版本，从而锐化和加强边缘。<br><strong>Variance</strong> 将每个像素替换为邻居的方差，从而高亮边缘。<br><strong>Show Circular Masks</strong> 产生一个包含上面Median、Mean、Minimum、Maximum和Variance滤波器使用的圆形mask产生的事例。</p><h2 id="参考">参考</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamluZ2VnZS53YW5nLzIwMjEvMTAvMDEvaW1hZ2VqLSVlNyU5NCVhOCVlNiU4OCViNyVlNiU4YyU4NyVlNSU4ZCU5Ny85Lw==">https://www.jingege.wang/2021/10/01/imagej-用户指南/9/<i class="fa fa-external-link-alt"></i></span></p></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;h1&gt;Process–&amp;gt;Noise&#92;Filters笔记&lt;/h1&gt;
-&lt;h2 id=&quot;Noise&quot;&gt;Noise&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;./imgs/20240605_223251_00000.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-&lt;strong&gt;Add noise&lt;/strong&gt; 对图片增加随机噪声，噪声服从均值为0、标准差为25的高斯分布。&lt;br&gt;
-&lt;strong&gt;Add Specified Noise&lt;/strong&gt; 增加一个均值为0、手动输入标准差的高斯噪声。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
-    
-    <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
-    
-    <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
-    
-    <category term="降噪" scheme="https://leafminer.github.io/tags/%E9%99%8D%E5%99%AA/"/>
-    
-    <category term="Noise" scheme="https://leafminer.github.io/tags/Noise/"/>
-    
-    <category term="Filters" scheme="https://leafminer.github.io/tags/Filters/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Web API--学习笔记（1）</title>
-    <link href="https://leafminer.github.io/2024/05/29/15d7b13129c0/"/>
-    <id>https://leafminer.github.io/2024/05/29/15d7b13129c0/</id>
-    <published>2024-05-28T16:00:00.000Z</published>
-    <updated>2024-10-19T08:34:06.596Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介">简介</h2><p>应用程序接口（<strong>API</strong>，Application Programming Interface）是基于编程语言构建的结构，使开发人员更容易地创建复杂的功能。它们抽象了复杂的代码，并提供一些简单的接口规则直接使用。</p><span id="more"></span> <blockquote><p>通常分为两类：</p></blockquote><ul class="lvl-0"><li class="lvl-2"><p><strong>浏览器 API</strong>内置于 Web 浏览器中，能从浏览器和电脑周边环境中提取数据，并用来做有用的复杂的事情。例如<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0dlb2xvY2F0aW9uX0FQSQ==">Geolocation API<i class="fa fa-external-link-alt"></i></span>提供了一些简单的 JavaScript 结构以获得位置数据，因此你可以在 Google 地图上标示你的位置。在后台，浏览器确实使用一些复杂的低级代码（例如 C++）与设备的 GPS 硬件（或可以决定位置数据的任何设施）通信来获取位置数据并把这些数据返回给你的代码中使用浏览器环境；但是，这种复杂性通过 API 抽象出来，因而与你无关。</p></li><li class="lvl-2"><p><strong>第三方 API</strong>缺省情况下不会内置于浏览器中，通常必须在 Web 中的某个地方获取代码和信息。例如<span class="exturl" data-url="aHR0cHM6Ly9kZXYudHdpdHRlci5jb20vb3ZlcnZpZXcvZG9jdW1lbnRhdGlvbg==">Twitter API<i class="fa fa-external-link-alt"></i></span> 使你能做一些显示最新推文这样的事情，它提供一系列特殊的结构，可以用来请求 Twitter 服务并返回特殊的信息。</p></li></ul><blockquote><p>浏览器 API 类别</p></blockquote><ul class="lvl-0"><li class="lvl-2"><p><strong>操作文档的 API</strong>内置于浏览器中。最明显的例子是<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0RvY3VtZW50X09iamVjdF9Nb2RlbA==">DOM（文档对象模型）<i class="fa fa-external-link-alt"></i></span>API，它允许你操作 HTML 和 CSS — 创建、移除以及修改 HTML，动态地将新样式应用到你的页面，等等。每当你看到一个弹出窗口出现在一个页面上，或者显示一些新的内容时，这都是 DOM 的行为。你可以在在<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL01hbmlwdWxhdGluZ19kb2N1bWVudHM=">Manipulating documents<i class="fa fa-external-link-alt"></i></span>中找到关于这些类型的 API 的更多信息。</p></li><li class="lvl-2"><p><strong>从服务器获取数据的 API</strong> 用于更新网页的一小部分是相当好用的。这个看似很小的细节能对网站的性能和行为产生巨大的影响 — 如果你只是更新一个股票列表或者一些可用的新故事而不需要从服务器重新加载整个页面将使网站或应用程序感觉更加敏感和“活泼”。使这成为可能的 API 包括<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1hNTEh0dHBSZXF1ZXN0">XMLHttpRequest<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0ZldGNoX0FQSQ==">Fetch API<i class="fa fa-external-link-alt"></i></span>。你也可能会遇到描述这种技术的术语<strong>Ajax</strong>。你可以在<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL0ZldGNoaW5nX2RhdGE=">Fetching data from the server<i class="fa fa-external-link-alt"></i></span>找到关于类似的 API 的更多信息。</p></li><li class="lvl-2"><p><strong>用于绘制和操作图形的 API</strong>目前已被浏览器广泛支持 — 最流行的是允许你以编程方式更新包含在 HTML <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas"><canvas></a> 元素中的像素数据以创建 2D 和 3D 场景的<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0NhbnZhc19BUEk=">Canvas<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYkdMX0FQSQ==">WebGL<i class="fa fa-external-link-alt"></i></span>。例如，你可以绘制矩形或圆形等形状，将图像导入到画布上，然后使用 Canvas API 对其应用滤镜（如棕褐色滤镜或灰度滤镜），或使用 WebGL 创建具有光照和纹理的复杂 3D 场景。这些 API 经常与用于创建动画循环的 API（例如<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dpbmRvdy9yZXF1ZXN0QW5pbWF0aW9uRnJhbWU=">window.requestAnimationFrame()<i class="fa fa-external-link-alt"></i></span>）和其他 API 一起不断更新诸如动画和游戏之类的场景。</p></li><li class="lvl-2"><p><strong>音频和视频 API</strong> 例如 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hUTUxNZWRpYUVsZW1lbnQ=">HTMLMediaElement<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYl9BdWRpb19BUEk=">Web Audio API<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYlJUQ19BUEk=">WebRTC<i class="fa fa-external-link-alt"></i></span> 允许你使用多媒体来做一些非常有趣的事情，比如创建用于播放音频和视频的自定义 UI 控件，显示字幕字幕和你的视频，从网络摄像机抓取视频，通过画布操纵（见上），或在网络会议中显示在别人的电脑上，或者添加效果到音轨（如增益、失真、平移等） 。</p></li><li class="lvl-2"><p><strong>设备 API</strong>基本上是以对网络应用程序有用的方式操作和检索现代设备硬件中的数据的 API。我们已经讨论过访问设备位置数据的地理定位 API，因此你可以在地图上标注你的位置。其他示例还包括通过系统通知（参见<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL05vdGlmaWNhdGlvbnNfQVBJ">Notifications API<i class="fa fa-external-link-alt"></i></span>）或振动硬件（参见<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1ZpYnJhdGlvbl9BUEk=">Vibration API<i class="fa fa-external-link-alt"></i></span>）告诉用户 Web 应用程序有用的更新可用。</p></li><li class="lvl-2"><p><strong>客户端存储 API</strong>在 Web 浏览器中的使用变得越来越普遍 - 如果你想创建一个应用程序来保存页面加载之间的状态，甚至让设备在处于脱机状态时可用，那么在客户端存储数据将会是非常有用的。例如使用<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dlYl9TdG9yYWdlX0FQSQ==">Web Storage API<i class="fa fa-external-link-alt"></i></span>的简单的键 - 值存储以及使用<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0luZGV4ZWREQl9BUEk=">IndexedDB API<i class="fa fa-external-link-alt"></i></span>的更复杂的表格数据存储。</p></li></ul><blockquote><p>第三方 API</p></blockquote><h2 id="API-如何工作？">API 如何工作？</h2><p>API 使用一个或多个 JavaScript objects 在你的代码中进行交互，这些对象用作 API 使用的数据（包含在对象属性中）的容器以及 API 提供的功能（包含在对象方法中）。</p><h2 id="参考">参考</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9KYXZhU2NyaXB0L0NsaWVudC1zaWRlX3dlYl9BUElzL0ludHJvZHVjdGlvbg==">https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Introduction<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC84Nzg4NSMh">https://sspai.com/post/87885#!<i class="fa fa-external-link-alt"></i></span></p></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
-&lt;p&gt;应用程序接口（&lt;strong&gt;API&lt;/strong&gt;，Application Programming Interface）是基于编程语言构建的结构，使开发人员更容易地创建复杂的功能。它们抽象了复杂的代码，并提供一些简单的接口规则直接使用。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="API" scheme="https://leafminer.github.io/tags/API/"/>
-    
-    <category term="建站" scheme="https://leafminer.github.io/tags/%E5%BB%BA%E7%AB%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
-    <link href="https://leafminer.github.io/2024/05/23/d5d33bdaa68f/"/>
-    <id>https://leafminer.github.io/2024/05/23/d5d33bdaa68f/</id>
-    <published>2024-05-23T08:56:40.000Z</published>
-    <updated>2024-10-18T19:50:46.634Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a name="e05dce83"></a></p><h2 id="简介">简介</h2><p>StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。<br /><strong>作者：</strong> Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne</p><span id="more"></span><p>该插件的目的是配准（换句话说，对齐或匹配）图像堆栈。每张图片用作下一张图片对齐的模板，以便通过转换进行对齐。当插件启动时，当前图片充当全局锚点。StackReg 插件要求安装有TurboReg 插件。该插件（<strong>StackReg</strong>）是<strong>TurboReg</strong> 插件的前端。这些插件之间有几种数据交换机制，其中之一是将临时文件写入 ImageJ 定义的临时目录。该目录的位置可以通过宏命令 &quot;<code>print(getDirectory(&quot;temp&quot;));</code> &quot;查看。文件名称是：StackRegSource，StackRegSourceR，StackRegSourceG，StackRegSourceB，StackRegTarget。</p><p>配准完成后，原始堆栈将被销毁，取而代之的是配准结果。堆栈的名称和类型保持不变；除 <strong>RGB 堆栈</strong>和 <strong>HSB 堆</strong>栈外，所有数据类型均可使用。(请注意，RGB-stack 是由三个颜色分量组成的堆栈，不应与 RGB 彩色图像堆栈混淆：后者可以使用，而前者不能使用。如有疑问，请尝试一下)。如果提供的是彩色图像堆栈，则会在灰度版本上进行配准，灰度版本是由红色、绿色和蓝色分量加权求和而成的，即使堆栈是伪彩色图像也是如此。权重取决于整个图像堆栈，并通过主成分分析确定，以提供最大可能的对比度。一旦根据中间灰度表示确定了几何图形，就可以重建真正的彩色图像，如果需要生成伪彩色图像，还可以重新量化。</p><p><a name="1a63ac23"></a></p><h2 id="示例">示例</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"></p><p><a name="AX0GW"></a></p><h2 id="参数">参数</h2><p>有四种类型的转换：</p><ul class="lvl-0"><li class="lvl-2"><p><strong>Translation</strong>：</p></li></ul><p>映射公式为 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?x%20%3D%20u%20%2B%20%CE%94u#card=math&amp;code=x%20%3D%20u%20%2B%20%CE%94u&amp;id=I1f4r" alt="">。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p><ul class="lvl-0"><li class="lvl-2"><p><strong>Rigid Body</strong>：</p></li></ul><p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/e386340d2860de58527e61d4dc5de7cd.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HGnJ1" alt=""><br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p><ul class="lvl-0"><li class="lvl-2"><p><strong>Scaled rotation</strong>：</p></li></ul><p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/1678623c5ac84d63fb37a0c24914e4bf.svg#card=math&amp;code=x%20%3D%20%CE%BB%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HxAmA" alt=""><br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p><ul class="lvl-0"><li class="lvl-2"><p><strong>Affine</strong>：</p></li></ul><p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/56c72e021aeb8d05a197e959c33a45b2.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Ba_%7B11%7D%2C%20a_%7B12%7D%5C%7D%2C%20%5C%7Ba_%7B21%7D%2C%20a_%7B22%7D%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=CCeB3" alt=""><br />由于四个系数 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B11%7D#card=math&amp;code=a_%7B11%7D&amp;id=NPdDU" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B12%7D#card=math&amp;code=a_%7B12%7D&amp;id=X1Pob" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B21%7D#card=math&amp;code=a_%7B21%7D&amp;id=Hro5t" alt=""> 和 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B22%7D#card=math&amp;code=a_%7B22%7D&amp;id=msruk" alt=""> 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br><a name="1c53b310"></a></p><h2 id="操作步骤">操作步骤</h2><p>使用的Fiji ImageJ</p><ol><li class="lvl-3"><p>拖动图片文件夹到Fiji，默认为堆栈。</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433448190-6bcdcea1-090b-4b6e-844b-db57f09551a9.png#averageHue=%23eeeeed&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=285&amp;id=R4VvP&amp;originHeight=424&amp;originWidth=428&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14771&amp;status=done&amp;style=none&amp;taskId=ue08112ae-4ce1-4d16-97b5-adb9378c3cd&amp;title=&amp;width=287.3999938964844" alt="image.png"></p><ol start="2"><li class="lvl-3"><p>插件启动前，选择合适的图片，当前图片会被充当全局锚点。</p></li><li class="lvl-3"><p>打开<strong>StackReg。</strong></p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433608518-f4f2cfa8-5406-4ef7-876d-c4ffb225cf73.png#averageHue=%23b3a180&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=313&amp;id=pzPnz&amp;originHeight=491&amp;originWidth=605&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=213183&amp;status=done&amp;style=none&amp;taskId=u427dd8d1-e0e2-49ce-9122-31b6a47e994&amp;title=&amp;width=386" alt="image.png"></p><ol start="4"><li class="lvl-3"><p>选择对齐方式，点击确定按钮。</p></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433643863-8b44a1f7-eb00-4ac3-9f28-b4da3cb4d467.png#averageHue=%23edebe9&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=125&amp;id=cH9EB&amp;originHeight=156&amp;originWidth=236&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7246&amp;status=done&amp;style=none&amp;taskId=u745533d0-9a3d-4fde-8597-410e8b9e3eb&amp;title=&amp;width=188.8" alt="image.png"><br><a name="zAAf8"></a></p><h4 id="配准结果展示">配准结果展示</h4><p><strong>Translation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437482059-89fc3429-bad3-4efb-8f57-e2b6980bd685.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u815598a6&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4864016&amp;status=done&amp;style=none&amp;taskId=ua36500ba-dce8-49d3-a2dd-78c2e561927&amp;title=" alt="攀爬2-移动-缩小.gif"><br /><strong>Rigid Body</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437732425-3650fea3-632c-496f-a40a-27c5a7adc316.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u66c7948b&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4902674&amp;status=done&amp;style=none&amp;taskId=u45d2d0ba-9870-43ee-8089-153602f6b05&amp;title=" alt="攀爬2-rigid-缩小.gif"><br /><strong>Scaled rotation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u5e78df36&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=" alt="WT-处-control-20211218-scaled.gif"><br /><strong>Affine</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438247733-91b6a52e-7abe-4303-a27b-b9389f62063c.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=uc96e2e67&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4699672&amp;status=done&amp;style=none&amp;taskId=u77f49e48-451d-4b37-876b-5276b590ccd&amp;title=" alt="攀爬2-affine-缩小.gif"><br><a name="ba311d8a"></a></p><h2 id="脚本">脚本</h2><p>StackReg 是可编写脚本和使用宏记录的。下面是一个从宏调用 StackReg 的示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run(<span class="string">&quot;StackReg &quot;</span>, <span class="string">&quot;transformation=[Rigid Body]&quot;</span>);</span><br></pre></td></tr></table></figure><p><a name="d17a0f0b"></a></p><h2 id="参考">参考</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9iaWd3d3cuZXBmbC5jaC90aGV2ZW5hei9zdGFja3JlZy8=">https://bigwww.epfl.ch/thevenaz/stackreg/<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p>P. Thévenaz, U.E. Ruttimann, M. Unser, “A Pyramid Approach to Subpixel Registration Based on Intensity,” IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998. Other relevant on-line publications are available at <span class="exturl" data-url="aHR0cDovL2JpZ3d3dy5lcGZsLmNoL3B1YmxpY2F0aW9ucy8=">http://bigwww.epfl.ch/publications/<i class="fa fa-external-link-alt"></i></span>.</p></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a name=&quot;e05dce83&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
-&lt;p&gt;StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。&lt;br /&gt;&lt;strong&gt;作者：&lt;/strong&gt; Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
-    
-    <category term="图像" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F/"/>
-    
-    <category term="图像配准" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E5%83%8F%E9%85%8D%E5%87%86/"/>
-    
-    <category term="stack" scheme="https://leafminer.github.io/tags/stack/"/>
-    
-    <category term="StackReg" scheme="https://leafminer.github.io/tags/StackReg/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R语言--批量解压文件--示例</title>
-    <link href="https://leafminer.github.io/2024/05/23/979fc3b16655/"/>
-    <id>https://leafminer.github.io/2024/05/23/979fc3b16655/</id>
-    <published>2024-05-23T08:40:00.000Z</published>
-    <updated>2024-10-19T08:33:27.269Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2><p>用R语言批量解压文件到指定目录</p><span id="more"></span> <h2 id="实例">实例</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;目的&quot;&gt;目的&lt;/h2&gt;
-&lt;p&gt;用R语言批量解压文件到指定目录&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="原创" scheme="https://leafminer.github.io/categories/%E5%8E%9F%E5%88%9B/"/>
-    
-    <category term="科研" scheme="https://leafminer.github.io/categories/%E5%8E%9F%E5%88%9B/%E7%A7%91%E7%A0%94/"/>
-    
-    
     <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
-    <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
-    
-    <category term="解压" scheme="https://leafminer.github.io/tags/%E8%A7%A3%E5%8E%8B/"/>
-    
     <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
+    
+    <category term="果蝇" scheme="https://leafminer.github.io/tags/%E6%9E%9C%E8%9D%87/"/>
     
   </entry>
   
