@@ -6,7 +6,7 @@
   <link href="https://leafminer.github.io/atom.xml" rel="self"/>
   
   <link href="https://leafminer.github.io/"/>
-  <updated>2024-10-21T17:34:15.422Z</updated>
+  <updated>2024-10-21T18:54:02.770Z</updated>
   <id>https://leafminer.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【转载】Hexo博客Next主题添加暗黑夜间模式切换</title>
+    <link href="https://leafminer.github.io/2024/10/22/2cc7acb57128/"/>
+    <id>https://leafminer.github.io/2024/10/22/2cc7acb57128/</id>
+    <published>2024-10-21T18:51:26.000Z</published>
+    <updated>2024-10-21T18:54:02.770Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用<code>hexo-next-darkmode</code>​插件实现夜间模式切换。</p><span id="more"></span><h1>安装</h1><p>暗黑/夜间模式切换插件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-next-darkmode --save</span><br></pre></td></tr></table></figure><h1>配置</h1><p>往 NexT 主题的 <code>_config.yml</code>​ 配置文件里添加以下内容，必须确保 NexT 原生的 <code>darkmode</code>​ 选项设置为 <code>false</code>​</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># close NexT&#x27;s darkmode</span></span><br><span class="line"><span class="attr">darkmode:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Darkmode JS</span></span><br><span class="line"><span class="comment"># For more information: https://github.com/rqh656418510/hexo-next-darkmode, https://github.com/sandoche/Darkmode.js</span></span><br><span class="line"><span class="attr">darkmode_js:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">bottom:</span> <span class="string">&#x27;64px&#x27;</span> <span class="comment"># default: &#x27;32px&#x27;</span></span><br><span class="line">  <span class="attr">right:</span> <span class="string">&#x27;unset&#x27;</span> <span class="comment"># default: &#x27;32px&#x27;</span></span><br><span class="line">  <span class="attr">left:</span> <span class="string">&#x27;32px&#x27;</span> <span class="comment"># default: &#x27;unset&#x27;</span></span><br><span class="line">  <span class="attr">time:</span> <span class="string">&#x27;0.5s&#x27;</span> <span class="comment"># default: &#x27;0.3s&#x27;</span></span><br><span class="line">  <span class="attr">mixColor:</span> <span class="string">&#x27;transparent&#x27;</span> <span class="comment"># default: &#x27;#fff&#x27;</span></span><br><span class="line">  <span class="attr">backgroundColor:</span> <span class="string">&#x27;transparent&#x27;</span>  <span class="comment"># default: &#x27;#fff&#x27;</span></span><br><span class="line">  <span class="attr">buttonColorDark:</span> <span class="string">&#x27;#100f2c&#x27;</span>  <span class="comment"># default: &#x27;#100f2c&#x27;</span></span><br><span class="line">  <span class="attr">buttonColorLight:</span> <span class="string">&#x27;#dcdcdc&#x27;</span> <span class="comment"># default: &#x27;#fff&#x27;</span></span><br><span class="line">  <span class="attr">saveInCookies:</span> <span class="literal">true</span> <span class="comment"># default: true</span></span><br><span class="line">  <span class="attr">label:</span> <span class="string">&#x27;🌓&#x27;</span> <span class="comment"># default: &#x27;&#x27;</span></span><br><span class="line">  <span class="attr">autoMatchOsTheme:</span> <span class="literal">true</span> <span class="comment"># default: true</span></span><br><span class="line">  <span class="attr">libUrl:</span> <span class="comment"># Set custom library cdn url for Darkmode.js</span></span><br></pre></td></tr></table></figure><p>适用于 NexT 主题的暗黑/夜间模式切换插件，如果 NexT 的版本 &lt; 8.2.0，则需要额外安装 Nunjucks 渲染插件，否则 <code>hexo-next-darkmode</code>​ 插件无法正常运行。</p><hr><h2 id="自定义样式">自定义样式</h2><p>暗黑/夜间模式激活后，会将 <code>darkmode--activated</code>​ CSS 类添加到 <code>body</code>​ 标签，你可以利用它覆盖插件默认自带的样式（如下所示），这样就可以实现暗黑/夜间模式样式的高度自定义，包括代码块颜色自定义等。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">.darkmode--activated &#123;</span><br><span class="line">  --body-bg-color: #282828;</span><br><span class="line">  --content-bg-color: #333;</span><br><span class="line">  --card-bg-color: #555;</span><br><span class="line">  --text-color: #ccc;</span><br><span class="line">  --blockquote-color: #bbb;</span><br><span class="line">  --link-color: #ccc;</span><br><span class="line">  --link-hover-color: #eee;</span><br><span class="line">  --brand-color: #ddd;</span><br><span class="line">  --brand-hover-color: #ddd;</span><br><span class="line">  --table-row-odd-bg-color: #282828;</span><br><span class="line">  --table-row-hover-bg-color: #363636;</span><br><span class="line">  --menu-item-bg-color: #555;</span><br><span class="line">  --btn-default-bg: #222;</span><br><span class="line">  --btn-default-color: #ccc;</span><br><span class="line">  --btn-default-border-color: #555;</span><br><span class="line">  --btn-default-hover-bg: #666;</span><br><span class="line">  --btn-default-hover-color: #ccc;</span><br><span class="line">  --btn-default-hover-border-color: #666;</span><br><span class="line">  --highlight-background: #282b2e;</span><br><span class="line">  --highlight-foreground: #a9b7c6;</span><br><span class="line">  --highlight-gutter-background: #34393d;</span><br><span class="line">  --highlight-gutter-foreground: #9ca9b6;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.darkmode--activated img &#123;</span><br><span class="line">  opacity: 0.75;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.darkmode--activated img:hover &#123;</span><br><span class="line">  opacity: 0.9;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.darkmode--activated code &#123;</span><br><span class="line">  color: #69dbdc;</span><br><span class="line">  background: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul class="lvl-0"><li class="lvl-2"><p>当某个标签不想使用暗黑/夜间模式时，可以添加 <code>darkmode-ignore</code>​ CSS 类到标签上。</p></li></ul><p>&lt;span class=“darkmode-ignore”&gt;😬&lt;span&gt;</p><ul class="lvl-0"><li class="lvl-2"><p>当然你也可以使用 <code>isolation: isolate;</code>​ CSS 样式来忽略暗黑/夜间模式。</p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.button &#123;</span><br><span class="line">  isolation: isolate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul class="lvl-0"><li class="lvl-2"><p>也可以使用这种 <code>mix-blend-mode: difference</code>​ CSS 样式来还原暗黑/夜间模式。</p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.button &#123;</span><br><span class="line">  mix-blend-mode: difference;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1>参考</h1><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JxaDY1NjQxODUxMC9oZXhvLW5leHQtZGFya21vZGUvYmxvYi9hMmJjZTQxOGEzZGYzYTlhMzQwOWNlOTJlMzkzY2Y1NjY5NjQ3MTEwL1JFQURNRV9DTi5tZA==">hexo-next-darkmode/README_CN.md at a2bce418a3df3a9a3409ce92e393cf5669647110 · rqh656418510/hexo-next-darkmode<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;使用&lt;code&gt;hexo-next-darkmode&lt;/code&gt;​插件实现夜间模式切换。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="转载" scheme="https://leafminer.github.io/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    <category term="其他" scheme="https://leafminer.github.io/categories/%E8%BD%AC%E8%BD%BD/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    
+    <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+    <category term="暗黑模式" scheme="https://leafminer.github.io/tags/%E6%9A%97%E9%BB%91%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客Next主题添加动态标签词云</title>
@@ -36,15 +65,46 @@
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
-    
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="标签云" scheme="https://leafminer.github.io/tags/%E6%A0%87%E7%AD%BE%E4%BA%91/"/>
     
     <category term="动态" scheme="https://leafminer.github.io/tags/%E5%8A%A8%E6%80%81/"/>
     
     <category term="tag_cloud" scheme="https://leafminer.github.io/tags/tag-cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【转载】 鼠标点击特效</title>
+    <link href="https://leafminer.github.io/2024/10/22/c0d92f275632/"/>
+    <id>https://leafminer.github.io/2024/10/22/c0d92f275632/</id>
+    <published>2024-10-21T17:47:33.000Z</published>
+    <updated>2024-10-21T17:54:15.407Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcXJrNjY2L3AvMTI4NzgzNjAuaHRtbA==">鼠标点击特效 - 凯哥xyz - 博客园<i class="fa fa-external-link-alt"></i></span></p><span id="more"></span><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">  <span class="keyword">var</span> a_idx = <span class="number">0</span>;</span><br><span class="line"><span class="title function_">jQuery</span>(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  $(<span class="string">&quot;body&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="string">&quot;富强&quot;</span>, <span class="string">&quot;民主&quot;</span>, <span class="string">&quot;文明&quot;</span>, <span class="string">&quot;和谐&quot;</span>, <span class="string">&quot;自由&quot;</span>, <span class="string">&quot;平等&quot;</span>, <span class="string">&quot;公正&quot;</span> ,<span class="string">&quot;法治&quot;</span>, <span class="string">&quot;爱国&quot;</span>, <span class="string">&quot;敬业&quot;</span>, <span class="string">&quot;诚信&quot;</span>, <span class="string">&quot;友善&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> $i = $(<span class="string">&quot;&lt;span/&gt;&quot;</span>).<span class="title function_">text</span>(a[a_idx]);</span><br><span class="line">    a_idx = (a_idx + <span class="number">1</span>) % a.<span class="property">length</span>;</span><br><span class="line">    <span class="keyword">var</span> x = e.<span class="property">pageX</span>,</span><br><span class="line">      y = e.<span class="property">pageY</span>;</span><br><span class="line">    $i.<span class="title function_">css</span>(&#123;</span><br><span class="line">      <span class="string">&quot;z-index&quot;</span>: <span class="number">999999999999999999999999999999999999999999999999999999999999999999999</span>,</span><br><span class="line">      <span class="string">&quot;top&quot;</span>: y - <span class="number">20</span>,</span><br><span class="line">      <span class="string">&quot;left&quot;</span>: x,</span><br><span class="line">      <span class="string">&quot;position&quot;</span>: <span class="string">&quot;absolute&quot;</span>,</span><br><span class="line">      <span class="string">&quot;font-weight&quot;</span>: <span class="string">&quot;bold&quot;</span>,</span><br><span class="line">      <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#ff6651&quot;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">&quot;body&quot;</span>).<span class="title function_">append</span>($i);</span><br><span class="line">    $i.<span class="title function_">animate</span>(&#123;</span><br><span class="line">      <span class="string">&quot;top&quot;</span>: y - <span class="number">180</span>,</span><br><span class="line">      <span class="string">&quot;opacity&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="number">1500</span>,</span><br><span class="line"><span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">$i.<span class="title function_">remove</span>();</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>接着插入一段引用js</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=<span class="string">&quot;javascript&quot;</span> type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;&lt;a href=&quot;</span><span class="attr">https</span>:<span class="comment">//blog-static.cnblogs.com/files/qrk666/main.js&quot;&gt;https://blog-static.cnblogs.com/files/qrk666/main.js&lt;/a&gt;&quot;&gt;</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;原文地址：&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcXJrNjY2L3AvMTI4NzgzNjAuaHRtbA==&quot;&gt;鼠标点击特效 - 凯哥xyz - 博客园&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="转载" scheme="https://leafminer.github.io/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    <category term="其他" scheme="https://leafminer.github.io/categories/%E8%BD%AC%E8%BD%BD/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="特效" scheme="https://leafminer.github.io/tags/%E7%89%B9%E6%95%88/"/>
+    
+    <category term="JavaScript" scheme="https://leafminer.github.io/tags/JavaScript/"/>
+    
+    <category term="鼠标" scheme="https://leafminer.github.io/tags/%E9%BC%A0%E6%A0%87/"/>
+    
+    <category term="今日" scheme="https://leafminer.github.io/tags/%E4%BB%8A%E6%97%A5/"/>
+    
+    <category term="js" scheme="https://leafminer.github.io/tags/js/"/>
     
   </entry>
   
@@ -67,11 +127,11 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
     
     
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
     <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="加载" scheme="https://leafminer.github.io/tags/%E5%8A%A0%E8%BD%BD/"/>
-    
-    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
     <category term="pace" scheme="https://leafminer.github.io/tags/pace/"/>
     
@@ -97,9 +157,9 @@
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
-    
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="图片显示" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/"/>
     
@@ -114,14 +174,274 @@
     <link href="https://leafminer.github.io/2024/10/21/ad715d53afba/"/>
     <id>https://leafminer.github.io/2024/10/21/ad715d53afba/</id>
     <published>2024-10-21T15:57:06.000Z</published>
-    <updated>2024-10-21T17:31:38.308Z</updated>
+    <updated>2024-10-21T20:03:01.376Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>今日新闻</center></h1><center><span id="date"></span></center><script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script><span id="more"></span><p><img src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>今日新闻</center></h1><center><span id="date"></span></center><script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script><div style="">  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas></div><script>(function(){<p>var digit=<br>[<br>[<br>[0,0,1,1,1,0,0],<br>[0,1,1,0,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,0,1,1,0],<br>[0,0,1,1,1,0,0]<br>],//0<br>[<br>[0,0,0,1,1,0,0],<br>[0,1,1,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[1,1,1,1,1,1,1]<br>],//1<br>[<br>[0,1,1,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,0,0],<br>[0,0,1,1,0,0,0],<br>[0,1,1,0,0,0,0],<br>[1,1,0,0,0,0,0],<br>[1,1,0,0,0,1,1],<br>[1,1,1,1,1,1,1]<br>],//2<br>[<br>[1,1,1,1,1,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,0,0,1,1,0],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0]<br>],//3<br>[<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,1,0],<br>[0,0,1,1,1,1,0],<br>[0,1,1,0,1,1,0],<br>[1,1,0,0,1,1,0],<br>[1,1,1,1,1,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,0,1,1,0],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,1,1]<br>],//4<br>[<br>[1,1,1,1,1,1,1],<br>[1,1,0,0,0,0,0],<br>[1,1,0,0,0,0,0],<br>[1,1,1,1,1,1,0],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0]<br>],//5<br>[<br>[0,0,0,0,1,1,0],<br>[0,0,1,1,0,0,0],<br>[0,1,1,0,0,0,0],<br>[1,1,0,0,0,0,0],<br>[1,1,0,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0]<br>],//6<br>[<br>[1,1,1,1,1,1,1],<br>[1,1,0,0,0,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,1,1,0,0,0],<br>[0,0,1,1,0,0,0],<br>[0,0,1,1,0,0,0],<br>[0,0,1,1,0,0,0]<br>],//7<br>[<br>[0,1,1,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0]<br>],//8<br>[<br>[0,1,1,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,0,0],<br>[0,1,1,0,0,0,0]<br>],//9<br>[<br>[0,0,0,0,0,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,0,0,0,0,0],<br>[0,0,0,0,0,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,0,0,0,0,0]<br>]//:<br>];</p><p>var canvas = document.getElementById(‘canvas’);</p><p>if(canvas.getContext){<br>var cxt = canvas.getContext(‘2d’);<br>//声明canvas的宽高<br>var H = 100,W = 700;<br>canvas.height = H;<br>canvas.width = W;<br>cxt.fillStyle = ‘#f00’;<br>cxt.fillRect(10,10,50,50);</p><pre><code>//存储时间数据var data = [];//存储运动的小球var balls = [];//设置粒子半径var R = canvas.height/20-1;(function()&#123;    var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());    //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成    data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);&#125;)();/*生成点阵数字*/function renderDigit(index,num)&#123;    for(var i = 0; i &lt; digit[num].length; i++)&#123;        for(var j = 0; j &lt; digit[num][i].length; j++)&#123;            if(digit[num][i][j] == 1)&#123;                cxt.beginPath();                cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);                cxt.closePath();                cxt.fill();            &#125;        &#125;    &#125;&#125;/*更新时钟*/function updateDigitTime()&#123;    var changeNumArray = [];    var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());    var NewData = [];    NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);    for(var i = data.length-1; i &gt;=0 ; i--)&#123;        //时间发生变化        if(NewData[i] !== data[i])&#123;            //将变化的数字值和在data数组中的索引存储在changeNumArray数组中            changeNumArray.push(i+'_'+(Number(data[i])+1)%10);        &#125;    &#125;    //增加小球    for(var i = 0; i&lt; changeNumArray.length; i++)&#123;        addBalls.apply(this,changeNumArray[i].split('_'));    &#125;    data = NewData.concat();&#125;/*更新小球状态*/function updateBalls()&#123;    for(var i = 0; i &lt; balls.length; i++)&#123;        balls[i].stepY += balls[i].disY;        balls[i].x += balls[i].stepX;        balls[i].y += balls[i].stepY;        if(balls[i].x &gt; W + R || balls[i].y &gt; H + R)&#123;            balls.splice(i,1);            i--;        &#125;    &#125;&#125;/*增加要运动的小球*/function addBalls(index,num)&#123;    var numArray = [1,2,3];    var colorArray =  [&quot;#3BE&quot;,&quot;#09C&quot;,&quot;#A6C&quot;,&quot;#93C&quot;,&quot;#9C0&quot;,&quot;#690&quot;,&quot;#FB3&quot;,&quot;#F80&quot;,&quot;#F44&quot;,&quot;#C00&quot;];    for(var i = 0; i &lt; digit[num].length; i++)&#123;        for(var j = 0; j &lt; digit[num][i].length; j++)&#123;            if(digit[num][i][j] == 1)&#123;                var ball = &#123;                    x:14*(R+2)*index + j*2*(R+1)+(R+1),                    y:i*2*(R+1)+(R+1),                    stepX:Math.floor(Math.random() * 4 -2),                    stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],                    color:colorArray[Math.floor(Math.random()*colorArray.length)],                    disY:1                &#125;;                balls.push(ball);            &#125;        &#125;    &#125;&#125;/*渲染*/function render()&#123;    //重置画布宽度，达到清空画布的效果    canvas.height = 100;    //渲染时钟    for(var i = 0; i &lt; data.length; i++)&#123;        renderDigit(i,data[i]);    &#125;    //渲染小球    for(var i = 0; i &lt; balls.length; i++)&#123;        cxt.beginPath();        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);        cxt.fillStyle = balls[i].color;        cxt.closePath();        cxt.fill();    &#125;&#125;clearInterval(oTimer);var oTimer = setInterval(function()&#123;    //更新时钟    updateDigitTime();    //更新小球状态    updateBalls();    //渲染    render();&#125;,50);</code></pre><p>}</p><p>})();<br></script></p><span id="more"></span><p><img src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>]]></content>
     
     
     <summary type="html">&lt;h1&gt;&lt;center&gt;今日新闻&lt;/center&gt;&lt;/h1&gt;
 &lt;center&gt;&lt;span id=&quot;date&quot;&gt;&lt;/span&gt;&lt;/center&gt;
-&lt;script&gt;document.getElementById(&#39;date&#39;).textContent = new Date().toLocaleDateString();&lt;/script&gt;</summary>
+&lt;script&gt;document.getElementById(&#39;date&#39;).textContent = new Date().toLocaleDateString();&lt;/script&gt;
+&lt;div style=&quot;&quot;&gt;
+  &lt;canvas id=&quot;canvas&quot; style=&quot;width:60%;&quot;&gt;当前浏览器不支持canvas，请更换浏览器后再试&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(function(){
+&lt;p&gt;var digit=&lt;br&gt;
+[&lt;br&gt;
+[&lt;br&gt;
+[0,0,1,1,1,0,0],&lt;br&gt;
+[0,1,1,0,1,1,0],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,1,1,0,1,1,0],&lt;br&gt;
+[0,0,1,1,1,0,0]&lt;br&gt;
+],//0&lt;br&gt;
+[&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,1,1,1,1,0,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[1,1,1,1,1,1,1]&lt;br&gt;
+],//1&lt;br&gt;
+[&lt;br&gt;
+[0,1,1,1,1,1,0],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,1,1,0,0,0],&lt;br&gt;
+[0,1,1,0,0,0,0],&lt;br&gt;
+[1,1,0,0,0,0,0],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,1,1,1,1,1]&lt;br&gt;
+],//2&lt;br&gt;
+[&lt;br&gt;
+[1,1,1,1,1,1,1],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,1,1,1,0,0],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,1,1,1,1,1,0]&lt;br&gt;
+],//3&lt;br&gt;
+[&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,1,1,1,0],&lt;br&gt;
+[0,0,1,1,1,1,0],&lt;br&gt;
+[0,1,1,0,1,1,0],&lt;br&gt;
+[1,1,0,0,1,1,0],&lt;br&gt;
+[1,1,1,1,1,1,1],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,1,1,1,1]&lt;br&gt;
+],//4&lt;br&gt;
+[&lt;br&gt;
+[1,1,1,1,1,1,1],&lt;br&gt;
+[1,1,0,0,0,0,0],&lt;br&gt;
+[1,1,0,0,0,0,0],&lt;br&gt;
+[1,1,1,1,1,1,0],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,1,1,1,1,1,0]&lt;br&gt;
+],//5&lt;br&gt;
+[&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,1,1,0,0,0],&lt;br&gt;
+[0,1,1,0,0,0,0],&lt;br&gt;
+[1,1,0,0,0,0,0],&lt;br&gt;
+[1,1,0,1,1,1,0],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,1,1,1,1,1,0]&lt;br&gt;
+],//6&lt;br&gt;
+[&lt;br&gt;
+[1,1,1,1,1,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,0,1,1,0,0,0],&lt;br&gt;
+[0,0,1,1,0,0,0],&lt;br&gt;
+[0,0,1,1,0,0,0],&lt;br&gt;
+[0,0,1,1,0,0,0]&lt;br&gt;
+],//7&lt;br&gt;
+[&lt;br&gt;
+[0,1,1,1,1,1,0],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,1,1,1,1,1,0],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,1,1,1,1,1,0]&lt;br&gt;
+],//8&lt;br&gt;
+[&lt;br&gt;
+[0,1,1,1,1,1,0],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[1,1,0,0,0,1,1],&lt;br&gt;
+[0,1,1,1,0,1,1],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,0,1,1],&lt;br&gt;
+[0,0,0,0,1,1,0],&lt;br&gt;
+[0,0,0,1,1,0,0],&lt;br&gt;
+[0,1,1,0,0,0,0]&lt;br&gt;
+],//9&lt;br&gt;
+[&lt;br&gt;
+[0,0,0,0,0,0,0],&lt;br&gt;
+[0,0,1,1,1,0,0],&lt;br&gt;
+[0,0,1,1,1,0,0],&lt;br&gt;
+[0,0,1,1,1,0,0],&lt;br&gt;
+[0,0,0,0,0,0,0],&lt;br&gt;
+[0,0,0,0,0,0,0],&lt;br&gt;
+[0,0,1,1,1,0,0],&lt;br&gt;
+[0,0,1,1,1,0,0],&lt;br&gt;
+[0,0,1,1,1,0,0],&lt;br&gt;
+[0,0,0,0,0,0,0]&lt;br&gt;
+]//:&lt;br&gt;
+];&lt;/p&gt;
+&lt;p&gt;var canvas = document.getElementById(‘canvas’);&lt;/p&gt;
+&lt;p&gt;if(canvas.getContext){&lt;br&gt;
+var cxt = canvas.getContext(‘2d’);&lt;br&gt;
+//声明canvas的宽高&lt;br&gt;
+var H = 100,W = 700;&lt;br&gt;
+canvas.height = H;&lt;br&gt;
+canvas.width = W;&lt;br&gt;
+cxt.fillStyle = ‘#f00’;&lt;br&gt;
+cxt.fillRect(10,10,50,50);&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//存储时间数据
+var data = [];
+//存储运动的小球
+var balls = [];
+//设置粒子半径
+var R = canvas.height/20-1;
+(function()&amp;#123;
+    var temp = /(&#92;d)(&#92;d):(&#92;d)(&#92;d):(&#92;d)(&#92;d)/.exec(new Date());
+    //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+    data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+&amp;#125;)();
+
+/*生成点阵数字*/
+function renderDigit(index,num)&amp;#123;
+    for(var i = 0; i &amp;lt; digit[num].length; i++)&amp;#123;
+        for(var j = 0; j &amp;lt; digit[num][i].length; j++)&amp;#123;
+            if(digit[num][i][j] == 1)&amp;#123;
+                cxt.beginPath();
+                cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                cxt.closePath();
+                cxt.fill();
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+
+/*更新时钟*/
+function updateDigitTime()&amp;#123;
+    var changeNumArray = [];
+    var temp = /(&#92;d)(&#92;d):(&#92;d)(&#92;d):(&#92;d)(&#92;d)/.exec(new Date());
+    var NewData = [];
+    NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    for(var i = data.length-1; i &amp;gt;=0 ; i--)&amp;#123;
+        //时间发生变化
+        if(NewData[i] !== data[i])&amp;#123;
+            //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+            changeNumArray.push(i+&#39;_&#39;+(Number(data[i])+1)%10);
+        &amp;#125;
+    &amp;#125;
+    //增加小球
+    for(var i = 0; i&amp;lt; changeNumArray.length; i++)&amp;#123;
+        addBalls.apply(this,changeNumArray[i].split(&#39;_&#39;));
+    &amp;#125;
+    data = NewData.concat();
+&amp;#125;
+
+/*更新小球状态*/
+function updateBalls()&amp;#123;
+    for(var i = 0; i &amp;lt; balls.length; i++)&amp;#123;
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x &amp;gt; W + R || balls[i].y &amp;gt; H + R)&amp;#123;
+            balls.splice(i,1);
+            i--;
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+
+/*增加要运动的小球*/
+function addBalls(index,num)&amp;#123;
+    var numArray = [1,2,3];
+    var colorArray =  [&amp;quot;#3BE&amp;quot;,&amp;quot;#09C&amp;quot;,&amp;quot;#A6C&amp;quot;,&amp;quot;#93C&amp;quot;,&amp;quot;#9C0&amp;quot;,&amp;quot;#690&amp;quot;,&amp;quot;#FB3&amp;quot;,&amp;quot;#F80&amp;quot;,&amp;quot;#F44&amp;quot;,&amp;quot;#C00&amp;quot;];
+    for(var i = 0; i &amp;lt; digit[num].length; i++)&amp;#123;
+        for(var j = 0; j &amp;lt; digit[num][i].length; j++)&amp;#123;
+            if(digit[num][i][j] == 1)&amp;#123;
+                var ball = &amp;#123;
+                    x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                    y:i*2*(R+1)+(R+1),
+                    stepX:Math.floor(Math.random() * 4 -2),
+                    stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                    color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                    disY:1
+                &amp;#125;;
+                balls.push(ball);
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+&amp;#125;
+
+/*渲染*/
+function render()&amp;#123;
+    //重置画布宽度，达到清空画布的效果
+    canvas.height = 100;
+    //渲染时钟
+    for(var i = 0; i &amp;lt; data.length; i++)&amp;#123;
+        renderDigit(i,data[i]);
+    &amp;#125;
+    //渲染小球
+    for(var i = 0; i &amp;lt; balls.length; i++)&amp;#123;
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+    &amp;#125;
+&amp;#125;
+
+clearInterval(oTimer);
+var oTimer = setInterval(function()&amp;#123;
+    //更新时钟
+    updateDigitTime();
+    //更新小球状态
+    updateBalls();
+    //渲染
+    render();
+&amp;#125;,50);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;})();&lt;br&gt;
+&lt;/script&gt;&lt;/p&gt;</summary>
     
     
     
@@ -134,11 +454,11 @@
     
     <category term="API" scheme="https://leafminer.github.io/tags/API/"/>
     
+    <category term="今日" scheme="https://leafminer.github.io/tags/%E4%BB%8A%E6%97%A5/"/>
+    
     <category term="热点" scheme="https://leafminer.github.io/tags/%E7%83%AD%E7%82%B9/"/>
     
     <category term="全球" scheme="https://leafminer.github.io/tags/%E5%85%A8%E7%90%83/"/>
-    
-    <category term="今日" scheme="https://leafminer.github.io/tags/%E4%BB%8A%E6%97%A5/"/>
     
   </entry>
   
@@ -161,13 +481,13 @@
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="动态标题" scheme="https://leafminer.github.io/tags/%E5%8A%A8%E6%80%81%E6%A0%87%E9%A2%98/"/>
     
@@ -197,15 +517,15 @@
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
-    
-    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    <category term="公众号" scheme="https://leafminer.github.io/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
     
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="公众号" scheme="https://leafminer.github.io/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
     <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="二维码" scheme="https://leafminer.github.io/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
     
@@ -230,9 +550,9 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E8%BD%AC%E8%BD%BD/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
-    
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
     <category term="category_map" scheme="https://leafminer.github.io/tags/category-map/"/>
     
@@ -259,9 +579,9 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
-    
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
     <category term="新闻" scheme="https://leafminer.github.io/tags/%E6%96%B0%E9%97%BB/"/>
     
@@ -293,11 +613,11 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E8%BD%AC%E8%BD%BD/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="动态背景" scheme="https://leafminer.github.io/tags/%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF/"/>
     
@@ -324,11 +644,11 @@
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
@@ -355,9 +675,9 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E5%8E%9F%E5%88%9B/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
-    
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
     <category term="分类" scheme="https://leafminer.github.io/tags/%E5%88%86%E7%B1%BB/"/>
     
@@ -413,13 +733,13 @@
     <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="搜索" scheme="https://leafminer.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="搜索" scheme="https://leafminer.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
     
     <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
@@ -580,90 +900,6 @@
     <category term="兔子洞" scheme="https://leafminer.github.io/tags/%E5%85%94%E5%AD%90%E6%B4%9E/"/>
     
     <category term="成瘾" scheme="https://leafminer.github.io/tags/%E6%88%90%E7%98%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《高效阅读》--渡边康弘</title>
-    <link href="https://leafminer.github.io/2024/08/20/51029141b91f/"/>
-    <id>https://leafminer.github.io/2024/08/20/51029141b91f/</id>
-    <published>2024-08-19T16:00:00.000Z</published>
-    <updated>2024-10-18T19:45:18.235Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><table><thead><tr><th><strong>书名</strong></th><th>高效阅读</th></tr></thead><tbody><tr><td><strong>作者</strong></td><td>渡边康弘</td></tr><tr><td><strong>状态</strong></td><td>读完</td></tr><tr><td><strong>简介</strong></td><td>本书介绍了“共振阅读法”。用最少的时间，读更多的书。</td></tr></tbody></table><span id="more"></span> <h2 id="思维导图">思维导图</h2><blockquote><p>用思维导图，结构化记录本书的核心观点。</p></blockquote><p><img src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1724074312408-484048b2-1fd2-4322-be26-c3146e64c211.jpeg" alt=""></p><h2 id="读后感">读后感</h2><h3 id="观点1">观点1</h3><blockquote><p>读书前的准备，环境要适合，通过深呼吸使身体放松，保持稳定的呼吸频率。</p></blockquote><h3 id="观点2">观点2</h3><blockquote><p>明确阅读目的，可以随意翻阅，找感兴趣的词汇，要重视输出，制定行动计划。</p></blockquote><h3 id="观点3">观点3</h3><blockquote><p>输出，回顾，交流–》加深记忆。</p></blockquote><h3 id="观点4">观点4</h3><blockquote><p>为什么年收入越高的人越喜欢阅读？收入越高的人，用在赚钱上的时间越少，有更多的时间支配。或者他们阅读就是在赚钱。没钱的人需要花费更多的时间在生存上，没有更多的精力去充实自己。</p></blockquote><h2 id="书摘">书摘</h2><ul class="lvl-0"><li class="lvl-2"><p>先从自己被感动的内容开始分享（作者，书名；作者的观点；自己所感动的内容）。</p></li><li class="lvl-2"><p>真的像是“在与书籍进行对话”的这样一种阅读体验。</p></li><li class="lvl-2"><p>无论是收获成功也好，还是改变自己的人生也罢，都不可能只通过“阅读”就能实现，关键还在于你之后能否有实际的行动。</p></li><li class="lvl-2"><p>所谓的“行动”，就是指让我们的想法在现实中以某种形式留存下来。</p></li><li class="lvl-2"><p>只有将书中的知识转化为金钱的人，才能更好地生存。在信息化社会，“速度”意味着一切。而如今，我们正在从“信息化社会”向“知识创造型社会”过渡。</p></li><li class="lvl-2"><p>只要有“进步”的想法，无论何时都能重塑人生。</p></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;strong&gt;书名&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;高效阅读&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;作者&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;渡边康弘&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;状态&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;读完&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;简介&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;本书介绍了“共振阅读法”。用最少的时间，读更多的书。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="阅读" scheme="https://leafminer.github.io/tags/%E9%98%85%E8%AF%BB/"/>
-    
-    <category term="方法" scheme="https://leafminer.github.io/tags/%E6%96%B9%E6%B3%95/"/>
-    
-    <category term="共振阅读法" scheme="https://leafminer.github.io/tags/%E5%85%B1%E6%8C%AF%E9%98%85%E8%AF%BB%E6%B3%95/"/>
-    
-    <category term="行动" scheme="https://leafminer.github.io/tags/%E8%A1%8C%E5%8A%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R语言--果蝇攀爬--ImageJ测量数据处理</title>
-    <link href="https://leafminer.github.io/2024/07/03/c8db0b087a94/"/>
-    <id>https://leafminer.github.io/2024/07/03/c8db0b087a94/</id>
-    <published>2024-07-03T06:04:00.000Z</published>
-    <updated>2024-10-19T08:33:17.188Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2><p>处理ImageJ测量的果蝇攀爬数据</p><span id="more"></span> <h2 id="实例">实例</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>cluster<span class="punctuation">)</span> </span><br><span class="line"><span class="comment"># 设定工作目录</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入数据</span></span><br><span class="line">X20180609_WF_IF <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-WF-IF.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_CM_AM <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-CM-AM.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_CF_AF <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-CF-AF.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">clusGap<span class="punctuation">(</span>X20180609_WF_IF<span class="operator">$</span>X<span class="punctuation">[</span>which<span class="punctuation">(</span>X20180609_WF_IF<span class="operator">$</span>Slice<span class="operator">==</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>FUN<span class="operator">=</span>kmeans<span class="punctuation">,</span>nstart<span class="operator">=</span><span class="number">25</span><span class="punctuation">,</span>K.max<span class="operator">=</span><span class="number">10</span><span class="punctuation">,</span>B<span class="operator">=</span><span class="number">500</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment">## 自定义函数，获取每管果蝇的攀爬指数----</span></span><br><span class="line">ppindex <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>X<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">g1 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g2 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g3 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g4 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g5 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g6 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">max</span><span class="punctuation">(</span>X<span class="operator">$</span>Slice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  slice_x <span class="operator">&lt;-</span> X<span class="operator">$</span>X<span class="punctuation">[</span>which<span class="punctuation">(</span>X<span class="operator">$</span>Slice<span class="operator">==</span>i<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y <span class="operator">&lt;-</span> X<span class="operator">$</span>Y<span class="punctuation">[</span>which<span class="punctuation">(</span>X<span class="operator">$</span>Slice<span class="operator">==</span>i<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_max <span class="operator">&lt;-</span> <span class="punctuation">(</span><span class="built_in">max</span><span class="punctuation">(</span>slice_x<span class="punctuation">)</span><span class="operator">+</span><span class="number">100</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">6</span></span><br><span class="line">  par<span class="punctuation">(</span>mfrow <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管1</span></span><br><span class="line">  slice_x <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_x <span class="operator">&lt;</span> slice_max<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_x <span class="operator">&lt;</span> slice_max<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x<span class="punctuation">,</span>slice_y<span class="punctuation">)</span></span><br><span class="line">  slice_y_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_1 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y_fq0<span class="operator">+</span>slice_y_fq1<span class="operator">+</span>slice_y_fq2<span class="punctuation">)</span></span><br><span class="line">  g1 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g1<span class="punctuation">,</span>index_1<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管2</span></span><br><span class="line">  slice_x2 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y2 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x2<span class="punctuation">,</span>slice_y2<span class="punctuation">)</span></span><br><span class="line">  slice_y2_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y2<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y2 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y2_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y2<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y2 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y2 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y2_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y2<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y2 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_2 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y2_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y2_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y2_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y2_fq0<span class="operator">+</span>slice_y2_fq1<span class="operator">+</span>slice_y2_fq2<span class="punctuation">)</span></span><br><span class="line">  g2 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g2<span class="punctuation">,</span>index_2<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管3</span></span><br><span class="line">  slice_x3 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">2</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">3</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y3 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">2</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">3</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x3<span class="punctuation">,</span>slice_y3<span class="punctuation">)</span></span><br><span class="line">  slice_y3_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y3<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y3 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y3_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y3<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y3 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y3 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y3_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y3<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y3 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_3 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y3_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y3_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y3_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y3_fq0<span class="operator">+</span>slice_y3_fq1<span class="operator">+</span>slice_y3_fq2<span class="punctuation">)</span></span><br><span class="line">  g3 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g3<span class="punctuation">,</span>index_3<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管4</span></span><br><span class="line">  slice_x4 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">3</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y4 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">3</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x4<span class="punctuation">,</span>slice_y4<span class="punctuation">)</span></span><br><span class="line">  slice_y4_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y4<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y4 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y4_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y4<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y4 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y4 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y4_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y4<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y4 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_4 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y4_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y4_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y4_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y4_fq0<span class="operator">+</span>slice_y4_fq1<span class="operator">+</span>slice_y4_fq2<span class="punctuation">)</span></span><br><span class="line">  g4 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g4<span class="punctuation">,</span>index_4<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管5</span></span><br><span class="line">  slice_x5 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">4</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">5</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y5 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">4</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">5</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x5<span class="punctuation">,</span>slice_y5<span class="punctuation">)</span></span><br><span class="line">  slice_y5_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y5<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y5 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y5_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y5<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y5 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y5 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y5_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y5<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y5 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_5 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y5_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y5_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y5_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y5_fq0<span class="operator">+</span>slice_y5_fq1<span class="operator">+</span>slice_y5_fq2<span class="punctuation">)</span></span><br><span class="line">  g5 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g5<span class="punctuation">,</span>index_5<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管6</span></span><br><span class="line">  slice_x6 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">5</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y6 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">5</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x6<span class="punctuation">,</span>slice_y6<span class="punctuation">)</span></span><br><span class="line">  slice_y6_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y6<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y6 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y6_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y6<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y6 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y6 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y6_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y6<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y6 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_6 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y6_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y6_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y6_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y6_fq0<span class="operator">+</span>slice_y6_fq1<span class="operator">+</span>slice_y6_fq2<span class="punctuation">)</span></span><br><span class="line">  g6 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g6<span class="punctuation">,</span>index_6<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  flyindex <span class="operator">&lt;-</span> data.frame<span class="punctuation">(</span>g1<span class="punctuation">,</span>g2<span class="punctuation">,</span>g3<span class="punctuation">,</span>g4<span class="punctuation">,</span>g5<span class="punctuation">,</span>g6<span class="punctuation">)</span></span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>flyindex<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#汇总----</span></span><br><span class="line">WI_F_Index <span class="operator">&lt;-</span> ppindex<span class="punctuation">(</span>X20180609_WF_IF<span class="punctuation">)</span> </span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>WI_F_Index<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;WF1&quot;</span><span class="punctuation">,</span><span class="string">&quot;WF2&quot;</span><span class="punctuation">,</span><span class="string">&quot;WF3&quot;</span><span class="punctuation">,</span><span class="string">&quot;IF1&quot;</span><span class="punctuation">,</span><span class="string">&quot;IF2&quot;</span><span class="punctuation">,</span><span class="string">&quot;IF3&quot;</span><span class="punctuation">)</span></span><br><span class="line">WI_F_Index <span class="operator">&lt;-</span> ppindex<span class="punctuation">(</span>X20180609_CF_AF<span class="punctuation">)</span></span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>CA_F_Index<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;CF1&quot;</span><span class="punctuation">,</span><span class="string">&quot;CF2&quot;</span><span class="punctuation">,</span><span class="string">&quot;CF3&quot;</span><span class="punctuation">,</span><span class="string">&quot;AF1&quot;</span><span class="punctuation">,</span><span class="string">&quot;AF2&quot;</span><span class="punctuation">,</span><span class="string">&quot;AF3&quot;</span><span class="punctuation">)</span></span><br><span class="line">CA_M_Index <span class="operator">&lt;-</span> ppindex<span class="punctuation">(</span>X20180609_CM_AM<span class="punctuation">)</span></span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>CA_M_Index<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;CM1&quot;</span><span class="punctuation">,</span><span class="string">&quot;CM2&quot;</span><span class="punctuation">,</span><span class="string">&quot;CM3&quot;</span><span class="punctuation">,</span><span class="string">&quot;AM1&quot;</span><span class="punctuation">,</span><span class="string">&quot;AM2&quot;</span><span class="punctuation">,</span><span class="string">&quot;AM3&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存</span></span><br><span class="line">library<span class="punctuation">(</span>xlsx<span class="punctuation">)</span></span><br><span class="line">write.xlsx2<span class="punctuation">(</span>WI_F_Index<span class="punctuation">,</span> sheetName <span class="operator">=</span> <span class="string">&quot;WI_F_Index&quot;</span><span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&#x27;flyIndex.xlsx&#x27;</span><span class="punctuation">,</span>append <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">write.xlsx2<span class="punctuation">(</span>CA_F_Index<span class="punctuation">,</span> sheetName <span class="operator">=</span> <span class="string">&quot;CA_F_Index&quot;</span><span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&#x27;flyIndex.xlsx&#x27;</span><span class="punctuation">,</span>append <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">write.xlsx2<span class="punctuation">(</span>CA_M_Index<span class="punctuation">,</span> sheetName <span class="operator">=</span> <span class="string">&quot;CA_M_Index&quot;</span><span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&#x27;flyIndex.xlsx&#x27;</span><span class="punctuation">,</span>append <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">dev.off<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################################################################################</span></span><br><span class="line"><span class="comment">#单管----</span></span><br><span class="line"><span class="comment"># 导入数据</span></span><br><span class="line">X20180609_IM3 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-IM3.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_IM2 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-IM2.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_IM1 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-IM1.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_WM3 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-WM3.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_WM2 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-WM2.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_WM1 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-WM1.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">pp2index <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  index <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">max</span><span class="punctuation">(</span>x<span class="operator">$</span>Slice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">    slice_x <span class="operator">&lt;-</span> x<span class="operator">$</span>X<span class="punctuation">[</span>which<span class="punctuation">(</span>x<span class="operator">$</span>Slice <span class="operator">==</span> i<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">    slice_y <span class="operator">&lt;-</span> x<span class="operator">$</span>Y<span class="punctuation">[</span>which<span class="punctuation">(</span>x<span class="operator">$</span>Slice <span class="operator">==</span> i<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">    slice_y_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&lt;</span> <span class="number">340</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">    slice_y_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">340</span> <span class="operator">&amp;</span></span><br><span class="line">                                          slice_y <span class="operator">&lt;</span> <span class="number">600</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">600</span> <span class="operator">&amp;</span></span><br><span class="line">                              slice_y <span class="operator">&lt;</span> <span class="number">900</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq2 <span class="operator">&lt;-</span> 0</span><br><span class="line">    <span class="punctuation">&#125;</span> <span class="keyword">else</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">600</span> <span class="operator">&amp;</span></span><br><span class="line">                                            slice_y <span class="operator">&lt;</span> <span class="number">900</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">900</span> <span class="operator">&amp;</span></span><br><span class="line">                              slice_y <span class="operator">&lt;</span> <span class="number">1200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq3 <span class="operator">&lt;-</span> 0</span><br><span class="line">    <span class="punctuation">&#125;</span> <span class="keyword">else</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq3 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">900</span> <span class="operator">&amp;</span></span><br><span class="line">                                            slice_y <span class="operator">&lt;</span> <span class="number">1200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">1200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq4 <span class="operator">&lt;-</span> 0</span><br><span class="line">    <span class="punctuation">&#125;</span> <span class="keyword">else</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq4 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">1200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    </span><br><span class="line">    index_1 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y_fq0 <span class="operator">*</span> <span class="number">0</span> <span class="operator">+</span> slice_y_fq1 <span class="operator">*</span> <span class="number">1</span> <span class="operator">+</span> slice_y_fq2 <span class="operator">*</span> <span class="number">2</span> <span class="operator">+</span> slice_y_fq3 <span class="operator">*</span></span><br><span class="line">                  <span class="number">3</span> <span class="operator">+</span> slice_y_fq4 <span class="operator">*</span> <span class="number">4</span><span class="punctuation">)</span> <span class="operator">/</span> <span class="punctuation">(</span>slice_y_fq0 <span class="operator">+</span> slice_y_fq1 <span class="operator">+</span> slice_y_fq2 <span class="operator">+</span> slice_y_fq3 <span class="operator">+</span></span><br><span class="line">                                            slice_y_fq4<span class="punctuation">)</span></span><br><span class="line">    index <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>index<span class="punctuation">,</span>index_1<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>index<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line">IM3 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_IM3<span class="punctuation">)</span></span><br><span class="line">IM2 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_IM2<span class="punctuation">)</span></span><br><span class="line">IM1 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_IM1<span class="punctuation">)</span></span><br><span class="line">WM1 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_WM1<span class="punctuation">)</span></span><br><span class="line">WM2 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_WM3<span class="punctuation">)</span></span><br><span class="line">WM3 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_WM2<span class="punctuation">)</span></span><br><span class="line">WI_M_Index <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>WM1<span class="operator">=</span>WM1<span class="punctuation">,</span>WM2<span class="operator">=</span>WM2<span class="punctuation">,</span>WM3<span class="operator">=</span>WM3<span class="punctuation">,</span>IM1<span class="operator">=</span>IM1<span class="punctuation">,</span>IM2<span class="operator">=</span>IM2<span class="punctuation">,</span>IM3<span class="operator">=</span>IM3<span class="punctuation">)</span></span><br><span class="line">write.xlsx2<span class="punctuation">(</span>WI_M_Index<span class="punctuation">,</span> sheetName <span class="operator">=</span> <span class="string">&quot;WI_M_Index&quot;</span><span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&#x27;flyIndex.xlsx&#x27;</span><span class="punctuation">,</span>append <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;目的&quot;&gt;目的&lt;/h2&gt;
-&lt;p&gt;处理ImageJ测量的果蝇攀爬数据&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="原创" scheme="https://leafminer.github.io/categories/%E5%8E%9F%E5%88%9B/"/>
-    
-    <category term="科研" scheme="https://leafminer.github.io/categories/%E5%8E%9F%E5%88%9B/%E7%A7%91%E7%A0%94/"/>
-    
-    
-    <category term="ImageJ" scheme="https://leafminer.github.io/tags/ImageJ/"/>
-    
-    <category term="批量" scheme="https://leafminer.github.io/tags/%E6%89%B9%E9%87%8F/"/>
-    
-    <category term="数据处理" scheme="https://leafminer.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    
-    <category term="R语言" scheme="https://leafminer.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="实例" scheme="https://leafminer.github.io/tags/%E5%AE%9E%E4%BE%8B/"/>
-    
-    <category term="果蝇" scheme="https://leafminer.github.io/tags/%E6%9E%9C%E8%9D%87/"/>
     
   </entry>
   

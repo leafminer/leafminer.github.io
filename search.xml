@@ -6,6 +6,266 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>今日新闻</center></h1>
 <center><span id="date"></span></center>
 <script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script>
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+<p>var digit=<br>
+[<br>
+[<br>
+[0,0,1,1,1,0,0],<br>
+[0,1,1,0,1,1,0],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[0,1,1,0,1,1,0],<br>
+[0,0,1,1,1,0,0]<br>
+],//0<br>
+[<br>
+[0,0,0,1,1,0,0],<br>
+[0,1,1,1,1,0,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,0,1,1,0,0],<br>
+[1,1,1,1,1,1,1]<br>
+],//1<br>
+[<br>
+[0,1,1,1,1,1,0],<br>
+[1,1,0,0,0,1,1],<br>
+[0,0,0,0,0,1,1],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,1,1,0,0,0],<br>
+[0,1,1,0,0,0,0],<br>
+[1,1,0,0,0,0,0],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,1,1,1,1,1]<br>
+],//2<br>
+[<br>
+[1,1,1,1,1,1,1],<br>
+[0,0,0,0,0,1,1],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,1,1,1,0,0],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,0,0,1,1],<br>
+[0,0,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[0,1,1,1,1,1,0]<br>
+],//3<br>
+[<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,1,1,1,0],<br>
+[0,0,1,1,1,1,0],<br>
+[0,1,1,0,1,1,0],<br>
+[1,1,0,0,1,1,0],<br>
+[1,1,1,1,1,1,1],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,1,1,1,1]<br>
+],//4<br>
+[<br>
+[1,1,1,1,1,1,1],<br>
+[1,1,0,0,0,0,0],<br>
+[1,1,0,0,0,0,0],<br>
+[1,1,1,1,1,1,0],<br>
+[0,0,0,0,0,1,1],<br>
+[0,0,0,0,0,1,1],<br>
+[0,0,0,0,0,1,1],<br>
+[0,0,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[0,1,1,1,1,1,0]<br>
+],//5<br>
+[<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,1,1,0,0,0],<br>
+[0,1,1,0,0,0,0],<br>
+[1,1,0,0,0,0,0],<br>
+[1,1,0,1,1,1,0],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[0,1,1,1,1,1,0]<br>
+],//6<br>
+[<br>
+[1,1,1,1,1,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,0,1,1,0,0,0],<br>
+[0,0,1,1,0,0,0],<br>
+[0,0,1,1,0,0,0],<br>
+[0,0,1,1,0,0,0]<br>
+],//7<br>
+[<br>
+[0,1,1,1,1,1,0],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[0,1,1,1,1,1,0],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[0,1,1,1,1,1,0]<br>
+],//8<br>
+[<br>
+[0,1,1,1,1,1,0],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[1,1,0,0,0,1,1],<br>
+[0,1,1,1,0,1,1],<br>
+[0,0,0,0,0,1,1],<br>
+[0,0,0,0,0,1,1],<br>
+[0,0,0,0,1,1,0],<br>
+[0,0,0,1,1,0,0],<br>
+[0,1,1,0,0,0,0]<br>
+],//9<br>
+[<br>
+[0,0,0,0,0,0,0],<br>
+[0,0,1,1,1,0,0],<br>
+[0,0,1,1,1,0,0],<br>
+[0,0,1,1,1,0,0],<br>
+[0,0,0,0,0,0,0],<br>
+[0,0,0,0,0,0,0],<br>
+[0,0,1,1,1,0,0],<br>
+[0,0,1,1,1,0,0],<br>
+[0,0,1,1,1,0,0],<br>
+[0,0,0,0,0,0,0]<br>
+]//:<br>
+];</p>
+<p>var canvas = document.getElementById(‘canvas’);</p>
+<p>if(canvas.getContext){<br>
+var cxt = canvas.getContext(‘2d’);<br>
+//声明canvas的宽高<br>
+var H = 100,W = 700;<br>
+canvas.height = H;<br>
+canvas.width = W;<br>
+cxt.fillStyle = ‘#f00’;<br>
+cxt.fillRect(10,10,50,50);</p>
+<pre><code>//存储时间数据
+var data = [];
+//存储运动的小球
+var balls = [];
+//设置粒子半径
+var R = canvas.height/20-1;
+(function()&#123;
+    var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+    //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+    data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+&#125;)();
+
+/*生成点阵数字*/
+function renderDigit(index,num)&#123;
+    for(var i = 0; i &lt; digit[num].length; i++)&#123;
+        for(var j = 0; j &lt; digit[num][i].length; j++)&#123;
+            if(digit[num][i][j] == 1)&#123;
+                cxt.beginPath();
+                cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                cxt.closePath();
+                cxt.fill();
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+/*更新时钟*/
+function updateDigitTime()&#123;
+    var changeNumArray = [];
+    var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+    var NewData = [];
+    NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    for(var i = data.length-1; i &gt;=0 ; i--)&#123;
+        //时间发生变化
+        if(NewData[i] !== data[i])&#123;
+            //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+            changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        &#125;
+    &#125;
+    //增加小球
+    for(var i = 0; i&lt; changeNumArray.length; i++)&#123;
+        addBalls.apply(this,changeNumArray[i].split('_'));
+    &#125;
+    data = NewData.concat();
+&#125;
+
+/*更新小球状态*/
+function updateBalls()&#123;
+    for(var i = 0; i &lt; balls.length; i++)&#123;
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x &gt; W + R || balls[i].y &gt; H + R)&#123;
+            balls.splice(i,1);
+            i--;
+        &#125;
+    &#125;
+&#125;
+
+/*增加要运动的小球*/
+function addBalls(index,num)&#123;
+    var numArray = [1,2,3];
+    var colorArray =  [&quot;#3BE&quot;,&quot;#09C&quot;,&quot;#A6C&quot;,&quot;#93C&quot;,&quot;#9C0&quot;,&quot;#690&quot;,&quot;#FB3&quot;,&quot;#F80&quot;,&quot;#F44&quot;,&quot;#C00&quot;];
+    for(var i = 0; i &lt; digit[num].length; i++)&#123;
+        for(var j = 0; j &lt; digit[num][i].length; j++)&#123;
+            if(digit[num][i][j] == 1)&#123;
+                var ball = &#123;
+                    x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                    y:i*2*(R+1)+(R+1),
+                    stepX:Math.floor(Math.random() * 4 -2),
+                    stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                    color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                    disY:1
+                &#125;;
+                balls.push(ball);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+/*渲染*/
+function render()&#123;
+    //重置画布宽度，达到清空画布的效果
+    canvas.height = 100;
+    //渲染时钟
+    for(var i = 0; i &lt; data.length; i++)&#123;
+        renderDigit(i,data[i]);
+    &#125;
+    //渲染小球
+    for(var i = 0; i &lt; balls.length; i++)&#123;
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+    &#125;
+&#125;
+
+clearInterval(oTimer);
+var oTimer = setInterval(function()&#123;
+    //更新时钟
+    updateDigitTime();
+    //更新小球状态
+    updateBalls();
+    //渲染
+    render();
+&#125;,50);
+</code></pre>
+<p>}</p>
+<p>})();<br>
+</script></p>
 <span id="more"></span>
 <p><img src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>
 ]]></content>
@@ -16,9 +276,57 @@
       <tags>
         <tag>新闻</tag>
         <tag>API</tag>
+        <tag>今日</tag>
         <tag>热点</tag>
         <tag>全球</tag>
-        <tag>今日</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【转载】Hexo博客Next主题添加暗黑夜间模式切换</title>
+    <url>/2024/10/22/2cc7acb57128/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用<code>hexo-next-darkmode</code>​插件实现夜间模式切换。</p>
+<span id="more"></span>
+<h1>安装</h1>
+<p>暗黑/夜间模式切换插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-next-darkmode --save</span><br></pre></td></tr></table></figure>
+<h1>配置</h1>
+<p>往 NexT 主题的 <code>_config.yml</code>​ 配置文件里添加以下内容，必须确保 NexT 原生的 <code>darkmode</code>​ 选项设置为 <code>false</code>​</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># close NexT&#x27;s darkmode</span></span><br><span class="line"><span class="attr">darkmode:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Darkmode JS</span></span><br><span class="line"><span class="comment"># For more information: https://github.com/rqh656418510/hexo-next-darkmode, https://github.com/sandoche/Darkmode.js</span></span><br><span class="line"><span class="attr">darkmode_js:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">bottom:</span> <span class="string">&#x27;64px&#x27;</span> <span class="comment"># default: &#x27;32px&#x27;</span></span><br><span class="line">  <span class="attr">right:</span> <span class="string">&#x27;unset&#x27;</span> <span class="comment"># default: &#x27;32px&#x27;</span></span><br><span class="line">  <span class="attr">left:</span> <span class="string">&#x27;32px&#x27;</span> <span class="comment"># default: &#x27;unset&#x27;</span></span><br><span class="line">  <span class="attr">time:</span> <span class="string">&#x27;0.5s&#x27;</span> <span class="comment"># default: &#x27;0.3s&#x27;</span></span><br><span class="line">  <span class="attr">mixColor:</span> <span class="string">&#x27;transparent&#x27;</span> <span class="comment"># default: &#x27;#fff&#x27;</span></span><br><span class="line">  <span class="attr">backgroundColor:</span> <span class="string">&#x27;transparent&#x27;</span>  <span class="comment"># default: &#x27;#fff&#x27;</span></span><br><span class="line">  <span class="attr">buttonColorDark:</span> <span class="string">&#x27;#100f2c&#x27;</span>  <span class="comment"># default: &#x27;#100f2c&#x27;</span></span><br><span class="line">  <span class="attr">buttonColorLight:</span> <span class="string">&#x27;#dcdcdc&#x27;</span> <span class="comment"># default: &#x27;#fff&#x27;</span></span><br><span class="line">  <span class="attr">saveInCookies:</span> <span class="literal">true</span> <span class="comment"># default: true</span></span><br><span class="line">  <span class="attr">label:</span> <span class="string">&#x27;🌓&#x27;</span> <span class="comment"># default: &#x27;&#x27;</span></span><br><span class="line">  <span class="attr">autoMatchOsTheme:</span> <span class="literal">true</span> <span class="comment"># default: true</span></span><br><span class="line">  <span class="attr">libUrl:</span> <span class="comment"># Set custom library cdn url for Darkmode.js</span></span><br></pre></td></tr></table></figure>
+<p>适用于 NexT 主题的暗黑/夜间模式切换插件，如果 NexT 的版本 &lt; 8.2.0，则需要额外安装 Nunjucks 渲染插件，否则 <code>hexo-next-darkmode</code>​ 插件无法正常运行。</p>
+<hr>
+<h2 id="自定义样式">自定义样式</h2>
+<p>暗黑/夜间模式激活后，会将 <code>darkmode--activated</code>​ CSS 类添加到 <code>body</code>​ 标签，你可以利用它覆盖插件默认自带的样式（如下所示），这样就可以实现暗黑/夜间模式样式的高度自定义，包括代码块颜色自定义等。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.darkmode--activated &#123;</span><br><span class="line">  --body-bg-color: #282828;</span><br><span class="line">  --content-bg-color: #333;</span><br><span class="line">  --card-bg-color: #555;</span><br><span class="line">  --text-color: #ccc;</span><br><span class="line">  --blockquote-color: #bbb;</span><br><span class="line">  --link-color: #ccc;</span><br><span class="line">  --link-hover-color: #eee;</span><br><span class="line">  --brand-color: #ddd;</span><br><span class="line">  --brand-hover-color: #ddd;</span><br><span class="line">  --table-row-odd-bg-color: #282828;</span><br><span class="line">  --table-row-hover-bg-color: #363636;</span><br><span class="line">  --menu-item-bg-color: #555;</span><br><span class="line">  --btn-default-bg: #222;</span><br><span class="line">  --btn-default-color: #ccc;</span><br><span class="line">  --btn-default-border-color: #555;</span><br><span class="line">  --btn-default-hover-bg: #666;</span><br><span class="line">  --btn-default-hover-color: #ccc;</span><br><span class="line">  --btn-default-hover-border-color: #666;</span><br><span class="line">  --highlight-background: #282b2e;</span><br><span class="line">  --highlight-foreground: #a9b7c6;</span><br><span class="line">  --highlight-gutter-background: #34393d;</span><br><span class="line">  --highlight-gutter-foreground: #9ca9b6;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.darkmode--activated img &#123;</span><br><span class="line">  opacity: 0.75;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.darkmode--activated img:hover &#123;</span><br><span class="line">  opacity: 0.9;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.darkmode--activated code &#123;</span><br><span class="line">  color: #69dbdc;</span><br><span class="line">  background: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当某个标签不想使用暗黑/夜间模式时，可以添加 <code>darkmode-ignore</code>​ CSS 类到标签上。</p>
+</li>
+</ul>
+<p>&lt;span class=“darkmode-ignore”&gt;😬&lt;span&gt;</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当然你也可以使用 <code>isolation: isolate;</code>​ CSS 样式来忽略暗黑/夜间模式。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.button &#123;</span><br><span class="line">  isolation: isolate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>也可以使用这种 <code>mix-blend-mode: difference</code>​ CSS 样式来还原暗黑/夜间模式。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.button &#123;</span><br><span class="line">  mix-blend-mode: difference;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>参考</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JxaDY1NjQxODUxMC9oZXhvLW5leHQtZGFya21vZGUvYmxvYi9hMmJjZTQxOGEzZGYzYTlhMzQwOWNlOTJlMzkzY2Y1NjY5NjQ3MTEwL1JFQURNRV9DTi5tZA==">hexo-next-darkmode/README_CN.md at a2bce418a3df3a9a3409ce92e393cf5669647110 · rqh656418510/hexo-next-darkmode<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>转载</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>插件</tag>
+        <tag>暗黑模式</tag>
       </tags>
   </entry>
   <entry>
@@ -61,11 +369,32 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>标签云</tag>
         <tag>动态</tag>
         <tag>tag_cloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【转载】 鼠标点击特效</title>
+    <url>/2024/10/22/c0d92f275632/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原文地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcXJrNjY2L3AvMTI4NzgzNjAuaHRtbA==">鼠标点击特效 - 凯哥xyz - 博客园<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">  <span class="keyword">var</span> a_idx = <span class="number">0</span>;</span><br><span class="line"><span class="title function_">jQuery</span>(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  $(<span class="string">&quot;body&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="string">&quot;富强&quot;</span>, <span class="string">&quot;民主&quot;</span>, <span class="string">&quot;文明&quot;</span>, <span class="string">&quot;和谐&quot;</span>, <span class="string">&quot;自由&quot;</span>, <span class="string">&quot;平等&quot;</span>, <span class="string">&quot;公正&quot;</span> ,<span class="string">&quot;法治&quot;</span>, <span class="string">&quot;爱国&quot;</span>, <span class="string">&quot;敬业&quot;</span>, <span class="string">&quot;诚信&quot;</span>, <span class="string">&quot;友善&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> $i = $(<span class="string">&quot;&lt;span/&gt;&quot;</span>).<span class="title function_">text</span>(a[a_idx]);</span><br><span class="line">    a_idx = (a_idx + <span class="number">1</span>) % a.<span class="property">length</span>;</span><br><span class="line">    <span class="keyword">var</span> x = e.<span class="property">pageX</span>,</span><br><span class="line">      y = e.<span class="property">pageY</span>;</span><br><span class="line">    $i.<span class="title function_">css</span>(&#123;</span><br><span class="line">      <span class="string">&quot;z-index&quot;</span>: <span class="number">999999999999999999999999999999999999999999999999999999999999999999999</span>,</span><br><span class="line">      <span class="string">&quot;top&quot;</span>: y - <span class="number">20</span>,</span><br><span class="line">      <span class="string">&quot;left&quot;</span>: x,</span><br><span class="line">      <span class="string">&quot;position&quot;</span>: <span class="string">&quot;absolute&quot;</span>,</span><br><span class="line">      <span class="string">&quot;font-weight&quot;</span>: <span class="string">&quot;bold&quot;</span>,</span><br><span class="line">      <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#ff6651&quot;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">&quot;body&quot;</span>).<span class="title function_">append</span>($i);</span><br><span class="line">    $i.<span class="title function_">animate</span>(&#123;</span><br><span class="line">      <span class="string">&quot;top&quot;</span>: y - <span class="number">180</span>,</span><br><span class="line">      <span class="string">&quot;opacity&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="number">1500</span>,</span><br><span class="line"><span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">$i.<span class="title function_">remove</span>();</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>接着插入一段引用js</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script language=<span class="string">&quot;javascript&quot;</span> type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;&lt;a href=&quot;</span><span class="attr">https</span>:<span class="comment">//blog-static.cnblogs.com/files/qrk666/main.js&quot;&gt;https://blog-static.cnblogs.com/files/qrk666/main.js&lt;/a&gt;&quot;&gt;</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>转载</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>特效</tag>
+        <tag>JavaScript</tag>
+        <tag>鼠标</tag>
+        <tag>今日</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -82,9 +411,9 @@
         <category>其他</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>加载</tag>
-        <tag>Hexo</tag>
         <tag>pace</tag>
       </tags>
   </entry>
@@ -108,8 +437,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>图片显示</tag>
         <tag>防盗链</tag>
         <tag>meta</tag>
@@ -130,10 +459,10 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
-        <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Hexo</tag>
         <tag>主题</tag>
+        <tag>Next</tag>
         <tag>动态标题</tag>
       </tags>
   </entry>
@@ -160,11 +489,11 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
-        <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>公众号</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
         <tag>主题</tag>
+        <tag>Next</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
@@ -194,8 +523,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Hexo</tag>
         <tag>category_map</tag>
         <tag>permalink</tag>
       </tags>
@@ -230,8 +559,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Hexo</tag>
         <tag>新闻</tag>
         <tag>API</tag>
         <tag>Html单页</tag>
@@ -255,9 +584,9 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
-        <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>动态背景</tag>
       </tags>
   </entry>
@@ -293,9 +622,9 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
-        <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>笔记</tag>
         <tag>升级</tag>
       </tags>
@@ -417,8 +746,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Hexo</tag>
         <tag>分类</tag>
         <tag>标签</tag>
       </tags>
@@ -658,10 +987,10 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
-        <tag>Hexo</tag>
-        <tag>搜索</tag>
         <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>搜索</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
       </tags>
@@ -1055,9 +1384,9 @@
       </categories>
       <tags>
         <tag>ImageJ</tag>
+        <tag>R语言</tag>
         <tag>批量</tag>
         <tag>数据处理</tag>
-        <tag>R语言</tag>
         <tag>实例</tag>
         <tag>果蝇</tag>
       </tags>
@@ -1286,8 +1615,8 @@
         <category>科研</category>
       </categories>
       <tags>
-        <tag>批量</tag>
         <tag>R语言</tag>
+        <tag>批量</tag>
         <tag>实例</tag>
         <tag>解压</tag>
       </tags>
@@ -1718,8 +2047,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Hexo</tag>
         <tag>指令</tag>
         <tag>部署</tag>
       </tags>
@@ -1826,9 +2155,9 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>R语言</tag>
         <tag>RNA-seq</tag>
         <tag>生信</tag>
+        <tag>R语言</tag>
         <tag>测序</tag>
         <tag>标准化</tag>
       </tags>
