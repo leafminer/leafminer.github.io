@@ -53,6 +53,96 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客Next主题添加公众号二维码</title>
+    <url>/2024/10/21/be743ddf561b/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="添加到Next主题侧边栏">添加到Next主题侧边栏</h2>
+<ol>
+<li class="lvl-3">将图片放入博客根目录下的./themes/next/source/images/目录中，并将图片改名为wechat_channel.png</li>
+<li class="lvl-3">编辑<code>themes/next/layout/_macro/sidebar.njk</code>​文件。</li>
+</ol>
+<p>在里面搜索theme.back2top.enable，在这个if语句之后添加下面的代码</p>
+<span id="more"></span> 
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wechat_channel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 这里添加你的二维码图片 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> =<span class="string">&quot;/images/wechat_channel.png&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;span&gt;公众号&lt;/span&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729194189399-62740420-6785-4412-ae43-3bc898002824.png" alt="">​</p>
+<h2 id="添加到文章底部">添加到文章底部</h2>
+<p>编辑themes/next/layout/_partials/post/post-copyright.njk文件，在底部的&lt;/div&gt;上面增加下述代码，</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wechat_channel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 这里添加你的二维码图片 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> =<span class="string">&quot;/images/wechat_channel.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC80NjM1MzA4OTc=">hexo next主题新增微信公众号二维码显示 - 知乎 (zhihu.com)<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>公众号</tag>
+        <tag>主题</tag>
+        <tag>二维码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客Next主题添加动态标题</title>
+    <url>/2024/10/21/8803d6a9e06d/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>直接在<code>hexo\node_modules\hexo-theme-next\layout\_layout.njk</code>​文件中添加如下代码：</p>
+<span id="more"></span>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> <span class="title class_">OriginTitile</span>=<span class="variable language_">document</span>.<span class="property">title</span>,st;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;visibilitychange&quot;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">hidden</span>?(<span class="variable language_">document</span>.<span class="property">title</span>=<span class="string">&quot;ヽ(●-`Д´-)ノ别走啊！&quot;</span>,<span class="built_in">clearTimeout</span>(st)):(<span class="variable language_">document</span>.<span class="property">title</span>=<span class="string">&quot;(Ő∀Ő3)ノ来了啊！&quot;</span>,st=<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">document</span>.<span class="property">title</span>=<span class="title class_">OriginTitile</span>&#125;,<span class="number">3e3</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729158708074-c3c3fbe9-a4ea-45ae-8ba8-760cb5514c17.png" alt="">​</p>
+<h2 id="参考">参考</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAyMTYxNDMwNz9zb3J0PW5ld2VzdCNpdGVtLTctMTA=">hexo+github搭建博客(超级详细版，精细入微) - 个人文章 - SegmentFault 思否<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>主题</tag>
+        <tag>动态标题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客Next主题添加每日早报</title>
+    <url>/2024/10/21/1d2a6f85d3f7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。</p>
+<span id="more"></span>
+<h1>Hexo博客Next主题添加每日早报</h1>
+<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p>
+<h1>Alapi官网注册</h1>
+<p>Alapi官网地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24v">https://www.alapi.cn/<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="获得Token密钥">获得Token密钥</h2>
+<p><strong>接口管理</strong>，<strong>更新Token密钥</strong></p>
+<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729509991587-6f6a2973-9959-4a75-87cb-943936032ff3.png" alt="">​</p>
+<h1>生成</h1>
+<p>复制密钥放到下面的网址中：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image</span><br></pre></td></tr></table></figure>
+<p>API文档：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24vYXBpL3ZpZXcvOTM=">每日60秒早报-ALAPI<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="插入文章">插入文章</h2>
+<p>在Markdown文档中加入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[](<span class="link">https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Html页面">Html页面</h2>
+<p>在html页面中加入：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>全屏图片展示<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">      <span class="selector-tag">body</span>, <span class="selector-tag">html</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.full-screen-image</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">object-fit</span>: cover; <span class="comment">/* 图片将覆盖整个容器 */</span></span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;全屏图片&quot;</span> <span class="attr">class</span>=<span class="string">&quot;full-screen-image&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1>参考</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYW9tYW5oYW8udG9wL2FyY2hpdmVzLzMxNi8=">博客新增每日早报api，网站增加每日早报功能 - AomanHao的博客空间<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>新闻</tag>
+        <tag>API</tag>
+        <tag>Html单页</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo新建文章及发布指令--笔记</title>
     <url>/2024/05/08/eda54285e852/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
@@ -320,208 +410,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
-    <url>/2024/05/23/d5d33bdaa68f/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a name="e05dce83"></a></p>
-<h2 id="简介">简介</h2>
-<p>StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。<br /><strong>作者：</strong> Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne</p>
-<span id="more"></span>
-<p>该插件的目的是配准（换句话说，对齐或匹配）图像堆栈。每张图片用作下一张图片对齐的模板，以便通过转换进行对齐。当插件启动时，当前图片充当全局锚点。StackReg 插件要求安装有TurboReg 插件。该插件（<strong>StackReg</strong>）是<strong>TurboReg</strong> 插件的前端。这些插件之间有几种数据交换机制，其中之一是将临时文件写入 ImageJ 定义的临时目录。该目录的位置可以通过宏命令 &quot;<code>print(getDirectory(&quot;temp&quot;));</code> &quot;查看。文件名称是：StackRegSource，StackRegSourceR，StackRegSourceG，StackRegSourceB，StackRegTarget。</p>
-<p>配准完成后，原始堆栈将被销毁，取而代之的是配准结果。堆栈的名称和类型保持不变；除 <strong>RGB 堆栈</strong>和 <strong>HSB 堆</strong>栈外，所有数据类型均可使用。(请注意，RGB-stack 是由三个颜色分量组成的堆栈，不应与 RGB 彩色图像堆栈混淆：后者可以使用，而前者不能使用。如有疑问，请尝试一下)。如果提供的是彩色图像堆栈，则会在灰度版本上进行配准，灰度版本是由红色、绿色和蓝色分量加权求和而成的，即使堆栈是伪彩色图像也是如此。权重取决于整个图像堆栈，并通过主成分分析确定，以提供最大可能的对比度。一旦根据中间灰度表示确定了几何图形，就可以重建真正的彩色图像，如果需要生成伪彩色图像，还可以重新量化。</p>
-<p><a name="1a63ac23"></a></p>
-<h2 id="示例">示例</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"></p>
-<p><a name="AX0GW"></a></p>
-<h2 id="参数">参数</h2>
-<p>有四种类型的转换：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Translation</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?x%20%3D%20u%20%2B%20%CE%94u#card=math&amp;code=x%20%3D%20u%20%2B%20%CE%94u&amp;id=I1f4r" alt="">。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Rigid Body</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/e386340d2860de58527e61d4dc5de7cd.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HGnJ1" alt=""><br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Scaled rotation</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/1678623c5ac84d63fb37a0c24914e4bf.svg#card=math&amp;code=x%20%3D%20%CE%BB%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HxAmA" alt=""><br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Affine</strong>：</p>
-</li>
-</ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/56c72e021aeb8d05a197e959c33a45b2.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Ba_%7B11%7D%2C%20a_%7B12%7D%5C%7D%2C%20%5C%7Ba_%7B21%7D%2C%20a_%7B22%7D%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=CCeB3" alt=""><br />由于四个系数 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B11%7D#card=math&amp;code=a_%7B11%7D&amp;id=NPdDU" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B12%7D#card=math&amp;code=a_%7B12%7D&amp;id=X1Pob" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B21%7D#card=math&amp;code=a_%7B21%7D&amp;id=Hro5t" alt=""> 和 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B22%7D#card=math&amp;code=a_%7B22%7D&amp;id=msruk" alt=""> 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
-<a name="1c53b310"></a></p>
-<h2 id="操作步骤">操作步骤</h2>
-<p>使用的Fiji ImageJ</p>
-<ol>
-<li class="lvl-3">
-<p>拖动图片文件夹到Fiji，默认为堆栈。</p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433448190-6bcdcea1-090b-4b6e-844b-db57f09551a9.png#averageHue=%23eeeeed&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=285&amp;id=R4VvP&amp;originHeight=424&amp;originWidth=428&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14771&amp;status=done&amp;style=none&amp;taskId=ue08112ae-4ce1-4d16-97b5-adb9378c3cd&amp;title=&amp;width=287.3999938964844" alt="image.png"></p>
-<ol start="2">
-<li class="lvl-3">
-<p>插件启动前，选择合适的图片，当前图片会被充当全局锚点。</p>
-</li>
-<li class="lvl-3">
-<p>打开<strong>StackReg。</strong></p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433608518-f4f2cfa8-5406-4ef7-876d-c4ffb225cf73.png#averageHue=%23b3a180&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=313&amp;id=pzPnz&amp;originHeight=491&amp;originWidth=605&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=213183&amp;status=done&amp;style=none&amp;taskId=u427dd8d1-e0e2-49ce-9122-31b6a47e994&amp;title=&amp;width=386" alt="image.png"></p>
-<ol start="4">
-<li class="lvl-3">
-<p>选择对齐方式，点击确定按钮。</p>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433643863-8b44a1f7-eb00-4ac3-9f28-b4da3cb4d467.png#averageHue=%23edebe9&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=125&amp;id=cH9EB&amp;originHeight=156&amp;originWidth=236&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7246&amp;status=done&amp;style=none&amp;taskId=u745533d0-9a3d-4fde-8597-410e8b9e3eb&amp;title=&amp;width=188.8" alt="image.png"><br>
-<a name="zAAf8"></a></p>
-<h4 id="配准结果展示">配准结果展示</h4>
-<p><strong>Translation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437482059-89fc3429-bad3-4efb-8f57-e2b6980bd685.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u815598a6&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4864016&amp;status=done&amp;style=none&amp;taskId=ua36500ba-dce8-49d3-a2dd-78c2e561927&amp;title=" alt="攀爬2-移动-缩小.gif"><br /><strong>Rigid Body</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437732425-3650fea3-632c-496f-a40a-27c5a7adc316.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u66c7948b&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4902674&amp;status=done&amp;style=none&amp;taskId=u45d2d0ba-9870-43ee-8089-153602f6b05&amp;title=" alt="攀爬2-rigid-缩小.gif"><br /><strong>Scaled rotation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u5e78df36&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=" alt="WT-处-control-20211218-scaled.gif"><br /><strong>Affine</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438247733-91b6a52e-7abe-4303-a27b-b9389f62063c.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=uc96e2e67&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4699672&amp;status=done&amp;style=none&amp;taskId=u77f49e48-451d-4b37-876b-5276b590ccd&amp;title=" alt="攀爬2-affine-缩小.gif"><br>
-<a name="ba311d8a"></a></p>
-<h2 id="脚本">脚本</h2>
-<p>StackReg 是可编写脚本和使用宏记录的。下面是一个从宏调用 StackReg 的示例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">run(<span class="string">&quot;StackReg &quot;</span>, <span class="string">&quot;transformation=[Rigid Body]&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p><a name="d17a0f0b"></a></p>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9iaWd3d3cuZXBmbC5jaC90aGV2ZW5hei9zdGFja3JlZy8=">https://bigwww.epfl.ch/thevenaz/stackreg/<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p>P. Thévenaz, U.E. Ruttimann, M. Unser, “A Pyramid Approach to Subpixel Registration Based on Intensity,” IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998. Other relevant on-line publications are available at <span class="exturl" data-url="aHR0cDovL2JpZ3d3dy5lcGZsLmNoL3B1YmxpY2F0aW9ucy8=">http://bigwww.epfl.ch/publications/<i class="fa fa-external-link-alt"></i></span>.</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>ImageJ</tag>
-        <tag>图像</tag>
-        <tag>stack</tag>
-        <tag>StackReg</tag>
-        <tag>图像配准</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
-    <url>/2023/09/21/037b43cd53d9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
-<span id="more"></span> 
-<p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
-<p><strong>FPKM:</strong> Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
-<p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。<br>
-<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png" alt="公式1"></p>
-<h3 id="RPKM，FPKM">RPKM，FPKM</h3>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">#x为一个向量存储了每个基因的counts，而gene.length是相应于x中每个基因的长度的一个向量.</span></span><br><span class="line">RPKM <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">,</span> gene.length<span class="punctuation">)</span><span class="punctuation">&#123;</span> </span><br><span class="line">  lib.size <span class="operator">&lt;-</span> <span class="built_in">sum</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line">  rpm <span class="operator">&lt;-</span> 1e6 <span class="operator">*</span> x<span class="operator">/</span>lib.size</span><br><span class="line">  rpkm <span class="operator">&lt;-</span> 1e3 <span class="operator">*</span> rpm<span class="operator">/</span>gene.length</span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>rpkm<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">FPKM <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">,</span> gene.length<span class="punctuation">)</span><span class="punctuation">&#123;</span> </span><br><span class="line">  lib.size <span class="operator">&lt;-</span> <span class="built_in">sum</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line">  rpm <span class="operator">&lt;-</span> 1e6 <span class="operator">*</span> x<span class="operator">/</span>lib.size</span><br><span class="line">  rpkm <span class="operator">&lt;-</span> 1e3 <span class="operator">*</span> rpm<span class="operator">/</span>gene.length</span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>fpkm<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="TPM">TPM</h3>
-<p>TPM: Transcript per million<br>
-<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png" alt="公式2"></p>
-<p>TPM对基因的长度进行了校正，计算比对到基因上的reads/基因长度得到长度校正的表达量 reads per kilobase (RPK)。再以文库中RPK之和作为Scale Factor求出TPM。</p>
-<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">TPM &lt;- function(x, gene.<span class="built_in">length</span>)&#123;</span><br><span class="line">  rpk &lt;- <span class="number">1e3</span> * x/gene.<span class="built_in">length</span></span><br><span class="line">  <span class="built_in">scale</span>.<span class="built_in">factor</span> &lt;- <span class="built_in">sum</span>(rpk)</span><br><span class="line">  tpm &lt;- <span class="number">1e6</span> * rpk/<span class="built_in">scale</span>.<span class="built_in">factor</span></span><br><span class="line">  <span class="built_in">return</span>(tpm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>相比于RPKM使用文库大小（read counts之和）来作为文库校正因子，TPM使用RPK之和作为文库校正因子的好处是考虑了不同样本间的基因长度的分布。因为RPK是一个对基因长度进行校正后的表达量单位，所以RPK之和也不会再带入基因长度的bias。因此，如果需要比较的样本之间转录本分布不一致时（例如不同物种RNA-seq的比较），使用TPM是一个较佳的normalization方案。</p>
-<p>RPKM和TPM这类方法就是为了使不同样本间的总体表达量趋于一致，让不同样本间的基因表达量有可比较性，而TPM能够更好地校正样本间的差异。</p>
-<p>常用的Normalization 方法总结</p>
-<table>
-<thead>
-<tr>
-<th>Normalization method</th>
-<th>描述</th>
-<th>考虑因素</th>
-<th>使用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CPM (counts per million)</td>
-<td>使用read counts的总和校正counts</td>
-<td>测序深度</td>
-<td>同一样本组重复样本之间的基因counts比较；不适用于样品内的比较或差异分析</td>
-</tr>
-<tr>
-<td>TPM (transcripts per kilobase million)</td>
-<td>每百万mapped reads中每kb转录本上的reads数</td>
-<td>测序深度和基因长度</td>
-<td>样本内或同一样本组样本之间的基因counts比较； 不适用于差异分析</td>
-</tr>
-<tr>
-<td>RPKM/FPKM (reads/fragments per kilobase of exon per million reads/fragments mapped)</td>
-<td>如TPM</td>
-<td>测序深度和基因长度</td>
-<td>样本内基因间的counts比较; 不适用于样本间比较和差异分析</td>
-</tr>
-<tr>
-<td>DESeq2’s median of ratios [1]</td>
-<td>counts除以样本特异的校正因子，该因子由基因计数相对于每个基因的几何平均值的中位数比率确定</td>
-<td>测序深度及RNA组成</td>
-<td>样本之间的基因counts比较以及差异分析; 不适用于样本内比较</td>
-</tr>
-<tr>
-<td>EdgeR’s trimmed mean of M values (TMM) [2]</td>
-<td>使用样本之间的加权截尾的对数表达量比值的均值进行TMM校正</td>
-<td>测序深度，RNA组成以及基因长度</td>
-<td>样品之间和样品内部的基因counts比较，适用于差异分析</td>
-</tr>
-</tbody>
-</table>
-<p>在进行差异表达分析时，我们实际上并不会用到RPKM/FPKM, TPM，而是使用raw counts给到差异分析的工具。这是由于RPKM/FPKM和TPM都没有考虑到样本间文库组成的差异，因而不适合用于样本间差异分析。</p>
-<h2 id="获取基因长度">获取基因长度</h2>
-<p>计算TPM或RPKM/FPKM等基因表达量时，除了基因的counts信息外，我们还需要知道基因的长度。由于可变剪接的存在，一个基因可能会有多个转录本，在进行基因水平的表达分析时，我们并不会区分各个转录本剪接变体的表达量，而是以基因为单位进行统计。目前，对于基因长度有多种定义，包括：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>基因最长转录本；</p>
-</li>
-<li class="lvl-2">
-<p>多个转录本长度的平均值；</p>
-</li>
-<li class="lvl-2">
-<p>非重叠外显子长度之和：</p>
-</li>
-<li class="lvl-2">
-<p>非重叠CDS序列长度之和。</p>
-</li>
-</ul>
-<p><img src="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png" alt="3"></p>
-<p>Figure Source: Gene structure</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#使用gtf文件在R中获取基因长度（非重叠外显子长度之和）</span><br><span class="line">#首先，读取计算基因counts时用的GTF文件，并将其转换为TxDb对象；</span><br><span class="line">library(GenomicFeatures)</span><br><span class="line">#一般常用的物种基因注释信息都已经有人构建好TxDb对象，以R包的形式上传到Bioconductor里。我们使用时直接加载、赋值即可。BiocManager::install(&quot;TxDb.Dmelanogaster.UCSC.dm6.ensGene&quot;)</span><br><span class="line">#从本地读取数据库文件 txdb &lt;- makeTxDbFromGFF(&#x27;gencode.vM23.annotation.gtf&#x27;, format=&#x27;gtf&#x27;)</span><br><span class="line">#然后，提取每个基因的外显子注释信息；exons.list.per.gene &lt;- exonsBy(txdb, by=&quot;gene&quot;)</span><br><span class="line">library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)</span><br><span class="line">exons.list.per.gene &lt;- exonsBy(TxDb.Dmelanogaster.UCSC.dm6.ensGene, by=&quot;gene&quot;)</span><br><span class="line">#最后，合并重叠的外显子，计算非重叠外显子的长度作为基因长度（bp）</span><br><span class="line">exonic.gene.sizes &lt;- sum(width(reduce(exons.list.per.gene)))</span><br></pre></td></tr></table></figure>
-<p><code>GenomicFeatures</code>还支持自己手动从指定数据库中构建TxDb对象，例如从 UCSC提取构建的<code>makeTxDbFromUCSC()</code>函数；从BioMart提取构建的<code>makeTxDbFromBiomart()</code>函数等方法可以用作替补方案（没有对应TXDB的R包时）。</p>
-<p><code>tureCounts</code>统计基因counts时，其输出的counts.txt文件中通常会包含一列长度信息Length。也是采用非重叠外显子作为基因长度。</p>
-<h2 id="参考：">参考：</h2>
-<ol>
-<li class="lvl-3">
-<p>理论-简述RPKM-FPKM-AND-TPM | Dean’s blog (<span class="exturl" data-url="aHR0cDovL3RoZXJlYWxsZGEuZ2l0aHViLmlv">thereallda.github.io<i class="fa fa-external-link-alt"></i></span>)</p>
-</li>
-<li class="lvl-3">
-<p>R-获取基因长度 | Dean’s blog (<span class="exturl" data-url="aHR0cDovL3RoZXJlYWxsZGEuZ2l0aHViLmlv">thereallda.github.io<i class="fa fa-external-link-alt"></i></span>)</p>
-</li>
-<li class="lvl-3">
-<p>[R]bioconductor之GenomicFeatures学习 - 简书 (<span class="exturl" data-url="aHR0cDovL2ppYW5zaHUuY29t">jianshu.com<i class="fa fa-external-link-alt"></i></span>)</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>RNA-seq</tag>
-        <tag>生信</tag>
-        <tag>R语言</tag>
-        <tag>测序</tag>
-        <tag>标准化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ImageJ--形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释-TrakEM2简介</title>
     <url>/2024/05/16/4681ff84ccf3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>TrakEM2 是一个 ImageJ 插件，用于形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释。</p>
@@ -654,10 +542,212 @@
       <tags>
         <tag>笔记</tag>
         <tag>ImageJ</tag>
-        <tag>图像配准</tag>
         <tag>图像拼接</tag>
         <tag>TrakEM2</tag>
         <tag>简介</tag>
+        <tag>图像配准</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
+    <url>/2024/05/23/d5d33bdaa68f/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a name="e05dce83"></a></p>
+<h2 id="简介">简介</h2>
+<p>StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。<br /><strong>作者：</strong> Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne</p>
+<span id="more"></span>
+<p>该插件的目的是配准（换句话说，对齐或匹配）图像堆栈。每张图片用作下一张图片对齐的模板，以便通过转换进行对齐。当插件启动时，当前图片充当全局锚点。StackReg 插件要求安装有TurboReg 插件。该插件（<strong>StackReg</strong>）是<strong>TurboReg</strong> 插件的前端。这些插件之间有几种数据交换机制，其中之一是将临时文件写入 ImageJ 定义的临时目录。该目录的位置可以通过宏命令 &quot;<code>print(getDirectory(&quot;temp&quot;));</code> &quot;查看。文件名称是：StackRegSource，StackRegSourceR，StackRegSourceG，StackRegSourceB，StackRegTarget。</p>
+<p>配准完成后，原始堆栈将被销毁，取而代之的是配准结果。堆栈的名称和类型保持不变；除 <strong>RGB 堆栈</strong>和 <strong>HSB 堆</strong>栈外，所有数据类型均可使用。(请注意，RGB-stack 是由三个颜色分量组成的堆栈，不应与 RGB 彩色图像堆栈混淆：后者可以使用，而前者不能使用。如有疑问，请尝试一下)。如果提供的是彩色图像堆栈，则会在灰度版本上进行配准，灰度版本是由红色、绿色和蓝色分量加权求和而成的，即使堆栈是伪彩色图像也是如此。权重取决于整个图像堆栈，并通过主成分分析确定，以提供最大可能的对比度。一旦根据中间灰度表示确定了几何图形，就可以重建真正的彩色图像，如果需要生成伪彩色图像，还可以重新量化。</p>
+<p><a name="1a63ac23"></a></p>
+<h2 id="示例">示例</h2>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"></p>
+<p><a name="AX0GW"></a></p>
+<h2 id="参数">参数</h2>
+<p>有四种类型的转换：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Translation</strong>：</p>
+</li>
+</ul>
+<p>映射公式为 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?x%20%3D%20u%20%2B%20%CE%94u#card=math&amp;code=x%20%3D%20u%20%2B%20%CE%94u&amp;id=I1f4r" alt="">。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Rigid Body</strong>：</p>
+</li>
+</ul>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/e386340d2860de58527e61d4dc5de7cd.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HGnJ1" alt=""><br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Scaled rotation</strong>：</p>
+</li>
+</ul>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/1678623c5ac84d63fb37a0c24914e4bf.svg#card=math&amp;code=x%20%3D%20%CE%BB%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HxAmA" alt=""><br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Affine</strong>：</p>
+</li>
+</ul>
+<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/56c72e021aeb8d05a197e959c33a45b2.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Ba_%7B11%7D%2C%20a_%7B12%7D%5C%7D%2C%20%5C%7Ba_%7B21%7D%2C%20a_%7B22%7D%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=CCeB3" alt=""><br />由于四个系数 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B11%7D#card=math&amp;code=a_%7B11%7D&amp;id=NPdDU" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B12%7D#card=math&amp;code=a_%7B12%7D&amp;id=X1Pob" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B21%7D#card=math&amp;code=a_%7B21%7D&amp;id=Hro5t" alt=""> 和 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B22%7D#card=math&amp;code=a_%7B22%7D&amp;id=msruk" alt=""> 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
+<a name="1c53b310"></a></p>
+<h2 id="操作步骤">操作步骤</h2>
+<p>使用的Fiji ImageJ</p>
+<ol>
+<li class="lvl-3">
+<p>拖动图片文件夹到Fiji，默认为堆栈。</p>
+</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433448190-6bcdcea1-090b-4b6e-844b-db57f09551a9.png#averageHue=%23eeeeed&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=285&amp;id=R4VvP&amp;originHeight=424&amp;originWidth=428&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14771&amp;status=done&amp;style=none&amp;taskId=ue08112ae-4ce1-4d16-97b5-adb9378c3cd&amp;title=&amp;width=287.3999938964844" alt="image.png"></p>
+<ol start="2">
+<li class="lvl-3">
+<p>插件启动前，选择合适的图片，当前图片会被充当全局锚点。</p>
+</li>
+<li class="lvl-3">
+<p>打开<strong>StackReg。</strong></p>
+</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433608518-f4f2cfa8-5406-4ef7-876d-c4ffb225cf73.png#averageHue=%23b3a180&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=313&amp;id=pzPnz&amp;originHeight=491&amp;originWidth=605&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=213183&amp;status=done&amp;style=none&amp;taskId=u427dd8d1-e0e2-49ce-9122-31b6a47e994&amp;title=&amp;width=386" alt="image.png"></p>
+<ol start="4">
+<li class="lvl-3">
+<p>选择对齐方式，点击确定按钮。</p>
+</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433643863-8b44a1f7-eb00-4ac3-9f28-b4da3cb4d467.png#averageHue=%23edebe9&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=125&amp;id=cH9EB&amp;originHeight=156&amp;originWidth=236&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7246&amp;status=done&amp;style=none&amp;taskId=u745533d0-9a3d-4fde-8597-410e8b9e3eb&amp;title=&amp;width=188.8" alt="image.png"><br>
+<a name="zAAf8"></a></p>
+<h4 id="配准结果展示">配准结果展示</h4>
+<p><strong>Translation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437482059-89fc3429-bad3-4efb-8f57-e2b6980bd685.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u815598a6&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4864016&amp;status=done&amp;style=none&amp;taskId=ua36500ba-dce8-49d3-a2dd-78c2e561927&amp;title=" alt="攀爬2-移动-缩小.gif"><br /><strong>Rigid Body</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437732425-3650fea3-632c-496f-a40a-27c5a7adc316.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u66c7948b&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4902674&amp;status=done&amp;style=none&amp;taskId=u45d2d0ba-9870-43ee-8089-153602f6b05&amp;title=" alt="攀爬2-rigid-缩小.gif"><br /><strong>Scaled rotation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u5e78df36&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=" alt="WT-处-control-20211218-scaled.gif"><br /><strong>Affine</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438247733-91b6a52e-7abe-4303-a27b-b9389f62063c.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=uc96e2e67&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4699672&amp;status=done&amp;style=none&amp;taskId=u77f49e48-451d-4b37-876b-5276b590ccd&amp;title=" alt="攀爬2-affine-缩小.gif"><br>
+<a name="ba311d8a"></a></p>
+<h2 id="脚本">脚本</h2>
+<p>StackReg 是可编写脚本和使用宏记录的。下面是一个从宏调用 StackReg 的示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">run(<span class="string">&quot;StackReg &quot;</span>, <span class="string">&quot;transformation=[Rigid Body]&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p><a name="d17a0f0b"></a></p>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9iaWd3d3cuZXBmbC5jaC90aGV2ZW5hei9zdGFja3JlZy8=">https://bigwww.epfl.ch/thevenaz/stackreg/<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p>P. Thévenaz, U.E. Ruttimann, M. Unser, “A Pyramid Approach to Subpixel Registration Based on Intensity,” IEEE Transactions on Image Processing, vol. 7, no. 1, pp. 27-41, January 1998. Other relevant on-line publications are available at <span class="exturl" data-url="aHR0cDovL2JpZ3d3dy5lcGZsLmNoL3B1YmxpY2F0aW9ucy8=">http://bigwww.epfl.ch/publications/<i class="fa fa-external-link-alt"></i></span>.</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>ImageJ</tag>
+        <tag>图像</tag>
+        <tag>图像配准</tag>
+        <tag>stack</tag>
+        <tag>StackReg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
+    <url>/2023/09/21/037b43cd53d9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
+<span id="more"></span> 
+<p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
+<p><strong>FPKM:</strong> Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
+<p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。<br>
+<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png" alt="公式1"></p>
+<h3 id="RPKM，FPKM">RPKM，FPKM</h3>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">#x为一个向量存储了每个基因的counts，而gene.length是相应于x中每个基因的长度的一个向量.</span></span><br><span class="line">RPKM <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">,</span> gene.length<span class="punctuation">)</span><span class="punctuation">&#123;</span> </span><br><span class="line">  lib.size <span class="operator">&lt;-</span> <span class="built_in">sum</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line">  rpm <span class="operator">&lt;-</span> 1e6 <span class="operator">*</span> x<span class="operator">/</span>lib.size</span><br><span class="line">  rpkm <span class="operator">&lt;-</span> 1e3 <span class="operator">*</span> rpm<span class="operator">/</span>gene.length</span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>rpkm<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">FPKM <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">,</span> gene.length<span class="punctuation">)</span><span class="punctuation">&#123;</span> </span><br><span class="line">  lib.size <span class="operator">&lt;-</span> <span class="built_in">sum</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line">  rpm <span class="operator">&lt;-</span> 1e6 <span class="operator">*</span> x<span class="operator">/</span>lib.size</span><br><span class="line">  rpkm <span class="operator">&lt;-</span> 1e3 <span class="operator">*</span> rpm<span class="operator">/</span>gene.length</span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>fpkm<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="TPM">TPM</h3>
+<p>TPM: Transcript per million<br>
+<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png" alt="公式2"></p>
+<p>TPM对基因的长度进行了校正，计算比对到基因上的reads/基因长度得到长度校正的表达量 reads per kilobase (RPK)。再以文库中RPK之和作为Scale Factor求出TPM。</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">TPM &lt;- function(x, gene.<span class="built_in">length</span>)&#123;</span><br><span class="line">  rpk &lt;- <span class="number">1e3</span> * x/gene.<span class="built_in">length</span></span><br><span class="line">  <span class="built_in">scale</span>.<span class="built_in">factor</span> &lt;- <span class="built_in">sum</span>(rpk)</span><br><span class="line">  tpm &lt;- <span class="number">1e6</span> * rpk/<span class="built_in">scale</span>.<span class="built_in">factor</span></span><br><span class="line">  <span class="built_in">return</span>(tpm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相比于RPKM使用文库大小（read counts之和）来作为文库校正因子，TPM使用RPK之和作为文库校正因子的好处是考虑了不同样本间的基因长度的分布。因为RPK是一个对基因长度进行校正后的表达量单位，所以RPK之和也不会再带入基因长度的bias。因此，如果需要比较的样本之间转录本分布不一致时（例如不同物种RNA-seq的比较），使用TPM是一个较佳的normalization方案。</p>
+<p>RPKM和TPM这类方法就是为了使不同样本间的总体表达量趋于一致，让不同样本间的基因表达量有可比较性，而TPM能够更好地校正样本间的差异。</p>
+<p>常用的Normalization 方法总结</p>
+<table>
+<thead>
+<tr>
+<th>Normalization method</th>
+<th>描述</th>
+<th>考虑因素</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPM (counts per million)</td>
+<td>使用read counts的总和校正counts</td>
+<td>测序深度</td>
+<td>同一样本组重复样本之间的基因counts比较；不适用于样品内的比较或差异分析</td>
+</tr>
+<tr>
+<td>TPM (transcripts per kilobase million)</td>
+<td>每百万mapped reads中每kb转录本上的reads数</td>
+<td>测序深度和基因长度</td>
+<td>样本内或同一样本组样本之间的基因counts比较； 不适用于差异分析</td>
+</tr>
+<tr>
+<td>RPKM/FPKM (reads/fragments per kilobase of exon per million reads/fragments mapped)</td>
+<td>如TPM</td>
+<td>测序深度和基因长度</td>
+<td>样本内基因间的counts比较; 不适用于样本间比较和差异分析</td>
+</tr>
+<tr>
+<td>DESeq2’s median of ratios [1]</td>
+<td>counts除以样本特异的校正因子，该因子由基因计数相对于每个基因的几何平均值的中位数比率确定</td>
+<td>测序深度及RNA组成</td>
+<td>样本之间的基因counts比较以及差异分析; 不适用于样本内比较</td>
+</tr>
+<tr>
+<td>EdgeR’s trimmed mean of M values (TMM) [2]</td>
+<td>使用样本之间的加权截尾的对数表达量比值的均值进行TMM校正</td>
+<td>测序深度，RNA组成以及基因长度</td>
+<td>样品之间和样品内部的基因counts比较，适用于差异分析</td>
+</tr>
+</tbody>
+</table>
+<p>在进行差异表达分析时，我们实际上并不会用到RPKM/FPKM, TPM，而是使用raw counts给到差异分析的工具。这是由于RPKM/FPKM和TPM都没有考虑到样本间文库组成的差异，因而不适合用于样本间差异分析。</p>
+<h2 id="获取基因长度">获取基因长度</h2>
+<p>计算TPM或RPKM/FPKM等基因表达量时，除了基因的counts信息外，我们还需要知道基因的长度。由于可变剪接的存在，一个基因可能会有多个转录本，在进行基因水平的表达分析时，我们并不会区分各个转录本剪接变体的表达量，而是以基因为单位进行统计。目前，对于基因长度有多种定义，包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>基因最长转录本；</p>
+</li>
+<li class="lvl-2">
+<p>多个转录本长度的平均值；</p>
+</li>
+<li class="lvl-2">
+<p>非重叠外显子长度之和：</p>
+</li>
+<li class="lvl-2">
+<p>非重叠CDS序列长度之和。</p>
+</li>
+</ul>
+<p><img src="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png" alt="3"></p>
+<p>Figure Source: Gene structure</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#使用gtf文件在R中获取基因长度（非重叠外显子长度之和）</span><br><span class="line">#首先，读取计算基因counts时用的GTF文件，并将其转换为TxDb对象；</span><br><span class="line">library(GenomicFeatures)</span><br><span class="line">#一般常用的物种基因注释信息都已经有人构建好TxDb对象，以R包的形式上传到Bioconductor里。我们使用时直接加载、赋值即可。BiocManager::install(&quot;TxDb.Dmelanogaster.UCSC.dm6.ensGene&quot;)</span><br><span class="line">#从本地读取数据库文件 txdb &lt;- makeTxDbFromGFF(&#x27;gencode.vM23.annotation.gtf&#x27;, format=&#x27;gtf&#x27;)</span><br><span class="line">#然后，提取每个基因的外显子注释信息；exons.list.per.gene &lt;- exonsBy(txdb, by=&quot;gene&quot;)</span><br><span class="line">library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)</span><br><span class="line">exons.list.per.gene &lt;- exonsBy(TxDb.Dmelanogaster.UCSC.dm6.ensGene, by=&quot;gene&quot;)</span><br><span class="line">#最后，合并重叠的外显子，计算非重叠外显子的长度作为基因长度（bp）</span><br><span class="line">exonic.gene.sizes &lt;- sum(width(reduce(exons.list.per.gene)))</span><br></pre></td></tr></table></figure>
+<p><code>GenomicFeatures</code>还支持自己手动从指定数据库中构建TxDb对象，例如从 UCSC提取构建的<code>makeTxDbFromUCSC()</code>函数；从BioMart提取构建的<code>makeTxDbFromBiomart()</code>函数等方法可以用作替补方案（没有对应TXDB的R包时）。</p>
+<p><code>tureCounts</code>统计基因counts时，其输出的counts.txt文件中通常会包含一列长度信息Length。也是采用非重叠外显子作为基因长度。</p>
+<h2 id="参考：">参考：</h2>
+<ol>
+<li class="lvl-3">
+<p>理论-简述RPKM-FPKM-AND-TPM | Dean’s blog (<span class="exturl" data-url="aHR0cDovL3RoZXJlYWxsZGEuZ2l0aHViLmlv">thereallda.github.io<i class="fa fa-external-link-alt"></i></span>)</p>
+</li>
+<li class="lvl-3">
+<p>R-获取基因长度 | Dean’s blog (<span class="exturl" data-url="aHR0cDovL3RoZXJlYWxsZGEuZ2l0aHViLmlv">thereallda.github.io<i class="fa fa-external-link-alt"></i></span>)</p>
+</li>
+<li class="lvl-3">
+<p>[R]bioconductor之GenomicFeatures学习 - 简书 (<span class="exturl" data-url="aHR0cDovL2ppYW5zaHUuY29t">jianshu.com<i class="fa fa-external-link-alt"></i></span>)</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>RNA-seq</tag>
+        <tag>生信</tag>
+        <tag>R语言</tag>
+        <tag>测序</tag>
+        <tag>标准化</tag>
       </tags>
   </entry>
   <entry>
@@ -670,6 +760,7 @@
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 工作文件夹</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;I:\\果蝇锻炼\\201803-不同浓度枸杞攀爬拍照&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩文件列表</span></span><br><span class="line">filelist <span class="operator">&lt;-</span> dir<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ziplist <span class="operator">&lt;-</span>  filelist<span class="punctuation">[</span>grepl<span class="punctuation">(</span><span class="string">&quot;zip&quot;</span><span class="punctuation">,</span>filelist<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环解压到指定文件夹</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>ziplist<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  unzip<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> exdir <span class="operator">=</span> paste0<span class="punctuation">(</span><span class="string">&quot;E:\\Desktop\\Fly-climb\\&quot;</span><span class="punctuation">,</span>substr<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span>str_length<span class="punctuation">(</span>ziplist<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>原创</category>
+        <category>科研</category>
       </categories>
       <tags>
         <tag>R语言</tag>
@@ -688,6 +779,7 @@
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span>cluster<span class="punctuation">)</span> </span><br><span class="line"><span class="comment"># 设定工作目录</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入数据</span></span><br><span class="line">X20180609_WF_IF <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-WF-IF.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_CM_AM <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-CM-AM.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_CF_AF <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-CF-AF.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">clusGap<span class="punctuation">(</span>X20180609_WF_IF<span class="operator">$</span>X<span class="punctuation">[</span>which<span class="punctuation">(</span>X20180609_WF_IF<span class="operator">$</span>Slice<span class="operator">==</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>FUN<span class="operator">=</span>kmeans<span class="punctuation">,</span>nstart<span class="operator">=</span><span class="number">25</span><span class="punctuation">,</span>K.max<span class="operator">=</span><span class="number">10</span><span class="punctuation">,</span>B<span class="operator">=</span><span class="number">500</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment">## 自定义函数，获取每管果蝇的攀爬指数----</span></span><br><span class="line">ppindex <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>X<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">g1 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g2 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g3 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g4 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g5 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">g6 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">max</span><span class="punctuation">(</span>X<span class="operator">$</span>Slice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  slice_x <span class="operator">&lt;-</span> X<span class="operator">$</span>X<span class="punctuation">[</span>which<span class="punctuation">(</span>X<span class="operator">$</span>Slice<span class="operator">==</span>i<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y <span class="operator">&lt;-</span> X<span class="operator">$</span>Y<span class="punctuation">[</span>which<span class="punctuation">(</span>X<span class="operator">$</span>Slice<span class="operator">==</span>i<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_max <span class="operator">&lt;-</span> <span class="punctuation">(</span><span class="built_in">max</span><span class="punctuation">(</span>slice_x<span class="punctuation">)</span><span class="operator">+</span><span class="number">100</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">6</span></span><br><span class="line">  par<span class="punctuation">(</span>mfrow <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管1</span></span><br><span class="line">  slice_x <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_x <span class="operator">&lt;</span> slice_max<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_x <span class="operator">&lt;</span> slice_max<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x<span class="punctuation">,</span>slice_y<span class="punctuation">)</span></span><br><span class="line">  slice_y_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_1 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y_fq0<span class="operator">+</span>slice_y_fq1<span class="operator">+</span>slice_y_fq2<span class="punctuation">)</span></span><br><span class="line">  g1 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g1<span class="punctuation">,</span>index_1<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管2</span></span><br><span class="line">  slice_x2 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y2 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x2<span class="punctuation">,</span>slice_y2<span class="punctuation">)</span></span><br><span class="line">  slice_y2_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y2<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y2 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y2_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y2<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y2 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y2 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y2_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y2<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y2 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_2 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y2_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y2_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y2_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y2_fq0<span class="operator">+</span>slice_y2_fq1<span class="operator">+</span>slice_y2_fq2<span class="punctuation">)</span></span><br><span class="line">  g2 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g2<span class="punctuation">,</span>index_2<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管3</span></span><br><span class="line">  slice_x3 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">2</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">3</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y3 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">2</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">3</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x3<span class="punctuation">,</span>slice_y3<span class="punctuation">)</span></span><br><span class="line">  slice_y3_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y3<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y3 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y3_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y3<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y3 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y3 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y3_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y3<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y3 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_3 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y3_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y3_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y3_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y3_fq0<span class="operator">+</span>slice_y3_fq1<span class="operator">+</span>slice_y3_fq2<span class="punctuation">)</span></span><br><span class="line">  g3 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g3<span class="punctuation">,</span>index_3<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管4</span></span><br><span class="line">  slice_x4 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">3</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y4 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">3</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x4<span class="punctuation">,</span>slice_y4<span class="punctuation">)</span></span><br><span class="line">  slice_y4_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y4<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y4 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y4_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y4<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y4 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y4 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y4_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y4<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y4 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_4 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y4_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y4_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y4_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y4_fq0<span class="operator">+</span>slice_y4_fq1<span class="operator">+</span>slice_y4_fq2<span class="punctuation">)</span></span><br><span class="line">  g4 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g4<span class="punctuation">,</span>index_4<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管5</span></span><br><span class="line">  slice_x5 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">4</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">5</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y5 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">4</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">5</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x5<span class="punctuation">,</span>slice_y5<span class="punctuation">)</span></span><br><span class="line">  slice_y5_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y5<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y5 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y5_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y5<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y5 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y5 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y5_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y5<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y5 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_5 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y5_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y5_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y5_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y5_fq0<span class="operator">+</span>slice_y5_fq1<span class="operator">+</span>slice_y5_fq2<span class="punctuation">)</span></span><br><span class="line">  g5 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g5<span class="punctuation">,</span>index_5<span class="punctuation">)</span></span><br><span class="line">  <span class="comment"># 管6</span></span><br><span class="line">  slice_x6 <span class="operator">&lt;-</span> slice_x<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">5</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  slice_y6 <span class="operator">&lt;-</span> slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_max<span class="operator">*</span><span class="number">5</span> <span class="operator">&lt;</span> slice_x<span class="operator">&amp;</span>slice_x <span class="operator">&lt;</span> slice_max<span class="operator">*</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">  plot<span class="punctuation">(</span>slice_x6<span class="punctuation">,</span>slice_y6<span class="punctuation">)</span></span><br><span class="line">  slice_y6_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y6<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y6 <span class="operator">&lt;</span> <span class="number">200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y6_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y6<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y6 <span class="operator">&gt;</span> <span class="number">200</span><span class="operator">&amp;</span>slice_y6 <span class="operator">&lt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">  slice_y6_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y6<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y6 <span class="operator">&gt;</span> <span class="number">400</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">2</span></span><br><span class="line">  index_6 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y6_fq0<span class="operator">*</span><span class="number">0</span><span class="operator">+</span>slice_y6_fq1<span class="operator">*</span><span class="number">1</span><span class="operator">+</span>slice_y6_fq2<span class="operator">*</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="punctuation">(</span>slice_y6_fq0<span class="operator">+</span>slice_y6_fq1<span class="operator">+</span>slice_y6_fq2<span class="punctuation">)</span></span><br><span class="line">  g6 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>g6<span class="punctuation">,</span>index_6<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  flyindex <span class="operator">&lt;-</span> data.frame<span class="punctuation">(</span>g1<span class="punctuation">,</span>g2<span class="punctuation">,</span>g3<span class="punctuation">,</span>g4<span class="punctuation">,</span>g5<span class="punctuation">,</span>g6<span class="punctuation">)</span></span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>flyindex<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#汇总----</span></span><br><span class="line">WI_F_Index <span class="operator">&lt;-</span> ppindex<span class="punctuation">(</span>X20180609_WF_IF<span class="punctuation">)</span> </span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>WI_F_Index<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;WF1&quot;</span><span class="punctuation">,</span><span class="string">&quot;WF2&quot;</span><span class="punctuation">,</span><span class="string">&quot;WF3&quot;</span><span class="punctuation">,</span><span class="string">&quot;IF1&quot;</span><span class="punctuation">,</span><span class="string">&quot;IF2&quot;</span><span class="punctuation">,</span><span class="string">&quot;IF3&quot;</span><span class="punctuation">)</span></span><br><span class="line">WI_F_Index <span class="operator">&lt;-</span> ppindex<span class="punctuation">(</span>X20180609_CF_AF<span class="punctuation">)</span></span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>CA_F_Index<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;CF1&quot;</span><span class="punctuation">,</span><span class="string">&quot;CF2&quot;</span><span class="punctuation">,</span><span class="string">&quot;CF3&quot;</span><span class="punctuation">,</span><span class="string">&quot;AF1&quot;</span><span class="punctuation">,</span><span class="string">&quot;AF2&quot;</span><span class="punctuation">,</span><span class="string">&quot;AF3&quot;</span><span class="punctuation">)</span></span><br><span class="line">CA_M_Index <span class="operator">&lt;-</span> ppindex<span class="punctuation">(</span>X20180609_CM_AM<span class="punctuation">)</span></span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>CA_M_Index<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;CM1&quot;</span><span class="punctuation">,</span><span class="string">&quot;CM2&quot;</span><span class="punctuation">,</span><span class="string">&quot;CM3&quot;</span><span class="punctuation">,</span><span class="string">&quot;AM1&quot;</span><span class="punctuation">,</span><span class="string">&quot;AM2&quot;</span><span class="punctuation">,</span><span class="string">&quot;AM3&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存</span></span><br><span class="line">library<span class="punctuation">(</span>xlsx<span class="punctuation">)</span></span><br><span class="line">write.xlsx2<span class="punctuation">(</span>WI_F_Index<span class="punctuation">,</span> sheetName <span class="operator">=</span> <span class="string">&quot;WI_F_Index&quot;</span><span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&#x27;flyIndex.xlsx&#x27;</span><span class="punctuation">,</span>append <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">write.xlsx2<span class="punctuation">(</span>CA_F_Index<span class="punctuation">,</span> sheetName <span class="operator">=</span> <span class="string">&quot;CA_F_Index&quot;</span><span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&#x27;flyIndex.xlsx&#x27;</span><span class="punctuation">,</span>append <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">write.xlsx2<span class="punctuation">(</span>CA_M_Index<span class="punctuation">,</span> sheetName <span class="operator">=</span> <span class="string">&quot;CA_M_Index&quot;</span><span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&#x27;flyIndex.xlsx&#x27;</span><span class="punctuation">,</span>append <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">dev.off<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################################################################################</span></span><br><span class="line"><span class="comment">#单管----</span></span><br><span class="line"><span class="comment"># 导入数据</span></span><br><span class="line">X20180609_IM3 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-IM3.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_IM2 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-IM2.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_IM1 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-IM1.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_WM3 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-WM3.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_WM2 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-WM2.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">X20180609_WM1 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;E:/Desktop/20180609-WM1.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">pp2index <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  index <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">max</span><span class="punctuation">(</span>x<span class="operator">$</span>Slice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">    slice_x <span class="operator">&lt;-</span> x<span class="operator">$</span>X<span class="punctuation">[</span>which<span class="punctuation">(</span>x<span class="operator">$</span>Slice <span class="operator">==</span> i<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">    slice_y <span class="operator">&lt;-</span> x<span class="operator">$</span>Y<span class="punctuation">[</span>which<span class="punctuation">(</span>x<span class="operator">$</span>Slice <span class="operator">==</span> i<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">    slice_y_fq0 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&lt;</span> <span class="number">340</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">    slice_y_fq1 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">340</span> <span class="operator">&amp;</span></span><br><span class="line">                                          slice_y <span class="operator">&lt;</span> <span class="number">600</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">600</span> <span class="operator">&amp;</span></span><br><span class="line">                              slice_y <span class="operator">&lt;</span> <span class="number">900</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq2 <span class="operator">&lt;-</span> 0</span><br><span class="line">    <span class="punctuation">&#125;</span> <span class="keyword">else</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq2 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">600</span> <span class="operator">&amp;</span></span><br><span class="line">                                            slice_y <span class="operator">&lt;</span> <span class="number">900</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">900</span> <span class="operator">&amp;</span></span><br><span class="line">                              slice_y <span class="operator">&lt;</span> <span class="number">1200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq3 <span class="operator">&lt;-</span> 0</span><br><span class="line">    <span class="punctuation">&#125;</span> <span class="keyword">else</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq3 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">900</span> <span class="operator">&amp;</span></span><br><span class="line">                                            slice_y <span class="operator">&lt;</span> <span class="number">1200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="punctuation">(</span><span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">1200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">&lt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq4 <span class="operator">&lt;-</span> 0</span><br><span class="line">    <span class="punctuation">&#125;</span> <span class="keyword">else</span> <span class="punctuation">&#123;</span></span><br><span class="line">      slice_y_fq4 <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>slice_y<span class="punctuation">[</span>which<span class="punctuation">(</span>slice_y <span class="operator">&gt;</span> <span class="number">1200</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">-</span> <span class="number">1</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    </span><br><span class="line">    index_1 <span class="operator">&lt;-</span> <span class="punctuation">(</span>slice_y_fq0 <span class="operator">*</span> <span class="number">0</span> <span class="operator">+</span> slice_y_fq1 <span class="operator">*</span> <span class="number">1</span> <span class="operator">+</span> slice_y_fq2 <span class="operator">*</span> <span class="number">2</span> <span class="operator">+</span> slice_y_fq3 <span class="operator">*</span></span><br><span class="line">                  <span class="number">3</span> <span class="operator">+</span> slice_y_fq4 <span class="operator">*</span> <span class="number">4</span><span class="punctuation">)</span> <span class="operator">/</span> <span class="punctuation">(</span>slice_y_fq0 <span class="operator">+</span> slice_y_fq1 <span class="operator">+</span> slice_y_fq2 <span class="operator">+</span> slice_y_fq3 <span class="operator">+</span></span><br><span class="line">                                            slice_y_fq4<span class="punctuation">)</span></span><br><span class="line">    index <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>index<span class="punctuation">,</span>index_1<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>index<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line">IM3 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_IM3<span class="punctuation">)</span></span><br><span class="line">IM2 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_IM2<span class="punctuation">)</span></span><br><span class="line">IM1 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_IM1<span class="punctuation">)</span></span><br><span class="line">WM1 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_WM1<span class="punctuation">)</span></span><br><span class="line">WM2 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_WM3<span class="punctuation">)</span></span><br><span class="line">WM3 <span class="operator">&lt;-</span> pp2index<span class="punctuation">(</span>X20180609_WM2<span class="punctuation">)</span></span><br><span class="line">WI_M_Index <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>WM1<span class="operator">=</span>WM1<span class="punctuation">,</span>WM2<span class="operator">=</span>WM2<span class="punctuation">,</span>WM3<span class="operator">=</span>WM3<span class="punctuation">,</span>IM1<span class="operator">=</span>IM1<span class="punctuation">,</span>IM2<span class="operator">=</span>IM2<span class="punctuation">,</span>IM3<span class="operator">=</span>IM3<span class="punctuation">)</span></span><br><span class="line">write.xlsx2<span class="punctuation">(</span>WI_M_Index<span class="punctuation">,</span> sheetName <span class="operator">=</span> <span class="string">&quot;WI_M_Index&quot;</span><span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&#x27;flyIndex.xlsx&#x27;</span><span class="punctuation">,</span>append <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>原创</category>
+        <category>科研</category>
       </categories>
       <tags>
         <tag>ImageJ</tag>
@@ -733,6 +825,34 @@
         <tag>图像</tag>
         <tag>插件</tag>
         <tag>简介</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/01/01/145a1920f348/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<span id="more"></span> 
+<h2 id="快速开始">快速开始</h2>
+<h3 id="创建文章">创建文章</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="查看效果">查看效果</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="生成静态">生成静态</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="部署到远程">部署到远程</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>默认</tag>
+        <tag>你好</tag>
       </tags>
   </entry>
   <entry>
@@ -791,42 +911,14 @@
 </ol>
 ]]></content>
       <categories>
-        <category>学习</category>
         <category>笔记</category>
+        <category>学习</category>
       </categories>
       <tags>
         <tag>博客</tag>
         <tag>笔记</tag>
-        <tag>建站</tag>
         <tag>API</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/01/01/145a1920f348/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<span id="more"></span> 
-<h2 id="快速开始">快速开始</h2>
-<h3 id="创建文章">创建文章</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="查看效果">查看效果</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="生成静态">生成静态</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="部署到远程">部署到远程</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>默认</tag>
-        <tag>你好</tag>
+        <tag>建站</tag>
       </tags>
   </entry>
   <entry>
@@ -861,7 +953,7 @@
 <p><img src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1728445408595-ba834bd3-96fc-4318-8989-56e0a5003211.jpeg" alt=""></p>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>原创</category>
         <category>生活</category>
       </categories>
       <tags>
@@ -998,44 +1090,35 @@
       </tags>
   </entry>
   <entry>
-    <title>从出生那天开始，你就是“局外人”</title>
-    <url>/2024/05/10/51fa0d872217/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="你">你</h2>
-<p>如果你是中国的90后，那你的出生就已经是个错误。这个错是谁跟你定的呢？谁管呢，谁让你赶在了这个糟糕的年代。</p>
+    <title>【转载】 Hexo 的一些冷门小问题——category_map和permalink</title>
+    <url>/2024/10/21/b74b8ec7e417/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>初入 Hexo 模板开发，难免要熟悉 Hexo 程序本身的一些特性和使用操作，于是就立下了这篇博文，之后也会陆陆续续进行更新和完善。</p>
 <span id="more"></span>
-<p>20世纪90年代正是计划生育实行最没“人性”的时代，你出生了。不是独生子，就是“计划外”。独生子的你以后要独自承担这个家，而计划外的你现在就要面临活下去的困难。好了，挨过了出生这道屏障。上小学到5年级，突然多了一个6年级。<br>
-2003年，你又赶上了非典。接着又赶上了高考改革。后来你又赶上了考研公费取消。都这样了你还不死心考了博士，硕博的毕业条件一年比一年离谱，而教育水平似乎并没有改变。你迟迟没有毕业，等到的却是新冠肺炎。毕业条件提高，盲审条件提高，毕业难度加大。以后你将面临人口老龄化。这于你来说就是最糟糕的年代。你被抛弃之人，就没有家。却还要对这个屋檐感恩戴德。</p>
+<h2 id="分类名改成英文">分类名改成英文</h2>
+<p>分类名称默认是你在文章里面设置的，如果是中文分类名，那么路径名也是中文了，特别别扭。我在文档上查到了一个名为 <code>category_map</code>​ 的设置项，但文档上并没有详细的说明。直到我看到这个 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcy85MDg=">Issue<i class="fa fa-external-link-alt"></i></span> 之后瞬间明白，就是一个键值对嘛。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Before</span><br><span class="line">http://localhost:4000/进击的码农/js-hover-dropdown-menu/</span><br><span class="line"></span><br><span class="line">// After</span><br><span class="line">http://localhost:4000/coding/js-hover-dropdown-menu/</span><br></pre></td></tr></table></figure>
+<p>修改办法就是打开你的 Hexo 配置文件 <code>_config.yml</code>​，修改 <code>category_map</code>​ 属性，大概按照这样的格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  &#x27;随笔与杂谈&#x27;: essay</span><br><span class="line">  &#x27;做个技术宅&#x27;: tech</span><br><span class="line">  &#x27;进击的码农&#x27;: coding</span><br><span class="line">  &#x27;设计新视界&#x27;: design</span><br><span class="line">  &#x27;有趣的分享&#x27;: share</span><br></pre></td></tr></table></figure>
+<p>还有一个类似的属性 <code>tag_map</code>​ 也是同理。</p>
+<h2 id="文章链接生成">文章链接生成</h2>
+<p>Hexo 默认根据文件名来生成博文的 URL，你也可以把它当作一个页面的形式去设置，在文章顶部添加 <code>permalink</code>​ 设置就可以了，但保罗觉得也许并不应该这么做。可以尝试把文件名写的短一些？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Before:</span><br><span class="line">http://localhost:4000/coding/js-hover-dropdown-menu/</span><br><span class="line"></span><br><span class="line">// After:</span><br><span class="line">http://localhost:4000/js-hover-dropdown-menu/</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 使用原生 JS 写一个悬浮下拉菜单</span><br><span class="line">category: 进击的码农</span><br><span class="line">tags: JavaScript</span><br><span class="line"><span class="section">permalink: js-hover-dropdown-menu</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
 <hr>
-<blockquote>
-<p>智谱清言修改</p>
-</blockquote>
-<h1>90后的挑战与机遇</h1>
-<h2 id="出生背景">出生背景</h2>
-<p><strong>20世纪90年代的中国</strong>，你作为90后的一员，出生在一个社会变革的时期。计划生育政策在这一时期达到了严格的顶峰，你的出生或许被标记为“错误”，但这个“错误”并非由你造成，而是那个时代的社会环境所决定。作为独生子女，你将承担家庭的重任；若是“计划外”的孩子，你则面临更多的生存挑战。</p>
-<h2 id="教育经历">教育经历</h2>
-<p><strong>教育之路</strong>，从小学到五年级，教育体系的变化让你不得不适应新的六年级。2003年，非典疫情爆发，给你带来了关于生命和健康的新认知。随后，高考改革对你提出了新的要求，你需要适应新的考试制度和教育模式。</p>
-<h2 id="高等教育">高等教育</h2>
-<p><strong>高等教育的挑战</strong>，考研公费的取消增加了你的经济负担，但你仍选择继续深造，攻读硕士和博士学位。然而，毕业条件逐年提高，盲审制度变得更加严格，使得毕业难度不断加大。</p>
-<h2 id="新冠肺炎疫情">新冠肺炎疫情</h2>
-<p><strong>疫情的冲击</strong>，当你即将完成学业之际，新冠肺炎疫情爆发，就业市场急剧萎缩，你面临着更加激烈的竞争和不确定性。</p>
-<h2 id="人口老龄化">人口老龄化</h2>
-<p><strong>面对未来</strong>，中国正面临人口老龄化的挑战。随着生育率的下降和人口结构的变化，你需要在工作和生活中承担更多的责任，并为未来的养老问题做好准备。</p>
-<h2 id="坚持与希望">坚持与希望</h2>
-<p>在这个充满挑战的时代，90后似乎成了被抛弃的一代。然而，你们依然坚持着自己的梦想，努力寻找属于自己的位置。或许对现状感到不满，但你们明白，只有通过自己的努力，才能在这个不断变化的世界中找到属于自己的道路。</p>
-<details open>
-<summary><span class="pre-summary">&nbsp;</span><strong>修改前</strong></summary><p>在中国的90后，出生在一个特殊的历史时期，这个时期的社会变革和发展对他们的成长产生了深远的影响。20世纪90年代，中国实行了一项具有深远历史意义的人口政策——计划生育。这项政策旨在控制人口增长，提高人口素质，但由于其严格的实施方式，也引发了一系列社会问题。对于90后来说，他们的出生就伴随着这样的背景，这无疑是一个巨大的挑战。如果你是中国的90后，那么你的出生就已经是个错误。这个错误不是由你决定的，而是由那个时代的社会环境决定的。在当时，计划生育政策被视为控制人口增长的必要手段，但对于许多家庭来说，这却是一种痛苦的选择。如果你是独生子女，那么你将承担起家庭的重任，独自面对未来的挑战。如果你是“计划外”的孩子，那么你的出生将面临更多的困难和挑战，你可能需要为生存而奋斗。在度过了出生这道难关后，90后的孩子们开始接受教育。然而，他们又遇到了新的挑战。在上小学到5年级的过程中，突然多出了一个6年级。这一变化让许多学生感到困惑和不适，他们不得不适应新的教育体系。然而，这仅仅是他们成长过程中的一部分。<br>
-2003年，中国爆发了非典疫情。这场突如其来的灾难对整个社会造成了巨大的冲击，也影响了90后的成长。他们不得不学会面对疾病和死亡，学会珍惜生命和健康。这场疫情也让人们意识到公共卫生的重要性，推动了中国医疗卫生体系的改革和发展。随着90后的成长，他们又迎来了高考改革。这一改革旨在减轻学生的学业压力，提高教育的公平性和质量。然而，对于90后来说，这又是一次挑战。他们需要适应新的考试制度和教育模式，努力提高自己的综合素质和能力。在经历了高考改革后，90后又迎来了考研公费的取消。这一政策变化使得研究生教育变得更加市场化，也增加了学生的经济负担。对于许多90后来说，这无疑是一个巨大的压力。他们需要为自己的未来付出更多的努力和汗水，才能实现自己的梦想。随着就业困难，物价疯涨，90后一代中很多的人选择继续深造，攻读硕士和博士学位。然而，他们发现，硕博的毕业条件逐年提高，盲审制度变得更加严格，毕业难度不断加大。这些变化对他们的学术生涯和心理健康都带来了巨大的压力。即便如此，他们依然坚持不懈地追求知识，希望能够在学术领域取得突破。然而，就在他们即将完成学业之际，新冠肺炎的爆发给了他们新的打击。疫情导致毕业生的就业市场急剧萎缩，许多行业受到重创，就业机会减少。对于即将步入社会的博士生来说，这意味着他们需要面对更加激烈的竞争和不确定性。与此同时，中国正面临着人口老龄化的严峻挑战。随着生育率的下降和人口结构的变化，年轻劳动力市场的供给将逐渐减少，而老年人口的比例将不断上升。这对于90后来说，不仅意味着他们需要在工作和生活中承担更多的责任，还意味着他们需要为未来的养老问题做好准备。在这个充满挑战的时代，90后似乎成了被抛弃的一代。他们不仅要应对现实的压力，还要为未来的不确定性做好准备。然而，他们依然坚持着自己的梦想，努力寻找属于自己的位置。他们或许对现状感到不满，但他们也明白，只有通过自己的努力，才能在这个不断变化的世界中找到属于自己的道路。</p>
-</details>
+<h4 id="Paul">Paul</h4>
+<p>特立独行的一只前端菜狗。本站未注明转载的文章均为原创，并采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo">CC BY-NC-SA 4.0<i class="fa fa-external-link-alt"></i></span> 授权协议，转载请注明来源，谢谢！如本站内容对你有所帮助的话，不妨 <span class="exturl" data-url="aHR0cHM6Ly9wYXVsLnJlbi9kb25hdGU=">捐助支持<i class="fa fa-external-link-alt"></i></span> 一下？同时欢迎订阅关注 <span class="exturl" data-url="aHR0cHM6Ly9wYXVsLnJlbi9ub3Rl">我的日记<i class="fa fa-external-link-alt"></i></span>，唠嗑（分享）每日的折腾经历。</p>
+<h2 id="原文地址">原文地址</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9wYXVncmFtLmNvbS9jb2RpbmcvaGV4by1zZWNyZXQtdXNhZ2UuaHRtbA==">Hexo 的一些冷门小问题 - 保罗的小宇宙 (paugram.com)<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
-        <category>原创</category>
-        <category>生活</category>
+        <category>转载</category>
+        <category>其他</category>
       </categories>
       <tags>
-        <tag>局外人</tag>
-        <tag>随笔</tag>
-        <tag>牢骚</tag>
-        <tag>时代</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>category_map</tag>
+        <tag>permalink</tag>
       </tags>
   </entry>
   <entry>
@@ -1089,150 +1172,8 @@
       </tags>
   </entry>
   <entry>
-    <title>对博客内文章进行分类(categories)和添加标签(tags)</title>
-    <url>/2024/10/19/4625d0b7ed27/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前在博文没有对分类和标签进行过有序整理，基本上想到什么，就随便写一下。随着博文数量的增多，这种随意性会带来很多麻烦。因此在这里对其定义一下，以整理好当前及之后的博文。</p>
-<span id="more"></span> 
-<h2 id="原则">原则</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"><strong><font style="color:rgb(0, 0, 0);">分类</font></strong></th>
-<th style="text-align:left"><strong><font style="color:rgb(0, 0, 0);">标签</font></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">排他性</font></td>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">是</font></td>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">否</font></td>
-</tr>
-<tr>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">关系</font></td>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">从属</font></td>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">相关(关联）</font></td>
-</tr>
-<tr>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">创建</font></td>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">事先规划</font></td>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">随时增加</font></td>
-</tr>
-<tr>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">代价</font></td>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">高</font></td>
-<td style="text-align:left"><font style="color:rgb(0, 0, 0);">低</font></td>
-</tr>
-</tbody>
-</table>
-<h2 id="分类-categories">分类(categories)</h2>
-<p>文章<strong>类型</strong>或者文章<strong>涉及的主题</strong>。</p>
-<ol>
-<li class="lvl-3">
-<p><strong>定义</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">分类是对内容进行分组的一种更为结构化的方式。</li>
-<li class="lvl-6">它们通常按照预定义的层次结构进行排列。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>用途</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">用于将相关内容聚合在一起，形成有逻辑的导航路径。</li>
-<li class="lvl-6">有助于用户理解网站的整体结构和内容布局。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>特点</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">通常是<font style="color:#DF2A3F;">有限的且固定的</font>数量。</li>
-<li class="lvl-6">具有明确的<font style="color:#DF2A3F;">层级关系</font>，例如大类下面有小类。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>示例</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">在电商网站上，商品可能会被分为“电子产品”、“服装”、“家居用品”等大类。</li>
-</ul>
-</li>
-</ol>
-<h2 id="标签-tags">标签(tags)</h2>
-<p>文章<strong>内容的关键词</strong>。</p>
-<ol>
-<li class="lvl-3">
-<p><strong>定义</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">标签是对内容进行描述的小型关键字或短语。</li>
-<li class="lvl-6">它们通常是自由形式的，可以根据内容的特定方面或主题进行标记。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>用途</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">用于帮助用户快速找到相关内容。</li>
-<li class="lvl-6">可以应用于单个项目或多个项目，支持交叉引用。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>特点</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">灵活性高，数量不限。</li>
-<li class="lvl-6">不需要严格的层次结构。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>示例</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">在一篇文章中可能会使用“科技”、“创新”、“人工智能”等标签。</li>
-</ul>
-</li>
-</ol>
-<p>在实际应用中，许多网站会同时使用标签和分类来优化内容的组织和检索。例如，一篇文章可能会被归类到一个主分类下，同时附带多个相关的标签，这样既保留了整体的结构性，又能提供细致的搜索选项。</p>
-<h2 id="我的分类">我的分类</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729274560504-9a417359-1ecc-43af-8894-4ffdf6aab2c6.png" alt=""></p>
-<h2 id="参考">参考</h2>
-<ol>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9ub29kbGVmaWdodGVyLmNvbS9wb3N0cy8yODM2Lw==">个人博客的分类划分 (noodlefighter.com)<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vaG9sYnJvb2svYXJjaGl2ZS8yMDEyLzExLzA1LzI3NTUyNjguaHRtbA==">如何规划blog的标签（tag）和分类 - 心内求法 - 博客园 (cnblogs.com)<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>原创</category>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
-        <tag>分类</tag>
-        <tag>标签</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>R语言--爬取小说-战略级天使</title>
-    <url>/2021/05/04/290fbc002946/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
-<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
-<span id="more"></span> 
-<h2 id="实例">实例</h2>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;rvest&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RCurl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;curl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;downloader&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RSelenium&#x27;</span><span class="punctuation">)</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&#x27;H:\\R\\R脚本\\爬虫&#x27;</span><span class="punctuation">)</span></span><br><span class="line">url <span class="operator">&lt;-</span> <span class="string">&quot;https://www.-----.com/yuedu/15111/&quot;</span></span><br><span class="line">htmlpage <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>url<span class="punctuation">)</span></span><br><span class="line">xs_chapter <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_chapter<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_attrs<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> paste<span class="punctuation">(</span><span class="string">&quot;https://www.-----.com&quot;</span><span class="punctuation">,</span>unlist<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">)</span><span class="comment">#构建章节链接</span></span><br><span class="line">xs_content <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>xs_chapter<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>xs_link<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="comment">#合并目录链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#尝试获取小说内容，并提取。</span></span><br><span class="line">ms_f1 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f2 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f1<span class="punctuation">,</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f2<span class="punctuation">)</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> ms_f<span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;1.txt&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义下载函数</span></span><br><span class="line">xs_down <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  xm <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs<span class="punctuation">,</span> x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> xm<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  xs</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment">#导出小说</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> xs_down<span class="punctuation">(</span>xs_content<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;战略级天使.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>原创</category>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>R语言</tag>
-        <tag>实例</tag>
-        <tag>爬虫</tag>
-        <tag>小说</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>平时使用的字体讲究还挺多</title>
-    <url>/2021/05/04/826c23a9d212/</url>
+    <url>/2024/10/19/391b7a4df277/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>字体，作为文字的外观形式，具有特定的风格和设计。在计算机领域中，字体是指由一系列具有相同风格或主题的字符（如字母、数字、标点等）所组成的集合，这些字符通常被设计为一个特定的尺寸，但也可以进行缩放以适应不同的显示或打印需求。</p>
 <span id="more"></span> 
 <p>从设计角度看，字体不仅仅是文字的外观，更是文化和艺术的一种表现形式。每一种字体都反映了其设计者的审美观念、创作意图和时代背景。字体还承载着信息的传递功能。不同的字体风格可以传达不同的情感和信息。此外，字体的大小、颜色、行距等排版因素也会影响信息的可读性和视觉效果。在排版和设计中，选择合适的字体至关重要。不同的字体适用于不同的场景和目的。例如，在正式的文档或报告中，通常使用简洁、易读的字体，以确保信息的清晰传递；而在广告或宣传材料中，则可能使用更具个性和吸引力的字体来吸引观众的注意力。</p>
@@ -1422,8 +1363,215 @@
       </tags>
   </entry>
   <entry>
+    <title>从出生那天开始，你就是“局外人”</title>
+    <url>/2024/05/10/51fa0d872217/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="你">你</h2>
+<p>如果你是中国的90后，那你的出生就已经是个错误。这个错是谁跟你定的呢？谁管呢，谁让你赶在了这个糟糕的年代。</p>
+<span id="more"></span>
+<p>20世纪90年代正是计划生育实行最没“人性”的时代，你出生了。不是独生子，就是“计划外”。独生子的你以后要独自承担这个家，而计划外的你现在就要面临活下去的困难。好了，挨过了出生这道屏障。上小学到5年级，突然多了一个6年级。<br>
+2003年，你又赶上了非典。接着又赶上了高考改革。后来你又赶上了考研公费取消。都这样了你还不死心考了博士，硕博的毕业条件一年比一年离谱，而教育水平似乎并没有改变。你迟迟没有毕业，等到的却是新冠肺炎。毕业条件提高，盲审条件提高，毕业难度加大。以后你将面临人口老龄化。这于你来说就是最糟糕的年代。你被抛弃之人，就没有家。却还要对这个屋檐感恩戴德。</p>
+<hr>
+<blockquote>
+<p>智谱清言修改</p>
+</blockquote>
+<h1>90后的挑战与机遇</h1>
+<h2 id="出生背景">出生背景</h2>
+<p><strong>20世纪90年代的中国</strong>，你作为90后的一员，出生在一个社会变革的时期。计划生育政策在这一时期达到了严格的顶峰，你的出生或许被标记为“错误”，但这个“错误”并非由你造成，而是那个时代的社会环境所决定。作为独生子女，你将承担家庭的重任；若是“计划外”的孩子，你则面临更多的生存挑战。</p>
+<h2 id="教育经历">教育经历</h2>
+<p><strong>教育之路</strong>，从小学到五年级，教育体系的变化让你不得不适应新的六年级。2003年，非典疫情爆发，给你带来了关于生命和健康的新认知。随后，高考改革对你提出了新的要求，你需要适应新的考试制度和教育模式。</p>
+<h2 id="高等教育">高等教育</h2>
+<p><strong>高等教育的挑战</strong>，考研公费的取消增加了你的经济负担，但你仍选择继续深造，攻读硕士和博士学位。然而，毕业条件逐年提高，盲审制度变得更加严格，使得毕业难度不断加大。</p>
+<h2 id="新冠肺炎疫情">新冠肺炎疫情</h2>
+<p><strong>疫情的冲击</strong>，当你即将完成学业之际，新冠肺炎疫情爆发，就业市场急剧萎缩，你面临着更加激烈的竞争和不确定性。</p>
+<h2 id="人口老龄化">人口老龄化</h2>
+<p><strong>面对未来</strong>，中国正面临人口老龄化的挑战。随着生育率的下降和人口结构的变化，你需要在工作和生活中承担更多的责任，并为未来的养老问题做好准备。</p>
+<h2 id="坚持与希望">坚持与希望</h2>
+<p>在这个充满挑战的时代，90后似乎成了被抛弃的一代。然而，你们依然坚持着自己的梦想，努力寻找属于自己的位置。或许对现状感到不满，但你们明白，只有通过自己的努力，才能在这个不断变化的世界中找到属于自己的道路。</p>
+<details open>
+<summary><span class="pre-summary">&nbsp;</span><strong>修改前</strong></summary><p>在中国的90后，出生在一个特殊的历史时期，这个时期的社会变革和发展对他们的成长产生了深远的影响。20世纪90年代，中国实行了一项具有深远历史意义的人口政策——计划生育。这项政策旨在控制人口增长，提高人口素质，但由于其严格的实施方式，也引发了一系列社会问题。对于90后来说，他们的出生就伴随着这样的背景，这无疑是一个巨大的挑战。如果你是中国的90后，那么你的出生就已经是个错误。这个错误不是由你决定的，而是由那个时代的社会环境决定的。在当时，计划生育政策被视为控制人口增长的必要手段，但对于许多家庭来说，这却是一种痛苦的选择。如果你是独生子女，那么你将承担起家庭的重任，独自面对未来的挑战。如果你是“计划外”的孩子，那么你的出生将面临更多的困难和挑战，你可能需要为生存而奋斗。在度过了出生这道难关后，90后的孩子们开始接受教育。然而，他们又遇到了新的挑战。在上小学到5年级的过程中，突然多出了一个6年级。这一变化让许多学生感到困惑和不适，他们不得不适应新的教育体系。然而，这仅仅是他们成长过程中的一部分。<br>
+2003年，中国爆发了非典疫情。这场突如其来的灾难对整个社会造成了巨大的冲击，也影响了90后的成长。他们不得不学会面对疾病和死亡，学会珍惜生命和健康。这场疫情也让人们意识到公共卫生的重要性，推动了中国医疗卫生体系的改革和发展。随着90后的成长，他们又迎来了高考改革。这一改革旨在减轻学生的学业压力，提高教育的公平性和质量。然而，对于90后来说，这又是一次挑战。他们需要适应新的考试制度和教育模式，努力提高自己的综合素质和能力。在经历了高考改革后，90后又迎来了考研公费的取消。这一政策变化使得研究生教育变得更加市场化，也增加了学生的经济负担。对于许多90后来说，这无疑是一个巨大的压力。他们需要为自己的未来付出更多的努力和汗水，才能实现自己的梦想。随着就业困难，物价疯涨，90后一代中很多的人选择继续深造，攻读硕士和博士学位。然而，他们发现，硕博的毕业条件逐年提高，盲审制度变得更加严格，毕业难度不断加大。这些变化对他们的学术生涯和心理健康都带来了巨大的压力。即便如此，他们依然坚持不懈地追求知识，希望能够在学术领域取得突破。然而，就在他们即将完成学业之际，新冠肺炎的爆发给了他们新的打击。疫情导致毕业生的就业市场急剧萎缩，许多行业受到重创，就业机会减少。对于即将步入社会的博士生来说，这意味着他们需要面对更加激烈的竞争和不确定性。与此同时，中国正面临着人口老龄化的严峻挑战。随着生育率的下降和人口结构的变化，年轻劳动力市场的供给将逐渐减少，而老年人口的比例将不断上升。这对于90后来说，不仅意味着他们需要在工作和生活中承担更多的责任，还意味着他们需要为未来的养老问题做好准备。在这个充满挑战的时代，90后似乎成了被抛弃的一代。他们不仅要应对现实的压力，还要为未来的不确定性做好准备。然而，他们依然坚持着自己的梦想，努力寻找属于自己的位置。他们或许对现状感到不满，但他们也明白，只有通过自己的努力，才能在这个不断变化的世界中找到属于自己的道路。</p>
+</details>
+]]></content>
+      <categories>
+        <category>原创</category>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>局外人</tag>
+        <tag>随笔</tag>
+        <tag>牢骚</tag>
+        <tag>时代</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对博客内文章进行分类(categories)和添加标签(tags)</title>
+    <url>/2024/10/19/4625d0b7ed27/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前在博文没有对分类和标签进行过有序整理，基本上想到什么，就随便写一下。随着博文数量的增多，这种随意性会带来很多麻烦。因此在这里对其定义一下，以整理好当前及之后的博文。</p>
+<span id="more"></span> 
+<h2 id="原则">原则</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"><strong><font style="color:rgb(0, 0, 0);">分类</font></strong></th>
+<th style="text-align:left"><strong><font style="color:rgb(0, 0, 0);">标签</font></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">排他性</font></td>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">是</font></td>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">否</font></td>
+</tr>
+<tr>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">关系</font></td>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">从属</font></td>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">相关(关联）</font></td>
+</tr>
+<tr>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">创建</font></td>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">事先规划</font></td>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">随时增加</font></td>
+</tr>
+<tr>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">代价</font></td>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">高</font></td>
+<td style="text-align:left"><font style="color:rgb(0, 0, 0);">低</font></td>
+</tr>
+</tbody>
+</table>
+<h2 id="分类-categories">分类(categories)</h2>
+<p>文章<strong>类型</strong>或者文章<strong>涉及的主题</strong>。</p>
+<ol>
+<li class="lvl-3">
+<p><strong>定义</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">分类是对内容进行分组的一种更为结构化的方式。</li>
+<li class="lvl-6">它们通常按照预定义的层次结构进行排列。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>用途</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">用于将相关内容聚合在一起，形成有逻辑的导航路径。</li>
+<li class="lvl-6">有助于用户理解网站的整体结构和内容布局。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>特点</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">通常是<font style="color:#DF2A3F;">有限的且固定的</font>数量。</li>
+<li class="lvl-6">具有明确的<font style="color:#DF2A3F;">层级关系</font>，例如大类下面有小类。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>示例</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">在电商网站上，商品可能会被分为“电子产品”、“服装”、“家居用品”等大类。</li>
+</ul>
+</li>
+</ol>
+<h2 id="标签-tags">标签(tags)</h2>
+<p>文章<strong>内容的关键词</strong>。</p>
+<ol>
+<li class="lvl-3">
+<p><strong>定义</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">标签是对内容进行描述的小型关键字或短语。</li>
+<li class="lvl-6">它们通常是自由形式的，可以根据内容的特定方面或主题进行标记。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>用途</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">用于帮助用户快速找到相关内容。</li>
+<li class="lvl-6">可以应用于单个项目或多个项目，支持交叉引用。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>特点</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">灵活性高，数量不限。</li>
+<li class="lvl-6">不需要严格的层次结构。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>示例</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">在一篇文章中可能会使用“科技”、“创新”、“人工智能”等标签。</li>
+</ul>
+</li>
+</ol>
+<p>在实际应用中，许多网站会同时使用标签和分类来优化内容的组织和检索。例如，一篇文章可能会被归类到一个主分类下，同时附带多个相关的标签，这样既保留了整体的结构性，又能提供细致的搜索选项。</p>
+<h2 id="我的分类">我的分类</h2>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729274560504-9a417359-1ecc-43af-8894-4ffdf6aab2c6.png" alt=""></p>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9ub29kbGVmaWdodGVyLmNvbS9wb3N0cy8yODM2Lw==">个人博客的分类划分 (noodlefighter.com)<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vaG9sYnJvb2svYXJjaGl2ZS8yMDEyLzExLzA1LzI3NTUyNjguaHRtbA==">如何规划blog的标签（tag）和分类 - 心内求法 - 博客园 (cnblogs.com)<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>原创</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>分类</tag>
+        <tag>标签</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【转载】Hexo博客添加背景动态效果</title>
+    <url>/2024/10/19/dc63ecb1142e/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="方法">方法</h2>
+<p>Next 8.0.2 之后，Canvas_nest不再被原生支持。所以需要在<code>hexo/source/_data/</code>​下创建<code>footer.njk</code>​文件<br>
+在文件中添加</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script color=<span class="string">&quot;0,0,255&quot;</span> opacity=<span class="string">&quot;0.5&quot;</span> zIndex=<span class="string">&quot;-1&quot;</span> count=<span class="string">&quot;99&quot;</span> src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js&quot;</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<span id="more"></span> 
+<p>​并将其中的参数修改为自己想要的值。<br>
+最后再在主题配置文件<code>_config.next.yml</code>​中，修改<code>custom_file_path</code>​，将<code>footer: source/_data/footer.njk</code>​的注释删除即可。</p>
+<h2 id="原文地址">原文地址</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly91cHdub3RoaW5nLmdpdGh1Yi5pby96aC1DTi80NGJmOGRlZi8jJUU2JUI3JUJCJUU1JThBJUEwJUU4JTgzJThDJUU2JTk5JUFGJUU1JThBJUE4JUU2JTgwJTgxJUU2JTk1JTg4JUU2JTlFJTlD">Hexo + NexT 深度个性化配置 (2020.1 更新) | UPWNothing's Playground<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>转载</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>动态背景</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R语言--爬取小说-战略级天使</title>
+    <url>/2021/05/04/290fbc002946/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目的">目的</h2>
+<p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
+<span id="more"></span> 
+<h2 id="实例">实例</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;rvest&quot;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RCurl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;curl&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;downloader&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&#x27;RSelenium&#x27;</span><span class="punctuation">)</span></span><br><span class="line">setwd<span class="punctuation">(</span><span class="string">&#x27;H:\\R\\R脚本\\爬虫&#x27;</span><span class="punctuation">)</span></span><br><span class="line">url <span class="operator">&lt;-</span> <span class="string">&quot;https://www.-----.com/yuedu/15111/&quot;</span></span><br><span class="line">htmlpage <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>url<span class="punctuation">)</span></span><br><span class="line">xs_chapter <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_chapter<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> htmlpage <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#wrapper div.box_con div#list dl dd a&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_attrs<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="comment">#观察数据形式</span></span><br><span class="line">xs_link <span class="operator">&lt;-</span> paste<span class="punctuation">(</span><span class="string">&quot;https://www.-----.com&quot;</span><span class="punctuation">,</span>unlist<span class="punctuation">(</span>xs_link<span class="punctuation">)</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">)</span><span class="comment">#构建章节链接</span></span><br><span class="line">xs_content <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>xs_chapter<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">,</span>xs_link<span class="punctuation">[</span><span class="operator">-</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="comment">#合并目录链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#尝试获取小说内容，并提取。</span></span><br><span class="line">ms_f1 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f2 <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ms_f <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs_content<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f1<span class="punctuation">,</span>xs_content<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>ms_f2<span class="punctuation">)</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> ms_f<span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;1.txt&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义下载函数</span></span><br><span class="line">xs_down <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  <span class="keyword">for</span> <span class="punctuation">(</span>i <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  xm <span class="operator">&lt;-</span> read_html<span class="punctuation">(</span>x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> encoding <span class="operator">=</span> <span class="string">&quot;GB18030&quot;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_nodes<span class="punctuation">(</span><span class="string">&#x27;div#content&#x27;</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span> html_text<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">  xs <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>xs<span class="punctuation">,</span> x<span class="punctuation">[</span>i<span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> xm<span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line">  xs</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment">#导出小说</span></span><br><span class="line">write<span class="punctuation">(</span>gsub<span class="punctuation">(</span><span class="string">&quot;\u00A0&quot;</span><span class="punctuation">,</span><span class="string">&quot; &quot;</span><span class="punctuation">,</span> xs_down<span class="punctuation">(</span>xs_content<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>file <span class="operator">=</span> <span class="string">&quot;战略级天使.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>原创</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>实例</tag>
+        <tag>爬虫</tag>
+        <tag>小说</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用npm升级Hexo版本</title>
-    <url>/2024/10/18/de291accc282/</url>
+    <url>/2024/10/19/b90e47c7e5a0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用npm命令简单快捷的升级Hexo，主题和插件的版本。</p>
 <h2 id="注意：">注意：</h2>
 <p>更新主题和插件，会覆盖修改的内容，提前备份。Next主题配置文件’_config.next.yml’最好放在博客根目录下。</p>
@@ -1489,8 +1637,8 @@
 <p>Ruyu, Yao, Michael, et al. The genus Lycium as food and medicine: A botanical, ethnobotanical and historical review.[J]. Journal of ethnopharmacology, 2018.</p>
 ]]></content>
       <categories>
-        <category>科研</category>
         <category>笔记</category>
+        <category>科研</category>
       </categories>
       <tags>
         <tag>生物</tag>
