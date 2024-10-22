@@ -6,266 +6,6 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>今日新闻</center></h1>
 <center><span id="date"></span></center>
 <script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script>
-<div style="">
-  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
-</div>
-<script>
-(function(){
-<p>var digit=<br>
-[<br>
-[<br>
-[0,0,1,1,1,0,0],<br>
-[0,1,1,0,1,1,0],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[0,1,1,0,1,1,0],<br>
-[0,0,1,1,1,0,0]<br>
-],//0<br>
-[<br>
-[0,0,0,1,1,0,0],<br>
-[0,1,1,1,1,0,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,0,1,1,0,0],<br>
-[1,1,1,1,1,1,1]<br>
-],//1<br>
-[<br>
-[0,1,1,1,1,1,0],<br>
-[1,1,0,0,0,1,1],<br>
-[0,0,0,0,0,1,1],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,1,1,0,0,0],<br>
-[0,1,1,0,0,0,0],<br>
-[1,1,0,0,0,0,0],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,1,1,1,1,1]<br>
-],//2<br>
-[<br>
-[1,1,1,1,1,1,1],<br>
-[0,0,0,0,0,1,1],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,1,1,1,0,0],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,0,0,1,1],<br>
-[0,0,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[0,1,1,1,1,1,0]<br>
-],//3<br>
-[<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,1,1,1,0],<br>
-[0,0,1,1,1,1,0],<br>
-[0,1,1,0,1,1,0],<br>
-[1,1,0,0,1,1,0],<br>
-[1,1,1,1,1,1,1],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,1,1,1,1]<br>
-],//4<br>
-[<br>
-[1,1,1,1,1,1,1],<br>
-[1,1,0,0,0,0,0],<br>
-[1,1,0,0,0,0,0],<br>
-[1,1,1,1,1,1,0],<br>
-[0,0,0,0,0,1,1],<br>
-[0,0,0,0,0,1,1],<br>
-[0,0,0,0,0,1,1],<br>
-[0,0,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[0,1,1,1,1,1,0]<br>
-],//5<br>
-[<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,1,1,0,0,0],<br>
-[0,1,1,0,0,0,0],<br>
-[1,1,0,0,0,0,0],<br>
-[1,1,0,1,1,1,0],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[0,1,1,1,1,1,0]<br>
-],//6<br>
-[<br>
-[1,1,1,1,1,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,0,1,1,0,0,0],<br>
-[0,0,1,1,0,0,0],<br>
-[0,0,1,1,0,0,0],<br>
-[0,0,1,1,0,0,0]<br>
-],//7<br>
-[<br>
-[0,1,1,1,1,1,0],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[0,1,1,1,1,1,0],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[0,1,1,1,1,1,0]<br>
-],//8<br>
-[<br>
-[0,1,1,1,1,1,0],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[1,1,0,0,0,1,1],<br>
-[0,1,1,1,0,1,1],<br>
-[0,0,0,0,0,1,1],<br>
-[0,0,0,0,0,1,1],<br>
-[0,0,0,0,1,1,0],<br>
-[0,0,0,1,1,0,0],<br>
-[0,1,1,0,0,0,0]<br>
-],//9<br>
-[<br>
-[0,0,0,0,0,0,0],<br>
-[0,0,1,1,1,0,0],<br>
-[0,0,1,1,1,0,0],<br>
-[0,0,1,1,1,0,0],<br>
-[0,0,0,0,0,0,0],<br>
-[0,0,0,0,0,0,0],<br>
-[0,0,1,1,1,0,0],<br>
-[0,0,1,1,1,0,0],<br>
-[0,0,1,1,1,0,0],<br>
-[0,0,0,0,0,0,0]<br>
-]//:<br>
-];</p>
-<p>var canvas = document.getElementById(‘canvas’);</p>
-<p>if(canvas.getContext){<br>
-var cxt = canvas.getContext(‘2d’);<br>
-//声明canvas的宽高<br>
-var H = 100,W = 700;<br>
-canvas.height = H;<br>
-canvas.width = W;<br>
-cxt.fillStyle = ‘#f00’;<br>
-cxt.fillRect(10,10,50,50);</p>
-<pre><code>//存储时间数据
-var data = [];
-//存储运动的小球
-var balls = [];
-//设置粒子半径
-var R = canvas.height/20-1;
-(function()&#123;
-    var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
-    //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
-    data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
-&#125;)();
-
-/*生成点阵数字*/
-function renderDigit(index,num)&#123;
-    for(var i = 0; i &lt; digit[num].length; i++)&#123;
-        for(var j = 0; j &lt; digit[num][i].length; j++)&#123;
-            if(digit[num][i][j] == 1)&#123;
-                cxt.beginPath();
-                cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
-                cxt.closePath();
-                cxt.fill();
-            &#125;
-        &#125;
-    &#125;
-&#125;
-
-/*更新时钟*/
-function updateDigitTime()&#123;
-    var changeNumArray = [];
-    var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
-    var NewData = [];
-    NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
-    for(var i = data.length-1; i &gt;=0 ; i--)&#123;
-        //时间发生变化
-        if(NewData[i] !== data[i])&#123;
-            //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
-            changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
-        &#125;
-    &#125;
-    //增加小球
-    for(var i = 0; i&lt; changeNumArray.length; i++)&#123;
-        addBalls.apply(this,changeNumArray[i].split('_'));
-    &#125;
-    data = NewData.concat();
-&#125;
-
-/*更新小球状态*/
-function updateBalls()&#123;
-    for(var i = 0; i &lt; balls.length; i++)&#123;
-        balls[i].stepY += balls[i].disY;
-        balls[i].x += balls[i].stepX;
-        balls[i].y += balls[i].stepY;
-        if(balls[i].x &gt; W + R || balls[i].y &gt; H + R)&#123;
-            balls.splice(i,1);
-            i--;
-        &#125;
-    &#125;
-&#125;
-
-/*增加要运动的小球*/
-function addBalls(index,num)&#123;
-    var numArray = [1,2,3];
-    var colorArray =  [&quot;#3BE&quot;,&quot;#09C&quot;,&quot;#A6C&quot;,&quot;#93C&quot;,&quot;#9C0&quot;,&quot;#690&quot;,&quot;#FB3&quot;,&quot;#F80&quot;,&quot;#F44&quot;,&quot;#C00&quot;];
-    for(var i = 0; i &lt; digit[num].length; i++)&#123;
-        for(var j = 0; j &lt; digit[num][i].length; j++)&#123;
-            if(digit[num][i][j] == 1)&#123;
-                var ball = &#123;
-                    x:14*(R+2)*index + j*2*(R+1)+(R+1),
-                    y:i*2*(R+1)+(R+1),
-                    stepX:Math.floor(Math.random() * 4 -2),
-                    stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
-                    color:colorArray[Math.floor(Math.random()*colorArray.length)],
-                    disY:1
-                &#125;;
-                balls.push(ball);
-            &#125;
-        &#125;
-    &#125;
-&#125;
-
-/*渲染*/
-function render()&#123;
-    //重置画布宽度，达到清空画布的效果
-    canvas.height = 100;
-    //渲染时钟
-    for(var i = 0; i &lt; data.length; i++)&#123;
-        renderDigit(i,data[i]);
-    &#125;
-    //渲染小球
-    for(var i = 0; i &lt; balls.length; i++)&#123;
-        cxt.beginPath();
-        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
-        cxt.fillStyle = balls[i].color;
-        cxt.closePath();
-        cxt.fill();
-    &#125;
-&#125;
-
-clearInterval(oTimer);
-var oTimer = setInterval(function()&#123;
-    //更新时钟
-    updateDigitTime();
-    //更新小球状态
-    updateBalls();
-    //渲染
-    render();
-&#125;,50);
-</code></pre>
-<p>}</p>
-<p>})();<br>
-</script></p>
 <span id="more"></span>
 <p><img src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>
 ]]></content>
@@ -461,8 +201,8 @@ var oTimer = setInterval(function()&#123;
       <tags>
         <tag>博客</tag>
         <tag>Hexo</tag>
-        <tag>主题</tag>
         <tag>Next</tag>
+        <tag>主题</tag>
         <tag>动态标题</tag>
       </tags>
   </entry>
@@ -489,11 +229,11 @@ var oTimer = setInterval(function()&#123;
         <category>学习</category>
       </categories>
       <tags>
-        <tag>公众号</tag>
         <tag>博客</tag>
         <tag>Hexo</tag>
-        <tag>主题</tag>
         <tag>Next</tag>
+        <tag>公众号</tag>
+        <tag>主题</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
@@ -624,8 +364,8 @@ var oTimer = setInterval(function()&#123;
       <tags>
         <tag>博客</tag>
         <tag>Hexo</tag>
-        <tag>Next</tag>
         <tag>笔记</tag>
+        <tag>Next</tag>
         <tag>升级</tag>
       </tags>
   </entry>
@@ -987,12 +727,12 @@ var oTimer = setInterval(function()&#123;
         <category>其他</category>
       </categories>
       <tags>
+        <tag>搜索</tag>
         <tag>博客</tag>
         <tag>Hexo</tag>
-        <tag>Next</tag>
-        <tag>搜索</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -1386,8 +1126,8 @@ var oTimer = setInterval(function()&#123;
         <tag>ImageJ</tag>
         <tag>R语言</tag>
         <tag>批量</tag>
-        <tag>数据处理</tag>
         <tag>实例</tag>
+        <tag>数据处理</tag>
         <tag>果蝇</tag>
       </tags>
   </entry>
@@ -1617,8 +1357,8 @@ var oTimer = setInterval(function()&#123;
       <tags>
         <tag>R语言</tag>
         <tag>批量</tag>
-        <tag>实例</tag>
         <tag>解压</tag>
+        <tag>实例</tag>
       </tags>
   </entry>
   <entry>

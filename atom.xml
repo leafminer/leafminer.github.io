@@ -174,274 +174,14 @@
     <link href="https://leafminer.github.io/2024/10/21/ad715d53afba/"/>
     <id>https://leafminer.github.io/2024/10/21/ad715d53afba/</id>
     <published>2024-10-21T15:57:06.000Z</published>
-    <updated>2024-10-21T20:03:01.376Z</updated>
+    <updated>2024-10-22T08:19:53.539Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>今日新闻</center></h1><center><span id="date"></span></center><script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script><div style="">  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas></div><script>(function(){<p>var digit=<br>[<br>[<br>[0,0,1,1,1,0,0],<br>[0,1,1,0,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,0,1,1,0],<br>[0,0,1,1,1,0,0]<br>],//0<br>[<br>[0,0,0,1,1,0,0],<br>[0,1,1,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[1,1,1,1,1,1,1]<br>],//1<br>[<br>[0,1,1,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,0,0],<br>[0,0,1,1,0,0,0],<br>[0,1,1,0,0,0,0],<br>[1,1,0,0,0,0,0],<br>[1,1,0,0,0,1,1],<br>[1,1,1,1,1,1,1]<br>],//2<br>[<br>[1,1,1,1,1,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,0,0,1,1,0],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0]<br>],//3<br>[<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,1,0],<br>[0,0,1,1,1,1,0],<br>[0,1,1,0,1,1,0],<br>[1,1,0,0,1,1,0],<br>[1,1,1,1,1,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,0,1,1,0],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,1,1]<br>],//4<br>[<br>[1,1,1,1,1,1,1],<br>[1,1,0,0,0,0,0],<br>[1,1,0,0,0,0,0],<br>[1,1,1,1,1,1,0],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0]<br>],//5<br>[<br>[0,0,0,0,1,1,0],<br>[0,0,1,1,0,0,0],<br>[0,1,1,0,0,0,0],<br>[1,1,0,0,0,0,0],<br>[1,1,0,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0]<br>],//6<br>[<br>[1,1,1,1,1,1,1],<br>[1,1,0,0,0,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,0,0],<br>[0,0,0,1,1,0,0],<br>[0,0,1,1,0,0,0],<br>[0,0,1,1,0,0,0],<br>[0,0,1,1,0,0,0],<br>[0,0,1,1,0,0,0]<br>],//7<br>[<br>[0,1,1,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,1,1,0]<br>],//8<br>[<br>[0,1,1,1,1,1,0],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[1,1,0,0,0,1,1],<br>[0,1,1,1,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,0,1,1],<br>[0,0,0,0,1,1,0],<br>[0,0,0,1,1,0,0],<br>[0,1,1,0,0,0,0]<br>],//9<br>[<br>[0,0,0,0,0,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,0,0,0,0,0],<br>[0,0,0,0,0,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,1,1,1,0,0],<br>[0,0,0,0,0,0,0]<br>]//:<br>];</p><p>var canvas = document.getElementById(‘canvas’);</p><p>if(canvas.getContext){<br>var cxt = canvas.getContext(‘2d’);<br>//声明canvas的宽高<br>var H = 100,W = 700;<br>canvas.height = H;<br>canvas.width = W;<br>cxt.fillStyle = ‘#f00’;<br>cxt.fillRect(10,10,50,50);</p><pre><code>//存储时间数据var data = [];//存储运动的小球var balls = [];//设置粒子半径var R = canvas.height/20-1;(function()&#123;    var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());    //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成    data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);&#125;)();/*生成点阵数字*/function renderDigit(index,num)&#123;    for(var i = 0; i &lt; digit[num].length; i++)&#123;        for(var j = 0; j &lt; digit[num][i].length; j++)&#123;            if(digit[num][i][j] == 1)&#123;                cxt.beginPath();                cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);                cxt.closePath();                cxt.fill();            &#125;        &#125;    &#125;&#125;/*更新时钟*/function updateDigitTime()&#123;    var changeNumArray = [];    var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());    var NewData = [];    NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);    for(var i = data.length-1; i &gt;=0 ; i--)&#123;        //时间发生变化        if(NewData[i] !== data[i])&#123;            //将变化的数字值和在data数组中的索引存储在changeNumArray数组中            changeNumArray.push(i+'_'+(Number(data[i])+1)%10);        &#125;    &#125;    //增加小球    for(var i = 0; i&lt; changeNumArray.length; i++)&#123;        addBalls.apply(this,changeNumArray[i].split('_'));    &#125;    data = NewData.concat();&#125;/*更新小球状态*/function updateBalls()&#123;    for(var i = 0; i &lt; balls.length; i++)&#123;        balls[i].stepY += balls[i].disY;        balls[i].x += balls[i].stepX;        balls[i].y += balls[i].stepY;        if(balls[i].x &gt; W + R || balls[i].y &gt; H + R)&#123;            balls.splice(i,1);            i--;        &#125;    &#125;&#125;/*增加要运动的小球*/function addBalls(index,num)&#123;    var numArray = [1,2,3];    var colorArray =  [&quot;#3BE&quot;,&quot;#09C&quot;,&quot;#A6C&quot;,&quot;#93C&quot;,&quot;#9C0&quot;,&quot;#690&quot;,&quot;#FB3&quot;,&quot;#F80&quot;,&quot;#F44&quot;,&quot;#C00&quot;];    for(var i = 0; i &lt; digit[num].length; i++)&#123;        for(var j = 0; j &lt; digit[num][i].length; j++)&#123;            if(digit[num][i][j] == 1)&#123;                var ball = &#123;                    x:14*(R+2)*index + j*2*(R+1)+(R+1),                    y:i*2*(R+1)+(R+1),                    stepX:Math.floor(Math.random() * 4 -2),                    stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],                    color:colorArray[Math.floor(Math.random()*colorArray.length)],                    disY:1                &#125;;                balls.push(ball);            &#125;        &#125;    &#125;&#125;/*渲染*/function render()&#123;    //重置画布宽度，达到清空画布的效果    canvas.height = 100;    //渲染时钟    for(var i = 0; i &lt; data.length; i++)&#123;        renderDigit(i,data[i]);    &#125;    //渲染小球    for(var i = 0; i &lt; balls.length; i++)&#123;        cxt.beginPath();        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);        cxt.fillStyle = balls[i].color;        cxt.closePath();        cxt.fill();    &#125;&#125;clearInterval(oTimer);var oTimer = setInterval(function()&#123;    //更新时钟    updateDigitTime();    //更新小球状态    updateBalls();    //渲染    render();&#125;,50);</code></pre><p>}</p><p>})();<br></script></p><span id="more"></span><p><img src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>今日新闻</center></h1><center><span id="date"></span></center><script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script><span id="more"></span><p><img src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>]]></content>
     
     
     <summary type="html">&lt;h1&gt;&lt;center&gt;今日新闻&lt;/center&gt;&lt;/h1&gt;
 &lt;center&gt;&lt;span id=&quot;date&quot;&gt;&lt;/span&gt;&lt;/center&gt;
-&lt;script&gt;document.getElementById(&#39;date&#39;).textContent = new Date().toLocaleDateString();&lt;/script&gt;
-&lt;div style=&quot;&quot;&gt;
-  &lt;canvas id=&quot;canvas&quot; style=&quot;width:60%;&quot;&gt;当前浏览器不支持canvas，请更换浏览器后再试&lt;/canvas&gt;
-&lt;/div&gt;
-&lt;script&gt;
-(function(){
-&lt;p&gt;var digit=&lt;br&gt;
-[&lt;br&gt;
-[&lt;br&gt;
-[0,0,1,1,1,0,0],&lt;br&gt;
-[0,1,1,0,1,1,0],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,1,1,0,1,1,0],&lt;br&gt;
-[0,0,1,1,1,0,0]&lt;br&gt;
-],//0&lt;br&gt;
-[&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,1,1,1,1,0,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[1,1,1,1,1,1,1]&lt;br&gt;
-],//1&lt;br&gt;
-[&lt;br&gt;
-[0,1,1,1,1,1,0],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,1,1,0,0,0],&lt;br&gt;
-[0,1,1,0,0,0,0],&lt;br&gt;
-[1,1,0,0,0,0,0],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,1,1,1,1,1]&lt;br&gt;
-],//2&lt;br&gt;
-[&lt;br&gt;
-[1,1,1,1,1,1,1],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,1,1,1,0,0],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,1,1,1,1,1,0]&lt;br&gt;
-],//3&lt;br&gt;
-[&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,1,1,1,0],&lt;br&gt;
-[0,0,1,1,1,1,0],&lt;br&gt;
-[0,1,1,0,1,1,0],&lt;br&gt;
-[1,1,0,0,1,1,0],&lt;br&gt;
-[1,1,1,1,1,1,1],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,1,1,1,1]&lt;br&gt;
-],//4&lt;br&gt;
-[&lt;br&gt;
-[1,1,1,1,1,1,1],&lt;br&gt;
-[1,1,0,0,0,0,0],&lt;br&gt;
-[1,1,0,0,0,0,0],&lt;br&gt;
-[1,1,1,1,1,1,0],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,1,1,1,1,1,0]&lt;br&gt;
-],//5&lt;br&gt;
-[&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,1,1,0,0,0],&lt;br&gt;
-[0,1,1,0,0,0,0],&lt;br&gt;
-[1,1,0,0,0,0,0],&lt;br&gt;
-[1,1,0,1,1,1,0],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,1,1,1,1,1,0]&lt;br&gt;
-],//6&lt;br&gt;
-[&lt;br&gt;
-[1,1,1,1,1,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,0,1,1,0,0,0],&lt;br&gt;
-[0,0,1,1,0,0,0],&lt;br&gt;
-[0,0,1,1,0,0,0],&lt;br&gt;
-[0,0,1,1,0,0,0]&lt;br&gt;
-],//7&lt;br&gt;
-[&lt;br&gt;
-[0,1,1,1,1,1,0],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,1,1,1,1,1,0],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,1,1,1,1,1,0]&lt;br&gt;
-],//8&lt;br&gt;
-[&lt;br&gt;
-[0,1,1,1,1,1,0],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[1,1,0,0,0,1,1],&lt;br&gt;
-[0,1,1,1,0,1,1],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,0,1,1],&lt;br&gt;
-[0,0,0,0,1,1,0],&lt;br&gt;
-[0,0,0,1,1,0,0],&lt;br&gt;
-[0,1,1,0,0,0,0]&lt;br&gt;
-],//9&lt;br&gt;
-[&lt;br&gt;
-[0,0,0,0,0,0,0],&lt;br&gt;
-[0,0,1,1,1,0,0],&lt;br&gt;
-[0,0,1,1,1,0,0],&lt;br&gt;
-[0,0,1,1,1,0,0],&lt;br&gt;
-[0,0,0,0,0,0,0],&lt;br&gt;
-[0,0,0,0,0,0,0],&lt;br&gt;
-[0,0,1,1,1,0,0],&lt;br&gt;
-[0,0,1,1,1,0,0],&lt;br&gt;
-[0,0,1,1,1,0,0],&lt;br&gt;
-[0,0,0,0,0,0,0]&lt;br&gt;
-]//:&lt;br&gt;
-];&lt;/p&gt;
-&lt;p&gt;var canvas = document.getElementById(‘canvas’);&lt;/p&gt;
-&lt;p&gt;if(canvas.getContext){&lt;br&gt;
-var cxt = canvas.getContext(‘2d’);&lt;br&gt;
-//声明canvas的宽高&lt;br&gt;
-var H = 100,W = 700;&lt;br&gt;
-canvas.height = H;&lt;br&gt;
-canvas.width = W;&lt;br&gt;
-cxt.fillStyle = ‘#f00’;&lt;br&gt;
-cxt.fillRect(10,10,50,50);&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//存储时间数据
-var data = [];
-//存储运动的小球
-var balls = [];
-//设置粒子半径
-var R = canvas.height/20-1;
-(function()&amp;#123;
-    var temp = /(&#92;d)(&#92;d):(&#92;d)(&#92;d):(&#92;d)(&#92;d)/.exec(new Date());
-    //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
-    data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
-&amp;#125;)();
-
-/*生成点阵数字*/
-function renderDigit(index,num)&amp;#123;
-    for(var i = 0; i &amp;lt; digit[num].length; i++)&amp;#123;
-        for(var j = 0; j &amp;lt; digit[num][i].length; j++)&amp;#123;
-            if(digit[num][i][j] == 1)&amp;#123;
-                cxt.beginPath();
-                cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
-                cxt.closePath();
-                cxt.fill();
-            &amp;#125;
-        &amp;#125;
-    &amp;#125;
-&amp;#125;
-
-/*更新时钟*/
-function updateDigitTime()&amp;#123;
-    var changeNumArray = [];
-    var temp = /(&#92;d)(&#92;d):(&#92;d)(&#92;d):(&#92;d)(&#92;d)/.exec(new Date());
-    var NewData = [];
-    NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
-    for(var i = data.length-1; i &amp;gt;=0 ; i--)&amp;#123;
-        //时间发生变化
-        if(NewData[i] !== data[i])&amp;#123;
-            //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
-            changeNumArray.push(i+&#39;_&#39;+(Number(data[i])+1)%10);
-        &amp;#125;
-    &amp;#125;
-    //增加小球
-    for(var i = 0; i&amp;lt; changeNumArray.length; i++)&amp;#123;
-        addBalls.apply(this,changeNumArray[i].split(&#39;_&#39;));
-    &amp;#125;
-    data = NewData.concat();
-&amp;#125;
-
-/*更新小球状态*/
-function updateBalls()&amp;#123;
-    for(var i = 0; i &amp;lt; balls.length; i++)&amp;#123;
-        balls[i].stepY += balls[i].disY;
-        balls[i].x += balls[i].stepX;
-        balls[i].y += balls[i].stepY;
-        if(balls[i].x &amp;gt; W + R || balls[i].y &amp;gt; H + R)&amp;#123;
-            balls.splice(i,1);
-            i--;
-        &amp;#125;
-    &amp;#125;
-&amp;#125;
-
-/*增加要运动的小球*/
-function addBalls(index,num)&amp;#123;
-    var numArray = [1,2,3];
-    var colorArray =  [&amp;quot;#3BE&amp;quot;,&amp;quot;#09C&amp;quot;,&amp;quot;#A6C&amp;quot;,&amp;quot;#93C&amp;quot;,&amp;quot;#9C0&amp;quot;,&amp;quot;#690&amp;quot;,&amp;quot;#FB3&amp;quot;,&amp;quot;#F80&amp;quot;,&amp;quot;#F44&amp;quot;,&amp;quot;#C00&amp;quot;];
-    for(var i = 0; i &amp;lt; digit[num].length; i++)&amp;#123;
-        for(var j = 0; j &amp;lt; digit[num][i].length; j++)&amp;#123;
-            if(digit[num][i][j] == 1)&amp;#123;
-                var ball = &amp;#123;
-                    x:14*(R+2)*index + j*2*(R+1)+(R+1),
-                    y:i*2*(R+1)+(R+1),
-                    stepX:Math.floor(Math.random() * 4 -2),
-                    stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
-                    color:colorArray[Math.floor(Math.random()*colorArray.length)],
-                    disY:1
-                &amp;#125;;
-                balls.push(ball);
-            &amp;#125;
-        &amp;#125;
-    &amp;#125;
-&amp;#125;
-
-/*渲染*/
-function render()&amp;#123;
-    //重置画布宽度，达到清空画布的效果
-    canvas.height = 100;
-    //渲染时钟
-    for(var i = 0; i &amp;lt; data.length; i++)&amp;#123;
-        renderDigit(i,data[i]);
-    &amp;#125;
-    //渲染小球
-    for(var i = 0; i &amp;lt; balls.length; i++)&amp;#123;
-        cxt.beginPath();
-        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
-        cxt.fillStyle = balls[i].color;
-        cxt.closePath();
-        cxt.fill();
-    &amp;#125;
-&amp;#125;
-
-clearInterval(oTimer);
-var oTimer = setInterval(function()&amp;#123;
-    //更新时钟
-    updateDigitTime();
-    //更新小球状态
-    updateBalls();
-    //渲染
-    render();
-&amp;#125;,50);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;})();&lt;br&gt;
-&lt;/script&gt;&lt;/p&gt;</summary>
+&lt;script&gt;document.getElementById(&#39;date&#39;).textContent = new Date().toLocaleDateString();&lt;/script&gt;</summary>
     
     
     
@@ -485,9 +225,9 @@ var oTimer = setInterval(function()&amp;#123;
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
-    
     <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    
+    <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
     
     <category term="动态标题" scheme="https://leafminer.github.io/tags/%E5%8A%A8%E6%80%81%E6%A0%87%E9%A2%98/"/>
     
@@ -517,15 +257,15 @@ var oTimer = setInterval(function()&amp;#123;
     <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="公众号" scheme="https://leafminer.github.io/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
-    
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
-    
     <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    
+    <category term="公众号" scheme="https://leafminer.github.io/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    
+    <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
     
     <category term="二维码" scheme="https://leafminer.github.io/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
     
@@ -648,9 +388,9 @@ var oTimer = setInterval(function()&amp;#123;
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
-    
     <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
     <category term="升级" scheme="https://leafminer.github.io/tags/%E5%8D%87%E7%BA%A7/"/>
     
@@ -733,17 +473,17 @@ var oTimer = setInterval(function()&amp;#123;
     <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
     
     
+    <category term="搜索" scheme="https://leafminer.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
+    
     <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
     
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
-    
-    <category term="搜索" scheme="https://leafminer.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
-    
     <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
     <category term="algolia" scheme="https://leafminer.github.io/tags/algolia/"/>
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
   </entry>
   
