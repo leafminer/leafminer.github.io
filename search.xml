@@ -7,7 +7,7 @@
 <center><span id="date"></span></center>
 <script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script>
 <span id="more"></span>
-<p><img src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>
+<p><img data-src="https://v2.alapi.cn/api/zaobao?token=PjSXcfOsbFbutaW9&amp;format=image" alt=""></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -19,6 +19,127 @@
         <tag>今日</tag>
         <tag>热点</tag>
         <tag>全球</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客Next主题图片懒加载</title>
+    <url>/2024/10/22/d852ddbbc257/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R1dXBvbGEvanF1ZXJ5X2xhenlsb2Fk">jquery-lazyload<i class="fa fa-external-link-alt"></i></span> for <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQ=">NexT<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span>
+<h1>下载安装</h1>
+<p>下载<code>theme-next-jquery-lazyload</code>​</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-jquery-lazyload</span></span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729605275227-91c937f4-75eb-44c9-bf3e-45e7e89ac1d1.png" alt="">​</p>
+<p>找到<code>jquery.lazyload.js</code>​文件，将该文件放到<code>node_modules\hexo-theme-next\source\js\</code>​文件夹下</p>
+<h1>主题配置</h1>
+<p>Next主题 <code>_config.next.yml</code>​ 文件:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">lazyload:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h1>查看是否生效</h1>
+<p>在<code>hexo cl &amp;&amp; hexo g</code>​之后，进入自己的网页，随意对任一图片进行”审查元素”，如果你的<code>img</code>​元素中包含<code>data-loaded=&quot;true&quot;</code>​，说明Lazyload已经生效。</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729605648458-03e867d3-eb46-4132-9cf9-725a05dda05e.png" alt="">​</p>
+<h1>参考</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly91cHdub3RoaW5nLmdpdGh1Yi5pby96aC1DTi80NGJmOGRlZi8jZ29vZ2xlX3ZpZ25ldHRl">Hexo + NexT 深度个性化配置 (2020.1 更新) | UPWNothing's Playground<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Next</tag>
+        <tag>加载</tag>
+        <tag>Hexo</tag>
+        <tag>图片</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客Next主题添加丝带背景</title>
+    <url>/2024/10/22/e49567454975/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>丝带背景</h1>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729603831901-97d71810-1f8c-40a4-9abe-bff40b36490e.png" alt="">​</p>
+<span id="more"></span> 
+<h1>主题配置</h1>
+<p>主题的配置文件<code>_config.next.yml</code>​</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Generate a ribbon in your website with HTML5 canvas.</span></span><br><span class="line"><span class="comment"># For more information: https://github.com/hustcc/ribbon.js</span></span><br><span class="line"><span class="attr">canvas_ribbon:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">size:</span> <span class="number">300</span> <span class="comment"># The width of the ribbon</span></span><br><span class="line">  <span class="attr">alpha:</span> <span class="number">0.6</span> <span class="comment"># The transparency of the ribbon</span></span><br><span class="line">  <span class="attr">zIndex:</span> <span class="number">-1</span> <span class="comment"># The display level of the ribbon</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>丝带背景</tag>
+        <tag>博客</tag>
+        <tag>主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客Next主题添加相关文章推荐功能</title>
+    <url>/2024/10/22/9a5a0568022f/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">Hexo-Related-Popular-Posts<i class="fa fa-external-link-alt"></i></span>插件实现在文章下面显示相关文章推荐。</p>
+<span id="more"></span>
+<h1>安装插件</h1>
+<p>插件</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">https://github.com/tea3/hexo-related-popular-posts<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
+<h1>主题配置</h1>
+<p>主题的配置文件<code>_config.next.yml</code>​</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Custom header, leave empty to use the default one 设置推荐区块的标题</span></span><br><span class="line">  <span class="attr">title:</span>   </span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">maxCount:</span> <span class="number">5</span></span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br></pre></td></tr></table></figure>
+<h1>参考</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly91cHdub3RoaW5nLmdpdGh1Yi5pby96aC1DTi80NGJmOGRlZi8jJUU2JUI3JUJCJUU1JThBJUEwJUU3JTlCJUI4JUU1JTg1JUIzJUU2JTk2JTg3JUU3JUFCJUEwJUU2JThFJUE4JUU4JThEJTkwJUU1JThBJTlGJUU4JTgzJUJE">Hexo + NexT 深度个性化配置 (2020.1 更新) | UPWNothing's Playground<i class="fa fa-external-link-alt"></i></span></p>
+<p>‍</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>插件</tag>
+        <tag>相关文章</tag>
+        <tag>推荐</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客Next主题添加粒子时钟特效</title>
+    <url>/2024/10/22/bdadf3e2dd86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>效果</h1>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729591197719-65af965b-a50d-422a-9301-db5223ae6cc2.png" alt="">​</p>
+<span id="more"></span>
+<h1>创建njk文件</h1>
+<p>在<code>hexo\node_modules\hexo-theme-next\layout\</code>​目录下，新建<code>clock.njk</code>​文件，内容如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:60%;&quot;</span>&gt;</span>当前浏览器不支持canvas，请更换浏览器后再试<span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">   <span class="keyword">var</span> digit=</span></span><br><span class="line"><span class="language-javascript">    [</span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//0</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//1</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//2</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//3</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//4</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//5</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//6</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//7</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//8</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span></span><br><span class="line"><span class="language-javascript">        ],<span class="comment">//9</span></span></span><br><span class="line"><span class="language-javascript">        [</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span></span><br><span class="line"><span class="language-javascript">            [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span></span><br><span class="line"><span class="language-javascript">        ]<span class="comment">//:</span></span></span><br><span class="line"><span class="language-javascript">    ];</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> canvas = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;canvas&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(canvas.<span class="property">getContext</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> cxt = canvas.<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//声明canvas的宽高</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> H = <span class="number">100</span>,W = <span class="number">700</span>;</span></span><br><span class="line"><span class="language-javascript">    canvas.<span class="property">height</span> = H;</span></span><br><span class="line"><span class="language-javascript">    canvas.<span class="property">width</span> = W;</span></span><br><span class="line"><span class="language-javascript">    cxt.<span class="property">fillStyle</span> = <span class="string">&#x27;#f00&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    cxt.<span class="title function_">fillRect</span>(<span class="number">10</span>,<span class="number">10</span>,<span class="number">50</span>,<span class="number">50</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//存储时间数据</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> data = [];</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//存储运动的小球</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> balls = [];</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//设置粒子半径</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> R = canvas.<span class="property">height</span>/<span class="number">20</span>-<span class="number">1</span>;</span></span><br><span class="line"><span class="language-javascript">    (<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> temp = <span class="regexp">/(\d)(\d):(\d)(\d):(\d)(\d)/</span>.<span class="title function_">exec</span>(<span class="keyword">new</span> <span class="title class_">Date</span>());</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成</span></span></span><br><span class="line"><span class="language-javascript">        data.<span class="title function_">push</span>(temp[<span class="number">1</span>],temp[<span class="number">2</span>],<span class="number">10</span>,temp[<span class="number">3</span>],temp[<span class="number">4</span>],<span class="number">10</span>,temp[<span class="number">5</span>],temp[<span class="number">6</span>]);</span></span><br><span class="line"><span class="language-javascript">    &#125;)();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*生成点阵数字*/</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">renderDigit</span>(<span class="params">index,num</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; digit[num].<span class="property">length</span>; i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; digit[num][i].<span class="property">length</span>; j++)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span>(digit[num][i][j] == <span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                    cxt.<span class="title function_">beginPath</span>();</span></span><br><span class="line"><span class="language-javascript">                    cxt.<span class="title function_">arc</span>(<span class="number">14</span>*(R+<span class="number">2</span>)*index + j*<span class="number">2</span>*(R+<span class="number">1</span>)+(R+<span class="number">1</span>),i*<span class="number">2</span>*(R+<span class="number">1</span>)+(R+<span class="number">1</span>),R,<span class="number">0</span>,<span class="number">2</span>*<span class="title class_">Math</span>.<span class="property">PI</span>);</span></span><br><span class="line"><span class="language-javascript">                    cxt.<span class="title function_">closePath</span>();</span></span><br><span class="line"><span class="language-javascript">                    cxt.<span class="title function_">fill</span>();</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*更新时钟*/</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">updateDigitTime</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> changeNumArray = [];</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> temp = <span class="regexp">/(\d)(\d):(\d)(\d):(\d)(\d)/</span>.<span class="title function_">exec</span>(<span class="keyword">new</span> <span class="title class_">Date</span>());</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> <span class="title class_">NewData</span> = [];</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">NewData</span>.<span class="title function_">push</span>(temp[<span class="number">1</span>],temp[<span class="number">2</span>],<span class="number">10</span>,temp[<span class="number">3</span>],temp[<span class="number">4</span>],<span class="number">10</span>,temp[<span class="number">5</span>],temp[<span class="number">6</span>]);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i = data.<span class="property">length</span>-<span class="number">1</span>; i &gt;=<span class="number">0</span> ; i--)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//时间发生变化</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>(<span class="title class_">NewData</span>[i] !== data[i])&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//将变化的数字值和在data数组中的索引存储在changeNumArray数组中</span></span></span><br><span class="line"><span class="language-javascript">                changeNumArray.<span class="title function_">push</span>(i+<span class="string">&#x27;_&#x27;</span>+(<span class="title class_">Number</span>(data[i])+<span class="number">1</span>)%<span class="number">10</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//增加小球</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt; changeNumArray.<span class="property">length</span>; i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            addBalls.<span class="title function_">apply</span>(<span class="variable language_">this</span>,changeNumArray[i].<span class="title function_">split</span>(<span class="string">&#x27;_&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        data = <span class="title class_">NewData</span>.<span class="title function_">concat</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*更新小球状态*/</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">updateBalls</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; balls.<span class="property">length</span>; i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            balls[i].<span class="property">stepY</span> += balls[i].<span class="property">disY</span>;</span></span><br><span class="line"><span class="language-javascript">            balls[i].<span class="property">x</span> += balls[i].<span class="property">stepX</span>;</span></span><br><span class="line"><span class="language-javascript">            balls[i].<span class="property">y</span> += balls[i].<span class="property">stepY</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>(balls[i].<span class="property">x</span> &gt; W + R || balls[i].<span class="property">y</span> &gt; H + R)&#123;</span></span><br><span class="line"><span class="language-javascript">                balls.<span class="title function_">splice</span>(i,<span class="number">1</span>);</span></span><br><span class="line"><span class="language-javascript">                i--;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*增加要运动的小球*/</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">addBalls</span>(<span class="params">index,num</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> numArray = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> colorArray =  [<span class="string">&quot;#3BE&quot;</span>,<span class="string">&quot;#09C&quot;</span>,<span class="string">&quot;#A6C&quot;</span>,<span class="string">&quot;#93C&quot;</span>,<span class="string">&quot;#9C0&quot;</span>,<span class="string">&quot;#690&quot;</span>,<span class="string">&quot;#FB3&quot;</span>,<span class="string">&quot;#F80&quot;</span>,<span class="string">&quot;#F44&quot;</span>,<span class="string">&quot;#C00&quot;</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; digit[num].<span class="property">length</span>; i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; digit[num][i].<span class="property">length</span>; j++)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span>(digit[num][i][j] == <span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">var</span> ball = &#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">x</span>:<span class="number">14</span>*(R+<span class="number">2</span>)*index + j*<span class="number">2</span>*(R+<span class="number">1</span>)+(R+<span class="number">1</span>),</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">y</span>:i*<span class="number">2</span>*(R+<span class="number">1</span>)+(R+<span class="number">1</span>),</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">stepX</span>:<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">4</span> -<span class="number">2</span>),</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">stepY</span>:-<span class="number">2</span>*numArray[<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*numArray.<span class="property">length</span>)],</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">color</span>:colorArray[<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*colorArray.<span class="property">length</span>)],</span></span><br><span class="line"><span class="language-javascript">                        <span class="attr">disY</span>:<span class="number">1</span></span></span><br><span class="line"><span class="language-javascript">                    &#125;;</span></span><br><span class="line"><span class="language-javascript">                    balls.<span class="title function_">push</span>(ball);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*渲染*/</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">render</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//重置画布宽度，达到清空画布的效果</span></span></span><br><span class="line"><span class="language-javascript">        canvas.<span class="property">height</span> = <span class="number">100</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//渲染时钟</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.<span class="property">length</span>; i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">renderDigit</span>(i,data[i]);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//渲染小球</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; balls.<span class="property">length</span>; i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            cxt.<span class="title function_">beginPath</span>();</span></span><br><span class="line"><span class="language-javascript">            cxt.<span class="title function_">arc</span>(balls[i].<span class="property">x</span>,balls[i].<span class="property">y</span>,R,<span class="number">0</span>,<span class="number">2</span>*<span class="title class_">Math</span>.<span class="property">PI</span>);</span></span><br><span class="line"><span class="language-javascript">            cxt.<span class="property">fillStyle</span> = balls[i].<span class="property">color</span>;</span></span><br><span class="line"><span class="language-javascript">            cxt.<span class="title function_">closePath</span>();</span></span><br><span class="line"><span class="language-javascript">            cxt.<span class="title function_">fill</span>();</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="built_in">clearInterval</span>(oTimer);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oTimer = <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//更新时钟</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">updateDigitTime</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//更新小球状态</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">updateBalls</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//渲染</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">render</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,<span class="number">50</span>);</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">&#125;)();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1>引用特效</h1>
+<p><strong>注</strong>：代码块要放置在<code>sider-inner</code>​的<code>div</code>​块中，放在<code>div</code>​块的位置决定时钟样式的展示位置。</p>
+<ol>
+<li class="lvl-3">
+<p>在<code>博客目录\node_modules\hexo-theme-next\layout\_macro\sidebar.njk</code>​中引入：</p>
+</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">%</span> <span class="string">include</span> <span class="string">&#x27;../clock.swig&#x27;</span> <span class="string">%</span>&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li class="lvl-3">
+<p>通过配置文件配置</p>
+</li>
+</ol>
+<p>在<code>博客目录\node_modules\hexo-theme-next\layout\_macro\sidebar.njk</code>​中引入：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">%</span> <span class="string">if</span> <span class="string">theme.diy_time.clock</span> <span class="string">%</span>&#125;</span><br><span class="line">  <span class="string">&lt;!--</span> <span class="string">canvas粒子时钟</span> <span class="string">--&gt;</span></span><br><span class="line">  &#123;<span class="string">%</span> <span class="string">include</span> <span class="string">&#x27;../clock.swig&#x27;</span> <span class="string">%</span>&#125;</span><br><span class="line">&#123;<span class="string">%</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>在主题的配置文件<code>_config.yml</code>​中加入应用代码，：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 侧栏粒子时钟</span></span><br><span class="line"><span class="attr">diy_time:</span></span><br><span class="line">  <span class="attr">runtime:</span> <span class="literal">true</span> </span><br><span class="line">  <span class="attr">clock:</span> <span class="literal">true</span> <span class="comment"># 粒子时钟</span></span><br></pre></td></tr></table></figure>
+<h1>参考</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYW9tYW5oYW8udG9wL2FyY2hpdmVzLzEyNC8=">Hexo博客Next主题添加粒子时钟特效 - AomanHao的博客空间<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>动态时钟</tag>
+        <tag>特效</tag>
+        <tag>njk</tag>
       </tags>
   </entry>
   <entry>
@@ -63,8 +184,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>插件</tag>
         <tag>暗黑模式</tag>
       </tags>
@@ -109,8 +230,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>标签云</tag>
         <tag>动态</tag>
         <tag>tag_cloud</tag>
@@ -151,9 +272,9 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>加载</tag>
+        <tag>Hexo</tag>
         <tag>pace</tag>
       </tags>
   </entry>
@@ -168,7 +289,7 @@
 <h1>解决办法</h1>
 <p>【Next主题】主题文件夹内的(hexo\node_modules\hexo-theme-next\layout\_partials\head) <strong>head.njk</strong>文件中，添加meta信息</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729527335903-a66b9a72-3937-4216-b2b0-8e4cc9b392a7.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729527335903-a66b9a72-3937-4216-b2b0-8e4cc9b392a7.png" alt="">​</p>
 <h1>参考</h1>
 <p><span class="exturl" data-url="aHR0cHM6Ly9saXhpYW95YW45OTkuZ2l0aHViLmlvLzIwMjQvMDQvMDIvJUU4JUE3JUEzJUU1JTg2JUIzaGV4byVFNSVCQyU5NSVFNSU4NSVBNSVFNSU5QiVCRSVFNSVCQSU4QSVFRiVCQyU4QyVFNiU4OSU4QiVFNiU5QyVCQSVFNSU5MiU4Q3dlYiVFNCVCOCU4RCVFNiU5OCVCRSVFNyVBNCVCQSVFNSU5QiVCRSVFNyU4OSU4NyVFNyU5QSU4NCVFOSU5NyVBRSVFOSVBMiU5OC8j">解决hexo引入图床，不显示图片的问题 - 一叶知秋<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
@@ -177,8 +298,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>图片显示</tag>
         <tag>防盗链</tag>
         <tag>meta</tag>
@@ -190,7 +311,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>直接在<code>hexo\node_modules\hexo-theme-next\layout\_layout.njk</code>​文件中添加如下代码：</p>
 <span id="more"></span>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> <span class="title class_">OriginTitile</span>=<span class="variable language_">document</span>.<span class="property">title</span>,st;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;visibilitychange&quot;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">hidden</span>?(<span class="variable language_">document</span>.<span class="property">title</span>=<span class="string">&quot;ヽ(●-`Д´-)ノ别走啊！&quot;</span>,<span class="built_in">clearTimeout</span>(st)):(<span class="variable language_">document</span>.<span class="property">title</span>=<span class="string">&quot;(Ő∀Ő3)ノ来了啊！&quot;</span>,st=<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">document</span>.<span class="property">title</span>=<span class="title class_">OriginTitile</span>&#125;,<span class="number">3e3</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729158708074-c3c3fbe9-a4ea-45ae-8ba8-760cb5514c17.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729158708074-c3c3fbe9-a4ea-45ae-8ba8-760cb5514c17.png" alt="">​</p>
 <h2 id="参考">参考</h2>
 <p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAyMTYxNDMwNz9zb3J0PW5ld2VzdCNpdGVtLTctMTA=">hexo+github搭建博客(超级详细版，精细入微) - 个人文章 - SegmentFault 思否<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
@@ -199,9 +320,9 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>主题</tag>
         <tag>动态标题</tag>
       </tags>
@@ -217,7 +338,7 @@
 <p>在里面搜索theme.back2top.enable，在这个if语句之后添加下面的代码</p>
 <span id="more"></span> 
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wechat_channel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 这里添加你的二维码图片 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> =<span class="string">&quot;/images/wechat_channel.png&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;span&gt;公众号&lt;/span&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729194189399-62740420-6785-4412-ae43-3bc898002824.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729194189399-62740420-6785-4412-ae43-3bc898002824.png" alt="">​</p>
 <h2 id="添加到文章底部">添加到文章底部</h2>
 <p>编辑themes/next/layout/_partials/post/post-copyright.njk文件，在底部的&lt;/div&gt;上面增加下述代码，</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wechat_channel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 这里添加你的二维码图片 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> =<span class="string">&quot;/images/wechat_channel.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -229,11 +350,11 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
-        <tag>公众号</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>主题</tag>
+        <tag>公众号</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
@@ -263,8 +384,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>category_map</tag>
         <tag>permalink</tag>
       </tags>
@@ -275,12 +396,12 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。</p>
 <span id="more"></span>
 <h1>Hexo博客Next主题添加每日早报</h1>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p>
 <h1>Alapi官网注册</h1>
 <p>Alapi官网地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24v">https://www.alapi.cn/<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="获得Token密钥">获得Token密钥</h2>
 <p><strong>接口管理</strong>，<strong>更新Token密钥</strong></p>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729509991587-6f6a2973-9959-4a75-87cb-943936032ff3.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729509991587-6f6a2973-9959-4a75-87cb-943936032ff3.png" alt="">​</p>
 <h1>生成</h1>
 <p>复制密钥放到下面的网址中：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://v2.alapi.cn/api/zaobao?token=你的token密钥&amp;format=image</span><br></pre></td></tr></table></figure>
@@ -299,8 +420,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>新闻</tag>
         <tag>API</tag>
         <tag>Html单页</tag>
@@ -324,9 +445,9 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>动态背景</tag>
       </tags>
   </entry>
@@ -362,10 +483,10 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
-        <tag>笔记</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>笔记</tag>
         <tag>升级</tag>
       </tags>
   </entry>
@@ -470,7 +591,7 @@
 </ol>
 <p>在实际应用中，许多网站会同时使用标签和分类来优化内容的组织和检索。例如，一篇文章可能会被归类到一个主分类下，同时附带多个相关的标签，这样既保留了整体的结构性，又能提供细致的搜索选项。</p>
 <h2 id="我的分类">我的分类</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729274560504-9a417359-1ecc-43af-8894-4ffdf6aab2c6.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729274560504-9a417359-1ecc-43af-8894-4ffdf6aab2c6.png" alt=""></p>
 <h2 id="参考">参考</h2>
 <ol>
 <li class="lvl-3">
@@ -486,8 +607,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>分类</tag>
         <tag>标签</tag>
       </tags>
@@ -499,7 +620,7 @@
 <span id="more"></span> 
 <p>从设计角度看，字体不仅仅是文字的外观，更是文化和艺术的一种表现形式。每一种字体都反映了其设计者的审美观念、创作意图和时代背景。字体还承载着信息的传递功能。不同的字体风格可以传达不同的情感和信息。此外，字体的大小、颜色、行距等排版因素也会影响信息的可读性和视觉效果。在排版和设计中，选择合适的字体至关重要。不同的字体适用于不同的场景和目的。例如，在正式的文档或报告中，通常使用简洁、易读的字体，以确保信息的清晰传递；而在广告或宣传材料中，则可能使用更具个性和吸引力的字体来吸引观众的注意力。</p>
 <p><strong>Microsoft office Word 中的字体列表</strong></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729266033771-31be0017-4aae-4ffa-815a-4ab89aa08d27.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729266033771-31be0017-4aae-4ffa-815a-4ab89aa08d27.png" alt=""></p>
 <hr>
 <h2 id="font-style-color-0f4761-字体的种类-font"><font style="color:#0f4761;">字体的种类</font></h2>
 <p>分为6种</p>
@@ -525,10 +646,10 @@
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">font-family:</span> <span class="string">Courier,</span> <span class="string">monospace;</span></span><br><span class="line"><span class="attr">font-family:</span> <span class="string">&#x27;Courier New&#x27;</span><span class="string">,</span> <span class="string">Courier,</span> <span class="string">monospace;</span></span><br><span class="line"><span class="attr">font-family:</span> <span class="string">&#x27;Lucida Console&#x27;</span><span class="string">,</span> <span class="string">Monaco,</span> <span class="string">monospace;</span></span><br></pre></td></tr></table></figure>
 <h4 id="font-style-color-0f4761-5-font-font-style-color-0f4761-Novelty-Fonts-font-font-style-color-0f4761-（花式字体）-font"><em><font style="color:#0f4761;">5. </font><strong><strong><font style="color:#0f4761;">Novelty Fonts</font></strong></strong><strong><font style="color:#0f4761;">（花式字体）</font></strong></em></h4>
 <p>追求装饰性，20世纪之前的印刷品都用这类字体。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729265739797-45b8755a-e97a-4967-a409-d3db2d5068ce.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729265739797-45b8755a-e97a-4967-a409-d3db2d5068ce.png" alt=""></p>
 <h4 id="font-style-color-0f4761-6-font-font-style-color-0f4761-Dingbat-Fonts-font-font-style-color-0f4761-（符号字体）-font"><em><font style="color:#0f4761;">6. </font><strong><strong><font style="color:#0f4761;">Dingbat Fonts</font></strong></strong><strong><font style="color:#0f4761;">（符号字体）</font></strong></em></h4>
 <p>这类字体不是字母，而是输出各种各样的符号。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729265676563-2e86558e-6051-474d-a0f0-1dcdae728bc7.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729265676563-2e86558e-6051-474d-a0f0-1dcdae728bc7.png" alt=""></p>
 <hr>
 <h2 id="font-style-color-0f4761-互联网安全字体（-font-font-style-color-0f4761-web-safe-fonts-font-font-style-color-0f4761-）-font"><strong><font style="color:#0f4761;">互联网安全字体（</font><strong><strong><font style="color:#0f4761;">web safe fonts</font></strong></strong><font style="color:#0f4761;">）</font></strong></h2>
 <p>所有平台都预装的字体，被称为&quot;安全字体&quot;，因为它可以保证所有用户的视觉效果是一样的。以下九种字体就是&quot;安全字体&quot;：Arial、Arial Black、Comic Sans MS、Courier New、Georgia、Impact、Times New Roman、Trebuchet MS和Verdana。</p>
@@ -689,24 +810,24 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>为Hexo博客系统中的Next主题添加Algolia搜索功能</p>
 <span id="more"></span> 
 <h2 id="注册Sign-in-Algolia">注册<span class="exturl" data-url="aHR0cHM6Ly9kYXNoYm9hcmQuYWxnb2xpYS5jb20vdXNlcnMvc2lnbl9pbg==">Sign in | Algolia<i class="fa fa-external-link-alt"></i></span></h2>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729186832132-e842bb62-33ef-4af4-816a-6ff74a4e093e.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729186832132-e842bb62-33ef-4af4-816a-6ff74a4e093e.png" alt="">​</p>
 <p>新建一个Index，这里创建了一个名为leafminer-blog的索引。</p>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189311007-77eb9bbf-d16e-447f-9277-2e6a72d826c2.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189311007-77eb9bbf-d16e-447f-9277-2e6a72d826c2.png" alt="">​</p>
 <h2 id="安装hexo-algolia">安装hexo-algolia</h2>
 <p>hexo-algolia 是一个由社区提供的 Hexo 插件。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-algolia</span><br></pre></td></tr></table></figure>
 <p>配置文件放在根目录下的<code>_config.yml</code>​中，而不是主题文件夹下的<code>_config.yml</code>​, 否则博客的搜索是搜索不到任何内容的，我们需要通过 <code>Hexo Aloglia</code>​ 获取站点数据。</p>
 <p>Hexo博客根目录下的<code>_config.yml</code>​中，配置如下：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">algolia:</span></span><br><span class="line">  <span class="attr">applicationID:</span> <span class="string">&#x27;applicationID&#x27;</span> <span class="comment">#Algolia Application ID</span></span><br><span class="line">  <span class="attr">apiKey:</span> <span class="string">&#x27;apiKey&#x27;</span> <span class="comment">#A Search-Only API key</span></span><br><span class="line">  <span class="attr">indexName:</span> <span class="string">&#x27;...&#x27;</span> <span class="comment">#The name of the Algolia index to use</span></span><br></pre></td></tr></table></figure>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189864115-05ef9ed2-2109-404e-9873-944be5d7d9ba.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189864115-05ef9ed2-2109-404e-9873-944be5d7d9ba.png" alt="">​</p>
 <h2 id="Hexo-Aloglia获取站点数据">Hexo Aloglia获取站点数据</h2>
 <p>必须提供一个名为 <code>HEXO_ALGOLIA_INDEXING_KEY</code>​ 的环境变量作为单独的 API 密钥。创建它并赋予其以下有限的写访问权限：添加记录、删除记录、列出索引、删除索引。</p>
 <p>​<code>HEXO_ALGOLIA_INDEXING_KEY=[Write API Key]</code>​</p>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189817603-52e8f420-c000-440c-a885-3fd647366d62.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189817603-52e8f420-c000-440c-a885-3fd647366d62.png" alt="">​</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> HEXO_ALGOLIA_INDEXING_KEY=</span><br></pre></td></tr></table></figure>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729190141176-9d66d152-ee3e-483c-8634-e9fb0064ba57.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729190141176-9d66d152-ee3e-483c-8634-e9fb0064ba57.png" alt="">​</p>
 <p>使用插件提供的命令来推送你的内容到Algolia。在 <code>hexo</code>​站点根目录下执行<code>hexo algolia</code>​ 来搜集数据更新到我们刚创建的 <code>Index</code>​ 中,我们可以在网页中看到所有的数据，如下图：</p>
-<p>​<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729190857880-bf3194d8-0f7a-4db7-a81a-106321db1147.png" alt="">​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729190857880-bf3194d8-0f7a-4db7-a81a-106321db1147.png" alt="">​</p>
 <h2 id="在Next主题中启用搜索功能">在Next主题中启用搜索功能</h2>
 <p>确保在Next主题的配置文件中启用了Algolia搜索功能。这通常涉及到在<code>theme_config.yml</code>​中设置<code>algolia_search.enable</code>​为<code>true</code>​。</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在 NexT 主题的配置文件里</span></span><br><span class="line"><span class="attr">algolia_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hits:</span></span><br><span class="line">    <span class="attr">per_page:</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
@@ -727,12 +848,12 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>搜索</tag>
-        <tag>博客</tag>
+        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>搜索</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
-        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -804,7 +925,7 @@
 <h4 id="再说说生理上的那些“病”，一种导致生物体不健康的现象。">再说说生理上的那些“病”，一种导致生物体不健康的现象。</h4>
 <p>很多年前看过一本书《病者生存》，它对于病的描述，让我从另一个角度理解了一些生理上的病存在的意义。就比如高血压、高血糖在寒冷环境下能更好地存活，镰刀型贫血症让人在疟疾肆虐的地方生存下来。当然这适应都是有代价的，对于个体来说往往是不利的–寿命短，对于种群的延续则功不可没–保证繁衍。免疫力过度的红斑狼疮、过敏，是否也有一种适应的环境，这种环境需要极端强的免疫力才能存活。就好像所谓的心理疾病，生理疾病也和生存环境息息相关。生理疾病是一种体内环境的不稳定，也是一种个体与环境的不相容。</p>
 <p>生理上有内环境，也有外环境。个体与环境交流的不畅，就会引发疾病。内环境的稳态，外环境的安全，才会远离不健康。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1728445408595-ba834bd3-96fc-4318-8989-56e0a5003211.jpeg" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1728445408595-ba834bd3-96fc-4318-8989-56e0a5003211.jpeg" alt=""></p>
 ]]></content>
       <categories>
         <category>原创</category>
@@ -839,22 +960,22 @@
 <p>打开元宝 (<span class="exturl" data-url="aHR0cHM6Ly95dWFuYmFvLnRlbmNlbnQuY29tLw==">https://yuanbao.tencent.com/<i class="fa fa-external-link-alt"></i></span>) ，需要登录使用。界面很简洁，点击输入框上面的“深度阅读”</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727148366978-9197a9b6-3a07-49a5-b024-bc040c20e728.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727148366978-9197a9b6-3a07-49a5-b024-bc040c20e728.png" alt=""></p>
 <p>弹出文件上传框，拖动pdf到上传框。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727148779600-dc1262f2-bbc8-4f93-9ce1-95030e09ce71.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727148779600-dc1262f2-bbc8-4f93-9ce1-95030e09ce71.png" alt=""></p>
 <ol start="2">
 <li class="lvl-3">
 <p>阅读界面如下，可以看到总结、精度、翻译、脑图功能。还可以直接根据文献内容生成学术海报。所有生成结果均可下载。下载格式为图片和pdf，生成的pdf对公示显示不友好。</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727149414741-c6bd376e-bfe1-486a-841e-e88a8095194d.png" alt=""></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727149297794-9f6db9eb-bf09-4031-b4b2-525bf64f81ca.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727149414741-c6bd376e-bfe1-486a-841e-e88a8095194d.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727149297794-9f6db9eb-bf09-4031-b4b2-525bf64f81ca.png" alt=""></p>
 <ol start="3">
 <li class="lvl-3">
 <p>文献阅读部分结果展示：</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727149668025-30b36304-7464-4c88-b302-8f782e68c89c.png" alt=""><img src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1727149709429-88f0498e-804d-4287-82ed-d80a96e7813e.jpeg" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1727149668025-30b36304-7464-4c88-b302-8f782e68c89c.png" alt=""><img data-src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1727149709429-88f0498e-804d-4287-82ed-d80a96e7813e.jpeg" alt=""></p>
 ]]></content>
       <categories>
         <category>原创</category>
@@ -873,53 +994,53 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><font style="color:rgb(25, 27, 31);">蛋白互作网络（PPI, Protein-Protein Interaction Networks）可以查看基因之间的联系，进而锁定关键基因。一般使用STRING数据库获取蛋白互作信息。</font></p>
 <span id="more"></span> 
 <p><font style="color:rgb(25, 27, 31);">STRING数据库：</font><span class="exturl" data-url="aHR0cHM6Ly9jbi5zdHJpbmctZGIub3JnL2NnaS9pbnB1dD9zZXNzaW9uSWQ9YmRiUXh1UjdWZjFJJmlucHV0X3BhZ2Vfc2hvd19zZWFyY2g9b24=">STRING: functional protein association networks (string-db.org)<i class="fa fa-external-link-alt"></i></span></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236168597-fa4b7dc9-3e68-4f4a-a1c4-791d5b326152.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236168597-fa4b7dc9-3e68-4f4a-a1c4-791d5b326152.png" alt=""></p>
 <hr>
 <h2 id="KnEId">数据准备</h2>
 要分析蛋白的名称列表，例如：
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236540343-3aa2552f-62b4-43d7-be97-2fb54ca1847f.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236540343-3aa2552f-62b4-43d7-be97-2fb54ca1847f.png" alt=""></p>
 <h2 id="hdfCg">使用STRING数据库获取PPI结果</h2>
 1. 选择Multiple proteins，将蛋白名称粘贴到List Of Names框中。我这里使用的是果蝇的相关蛋白，因此Organisms选择了Drosophila。点击search。
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236801356-1779aa35-2c61-4581-a206-4591430c849c.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236801356-1779aa35-2c61-4581-a206-4591430c849c.png" alt=""></p>
 <ol start="2">
 <li class="lvl-3">
 <p>通过复选框选择对应的蛋白（默认选择的有时候不一定对），点击MAPPING可以下载当前查询到的蛋白信息，点击CONTINUE可以获得蛋白互作结果。</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237115167-5b3a04dd-d4c5-429f-958b-3ee7a9f2726b.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237115167-5b3a04dd-d4c5-429f-958b-3ee7a9f2726b.png" alt=""></p>
 <ol start="3">
 <li class="lvl-3">
 <p>蛋白互作网络图如下</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237331664-344fada0-da40-403b-9e2e-7a2d8fed7740.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237331664-344fada0-da40-403b-9e2e-7a2d8fed7740.png" alt=""></p>
 <ol start="4">
 <li class="lvl-3">
 <p>图例信息在Legend中</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237463565-20d7d1dc-04c3-43d7-8983-a7ccd38f8787.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237463565-20d7d1dc-04c3-43d7-8983-a7ccd38f8787.png" alt=""></p>
 <ol start="5">
 <li class="lvl-3">
 <p>Settings中可以根据需要改变网络样式。</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237695058-0f548c7f-755c-4d4f-b363-cb0df29028c9.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237695058-0f548c7f-755c-4d4f-b363-cb0df29028c9.png" alt=""></p>
 <ol start="6">
 <li class="lvl-3">
 <p>Exports可以将图片和蛋白互作信息导出。</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237789676-78fab9a7-f1da-4c25-8db2-71fc95e00c67.png" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726237789676-78fab9a7-f1da-4c25-8db2-71fc95e00c67.png" alt=""></p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>在网页界面，可以通过鼠标拖动改变蛋白分布。</p>
 </li>
 <li class="lvl-2">
-<p>点击对应的蛋白节点能够查看蛋白结构信息。<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726238035654-78ea00d9-9ba6-4d7a-9f63-35502f62146e.png" alt=""></p>
+<p>点击对应的蛋白节点能够查看蛋白结构信息。<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726238035654-78ea00d9-9ba6-4d7a-9f63-35502f62146e.png" alt=""></p>
 </li>
 <li class="lvl-2">
-<p>点击连接线可以获得详细的连接数据<img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726238149300-1600416f-39de-452f-98e8-cf1c2b172cdc.png" alt=""></p>
+<p>点击连接线可以获得详细的连接数据<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726238149300-1600416f-39de-452f-98e8-cf1c2b172cdc.png" alt=""></p>
 </li>
 </ul>
 <p><font style="color:rgb(26, 32, 41);">PPI（Protein-Protein Interaction，蛋白质-蛋白质相互作用）网络图是生物信息学中的一种图形表示，它展示了细胞内不同蛋白质之间的相互作用关系。</font></p>
@@ -1059,7 +1180,7 @@
 <blockquote>
 <p>用思维导图，结构化记录本书的核心观点。</p>
 </blockquote>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1724074312408-484048b2-1fd2-4322-be26-c3146e64c211.jpeg" alt=""></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1724074312408-484048b2-1fd2-4322-be26-c3146e64c211.jpeg" alt=""></p>
 <h2 id="读后感">读后感</h2>
 <h3 id="观点1">观点1</h3>
 <blockquote>
@@ -1136,7 +1257,7 @@
     <url>/2024/06/11/7890000bc707/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>Process–&gt;Noise\Filters笔记</h1>
 <h2 id="Noise">Noise</h2>
-<p><img src="./imgs/20240605_223251_00000.png" alt=""><br>
+<p><img data-src="./imgs/20240605_223251_00000.png" alt=""><br>
 <strong>Add noise</strong> 对图片增加随机噪声，噪声服从均值为0、标准差为25的高斯分布。<br>
 <strong>Add Specified Noise</strong> 增加一个均值为0、手动输入标准差的高斯噪声。</p>
 <span id="more"></span> 
@@ -1175,9 +1296,9 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+        <tag>插件</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>插件</tag>
         <tag>降噪</tag>
         <tag>Noise</tag>
         <tag>Filters</tag>
@@ -1260,7 +1381,7 @@
 <p>配准完成后，原始堆栈将被销毁，取而代之的是配准结果。堆栈的名称和类型保持不变；除 <strong>RGB 堆栈</strong>和 <strong>HSB 堆</strong>栈外，所有数据类型均可使用。(请注意，RGB-stack 是由三个颜色分量组成的堆栈，不应与 RGB 彩色图像堆栈混淆：后者可以使用，而前者不能使用。如有疑问，请尝试一下)。如果提供的是彩色图像堆栈，则会在灰度版本上进行配准，灰度版本是由红色、绿色和蓝色分量加权求和而成的，即使堆栈是伪彩色图像也是如此。权重取决于整个图像堆栈，并通过主成分分析确定，以提供最大可能的对比度。一旦根据中间灰度表示确定了几何图形，就可以重建真正的彩色图像，如果需要生成伪彩色图像，还可以重新量化。</p>
 <p><a name="1a63ac23"></a></p>
 <h2 id="示例">示例</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716430374851-f6e0204e-c711-4eaf-8e10-dd2559bd26b2.png#averageHue=%23bdbbb0&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=342&amp;id=LXm3J&amp;originHeight=788&amp;originWidth=1522&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=1428440&amp;status=done&amp;style=none&amp;taskId=u680c6b5e-8e69-4db7-ba5b-a91f3ac40ae&amp;title=&amp;width=661" alt="image.png"><br />原始图<br /><img data-src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716434444337-f17c0e80-e8ff-43ce-bb2e-9855df60aced.gif#averageHue=%23bebfbd&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=321&amp;id=u2a92047f&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5059819&amp;status=done&amp;style=none&amp;taskId=ub9390e85-5478-4b32-9ef3-a9fade1b7b0&amp;title=&amp;width=661" alt="攀爬2-缩小.gif"><br />配准后(转换类型<strong>Scaled rotation</strong>)<br /><img data-src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;height=321&amp;id=kKliK&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=&amp;width=660" alt="WT-处-control-20211218-scaled.gif"></p>
 <p><a name="AX0GW"></a></p>
 <h2 id="参数">参数</h2>
 <p>有四种类型的转换：</p>
@@ -1269,25 +1390,25 @@
 <p><strong>Translation</strong>：</p>
 </li>
 </ul>
-<p>映射公式为 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?x%20%3D%20u%20%2B%20%CE%94u#card=math&amp;code=x%20%3D%20u%20%2B%20%CE%94u&amp;id=I1f4r" alt="">。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
+<p>映射公式为 <img data-src="https://www.yuque.com/api/services/graph/generate_redirect/latex?x%20%3D%20u%20%2B%20%CE%94u#card=math&amp;code=x%20%3D%20u%20%2B%20%CE%94u&amp;id=I1f4r" alt="">。其中，输入坐标 <strong>u</strong> 映射到输出坐标 <strong>x</strong>，常数矢量 <strong>Δu</strong> 表示平移量。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>Rigid Body</strong>：</p>
 </li>
 </ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/e386340d2860de58527e61d4dc5de7cd.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HGnJ1" alt=""><br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
+<p>映射公式为 <br /><img data-src="https://cdn.nlark.com/yuque/__latex/e386340d2860de58527e61d4dc5de7cd.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HGnJ1" alt=""><br />由于存在 <strong>Δu</strong> 项，因此除了旋转角度 <strong>θ</strong> 外，还考虑了平移。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>Scaled rotation</strong>：</p>
 </li>
 </ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/1678623c5ac84d63fb37a0c24914e4bf.svg#card=math&amp;code=x%20%3D%20%CE%BB%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HxAmA" alt=""><br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
+<p>映射公式为 <br /><img data-src="https://cdn.nlark.com/yuque/__latex/1678623c5ac84d63fb37a0c24914e4bf.svg#card=math&amp;code=x%20%3D%20%CE%BB%20%5C%7B%20%5C%7Bcos%20%CE%B8%2C%20%E2%88%92sin%20%CE%B8%5C%7D%2C%20%5C%7Bsin%20%CE%B8%2C%20cos%20%CE%B8%5C%7D%20%5C%7D%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=HxAmA" alt=""><br />与<strong>Rigid Body</strong> 的区别在于存在标量调整因子 <strong>λ</strong>。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>Affine</strong>：</p>
 </li>
 </ul>
-<p>映射公式为 <br /><img src="https://cdn.nlark.com/yuque/__latex/56c72e021aeb8d05a197e959c33a45b2.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Ba_%7B11%7D%2C%20a_%7B12%7D%5C%7D%2C%20%5C%7Ba_%7B21%7D%2C%20a_%7B22%7D%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=CCeB3" alt=""><br />由于四个系数 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B11%7D#card=math&amp;code=a_%7B11%7D&amp;id=NPdDU" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B12%7D#card=math&amp;code=a_%7B12%7D&amp;id=X1Pob" alt="">、<img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B21%7D#card=math&amp;code=a_%7B21%7D&amp;id=Hro5t" alt=""> 和 <img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B22%7D#card=math&amp;code=a_%7B22%7D&amp;id=msruk" alt=""> 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
+<p>映射公式为 <br /><img data-src="https://cdn.nlark.com/yuque/__latex/56c72e021aeb8d05a197e959c33a45b2.svg#card=math&amp;code=x%20%3D%20%5C%7B%20%5C%7Ba_%7B11%7D%2C%20a_%7B12%7D%5C%7D%2C%20%5C%7Ba_%7B21%7D%2C%20a_%7B22%7D%5C%7D%20%5C%7D%20%E2%8B%85%20u%20%2B%20%CE%94u&amp;id=CCeB3" alt=""><br />由于四个系数 <img data-src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B11%7D#card=math&amp;code=a_%7B11%7D&amp;id=NPdDU" alt="">、<img data-src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B12%7D#card=math&amp;code=a_%7B12%7D&amp;id=X1Pob" alt="">、<img data-src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B21%7D#card=math&amp;code=a_%7B21%7D&amp;id=Hro5t" alt=""> 和 <img data-src="https://www.yuque.com/api/services/graph/generate_redirect/latex?a_%7B22%7D#card=math&amp;code=a_%7B22%7D&amp;id=msruk" alt=""> 是独立的，因此仿射变换比按比例旋转具有更多的自由度。<br>
 <a name="1c53b310"></a></p>
 <h2 id="操作步骤">操作步骤</h2>
 <p>使用的Fiji ImageJ</p>
@@ -1296,7 +1417,7 @@
 <p>拖动图片文件夹到Fiji，默认为堆栈。</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433448190-6bcdcea1-090b-4b6e-844b-db57f09551a9.png#averageHue=%23eeeeed&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=285&amp;id=R4VvP&amp;originHeight=424&amp;originWidth=428&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14771&amp;status=done&amp;style=none&amp;taskId=ue08112ae-4ce1-4d16-97b5-adb9378c3cd&amp;title=&amp;width=287.3999938964844" alt="image.png"></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433448190-6bcdcea1-090b-4b6e-844b-db57f09551a9.png#averageHue=%23eeeeed&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=285&amp;id=R4VvP&amp;originHeight=424&amp;originWidth=428&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14771&amp;status=done&amp;style=none&amp;taskId=ue08112ae-4ce1-4d16-97b5-adb9378c3cd&amp;title=&amp;width=287.3999938964844" alt="image.png"></p>
 <ol start="2">
 <li class="lvl-3">
 <p>插件启动前，选择合适的图片，当前图片会被充当全局锚点。</p>
@@ -1305,16 +1426,16 @@
 <p>打开<strong>StackReg。</strong></p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433608518-f4f2cfa8-5406-4ef7-876d-c4ffb225cf73.png#averageHue=%23b3a180&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=313&amp;id=pzPnz&amp;originHeight=491&amp;originWidth=605&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=213183&amp;status=done&amp;style=none&amp;taskId=u427dd8d1-e0e2-49ce-9122-31b6a47e994&amp;title=&amp;width=386" alt="image.png"></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433608518-f4f2cfa8-5406-4ef7-876d-c4ffb225cf73.png#averageHue=%23b3a180&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=313&amp;id=pzPnz&amp;originHeight=491&amp;originWidth=605&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=213183&amp;status=done&amp;style=none&amp;taskId=u427dd8d1-e0e2-49ce-9122-31b6a47e994&amp;title=&amp;width=386" alt="image.png"></p>
 <ol start="4">
 <li class="lvl-3">
 <p>选择对齐方式，点击确定按钮。</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433643863-8b44a1f7-eb00-4ac3-9f28-b4da3cb4d467.png#averageHue=%23edebe9&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=125&amp;id=cH9EB&amp;originHeight=156&amp;originWidth=236&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7246&amp;status=done&amp;style=none&amp;taskId=u745533d0-9a3d-4fde-8597-410e8b9e3eb&amp;title=&amp;width=188.8" alt="image.png"><br>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1716433643863-8b44a1f7-eb00-4ac3-9f28-b4da3cb4d467.png#averageHue=%23edebe9&amp;clientId=u2db50134-249f-4&amp;from=paste&amp;height=125&amp;id=cH9EB&amp;originHeight=156&amp;originWidth=236&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7246&amp;status=done&amp;style=none&amp;taskId=u745533d0-9a3d-4fde-8597-410e8b9e3eb&amp;title=&amp;width=188.8" alt="image.png"><br>
 <a name="zAAf8"></a></p>
 <h4 id="配准结果展示">配准结果展示</h4>
-<p><strong>Translation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437482059-89fc3429-bad3-4efb-8f57-e2b6980bd685.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u815598a6&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4864016&amp;status=done&amp;style=none&amp;taskId=ua36500ba-dce8-49d3-a2dd-78c2e561927&amp;title=" alt="攀爬2-移动-缩小.gif"><br /><strong>Rigid Body</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437732425-3650fea3-632c-496f-a40a-27c5a7adc316.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u66c7948b&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4902674&amp;status=done&amp;style=none&amp;taskId=u45d2d0ba-9870-43ee-8089-153602f6b05&amp;title=" alt="攀爬2-rigid-缩小.gif"><br /><strong>Scaled rotation</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u5e78df36&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=" alt="WT-处-control-20211218-scaled.gif"><br /><strong>Affine</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438247733-91b6a52e-7abe-4303-a27b-b9389f62063c.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=uc96e2e67&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4699672&amp;status=done&amp;style=none&amp;taskId=u77f49e48-451d-4b37-876b-5276b590ccd&amp;title=" alt="攀爬2-affine-缩小.gif"><br>
+<p><strong>Translation</strong><br /><img data-src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437482059-89fc3429-bad3-4efb-8f57-e2b6980bd685.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u815598a6&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4864016&amp;status=done&amp;style=none&amp;taskId=ua36500ba-dce8-49d3-a2dd-78c2e561927&amp;title=" alt="攀爬2-移动-缩小.gif"><br /><strong>Rigid Body</strong><br /><img data-src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716437732425-3650fea3-632c-496f-a40a-27c5a7adc316.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u66c7948b&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4902674&amp;status=done&amp;style=none&amp;taskId=u45d2d0ba-9870-43ee-8089-153602f6b05&amp;title=" alt="攀爬2-rigid-缩小.gif"><br /><strong>Scaled rotation</strong><br /><img data-src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438022750-6e21a2ae-fea6-497e-860e-d85616f849a9.gif#averageHue=%23c0c0be&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=u5e78df36&amp;originHeight=1960&amp;originWidth=4032&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16556324&amp;status=done&amp;style=none&amp;taskId=u99a6e12e-93c9-4cd1-bf54-cc01b9e9b5b&amp;title=" alt="WT-处-control-20211218-scaled.gif"><br /><strong>Affine</strong><br /><img data-src="https://cdn.nlark.com/yuque/0/2024/gif/12885947/1716438247733-91b6a52e-7abe-4303-a27b-b9389f62063c.gif#averageHue=%23bebfbd&amp;clientId=u89d4ed3b-c40f-4&amp;from=drop&amp;id=uc96e2e67&amp;originHeight=1000&amp;originWidth=2057&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=4699672&amp;status=done&amp;style=none&amp;taskId=u77f49e48-451d-4b37-876b-5276b590ccd&amp;title=" alt="攀爬2-affine-缩小.gif"><br>
 <a name="ba311d8a"></a></p>
 <h2 id="脚本">脚本</h2>
 <p>StackReg 是可编写脚本和使用宏记录的。下面是一个从宏调用 StackReg 的示例：</p>
@@ -1531,9 +1652,9 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+        <tag>插件</tag>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>插件</tag>
         <tag>简介</tag>
       </tags>
   </entry>
@@ -1581,10 +1702,10 @@
   <entry>
     <title>ImageJ--Feature Finder插件</title>
     <url>/2024/05/09/0673e2301734/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img data-src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
 <strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
 <span id="more"></span> 
-<p><img src="/images/20240509_223918_00000.png" alt=""></p>
+<p><img data-src="/images/20240509_223918_00000.png" alt=""></p>
 <h2 id="用途">用途</h2>
 <blockquote>
 <ul class="lvl-1">
@@ -1787,8 +1908,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>指令</tag>
         <tag>部署</tag>
       </tags>
@@ -1801,12 +1922,12 @@
 <p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
 <p><strong>FPKM:</strong> Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
 <p>RPKM与FPKM实际上一样的单位，只不过RPKM是在单端测序文库中使用，而FPKM是双端测序所用的。对基因长度（gene length）以及测序深度（mapped reads from library）都进行了校正。<br>
-<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png" alt="公式1"></p>
+<img data-src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111816290.png" alt="公式1"></p>
 <h3 id="RPKM，FPKM">RPKM，FPKM</h3>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">#x为一个向量存储了每个基因的counts，而gene.length是相应于x中每个基因的长度的一个向量.</span></span><br><span class="line">RPKM <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">,</span> gene.length<span class="punctuation">)</span><span class="punctuation">&#123;</span> </span><br><span class="line">  lib.size <span class="operator">&lt;-</span> <span class="built_in">sum</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line">  rpm <span class="operator">&lt;-</span> 1e6 <span class="operator">*</span> x<span class="operator">/</span>lib.size</span><br><span class="line">  rpkm <span class="operator">&lt;-</span> 1e3 <span class="operator">*</span> rpm<span class="operator">/</span>gene.length</span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>rpkm<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">FPKM <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">,</span> gene.length<span class="punctuation">)</span><span class="punctuation">&#123;</span> </span><br><span class="line">  lib.size <span class="operator">&lt;-</span> <span class="built_in">sum</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line">  rpm <span class="operator">&lt;-</span> 1e6 <span class="operator">*</span> x<span class="operator">/</span>lib.size</span><br><span class="line">  rpkm <span class="operator">&lt;-</span> 1e3 <span class="operator">*</span> rpm<span class="operator">/</span>gene.length</span><br><span class="line">  <span class="built_in">return</span><span class="punctuation">(</span>fpkm<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="TPM">TPM</h3>
 <p>TPM: Transcript per million<br>
-<img src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png" alt="公式2"></p>
+<img data-src="https://thereallda.github.io/2022/01/24/%E7%90%86%E8%AE%BA-%E7%AE%80%E8%BF%B0RPKM-FPKM-AND-TPM/image-20220124111831499.png" alt="公式2"></p>
 <p>TPM对基因的长度进行了校正，计算比对到基因上的reads/基因长度得到长度校正的表达量 reads per kilobase (RPK)。再以文库中RPK之和作为Scale Factor求出TPM。</p>
 <figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">TPM &lt;- function(x, gene.<span class="built_in">length</span>)&#123;</span><br><span class="line">  rpk &lt;- <span class="number">1e3</span> * x/gene.<span class="built_in">length</span></span><br><span class="line">  <span class="built_in">scale</span>.<span class="built_in">factor</span> &lt;- <span class="built_in">sum</span>(rpk)</span><br><span class="line">  tpm &lt;- <span class="number">1e6</span> * rpk/<span class="built_in">scale</span>.<span class="built_in">factor</span></span><br><span class="line">  <span class="built_in">return</span>(tpm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>相比于RPKM使用文库大小（read counts之和）来作为文库校正因子，TPM使用RPK之和作为文库校正因子的好处是考虑了不同样本间的基因长度的分布。因为RPK是一个对基因长度进行校正后的表达量单位，所以RPK之和也不会再带入基因长度的bias。因此，如果需要比较的样本之间转录本分布不一致时（例如不同物种RNA-seq的比较），使用TPM是一个较佳的normalization方案。</p>
@@ -1871,7 +1992,7 @@
 <p>非重叠CDS序列长度之和。</p>
 </li>
 </ul>
-<p><img src="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png" alt="3"></p>
+<p><img data-src="https://thereallda.github.io/2022/02/07/R-Retrieve-Gene-Length/paste-CBFC7C07.png" alt="3"></p>
 <p>Figure Source: Gene structure</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#使用gtf文件在R中获取基因长度（非重叠外显子长度之和）</span><br><span class="line">#首先，读取计算基因counts时用的GTF文件，并将其转换为TxDb对象；</span><br><span class="line">library(GenomicFeatures)</span><br><span class="line">#一般常用的物种基因注释信息都已经有人构建好TxDb对象，以R包的形式上传到Bioconductor里。我们使用时直接加载、赋值即可。BiocManager::install(&quot;TxDb.Dmelanogaster.UCSC.dm6.ensGene&quot;)</span><br><span class="line">#从本地读取数据库文件 txdb &lt;- makeTxDbFromGFF(&#x27;gencode.vM23.annotation.gtf&#x27;, format=&#x27;gtf&#x27;)</span><br><span class="line">#然后，提取每个基因的外显子注释信息；exons.list.per.gene &lt;- exonsBy(txdb, by=&quot;gene&quot;)</span><br><span class="line">library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)</span><br><span class="line">exons.list.per.gene &lt;- exonsBy(TxDb.Dmelanogaster.UCSC.dm6.ensGene, by=&quot;gene&quot;)</span><br><span class="line">#最后，合并重叠的外显子，计算非重叠外显子的长度作为基因长度（bp）</span><br><span class="line">exonic.gene.sizes &lt;- sum(width(reduce(exons.list.per.gene)))</span><br></pre></td></tr></table></figure>
 <p><code>GenomicFeatures</code>还支持自己手动从指定数据库中构建TxDb对象，例如从 UCSC提取构建的<code>makeTxDbFromUCSC()</code>函数；从BioMart提取构建的<code>makeTxDbFromBiomart()</code>函数等方法可以用作替补方案（没有对应TXDB的R包时）。</p>
