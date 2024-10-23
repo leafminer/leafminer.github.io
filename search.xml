@@ -22,6 +22,26 @@
       </tags>
   </entry>
   <entry>
+    <title>人类还有95%的问题待解决</title>
+    <url>/2024/10/23/7b5efa398b63/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>《一想到还有95%的问题留给人类，我就放心了》</center></h1>
+<span id="more"></span>
+<div class="pdf-container" data-target="/source/uploads/kepu1.pdf" data-height="500px"></div>
+<p>‍</p>
+]]></content>
+      <categories>
+        <category>转载</category>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>pdf</tag>
+        <tag>问题</tag>
+        <tag>电子书</tag>
+        <tag>宇宙</tag>
+        <tag>时空</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客Next主题图片懒加载</title>
     <url>/2024/10/22/d852ddbbc257/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R1dXBvbGEvanF1ZXJ5X2xhenlsb2Fk">jquery-lazyload<i class="fa fa-external-link-alt"></i></span> for <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQ=">NexT<i class="fa fa-external-link-alt"></i></span></p>
@@ -68,8 +88,8 @@
       <tags>
         <tag>Next</tag>
         <tag>Hexo</tag>
-        <tag>丝带背景</tag>
         <tag>博客</tag>
+        <tag>丝带背景</tag>
         <tag>主题</tag>
       </tags>
   </entry>
@@ -105,6 +125,7 @@
     <title>Hexo博客Next主题添加粒子时钟特效</title>
     <url>/2024/10/22/bdadf3e2dd86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>效果</h1>
+<div class="link-grid"></div>
 <p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729591197719-65af965b-a50d-422a-9301-db5223ae6cc2.png" alt="">​</p>
 <span id="more"></span>
 <h1>创建njk文件</h1>
@@ -850,8 +871,8 @@
       <tags>
         <tag>Next</tag>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>搜索</tag>
+        <tag>博客</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
       </tags>
