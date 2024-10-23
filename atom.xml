@@ -6,7 +6,7 @@
   <link href="https://leafminer.github.io/atom.xml" rel="self"/>
   
   <link href="https://leafminer.github.io/"/>
-  <updated>2024-10-23T01:32:23.458Z</updated>
+  <updated>2024-10-23T19:05:39.866Z</updated>
   <id>https://leafminer.github.io/</id>
   
   <author>
@@ -17,13 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo博客Next主题启用pdf预览</title>
+    <link href="https://leafminer.github.io/2024/10/24/45415e09698e/"/>
+    <id>https://leafminer.github.io/2024/10/24/45415e09698e/</id>
+    <published>2024-10-23T19:02:20.000Z</published>
+    <updated>2024-10-23T19:05:39.866Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729710044697-25d03133-64ad-4f82-89ae-756f70a8d686.png" alt="">​</p><span id="more"></span><h1>下载安装</h1><p>不需要安装额外的插件，Next主题有自带<code>pdf.js</code>​文件。</p><p>如果没有可以自行下载，将<code>pdf.js</code>​文件放到<code>\node_modules\hexo-theme-next\scripts\tags\</code>​文件夹下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https://github.com/next-theme/theme-next-pdf</span><br></pre></td></tr></table></figure><h1>主题配置</h1><p>Next主题 <code>_config.next.yml</code>​ 文件:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pdf:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Default height</span></span><br><span class="line">  <span class="attr">height:</span> <span class="string">500px</span></span><br></pre></td></tr></table></figure><h1>使用</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">%</span> <span class="string">pdf</span> <span class="string">url</span> [<span class="string">height</span>] <span class="string">%</span>&#125;</span><br></pre></td></tr></table></figure><ul class="lvl-0"><li class="lvl-2"><p>​<code>url</code>​ : pdf文件的URL (绝对路径) 。</p></li><li class="lvl-2"><p>​<code>[height]</code>​ : <em>可选.</em>  PDF文件展示高度, e.g. 800px.</p></li></ul><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">%</span> <span class="string">pdf</span> <span class="string">https://example.com/sample.pdf</span> <span class="string">%</span>&#125;</span><br><span class="line">&#123;<span class="string">%</span> <span class="string">pdf</span> <span class="string">/path/to/your/file.pdf</span> <span class="string">600px</span> <span class="string">%</span>&#125;</span><br></pre></td></tr></table></figure><h1>参考</h1><p><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RhZy1wbHVnaW5zL3BkZg==">PDF | NexT<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2024/png/12885947/1729710044697-25d03133-64ad-4f82-89ae-756f70a8d686.png&quot; alt=&quot;&quot;&gt;​&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="pdf" scheme="https://leafminer.github.io/tags/pdf/"/>
+    
+    <category term="预览" scheme="https://leafminer.github.io/tags/%E9%A2%84%E8%A7%88/"/>
+    
+    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
+    
+    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="插件" scheme="https://leafminer.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>人类还有95%的问题待解决</title>
     <link href="https://leafminer.github.io/2024/10/23/7b5efa398b63/"/>
     <id>https://leafminer.github.io/2024/10/23/7b5efa398b63/</id>
     <published>2024-10-23T01:07:55.000Z</published>
-    <updated>2024-10-23T01:32:23.458Z</updated>
+    <updated>2024-10-23T18:50:03.067Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>《一想到还有95%的问题留给人类，我就放心了》</center></h1><span id="more"></span><div class="pdf-container" data-target="/source/uploads/kepu1.pdf" data-height="500px"></div><p>‍</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1><center>《一想到还有95%的问题留给人类，我就放心了》</center></h1><span id="more"></span><div class="pdf-container" data-target="/uploads/kepu1.pdf" data-height="500px"></div><p>‍</p>]]></content>
     
     
     <summary type="html">&lt;h1&gt;&lt;center&gt;《一想到还有95%的问题留给人类，我就放心了》&lt;/center&gt;&lt;/h1&gt;</summary>
@@ -68,9 +99,9 @@
     
     <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
-    <category term="加载" scheme="https://leafminer.github.io/tags/%E5%8A%A0%E8%BD%BD/"/>
-    
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="加载" scheme="https://leafminer.github.io/tags/%E5%8A%A0%E8%BD%BD/"/>
     
     <category term="图片" scheme="https://leafminer.github.io/tags/%E5%9B%BE%E7%89%87/"/>
     
@@ -281,9 +312,9 @@
     
     <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
     
-    <category term="加载" scheme="https://leafminer.github.io/tags/%E5%8A%A0%E8%BD%BD/"/>
-    
     <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
+    
+    <category term="加载" scheme="https://leafminer.github.io/tags/%E5%8A%A0%E8%BD%BD/"/>
     
     <category term="pace" scheme="https://leafminer.github.io/tags/pace/"/>
     
@@ -595,39 +626,6 @@
     <category term="易读" scheme="https://leafminer.github.io/tags/%E6%98%93%E8%AF%BB/"/>
     
     <category term="简历" scheme="https://leafminer.github.io/tags/%E7%AE%80%E5%8E%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客Next主题添加algolia搜索</title>
-    <link href="https://leafminer.github.io/2024/10/18/c5cd3b3780fc/"/>
-    <id>https://leafminer.github.io/2024/10/18/c5cd3b3780fc/</id>
-    <published>2024-10-17T16:17:01.000Z</published>
-    <updated>2024-10-23T17:16:11.970Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>为Hexo博客系统中的Next主题添加Algolia搜索功能</p><span id="more"></span> <h2 id="注册Sign-in-Algolia">注册<span class="exturl" data-url="aHR0cHM6Ly9kYXNoYm9hcmQuYWxnb2xpYS5jb20vdXNlcnMvc2lnbl9pbg==">Sign in | Algolia<i class="fa fa-external-link-alt"></i></span></h2><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729186832132-e842bb62-33ef-4af4-816a-6ff74a4e093e.png" alt="">​</p><p>新建一个Index，这里创建了一个名为leafminer-blog的索引。</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189311007-77eb9bbf-d16e-447f-9277-2e6a72d826c2.png" alt="">​</p><h2 id="安装hexo-algolia">安装hexo-algolia</h2><p>hexo-algolia 是一个由社区提供的 Hexo 插件。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-algolia</span><br></pre></td></tr></table></figure><p>配置文件放在根目录下的<code>_config.yml</code>​中，而不是主题文件夹下的<code>_config.yml</code>​, 否则博客的搜索是搜索不到任何内容的，我们需要通过 <code>Hexo Aloglia</code>​ 获取站点数据。</p><p>Hexo博客根目录下的<code>_config.yml</code>​中，配置如下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">algolia:</span></span><br><span class="line">  <span class="attr">applicationID:</span> <span class="string">&#x27;applicationID&#x27;</span> <span class="comment">#Algolia Application ID</span></span><br><span class="line">  <span class="attr">apiKey:</span> <span class="string">&#x27;apiKey&#x27;</span> <span class="comment">#A Search-Only API key</span></span><br><span class="line">  <span class="attr">indexName:</span> <span class="string">&#x27;...&#x27;</span> <span class="comment">#The name of the Algolia index to use</span></span><br></pre></td></tr></table></figure><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189864115-05ef9ed2-2109-404e-9873-944be5d7d9ba.png" alt="">​</p><h2 id="Hexo-Aloglia获取站点数据">Hexo Aloglia获取站点数据</h2><p>必须提供一个名为 <code>HEXO_ALGOLIA_INDEXING_KEY</code>​ 的环境变量作为单独的 API 密钥。创建它并赋予其以下有限的写访问权限：添加记录、删除记录、列出索引、删除索引。</p><p>​<code>HEXO_ALGOLIA_INDEXING_KEY=[Write API Key]</code>​</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729189817603-52e8f420-c000-440c-a885-3fd647366d62.png" alt="">​</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HEXO_ALGOLIA_INDEXING_KEY=</span><br></pre></td></tr></table></figure><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729190141176-9d66d152-ee3e-483c-8634-e9fb0064ba57.png" alt="">​</p><p>使用插件提供的命令来推送你的内容到Algolia。在 <code>hexo</code>​站点根目录下执行<code>hexo algolia</code>​ 来搜集数据更新到我们刚创建的 <code>Index</code>​ 中,我们可以在网页中看到所有的数据，如下图：</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729190857880-bf3194d8-0f7a-4db7-a81a-106321db1147.png" alt="">​</p><h2 id="在Next主题中启用搜索功能">在Next主题中启用搜索功能</h2><p>确保在Next主题的配置文件中启用了Algolia搜索功能。这通常涉及到在<code>theme_config.yml</code>​中设置<code>algolia_search.enable</code>​为<code>true</code>​。</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 NexT 主题的配置文件里</span></span><br><span class="line"><span class="attr">algolia_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hits:</span></span><br><span class="line">    <span class="attr">per_page:</span> <span class="number">10</span></span><br></pre></td></tr></table></figure><h2 id="重新部署">重新部署</h2><p>执行<code>hexo clean &amp;&amp; hexo g -d</code>​重新部署，部署完成后再次访问，即可看到搜索功能已经配置完成。</p><h2 id="参考">参考</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS8yMzQxNzU1">hexo博客添加algolia搜索-腾讯云开发者社区-腾讯云 (tencent.com)<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9ucG1qcy5jb20vaGV4by1hbGdvbGlhI2FwaS1rZXk=">https://npmjs.com/hexo-algolia#api-key<i class="fa fa-external-link-alt"></i></span></p></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;为Hexo博客系统中的Next主题添加Algolia搜索功能&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="其他" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
-    
-    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
-    
-    <category term="搜索" scheme="https://leafminer.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
-    
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-    <category term="笔记" scheme="https://leafminer.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="algolia" scheme="https://leafminer.github.io/tags/algolia/"/>
     
   </entry>
   
