@@ -74,8 +74,7 @@
   <entry>
     <title>Hexo博客Next主题添加丝带背景</title>
     <url>/2024/10/22/e49567454975/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>丝带背景</h1>
-<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729603831901-97d71810-1f8c-40a4-9abe-bff40b36490e.png" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729603831901-97d71810-1f8c-40a4-9abe-bff40b36490e.png" alt="">​</p>
 <span id="more"></span> 
 <h1>主题配置</h1>
 <p>主题的配置文件<code>_config.next.yml</code>​</p>
@@ -96,18 +95,39 @@
   <entry>
     <title>Hexo博客Next主题添加相关文章推荐功能</title>
     <url>/2024/10/22/9a5a0568022f/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">Hexo-Related-Popular-Posts<i class="fa fa-external-link-alt"></i></span>插件实现在文章下面显示相关文章推荐。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用Hexo-Related-Posts插件添加相关文章推荐。<s><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">Hexo-Related-Popular-Posts<i class="fa fa-external-link-alt"></i></span><s>​</s>插件</s>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729707074765-64c65e8e-e07c-4dbe-8b5e-2bcfc623695d.png" alt="">​</p>
 <span id="more"></span>
-<h1>安装插件</h1>
-<p>插件</p>
+<h1>Hexo-Related-Posts插件</h1>
+<h2 id="安装插件">安装插件</h2>
+<p>于博客站点根目录打开Git Bash，运行下面的命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-posts --save</span><br></pre></td></tr></table></figure>
+<h2 id="主题配置">主题配置</h2>
+<p>Next主题的配置文件<code>_config.next.yml</code>​</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Custom header, leave empty to use the default one 设置推荐区块的标题</span></span><br><span class="line">  <span class="attr">title:</span>   </span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">maxCount:</span> <span class="number">5</span></span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改样式">修改样式</h2>
+<p>打开文件<code>hexo\node_modules\hexo-theme-next\layout\_partials\post\post-related.njk</code>​</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&lt;div</span> <span class="string">class=&quot;links-of-blogroll-title&quot;&gt;</span></span><br><span class="line">  &#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.related_posts.icon</span> <span class="string">%</span>&#125;<span class="string">&lt;i</span> <span class="string">class=&quot;&#123;&#123;</span> <span class="string">theme.related_posts.icon</span> <span class="string">&#125;&#125;</span> <span class="string">fa-fw&quot;&gt;&lt;/i&gt;&#123;%</span> <span class="string">endif</span> <span class="string">%&#125;</span></span><br><span class="line">  &#123;&#123; <span class="string">__(&#x27;post.related_posts&#x27;)</span> &#125;&#125; </span><br><span class="line"><span class="string">&lt;ul</span> <span class="string">class=&quot;popular-posts&quot;&gt;</span></span><br><span class="line">&#123;<span class="string">%-</span> <span class="string">for</span> <span class="string">path</span> <span class="string">in</span> <span class="string">page.related_posts</span> <span class="string">%</span>&#125;</span><br><span class="line">  &#123;<span class="string">%-</span> <span class="string">set</span> <span class="string">popular_post</span> <span class="string">=</span> <span class="string">site.posts.findOne(</span>&#123; <span class="attr">path:</span> <span class="string">path</span> &#125;<span class="string">)</span> <span class="string">%</span>&#125;</span><br><span class="line">  <span class="string">&lt;li</span> <span class="string">class=&quot;popular-posts-item&quot;&gt;</span></span><br><span class="line">    <span class="string">&lt;a</span> <span class="string">class=&quot;popular-posts-link&quot;</span> <span class="string">href=&quot;&#123;&#123;</span> <span class="string">url_for(popular_post.path)</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">rel=&quot;bookmark&quot;&gt;</span></span><br><span class="line">    &#123;&#123; <span class="string">popular_post.title</span> &#125;&#125;</span><br><span class="line">    &#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">popular_post.date</span> <span class="string">%</span>&#125;</span><br><span class="line">      <span class="string">&lt;time</span> <span class="string">class=&quot;popular-posts-time&quot;&gt;&#123;&#123;</span> <span class="string">date(popular_post.date)</span> <span class="string">&#125;&#125;&lt;/time&gt;</span></span><br><span class="line">    &#123;<span class="string">%-</span> <span class="string">endif</span> <span class="string">%</span>&#125;  </span><br><span class="line">    <span class="string">&lt;/a&gt;</span></span><br><span class="line">  <span class="string">&lt;/li&gt;</span></span><br><span class="line">&#123;<span class="string">%-</span> <span class="string">endfor</span> <span class="string">%</span>&#125;</span><br><span class="line"><span class="string">&lt;/ul&gt;</span> </span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="在侧边栏插入">在侧边栏插入</h2>
+<p>打开文件<code>hexo\node_modules\hexo-theme-next\layout\_macro\sidebar.njk</code>​，插入下面的语句：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.related_posts.enable</span> <span class="string">%</span>&#125;</span><br><span class="line">  &#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.pjax</span> <span class="string">%</span>&#125;</span><br><span class="line">    <span class="string">&lt;div</span> <span class="string">class=&quot;pjax&quot;&gt;</span></span><br><span class="line">  &#123;<span class="string">%-</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line">  &#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">page.related_posts</span> <span class="string">and</span> <span class="string">page.related_posts.length</span> <span class="string">&gt;</span> <span class="number">0</span> <span class="string">%</span>&#125;</span><br><span class="line">    <span class="string">&lt;div</span> <span class="string">class=&quot;sidebar-inner</span> <span class="string">sidebar-post-related&quot;&gt;</span></span><br><span class="line">      <span class="string">&lt;div</span> <span class="string">class=&quot;animated&quot;&gt;</span></span><br><span class="line">        &#123;&#123; <span class="string">partial(&#x27;_partials/post/post-related.njk&#x27;)</span> &#125;&#125;</span><br><span class="line">      <span class="string">&lt;/div&gt;</span></span><br><span class="line">    <span class="string">&lt;/div&gt;</span></span><br><span class="line">  &#123;<span class="string">%-</span> <span class="string">endif</span> <span class="string">%</span>&#125;  </span><br><span class="line">  &#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.pjax</span> <span class="string">%</span>&#125;</span><br><span class="line">    <span class="string">&lt;/div&gt;</span></span><br><span class="line">  &#123;<span class="string">%-</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line">&#123;<span class="string">%-</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="插入到文章底部">插入到文章底部</h2>
+<p>打开文件<code>hexo\node_modules\hexo-theme-next\layout\_macro\post.njk</code>​，插入下面的语句：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.related_posts.enable</span> <span class="string">and</span> <span class="string">(theme.related_posts.display_in_home</span> <span class="string">or</span> <span class="string">not</span> <span class="string">is_index)</span> <span class="string">%</span>&#125;</span><br><span class="line">	&#123;&#123; <span class="string">partial(&#x27;_partials/post/post-related.njk&#x27;)</span> &#125;&#125;</span><br><span class="line">&#123;<span class="string">%-</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729705517347-0e8a63a9-10f4-4442-bcbb-1fe3d30cbbd2.png" alt="">​</p>
+<hr>
+<h1>[弃置]<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">Hexo-Related-Popular-Posts<i class="fa fa-external-link-alt"></i></span>不好看</h1>
+<p>通过<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">Hexo-Related-Popular-Posts<i class="fa fa-external-link-alt"></i></span>插件实现在文章下面显示相关文章推荐。</p>
+<h2 id="安装插件-2">安装插件</h2>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">https://github.com/tea3/hexo-related-popular-posts<i class="fa fa-external-link-alt"></i></span></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
-<h1>主题配置</h1>
-<p>主题的配置文件<code>_config.next.yml</code>​</p>
+<h2 id="主题配置-2">主题配置</h2>
+<p>Next主题的配置文件<code>_config.next.yml</code>​</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Custom header, leave empty to use the default one 设置推荐区块的标题</span></span><br><span class="line">  <span class="attr">title:</span>   </span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">params:</span></span><br><span class="line">    <span class="attr">maxCount:</span> <span class="number">5</span></span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用">使用</h2>
+<p>将<code>popular_posts( &#123;&#125; , post )</code>​插入到文章模板中</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="string">popular_posts(</span> &#123;&#125; , <span class="string">post</span> <span class="string">)</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
 <h1>参考</h1>
 <p><span class="exturl" data-url="aHR0cHM6Ly91cHdub3RoaW5nLmdpdGh1Yi5pby96aC1DTi80NGJmOGRlZi8jJUU2JUI3JUJCJUU1JThBJUEwJUU3JTlCJUI4JUU1JTg1JUIzJUU2JTk2JTg3JUU3JUFCJUEwJUU2JThFJUE4JUU4JThEJTkwJUU1JThBJTlGJUU4JTgzJUJE">Hexo + NexT 深度个性化配置 (2020.1 更新) | UPWNothing's Playground<i class="fa fa-external-link-alt"></i></span></p>
-<p>‍</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -124,9 +144,7 @@
   <entry>
     <title>Hexo博客Next主题添加粒子时钟特效</title>
     <url>/2024/10/22/bdadf3e2dd86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>效果</h1>
-<div class="link-grid"></div>
-<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729591197719-65af965b-a50d-422a-9301-db5223ae6cc2.png" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729591197719-65af965b-a50d-422a-9301-db5223ae6cc2.png" alt="">​</p>
 <span id="more"></span>
 <h1>创建njk文件</h1>
 <p>在<code>hexo\node_modules\hexo-theme-next\layout\</code>​目录下，新建<code>clock.njk</code>​文件，内容如下：</p>
@@ -214,9 +232,10 @@
   <entry>
     <title>Hexo博客Next主题添加动态标签词云</title>
     <url>/2024/10/22/4de2bfd9848b/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="效果">效果</h2>
-<p><a href="https://leafminer.github.io/">损不足 - 奉有余 (leafminer.github.io)</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用&quot;hexo-tag-cloud&quot;插件添加动态标签云。</p>
 <span id="more"></span>
+<h2 id="效果">效果</h2>
+<p><a href="https://leafminer.github.io/">损不足 - 奉有余 (leafminer.github.io)</a></p>
 <h2 id="安装插件">安装插件</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -302,8 +321,7 @@
   <entry>
     <title>Hexo博客Next主题解决不显示外链图片的问题</title>
     <url>/2024/10/22/68f75ac070e2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>问题描述</h1>
-<p>Hexo文章中采用外链加载的图片无法显示。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>问题描述:</strong> Hexo文章中采用外链加载的图片无法显示。</p>
 <span id="more"></span>
 <h1>问题原因</h1>
 <p>防盗链。部分网站不允许图片外链，只允许本网站才能显示图片，外部网站加载图片就会报错。通过对请求方的 <strong>Referer</strong> 进行判断过滤，确认是否可以访问。</p>
@@ -351,13 +369,18 @@
   <entry>
     <title>Hexo博客Next主题添加公众号二维码</title>
     <url>/2024/10/21/be743ddf561b/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="添加到Next主题侧边栏">添加到Next主题侧边栏</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过改动模板文件，在侧边栏和文章底部添加公众号二维码。</p>
+<span id="more"></span> 
+<h2 id="添加到Next主题侧边栏">添加到Next主题侧边栏</h2>
 <ol>
-<li class="lvl-3">将图片放入博客根目录下的./themes/next/source/images/目录中，并将图片改名为wechat_channel.png</li>
-<li class="lvl-3">编辑<code>themes/next/layout/_macro/sidebar.njk</code>​文件。</li>
+<li class="lvl-3">
+<p>将图片放入博客根目录下的./themes/next/source/images/目录中，并将图片改名为wechat_channel.png</p>
+</li>
+<li class="lvl-3">
+<p>编辑<code>themes/next/layout/_macro/sidebar.njk</code>​文件。</p>
+</li>
 </ol>
 <p>在里面搜索theme.back2top.enable，在这个if语句之后添加下面的代码</p>
-<span id="more"></span> 
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wechat_channel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 这里添加你的二维码图片 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> =<span class="string">&quot;/images/wechat_channel.png&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;span&gt;公众号&lt;/span&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729194189399-62740420-6785-4412-ae43-3bc898002824.png" alt="">​</p>
 <h2 id="添加到文章底部">添加到文章底部</h2>
@@ -414,10 +437,8 @@
   <entry>
     <title>Hexo博客Next主题添加每日早报</title>
     <url>/2024/10/21/1d2a6f85d3f7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p>
 <span id="more"></span>
-<h1>Hexo博客Next主题添加每日早报</h1>
-<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p>
 <h1>Alapi官网注册</h1>
 <p>Alapi官网地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24v">https://www.alapi.cn/<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="获得Token密钥">获得Token密钥</h2>
@@ -451,11 +472,10 @@
   <entry>
     <title>【转载】Hexo博客添加背景动态效果</title>
     <url>/2024/10/19/dc63ecb1142e/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="方法">方法</h2>
-<p>Next 8.0.2 之后，Canvas_nest不再被原生支持。所以需要在<code>hexo/source/_data/</code>​下创建<code>footer.njk</code>​文件<br>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Next 8.0.2 之后，Canvas_nest不再被原生支持。所以需要在<code>hexo/source/_data/</code>​下创建<code>footer.njk</code>​文件<br>
 在文件中添加</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script color=<span class="string">&quot;0,0,255&quot;</span> opacity=<span class="string">&quot;0.5&quot;</span> zIndex=<span class="string">&quot;-1&quot;</span> count=<span class="string">&quot;99&quot;</span> src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js&quot;</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <span id="more"></span> 
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script color=<span class="string">&quot;0,0,255&quot;</span> opacity=<span class="string">&quot;0.5&quot;</span> zIndex=<span class="string">&quot;-1&quot;</span> count=<span class="string">&quot;99&quot;</span> src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js&quot;</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>​并将其中的参数修改为自己想要的值。<br>
 最后再在主题配置文件<code>_config.next.yml</code>​中，修改<code>custom_file_path</code>​，将<code>footer: source/_data/footer.njk</code>​的注释删除即可。</p>
 <h2 id="原文地址">原文地址</h2>
@@ -1856,12 +1876,13 @@
   <entry>
     <title>Hexo新建文章及发布指令--笔记</title>
     <url>/2024/05/08/eda54285e852/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用Git部署文章的命令</p>
+<span id="more"></span> 
+<blockquote>
 <h1>完成后部署</h1>
 <p>您可执行下列的其中一个命令，让 Hexo 在生成完毕后自动部署网站，两个命令的作用是相同的。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;$ hexo generate --deploy</span><br><span class="line">&gt;$ hexo deploy --generate</span><br><span class="line"></span><br><span class="line">**简写**</span><br><span class="line">&gt;$ hexo g -d</span><br><span class="line">&gt;$ hexo d -g</span><br></pre></td></tr></table></figure>
 </blockquote>
-<span id="more"></span> 
 <h2 id="新建">新建</h2>
 <p><code>hexo new [layout] &lt;title&gt;</code><br>
 布局（Layout）有三种：post、page 和 draft。</p>
