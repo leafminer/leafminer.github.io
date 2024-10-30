@@ -22,6 +22,348 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客Next主题加入音乐播放器-SQPlayer</title>
+    <url>/2024/10/30/cf403dbe36d3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>SQPlayer一个简洁到极致的单曲播放器。代码由奇趣保罗(<span class="exturl" data-url="aHR0cHM6Ly9wYXVncmFtLmNvbQ==">https://paugram.com<i class="fa fa-external-link-alt"></i></span>)原创，并遵守 MIT 开源协议。</p>
+<span id="more"></span>
+<h2 id="下载播放器">下载播放器</h2>
+<p>网址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RyZWFtZXItUGF1bC9TcXVhcmUtUGxheWVy">github.com<i class="fa fa-external-link-alt"></i></span></p>
+<p>解压找到需要的文件：SQPlayer.js和SQPlayer.css</p>
+<h2 id="安装播放器">安装播放器</h2>
+<p>将<code>SQPlayer.js</code>​放到博客对应的<code>\node_modules\hexo-theme-next\source\js</code>​文件夹下。</p>
+<p>将<code>SQPlayer.css</code>​放到博客对应的<code>\node_modules\hexo-theme-next\source\css</code>​文件夹下</p>
+<h2 id="修改文件">修改文件</h2>
+<p>修改<code>SQPlayer.css</code>​样式，使其适合主题侧边栏。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">sqp &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">15em</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">8em</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    user-<span class="selector-tag">select</span>: none;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">0em</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1em</span> <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#c8cae1</span> center/cover no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改<code>SQPlayer.js</code>​</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">setupByCloudMusic = <span class="function">(<span class="params">cid, server</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> getData = &#123;</span><br><span class="line">      <span class="string">&quot;moeyao&quot;</span>: <span class="function">() =&gt;</span> (</span><br><span class="line">        <span class="title function_">fetch</span>(<span class="string">`https://api.moeyao.cn/meting/?server=tencent&amp;type=playlist&amp;id=<span class="subst">$&#123;cid&#125;</span>`</span>).<span class="title function_">then</span>(</span><br><span class="line">          <span class="function">(<span class="params">res</span>) =&gt;</span> res.<span class="title function_">json</span>()</span><br><span class="line">        ).<span class="title function_">then</span>(<span class="function">(<span class="params">items</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> item = items[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (!item) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;返回数据为空&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">setup</span>(&#123;</span><br><span class="line">            <span class="attr">title</span>: item.<span class="property">name</span>,</span><br><span class="line">            <span class="attr">artist</span>: item.<span class="property">artist</span>,</span><br><span class="line">            <span class="attr">cover</span>: item.<span class="property">cover</span>,</span><br><span class="line">            <span class="attr">link</span>: item.<span class="property">url</span></span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">      ),</span><br><span class="line">      <span class="comment">// &quot;paul&quot;: () =&gt; (</span></span><br><span class="line">      <span class="comment">//   fetch(`https://api.paugram.com/netease/?id=$&#123;cid&#125;`).then(</span></span><br><span class="line">      <span class="comment">//     (res) =&gt; res.json()</span></span><br><span class="line">      <span class="comment">//   ).then((item) =&gt; &#123;</span></span><br><span class="line">      <span class="comment">//     this.setup(item);</span></span><br><span class="line">      <span class="comment">//   &#125;)</span></span><br><span class="line">      <span class="comment">// ),</span></span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="把CSS引入到生成的主页中">把CSS引入到生成的主页中</h2>
+<p>需要在在网页 <code>head</code>​ 标签引用项目的 CSS 文件 <code>SQPlayer.css</code>​：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;SQPlayer.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>/&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>修改<code>\node_modules\hexo-theme-next\layout\_layout.njk</code>​文件，添加<code>&lt;link href=&quot;SQPlayer.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</code>​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730309377882-54220787-065b-4033-9683-6a36bea1d8ab.png" alt="">​</p>
+<h2 id="放置到侧边栏">放置到侧边栏</h2>
+<p>在网页 <code>body</code>​ 标签内的最后一行，或使用 <code>defer</code>​ 属性引用项目的 JS 文件 <code>SQPlayer.js</code>​。</p>
+<p>如果使用 <code>data-cid</code>​ 属性引用播放器，就写成这样，其中 <code>23682511</code>​ 就是网易云音乐一首歌的 ID。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">sqp</span> <span class="attr">data-cid</span>=<span class="string">&quot;23682511&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">sqp</span>&gt;</span> # data-cid指定了歌曲ID，这里是tencent QQ音乐源</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;SQPlayer.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>修改<code>\node_modules\hexo-theme-next\layout_macro\sidebar.njk</code>​文件，添加<code>&lt;script src=&quot;SQPlayer.js&quot;&gt;&lt;/script&gt;</code>​</p>
+<p>修改 <code>\node_modules\hexo-theme-next\layout_macro\sidebar.njk</code>​文件，添加<code>&lt;sqp data-cid=&quot;2112569740&quot;&gt;&lt;/sqp&gt;</code>​</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730309397117-c7d822ec-9993-4327-ad20-c7557950a39b.png" alt="">​</p>
+<p>在网页 <code>body </code>​标签内插入一个 <code>sqp</code>​ 标签：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">sqp</span>&gt;</span><span class="tag">&lt;/<span class="name">sqp</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果使用静态方法引用播放器，则需要同时编写四个属性。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sqp</span> <span class="attr">data-title</span>=<span class="string">&quot;Crimson &amp; Clover&quot;</span> <span class="attr">data-artist</span>=<span class="string">&quot;Tommy James&quot;</span> <span class="attr">data-cover</span>=<span class="string">&quot;封面链接&quot;</span> <span class="attr">data-link</span>=<span class="string">&quot;歌曲链接&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">sqp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其他属性可以参考本文档的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnBhdWwucmVuL3NxdWFyZS8jLz9pZD0lZTUlYjElOWUlZTYlODAlYTc=">属性<i class="fa fa-external-link-alt"></i></span> 节点。</p>
+<h3 id="属性">属性</h3>
+<p>Square Player 支持以下属性，它们分别的意义是：</p>
+<table>
+<thead>
+<tr>
+<th><strong>属性名</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>至左显示</td>
+</tr>
+<tr>
+<td>data-title</td>
+<td>歌曲名，用于自定义歌曲</td>
+</tr>
+<tr>
+<td>data-artist</td>
+<td>艺术家，用于自定义歌曲</td>
+</tr>
+<tr>
+<td>data-cover</td>
+<td>专辑封面图片链接，用于自定义歌曲</td>
+</tr>
+<tr>
+<td>data-link</td>
+<td>歌曲地址，用于自定义歌曲</td>
+</tr>
+<tr>
+<td>data-cid</td>
+<td>网易云音乐的 ID，如果编写了此项目，将忽略以上 data-*设置</td>
+</tr>
+</tbody>
+</table>
+<p>将以上属性放在<code>&lt;sqp&gt;</code>​ 标签内即可生效。</p>
+<h2 id="修改歌曲-网易云">修改歌曲-网易云</h2>
+<h3 id="歌单ID">歌单ID</h3>
+<p>打开网易云找到喜欢的歌单，浏览器地址栏会显示ID</p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730314435092-31479aa8-9638-4a64-a7eb-52e69244c322.png" alt=""></p>
+<p>将该ID填写到<code>https://api.moeyao.cn/meting/?type=playlist&amp;id=</code>连接中，可查看到返回的Json数据。</p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730314761553-c0bf9c71-0f88-44d6-a8e6-1acd992ded57.png" alt=""></p>
+<p>可以根据返回的歌单Json在html页面的<code>body</code>中手动修改成喜欢的单曲。无需改动SQPlayer.js</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sqp</span> <span class="attr">data-title</span>=<span class="string">&quot;라라라&quot;</span> <span class="attr">data-artist</span>=<span class="string">&quot;淑熙&quot;</span> <span class="attr">data-cover</span>=<span class="string">&quot;https://api.moeyao.cn/meting/?server=netease&amp;type=cover&amp;id=5357743&quot;</span> <span class="attr">data-link</span>=<span class="string">&quot;https://api.moeyao.cn/meting/?server=netease&amp;type=url&amp;id=5357743&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">sqp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此外，也可以通过修改SQPlayer.js文件来引用单曲。</p>
+<p>首先，在html页面的<code>body</code>中引用歌单id</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sqp</span> <span class="attr">data-cid</span>=<span class="string">&quot;6846019260&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">sqp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>还要修改SQPlayer.js文件，</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>fetch()</code></p>
+</li>
+<li class="lvl-2">
+<p><code>const item = items[0];</code>中[0]表示第一首歌，依此类推，选择对应的单曲</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">setupByCloudMusic = <span class="function">(<span class="params">cid, server</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> getData = &#123;</span><br><span class="line">    <span class="string">&quot;moeyao&quot;</span>: <span class="function">() =&gt;</span> (</span><br><span class="line">      <span class="title function_">fetch</span>(<span class="string">`https://api.moeyao.cn/meting/?type=playlist&amp;id=<span class="subst">$&#123;cid&#125;</span>`</span>).<span class="title function_">then</span>(</span><br><span class="line">        <span class="function">(<span class="params">res</span>) =&gt;</span> res.<span class="title function_">json</span>()</span><br><span class="line">      ).<span class="title function_">then</span>(<span class="function">(<span class="params">items</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> item = items[<span class="number">0</span>]; <span class="comment">// 获取list第一首歌曲</span></span><br><span class="line">        <span class="keyword">if</span> (!item) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;返回数据为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">setup</span>(&#123;</span><br><span class="line">          <span class="attr">title</span>: item.<span class="property">name</span>,</span><br><span class="line">          <span class="attr">artist</span>: item.<span class="property">artist</span>,</span><br><span class="line">          <span class="attr">cover</span>: item.<span class="property">cover</span>,</span><br><span class="line">          <span class="attr">link</span>: item.<span class="property">url</span></span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;)</span><br><span class="line">    ),</span><br><span class="line">    <span class="comment">// &quot;paul&quot;: () =&gt; (</span></span><br><span class="line">    <span class="comment">//   fetch(`https://api.paugram.com/netease/?id=$&#123;cid&#125;`).then(</span></span><br><span class="line">    <span class="comment">//     (res) =&gt; res.json()</span></span><br><span class="line">    <span class="comment">//   ).then((item) =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//     this.setup(item);</span></span><br><span class="line">    <span class="comment">//   &#125;)</span></span><br><span class="line">    <span class="comment">// ),</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnBhdWwucmVuL3NxdWFyZS8jLw==">Square Player 文档<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>音乐</tag>
+        <tag>SQPlayer</tag>
+        <tag>播放器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【转载】用R语言解读凯利公式</title>
+    <url>/2024/10/24/2f91b3f1804e/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1712588344529-c6787778-5607-423b-9ba3-654cac0128b7.png" alt="">​</p>
+<span id="more"></span>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS9zZXJpZXMtaXQtZmluYW5jZS8=">用IT技术玩金融系列文章<i class="fa fa-external-link-alt"></i></span>，将介绍如何使用IT技术，处理金融大数据。在互联网混迹多年，已经熟练掌握一些IT技术。单纯地在互联网做开发，总觉得使劲的方式不对。要想靠技术养活自己，就要把技术变现。通过“跨界”可以寻找新的机会，创造技术的壁垒。</p>
+<p>金融是离钱最近的市场，也是变现的好渠道！今天就开始踏上“用IT技术玩金融”之旅！</p>
+<p><strong>关于作者：</strong></p>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>张丹(Conan), 程序员R,Nodejs,Java</p>
+</li>
+<li class="lvl-2">
+<p>weibo：@Conan_Z</p>
+</li>
+<li class="lvl-2">
+<p>blog: <span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS8=">http://blog.fens.me<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p>email: <span class="exturl" data-url="bWFpbHRvOmJzc3Bpcml0QGdtYWlsLmNvbQ==">bsspirit@gmail.com<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<p><strong>转载请注明出处：</strong><br>
+<span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS9maW5hbmNlLWtlbGx5">http://blog.fens.me/finance-kelly<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<p>‍</p>
+<p><strong>前言</strong></p>
+<p>职业做投机交易的人，应该都听说过凯利公式，这是一个通过计算胜率和赔率，来选择最佳投注比例的公式，目的是长期获得最高的盈利。</p>
+<p>只要找到长期看必胜的局，接下来就是让时间帮我们赚钱了。</p>
+<h2 id="1-开始赌局">1. 开始赌局</h2>
+<p>设游戏赌局，你赢的概率是80%，输的概率是20%，赢时的净收益率是100%，输时的亏损率也是100%。如果赢，你每赌1元可以赢得1元；如果输，则每赌1元将会输掉1元。赌局可以进行无限次，每次下的赌注可由你自己任意定。如果你的初始资金是100元，那么怎么样下注，才能使得长期收益最大？</p>
+<p>对于胜率80%，从感觉上应该是很有把握的事情了。那么我们先主观判断一次，用90%的仓位去赌一下，看看结果怎么呢？如果下注10次，按80%胜率，8次胜，2次负。我们来算一下最后的结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 设置胜负，1胜，0负</span><br><span class="line">&gt; win&lt;-c(1,1,1,0,1,1,0,1,1,1)</span><br><span class="line"> </span><br><span class="line"># 分别按投注计算每回合的剩余资金 </span><br><span class="line">&gt; a1&lt;-(1+0.9)*100</span><br><span class="line">&gt; a2&lt;-a1*(1+0.9)</span><br><span class="line">&gt; a3&lt;-a2*(1+0.9)</span><br><span class="line">&gt; a4&lt;-a3*0.1</span><br><span class="line">&gt; a5&lt;-a4*(1+0.9)</span><br><span class="line">&gt; a6&lt;-a5*(1+0.9)</span><br><span class="line">&gt; a7&lt;-a6*0.1</span><br><span class="line">&gt; a8&lt;-a7*(1+0.9)</span><br><span class="line">&gt; a9&lt;-a8*(1+0.9)</span><br><span class="line">&gt; a10&lt;-a9*(1+0.9)</span><br><span class="line"> </span><br><span class="line">&gt; dat&lt;-c(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)</span><br><span class="line">&gt; df&lt;-data.frame(win,dat)</span><br><span class="line"></span><br><span class="line"># 打印剩余资金列表</span><br><span class="line">&gt; df</span><br><span class="line">   win      dat</span><br><span class="line">1    1 190.0000</span><br><span class="line">2    1 361.0000</span><br><span class="line">3    1 685.9000</span><br><span class="line">4    0  68.5900</span><br><span class="line">5    1 130.3210</span><br><span class="line">6    1 247.6099</span><br><span class="line">7    0  24.7610</span><br><span class="line">8    1  47.0459</span><br><span class="line">9    1  89.3872</span><br><span class="line">10   1 169.8356</span><br></pre></td></tr></table></figure>
+<p>10次交易后，赢了8次，只输了2次，我们从100元本金，上升到了169元，收益率为69%，还是不错的。最高的时候，资金为685元，收益率为685%，赚了6倍多。最低则是只剩下24元，真是赔的好惨啊！</p>
+<p>接下来，画出资金曲线。这是一个过山车式的曲线，赚钱的时候非常猛，一旦赌输了，就产生了巨大的亏损。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 画出资金曲线 </span><br><span class="line">&gt; plot(df$dat,type=&#x27;l&#x27;)</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1712588344462-88879fa4-2013-4a2b-80ec-d33e03bc4fa7.png" alt=""><span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS93cC1jb250ZW50L3VwbG9hZHMvMjAxOC8wMy8wMS5wbmc=">http://blog.fens.me/wp-content/uploads/2018/03/01.png<i class="fa fa-external-link-alt"></i></span></p>
+<p>曲线很陡峭，波动很大，回撤也很大，完全就是在赌博。</p>
+<p>怎么样才能让资金曲线好看一些呢？如果每次下注用少一点资金，是不是会更好呢？那么我继续试一下。分别计算每次下注资金为 60%，40%，20%，10%的4个维度的仓位的情况。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; library(magrittr)</span><br><span class="line"></span><br><span class="line"># 定义现金流量函数：win=胜负结果,b=赔率,pos=仓位</span><br><span class="line">&gt; postion&lt;-function(win,b=1,pos=0.6)&#123;            # 省略代码</span><br><span class="line">+ &#125;</span><br><span class="line"> </span><br><span class="line"># 设置胜负，1胜，0负</span><br><span class="line">&gt; win&lt;-c(1,1,1,0,1,1,0,1,1,1) </span><br><span class="line">&gt; prob&lt;-0.8                      # 胜率</span><br><span class="line">&gt; n&lt;-10                          # 赌局数</span><br><span class="line">&gt; b&lt;-1                           # 赔率</span><br><span class="line">&gt; caption&lt;-100                   # 金额</span><br><span class="line"> </span><br><span class="line"># 分别计算不同仓位的剩余现金</span><br><span class="line">&gt; pos90&lt;-postion(win,b,0.9)*caption</span><br><span class="line">&gt; pos60&lt;-postion(win,b,0.6)*caption</span><br><span class="line">&gt; pos40&lt;-postion(win,b,0.4)*caption</span><br><span class="line">&gt; pos20&lt;-postion(win,b,0.2)*caption</span><br><span class="line">&gt; pos10&lt;-postion(win,b,0.1)*caption</span><br><span class="line"></span><br><span class="line"># 合并到数据框</span><br><span class="line">&gt; df1&lt;-data.frame(win,pos90,pos60,pos40,pos20,pos10)</span><br><span class="line"></span><br><span class="line"># 打印计算结果</span><br><span class="line">&gt; df1</span><br><span class="line">   win    pos90   pos60   pos40   pos20   pos10</span><br><span class="line">1    1 190.0000 160.000 140.000 120.000 110.000</span><br><span class="line">2    1 361.0000 256.000 196.000 144.000 121.000</span><br><span class="line">3    1 685.9000 409.600 274.400 172.800 133.100</span><br><span class="line">4    0  68.5900 163.840 164.640 138.240 119.790</span><br><span class="line">5    1 130.3210 262.144 230.496 165.888 131.769</span><br><span class="line">6    1 247.6099 419.430 322.694 199.066 144.946</span><br><span class="line">7    0  24.7610 167.772 193.617 159.252 130.451</span><br><span class="line">8    1  47.0459 268.435 271.063 191.103 143.496</span><br><span class="line">9    1  89.3872 429.497 379.489 229.324 157.846</span><br><span class="line">10   1 169.8356 687.195 531.284 275.188 173.631</span><br></pre></td></tr></table></figure>
+<p>我们看到，只是简单地调整了交易的仓位比例，那么交易10次后，你剩余的现是就是有很大的不同的。其中pos60列，即60%仓位的交易，获得的回报最高为687元，而90%的仓位获得的回报，是这里面最少的。而且非常有意思的是，后面的4种仓位设置，每次交易后的资金都大于100元的原始本金。</p>
+<p>画出资金曲线</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; library(ggplot2)</span><br><span class="line">&gt; library(scales)</span><br><span class="line">&gt; library(reshape2)</span><br><span class="line"></span><br><span class="line"># 数据转型 </span><br><span class="line">&gt; df1$num&lt;-1:nrow(df1)</span><br><span class="line">&gt; df&lt;-melt(df1[,-1],id.vars=&quot;num&quot;)</span><br><span class="line"> </span><br><span class="line"># 画图 </span><br><span class="line">&gt; g&lt;-ggplot(df,aes(x=num,y=value,colour=variable ))</span><br><span class="line">&gt; g&lt;-g+geom_line()</span><br><span class="line">&gt; g</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1712588344448-0050ef70-3377-47f6-9d54-5505fb1af9e4.png" alt=""><span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS93cC1jb250ZW50L3VwbG9hZHMvMjAxOC8wMy8wNS5wbmc=">http://blog.fens.me/wp-content/uploads/2018/03/05.png<i class="fa fa-external-link-alt"></i></span></p>
+<p>从图中可以看到，对于高胜率的情况，大的仓位是可以有高回报的，但是风险也大；小仓位是相对平稳的增长。</p>
+<h2 id="2-凯利公式">2. 凯利公式</h2>
+<p>那么多少的仓位是最优的呢？接下来的问题，就是凯利公式会告诉我们的。</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1712588345313-52f8ea2d-65d1-4255-90bf-948a768b5e60.jpeg" alt="">​</p>
+<p>在概率论中，凯利公式（The Kelly Criterion）是一个用以使特定赌局中，拥有正期望值之重复行为长期增长率最大化的公式，由约翰·拉里·凯利于1956年在《贝尔系统技术期刊》中发表，可用以计算出每次游戏中应投注的资金比例。</p>
+<p>除可将长期增长率最大化外，此公式不会在任何赌局中，有失去全部现有资金的可能，因此有不存在破产疑虑的优点。公式中，假设货币与赌局可无限分割，只要资金足够多，长期一定是会赚到钱的。</p>
+<p>凯利公式的最一般性陈述为，寻找能最大化结果对数期望值的资本比例f，即可获得长期增长率的最大化。对于只有两种结果的简单赌局而言，即 输失去所有本金，胜获得资金乘以特定的赔率。</p>
+<p>可以用下面公式来表示：</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/jpeg/12885947/1712588344600-f8c6da23-61c0-4a8e-b65e-53639a69d53e.jpeg" alt=""><span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS93cC1jb250ZW50L3VwbG9hZHMvMjAxOC8wMy9rZWxseS5qcGc=">http://blog.fens.me/wp-content/uploads/2018/03/kelly.jpg<i class="fa fa-external-link-alt"></i></span></p>
+<p>其中</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>f* 投注的比例</p>
+</li>
+<li class="lvl-2">
+<p>b 赔率，盈亏比，即平均一次盈利与一次亏损两者的比例</p>
+</li>
+<li class="lvl-2">
+<p>p 胜率</p>
+</li>
+<li class="lvl-2">
+<p>q 败率，即 1 – p</p>
+</li>
+</ul>
+<p>用凯利公式对上面的例子进行测试，胜率p=0.8，失败率q=1-p=0.2，赔率b=1，失败则下注资金完全损失，计算下注比例为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f* = (b*p-q)/b = (1*0.8-0.2)/1=0.6</span><br></pre></td></tr></table></figure>
+<p>所以，赌客应在每次机会中下注现有资金的60%，可以获得最大化资金的长期增长率。</p>
+<p>通过数学变型，可以很容易得到凯利公式的另一种表达式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Kelly % = W – [(1 – W) / R]</span><br></pre></td></tr></table></figure>
+<p>其中Kelly % 就是上式中的f*，W就是p胜率，R就是b赔率。两者看似不同，其实完全等效一致。</p>
+<p>对于上面的例子，我们可以计算</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Kelly % = W – [(1 – W) / R] = 0.8-[(1-0.8)/1] = 0.6</span><br></pre></td></tr></table></figure>
+<p>凯利公式，有一个优化的变型。如果每次下注失败后，不是全部亏损，只是亏损部分，我们对上面公式可以做一个优化，增加亏损比例参数c，公式改写为下面格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f* =  (b*p-c*q)/c*b</span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>f* 投注的比例</p>
+</li>
+<li class="lvl-2">
+<p>b 赔率，盈亏比，即平均一次盈利与一次亏损两者的比例</p>
+</li>
+<li class="lvl-2">
+<p>p 胜率</p>
+</li>
+<li class="lvl-2">
+<p>q 败率，即 1 – p</p>
+</li>
+<li class="lvl-2">
+<p>c 亏损比例</p>
+</li>
+</ul>
+<p>对于上面的例子，如果每次亏损是c=0.8，其他条件不变，那么我们应该用什么仓位进行交易呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f* = (b*p-q)/b = (1*0.8-0.8*0.2)/(0.8*1)=0.8</span><br></pre></td></tr></table></figure>
+<p>通过计算结果是0.8，我可以增大仓位。</p>
+<p>凯利公式定义了长期获得最高的盈利的仓位确认的计算方法，我们自己也可以按照凯利公式的数学定义，进行推到一下。</p>
+<p>假设一个赌局，每投资1，有p的概率可获得额外正收益W，有q=1-p的概率可获得额外的负收益-L，每次投资比例为x，建立收益为f(x)的目标函数，使得期望收益最大化。</p>
+<p>转化为规划问题：</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1712588346022-8b6d605c-a269-4362-98f7-119d42a8b2f4.png" alt=""><span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS93cC1jb250ZW50L3VwbG9hZHMvMjAxOC8wMy8wMy5wbmc=">http://blog.fens.me/wp-content/uploads/2018/03/03.png<i class="fa fa-external-link-alt"></i></span></p>
+<p>从推到可看出，标准的凯利公式只是当L=1的情况是一个应用，通过优化可增加了亏损比例参数。</p>
+<h2 id="3-赌局的最优解">3. 赌局的最优解</h2>
+<p>我们已经把公式介绍的很清楚了，那么接下来，就可以用程序实现进行实现了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 凯利公式，实现函数</span><br><span class="line">&gt; kelly&lt;-function(prob,b=1,loss=1)&#123;   # 省略代码</span><br><span class="line">+ &#125;</span><br></pre></td></tr></table></figure>
+<p>用凯利公式计算的上文中的例子。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; prob&lt;-0.8                     # 胜率</span><br><span class="line">&gt; b&lt;-1                          # 赔率</span><br><span class="line">&gt; k&lt;-kelly(prob,b,1);k</span><br><span class="line">[1] 0.6</span><br></pre></td></tr></table></figure>
+<p>这时通过凯利公式，我们就能算出最最优的解其实是0.6的仓位设置，也就可以解释，上面的结果60%的仓位占比，获得的收益是最大的。</p>
+<p>接下来，我们再比较一下不同的胜率和赔率的最优解是什么？</p>
+<p>大胜率和大赔率时，可以重仓。当80%的胜率，2倍赔率时，仓位为70%。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(0.8,2)</span><br><span class="line">[1] 0.7</span><br></pre></td></tr></table></figure>
+<p>通常情况下的赌局，不足50%的胜率，高赔率时，可以轻仓。当45%的胜率，2倍赔率时，仓位为17.5%。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(0.45,2)</span><br><span class="line">[1] 0.175</span><br></pre></td></tr></table></figure>
+<p>通常情况下的赌局，不足50%的胜率，低赔率时，不要参考。当45%的胜率，1倍赔率时，不参与赌局。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(0.45,1)</span><br><span class="line">[1] &quot;Lost!!!&quot;</span><br><span class="line">[1] 0</span><br></pre></td></tr></table></figure>
+<p>小胜率，中等赔率时，不要参与。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(0.2,1)</span><br><span class="line">[1] &quot;Lost!!!&quot;</span><br><span class="line">[1] 0</span><br></pre></td></tr></table></figure>
+<p>小胜率，中等赔率时，中等损失，不要参与。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(0.2,1,0.5)</span><br><span class="line">[1] &quot;Lost!!!&quot;</span><br><span class="line">[1] 0</span><br></pre></td></tr></table></figure>
+<p>小胜率，中等赔率时，很小损失，可以All in。很小的损失比例，其实是变相的增大了赔率。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(0.2,1,0.1)</span><br><span class="line">[1] &quot;All In&quot;</span><br><span class="line">[1] 1</span><br></pre></td></tr></table></figure>
+<p>大胜率，很小赔率，很小损失，All in。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(0.8,0.1,0.1)</span><br><span class="line">[1] &quot;All In&quot;</span><br><span class="line">[1] 1</span><br></pre></td></tr></table></figure>
+<p>中胜率，很小赔率，很小损失，不要参与。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(0.45,0.1,0.1)</span><br><span class="line">[1] &quot;Lost!!!&quot;</span><br><span class="line">[1] 0</span><br></pre></td></tr></table></figure>
+<p>总结一下，投机操作的游戏规则。</p>
+<table>
+<thead>
+<tr>
+<th>胜率</th>
+<th>赔率</th>
+<th>损失率</th>
+<th>仓位</th>
+<th>指导建议</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80%</td>
+<td>2</td>
+<td>100%</td>
+<td>70%</td>
+<td>重仓</td>
+<td>大胜率、大赔率、全部损失</td>
+</tr>
+<tr>
+<td>45%</td>
+<td>2</td>
+<td>100%</td>
+<td>17.5%</td>
+<td>轻仓</td>
+<td>中胜率、大赔率、全部损失</td>
+</tr>
+<tr>
+<td>45%</td>
+<td>1</td>
+<td>100%</td>
+<td>0</td>
+<td>离场</td>
+<td>中胜率、中赔率、全部损失</td>
+</tr>
+<tr>
+<td>20%</td>
+<td>1</td>
+<td>100%</td>
+<td>0</td>
+<td>离场</td>
+<td>小胜率、中赔率、全部损失</td>
+</tr>
+<tr>
+<td>20%</td>
+<td>1</td>
+<td>50%</td>
+<td>0</td>
+<td>离场</td>
+<td>小胜率、中赔率、中等损失</td>
+</tr>
+<tr>
+<td>20%</td>
+<td>1</td>
+<td>10%</td>
+<td>100%</td>
+<td>满仓</td>
+<td>小胜率、中赔率、小损失</td>
+</tr>
+<tr>
+<td>80%</td>
+<td>10%</td>
+<td>10%</td>
+<td>100%</td>
+<td>满仓</td>
+<td>大胜率、小赔率、小损失</td>
+</tr>
+<tr>
+<td>45%</td>
+<td>10%</td>
+<td>10%</td>
+<td>0</td>
+<td>离场</td>
+<td>中胜率、小赔率、小损失</td>
+</tr>
+</tbody>
+</table>
+<p>这样我们就判断出，哪些投机操作值得玩，哪些不能玩，应该怎么玩。是不是很神奇！！</p>
+<h2 id="4-让时间帮我们赚钱">4. 让时间帮我们赚钱</h2>
+<p>根据凯利公式的定义，赌局可以进行无限次，那么当真的把赌局设置为很大时，会是什么情况呢？</p>
+<p>我们把第一次的数据，进行100次的赌局，胜率为80%，赔率为1，金额100元，看一下结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; n&lt;-100                          # 赌局数</span><br><span class="line">&gt; prob&lt;-0.8                       # 胜率</span><br><span class="line">&gt; b&lt;-1                            # 赔率</span><br><span class="line">&gt; caption&lt;-100                    # 金额</span><br><span class="line"></span><br><span class="line"># 基本二项分布，生成每盘的赌局正负</span><br><span class="line">&gt; set.seed(1)</span><br><span class="line">&gt; win&lt;-rbinom(n,1,prob)</span><br><span class="line"> </span><br><span class="line"># 生成每盘的资金</span><br><span class="line">&gt; pos90&lt;-postion(win,b,0.9)*caption   # 90%仓位</span><br><span class="line">&gt; pos60&lt;-postion(win,b,0.6)*caption   # 60%仓位</span><br><span class="line">&gt; pos40&lt;-postion(win,b,0.4)*caption   # 40%仓位</span><br><span class="line">&gt; pos20&lt;-postion(win,b,0.2)*caption   # 20%仓位</span><br><span class="line">&gt; pos10&lt;-postion(win,b,0.1)*caption   # 10%仓位</span><br><span class="line"></span><br><span class="line"># 打印数据</span><br><span class="line">&gt; df2&lt;-data.frame(win,pos90,pos60,pos40,pos20,pos10)</span><br><span class="line">&gt; tail(df2)</span><br><span class="line">    win     pos90       pos60       pos40   pos20   pos10</span><br><span class="line">95    1 105083487 5.73375e+11  9874948167 5067085 34506.6</span><br><span class="line">96    1 199658625 9.17399e+11 13824927434 6080503 37957.3</span><br><span class="line">97    1 379351388 1.46784e+12 19354898407 7296603 41753.0</span><br><span class="line">98    1 720767637 2.34854e+12 27096857770 8755924 45928.3</span><br><span class="line">99    0  72076764 9.39417e+11 16258114662 7004739 41335.5</span><br><span class="line">100   1 136945851 1.50307e+12 22761360527 8405687 45469.0</span><br></pre></td></tr></table></figure>
+<p>从100盘赌局后的结果来看，60%的仓位可以获得最高收益的，为1.50307e+12，比其他的仓位都要高少非常。</p>
+<p>接下来，我们生成资金曲线图。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 数据转型</span><br><span class="line">&gt; df2$num&lt;-1:nrow(df2)</span><br><span class="line">&gt; df&lt;-melt(df2[,-1],id.vars = &quot;num&quot;)</span><br><span class="line"></span><br><span class="line"># 画图 </span><br><span class="line">&gt; g&lt;-ggplot(df,aes(x=num,y=value,colour=variable ))</span><br><span class="line">&gt; g&lt;-g+geom_line()</span><br><span class="line">&gt; g&lt;-g+scale_y_log10()  # y坐标轴log化</span><br><span class="line">&gt; g</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1712588346270-a13eaf9e-8ca6-4cea-9c08-e027a1e57107.png" alt=""><span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS93cC1jb250ZW50L3VwbG9hZHMvMjAxOC8wMy8wNi5wbmc=">http://blog.fens.me/wp-content/uploads/2018/03/06.png<i class="fa fa-external-link-alt"></i></span></p>
+<p>资金曲线图能非常直观地告诉了我们，什么的仓位有什么样曲线形状。你如果追求低风险，就用10%仓位稳健上涨。90%接近满仓并不是最赚钱的，反而是60%的仓位是有最大的回报。</p>
+<p>我们再用凯利公式进行计算，可以发现结果最优的结果也是60%。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; kelly(prob,1)</span><br><span class="line">[1] 0.6</span><br></pre></td></tr></table></figure>
+<p>神奇的算法，可以有效的帮我们控制仓位，最大化长期收益。只要找到长期必胜的局，接下来就是让时间帮我们赚钱了。下一篇文章，将介绍凯利公式在金融市场应用的应用。</p>
+<p>写文章很辛苦，如果需要获得本文源代码或加入量化投资社群，请扫下面二维码，请作者喝杯咖啡。</p>
+<p><strong>转载请注明出处：</strong><br>
+<span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS9maW5hbmNlLWtlbGx5">http://blog.fens.me/finance-kelly<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>转载</category>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>金融</tag>
+        <tag>赌博</tag>
+        <tag>凯利公式</tag>
+        <tag>最佳投注</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客Next主题启用pdf预览</title>
     <url>/2024/10/24/45415e09698e/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729710044697-25d03133-64ad-4f82-89ae-756f70a8d686.png" alt="">​</p>
@@ -52,10 +394,10 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>pdf</tag>
-        <tag>预览</tag>
         <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>pdf</tag>
+        <tag>预览</tag>
         <tag>插件</tag>
       </tags>
   </entry>
@@ -104,8 +446,8 @@
       </categories>
       <tags>
         <tag>Next</tag>
-        <tag>Hexo</tag>
         <tag>加载</tag>
+        <tag>Hexo</tag>
         <tag>图片</tag>
       </tags>
   </entry>
@@ -351,8 +693,8 @@
       </categories>
       <tags>
         <tag>Next</tag>
-        <tag>Hexo</tag>
         <tag>加载</tag>
+        <tag>Hexo</tag>
         <tag>pace</tag>
       </tags>
   </entry>
