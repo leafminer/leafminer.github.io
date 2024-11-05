@@ -3,7 +3,7 @@
   <entry>
     <title>每日早报--认识世界</title>
     <url>/2024/10/21/ad715d53afba/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h1><center>今日新闻</center></h1>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h1><center>今日新闻</center></h1>
 <center><span id="date"></span></center>
 <script>document.getElementById('date').textContent = new Date().toLocaleDateString();</script>
 <span id="more"></span>
@@ -38,9 +38,324 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客Next主题加入音乐播放器-Aplayer</title>
+    <url>/2024/11/05/b4e5a4c77d8e/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>APlayer是一个功能丰富、支持多种媒体格式的HTML5音乐播放器，具有播放列表和歌词显示等实用功能。在Hexo中有可以使用的插件<code>hexo-tag-aplayer</code>​</p>
+<span id="more"></span>
+<h2 id="安装插件">安装插件</h2>
+<p>插件网址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vZVBsYXllci9oZXhvLXRhZy1hcGxheWVy">MoePlayer/hexo-tag-aplayer: Embed aplayer in Hexo posts/pages<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-tag-aplayer</span><br></pre></td></tr></table></figure>
+<h2 id="配置使用">配置使用</h2>
+<p>加入到侧边栏，在<code>\node_modules\hexo-theme-next\layout_macro\sidebar.njk</code>​文件中添加：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aplayer aplayer-tag-marker meting-tag-marker aplayer-withlrc aplayer-withlist&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;1534866348&quot;</span> <span class="attr">data-server</span>=<span class="string">&quot;tencent&quot;</span> <span class="attr">data-type</span>=<span class="string">&quot;playlist&quot;</span> <span class="attr">data-mutex</span>=<span class="string">&quot;true&quot;</span> <span class="attr">data-preload</span>=<span class="string">&quot;auto&quot;</span> <span class="attr">data-theme</span>=<span class="string">&quot;#ad7a86&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730829307366-5dd68bc8-1e2a-41b6-b84c-5d6fe60246b7.png" alt="">​</p>
+<p>在Markdown文档中：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="设置APlayer音乐播放器的选项：">设置APlayer音乐播放器的选项：</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>​<code>title</code>​: 音乐的标题。</p>
+</li>
+<li class="lvl-2">
+<p>​<code>author</code>​: 音乐的作者。</p>
+</li>
+<li class="lvl-2">
+<p>​<code>url</code>​: 音乐文件的URL地址。</p>
+</li>
+<li class="lvl-2">
+<p>​<code>picture_url</code>​: 可选参数，音乐封面图片的URL地址。</p>
+</li>
+<li class="lvl-2">
+<p>​<code>narrow</code>​: 可选参数，如果设置，播放器将采用窄样式显示。</p>
+</li>
+<li class="lvl-2">
+<p>​<code>autoplay</code>​: 可选参数，如果设置，音乐将在页面加载时自动播放。但请注意，移动浏览器不支持自动播放音乐。</p>
+</li>
+<li class="lvl-2">
+<p>​<code>width:xxx</code>​: 可选参数，以<code>width:</code>​为前缀，后面跟播放器的宽度值（默认为100%）。</p>
+</li>
+<li class="lvl-2">
+<p>​<code>lrc:xxx</code>​: 可选参数，以<code>lrc:</code>​为前缀，后面跟LRC歌词文件的URL地址。</p>
+</li>
+</ul>
+<p>这些选项允许用户自定义APlayer音乐播放器的外观和行为，例如设置音乐标题、作者、文件链接、封面图片、是否自动播放、播放器宽度以及歌词文件链接等。</p>
+<p>当启用了“post asset folders”（后端资源文件夹）功能后，你可以轻松地将你的图片、音乐和LRC文件放入资源文件夹中，并且可以通过特定的方式引用它们。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;Caffeine&quot; &quot;Jeff Williams&quot; &quot;caffeine.mp3&quot; &quot;picture.jpg&quot; &quot;lrc:caffeine.txt&quot; %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用-aplayerlrc​-标签来直接插入歌词文本在博客中：">使用 <code>aplayerlrc</code>​ 标签来直接插入歌词文本在博客中：</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayerlrc &quot;title&quot; &quot;author&quot; &quot;url&quot; &quot;autoplay&quot; %&#125;</span><br><span class="line">[00:00.00]lrc here</span><br><span class="line">&#123;% endaplayerlrc %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="播放列表">播放列表</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayerlist %&#125;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;narrow&quot;: false,                          // （可选）播放器袖珍风格</span><br><span class="line">    &quot;autoplay&quot;: true,                         // （可选) 自动播放，移动端浏览器暂时不支持此功能</span><br><span class="line">    &quot;mode&quot;: &quot;random&quot;,                         // （可选）曲目循环类型，有 &#x27;random&#x27;（随机播放）, &#x27;single&#x27; (单曲播放), &#x27;circulation&#x27; (循环播放), &#x27;order&#x27; (列表播放)， 默认：&#x27;circulation&#x27; </span><br><span class="line">    &quot;showlrc&quot;: 3,                             // （可选）歌词显示配置项，可选项有：1,2,3</span><br><span class="line">    &quot;mutex&quot;: true,                            // （可选）该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</span><br><span class="line">    &quot;theme&quot;: &quot;#e6d0b2&quot;,	                      // （可选）播放器风格色彩设置，默认：#b7daff</span><br><span class="line">    &quot;preload&quot;: &quot;metadata&quot;,                    // （可选）音乐文件预载入模式，可选项： &#x27;none&#x27; &#x27;metadata&#x27; &#x27;auto&#x27;, 默认: &#x27;auto&#x27;</span><br><span class="line">    &quot;listmaxheight&quot;: &quot;513px&quot;,                 // (可选) 该播放列表的最大长度</span><br><span class="line">    &quot;music&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;title&quot;: &quot;CoCo&quot;,</span><br><span class="line">            &quot;author&quot;: &quot;Jeff Williams&quot;,</span><br><span class="line">            &quot;url&quot;: &quot;caffeine.mp3&quot;,</span><br><span class="line">            &quot;pic&quot;: &quot;caffeine.jpeg&quot;,</span><br><span class="line">            &quot;lrc&quot;: &quot;caffeine.txt&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;title&quot;: &quot;アイロニ&quot;,</span><br><span class="line">            &quot;author&quot;: &quot;鹿乃&quot;,</span><br><span class="line">            &quot;url&quot;: &quot;irony.mp3&quot;,</span><br><span class="line">            &quot;pic&quot;: &quot;irony.jpg&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endaplayerlist %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="开启MetingJS">开启MetingJS</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21ldG93b2xmL01ldGluZ0pT">MetingJS<i class="fa fa-external-link-alt"></i></span> 是基于<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21ldG93b2xmL01ldGluZw==">Meting API<i class="fa fa-external-link-alt"></i></span> 的 APlayer 衍生播放器，引入 MetingJS 后，播放器将支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。</p>
+<p>使用 MetingJS，请在 Hexo 配置文件 <code>_config.yml</code>​ 中设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aplayer:</span><br><span class="line">  meting: true</span><br></pre></td></tr></table></figure>
+<p>通过 <code>&#123;% meting ...%&#125;</code>​ 在文章中使用 MetingJS 播放器：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- 简单示例 (id, server, type)  --&gt;</span><br><span class="line">&#123;% meting &quot;60198&quot; &quot;netease&quot; &quot;playlist&quot; %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 进阶示例 --&gt;</span><br><span class="line">&#123;% meting &quot;60198&quot; &quot;netease&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
+<p>有关 <code>&#123;% meting %&#125;</code>​ 的选项列表如下:</p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>默认值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><strong>必须值</strong></td>
+<td>歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
+</tr>
+<tr>
+<td>server</td>
+<td><strong>必须值</strong></td>
+<td>音乐平台:<code>netease</code>​,<code>tencent</code>​,<code>kugou</code>​,<code>xiami</code>​,<code>baidu</code>​</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>必须值</strong></td>
+<td>​<code>song</code>​,<code>playlist</code>​,<code>album</code>​,<code>search</code>​,<code>artist</code>​</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>​<code>false</code>​</td>
+<td>开启固定模式</td>
+</tr>
+<tr>
+<td>mini</td>
+<td>​<code>false</code>​</td>
+<td>开启迷你模式</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>​<code>all</code>​</td>
+<td>列表循环模式：<code>all</code>​,<code>one</code>​,<code>none</code>​</td>
+</tr>
+<tr>
+<td>order</td>
+<td>​<code>list</code>​</td>
+<td>列表播放模式：<code>list</code>​,<code>random</code>​</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>0.7</td>
+<td>播放器音量</td>
+</tr>
+<tr>
+<td>lrctype</td>
+<td>0</td>
+<td>歌词格式类型</td>
+</tr>
+<tr>
+<td>listfolded</td>
+<td>​<code>false</code>​</td>
+<td>指定音乐播放列表是否折叠</td>
+</tr>
+<tr>
+<td>storagename</td>
+<td>​<code>metingjs</code>​</td>
+<td>LocalStorage 中存储播放器设定的键名</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>​<code>true</code>​</td>
+<td>自动播放，移动端浏览器暂时不支持此功能</td>
+</tr>
+<tr>
+<td>mutex</td>
+<td>​<code>true</code>​</td>
+<td>该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>
+</tr>
+<tr>
+<td>listmaxheight</td>
+<td>​<code>340px</code>​</td>
+<td>播放列表的最大长度</td>
+</tr>
+<tr>
+<td>preload</td>
+<td>​<code>auto</code>​</td>
+<td>音乐文件预载入模式，可选项：<code>none</code>​,<code>metadata</code>​,<code>auto</code>​</td>
+</tr>
+<tr>
+<td>theme</td>
+<td>​<code>#ad7a86</code>​</td>
+<td>播放器风格色彩设置</td>
+</tr>
+</tbody>
+</table>
+<p>关于如何设置自建的 Meting API 服务器地址，以及其他 MetingJS 配置，请参考章节<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vZVBsYXllci9oZXhvLXRhZy1hcGxheWVyL2Jsb2IvbWFzdGVyL2RvY3MvUkVBRE1FLXpoX2NuLm1kIyVFOCU4NyVBQSVFNSVBRSU5QSVFNCVCOSU4OSVFOSU4NSU4RCVFNyVCRCVBRTMwLSVFNiU5NiVCMCVFNSU4QSU5RiVFOCU4MyVCRA==">自定义配置<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="在-Hexo-配置文件-config-yml​-中配置本插件：">在 Hexo 配置文件 <code>_config.yml</code>​ 中配置本插件：</h3>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">script_dir:</span> <span class="string">some/place</span>                        <span class="comment"># Public 目录下脚本目录路径，默认: &#x27;assets/js&#x27;</span></span><br><span class="line">  <span class="attr">style_dir:</span> <span class="string">some/place</span>                         <span class="comment"># Public 目录下样式目录路径，默认: &#x27;assets/css&#x27;</span></span><br><span class="line">  <span class="attr">cdn:</span> <span class="string">http://xxx/aplayer.min.js</span>                <span class="comment"># 引用 APlayer.js 外部 CDN 地址 (默认不开启)</span></span><br><span class="line">  <span class="attr">style_cdn:</span> <span class="string">http://xxx/aplayer.min.css</span>         <span class="comment"># 引用 APlayer.css 外部 CDN 地址 (默认不开启)</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span>                                  <span class="comment"># MetingJS 支持</span></span><br><span class="line">  <span class="attr">meting_api:</span> <span class="string">http://xxx/api.php</span>                <span class="comment"># 自定义 Meting API 地址</span></span><br><span class="line">  <span class="attr">meting_cdn:</span> <span class="string">http://xxx/Meing.min.js</span>           <span class="comment"># 引用 Meting.js 外部 CDN 地址 (默认不开启)</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">true</span>                            <span class="comment"># 自动插入 Aplayer.js 与 Meting.js 资源脚本, 默认开启</span></span><br><span class="line">  <span class="attr">externalLink:</span> <span class="string">http://xxx/aplayer.min.js</span>       <span class="comment"># 老版本参数，功能与参数 cdn 相同</span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9tZXRpbmdAMS4yL2Rpc3QvTWV0aW5nLm1pbi5qcw==">https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly91bnBrZy5jb20vbWV0aW5nQDEuMi9kaXN0L01ldGluZy5taW4uanM=">https://unpkg.com/meting@1.2/dist/Meting.min.js<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<h2 id="示例">示例</h2>
+<h3 id="QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐">QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐</h3>
+<h4 id="创建自己的歌单-VIP没解析，放到列表里在博客中也播放不了">创建自己的歌单 (VIP没解析，放到列表里在博客中也播放不了)</h4>
+<p>以QQ音乐为例，登录QQ音乐创建好歌单后，打开歌单，链接有需要的id</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730814806680-82efc149-de40-4240-8190-b5641dff6e96.png" alt="">​</p>
+<h4 id="在markdown文件中引用：">在markdown文件中引用：</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% meting &quot;1534866348&quot; &quot;tencent&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
+
+    <div id="aplayer-GwpPldZE" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="1534866348" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
+    ></div>
+<h4 id="在html页面中引用：">在html页面中引用：</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aplayer aplayer-tag-marker meting-tag-marker aplayer-withlrc aplayer-withlist&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;1534866348&quot;</span> <span class="attr">data-server</span>=<span class="string">&quot;tencent&quot;</span> <span class="attr">data-type</span>=<span class="string">&quot;playlist&quot;</span> <span class="attr">data-mutex</span>=<span class="string">&quot;true&quot;</span> <span class="attr">data-preload</span>=<span class="string">&quot;auto&quot;</span> <span class="attr">data-theme</span>=<span class="string">&quot;#ad7a86&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="source文件">source文件</h3>
+<p>将所需文件放到<code>hexo\source\assets</code>​文件夹下，通过下面的方式引用。</p>
+<h4 id="在markdown文件中引用：-2">在markdown文件中引用：</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;雾里看花&quot; &quot;AI&quot; &quot;/assets/tgAI.mp3&quot; &quot;/assets/WVWAW5KC.png&quot; autoplay %&#125;</span><br></pre></td></tr></table></figure>
+
+        <div id="aplayer-PplEbwfI" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-PplEbwfI"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "雾里看花",
+              author: "AI",
+              url: "/assets/tgAI.mp3",
+              pic: "/assets/WVWAW5KC.png",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+<h4 id="在html页面中引用：-2">在html页面中引用：</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;aplayer-iDYFLcdV&quot;</span> <span class="attr">class</span>=<span class="string">&quot;aplayer aplayer-tag-marker&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin-bottom: 20px;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">&quot;aplayer-lrc-content&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">var</span> ap = <span class="keyword">new</span> <span class="title class_">APlayer</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">element</span>: <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;aplayer-iDYFLcdV&quot;</span>),</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">narrow</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">autoplay</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">showlrc</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">music</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">title</span>: <span class="string">&quot;雾里看花&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">author</span>: <span class="string">&quot;AI&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">url</span>: <span class="string">&quot;/assets/tgAI.mp3&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">pic</span>: <span class="string">&quot;/assets/WVWAW5KC.png&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">lrc</span>: <span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">          &#125;);</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">window</span>.<span class="property">aplayers</span> || (<span class="variable language_">window</span>.<span class="property">aplayers</span> = []);</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">window</span>.<span class="property">aplayers</span>.<span class="title function_">push</span>(ap);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcGxheWVyLmpzLm9yZy8jL2hvbWU/aWQ9aW5zdGFsbGF0aW9u">Home - APlayer<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vZVBsYXllci9oZXhvLXRhZy1hcGxheWVy">MoePlayer/hexo-tag-aplayer: Embed aplayer in Hexo posts/pages<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RJWWdvZC9BUGxheWVy">DIYgod/APlayer:  Wow, such a beautiful HTML5 music player<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ol>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>音乐</tag>
+        <tag>Hexo</tag>
+        <tag>播放器</tag>
+        <tag>Next</tag>
+        <tag>Aplayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客Next主题添加 Live2D 看板娘-通过CDN</title>
+    <url>/2024/11/04/79d2eab3e93c/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730714807141-e9c04931-c5d3-4964-88af-3ecdd75294c8.png" alt="">​</p>
+<span id="more"></span>
+<h2 id="Fork看板娘项目到自己的Github">Fork看板娘项目到自己的Github</h2>
+<p>访问 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0ZXZlbmpvZXpoYW5nL2xpdmUyZC13aWRnZXQ=">stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform<i class="fa fa-external-link-alt"></i></span>的 Github 仓库，点击右上角 Fork 该项目到自己的Github仓库 中。</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730710539240-bbe50dc4-1ee5-4aad-9b7f-18ef23c72a50.png" alt="">​</p>
+<p>通过<span class="exturl" data-url="aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL2xlYWZtaW5lci9saXZlMmQtd2lkZ2V0QGxhdGVzdC9hdXRvbG9hZC5qcw==">https://cdn.jsdelivr.net/gh/leafminer/live2d-widget@latest/autoload.js<i class="fa fa-external-link-alt"></i></span></p>
+<p>或者<span class="exturl" data-url="aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL2xlYWZtaW5lci9saXZlMmQtd2lkZ2V0QGxhdGVzdC9hdXRvbG9hZC5qcw==">https://fastly.jsdelivr.net/gh/leafminer/live2d-widget@latest/autoload.js<i class="fa fa-external-link-alt"></i></span>来引用</p>
+<p>将CDN链接中的leafminer 换成你的Github用户名。</p>
+<h2 id="通用">通用</h2>
+<p>将下面这一行代码加入 html 页面的 <code>head</code>​ 或 <code>body</code>​ 中，即可加载看板娘：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不要复制这个注释 &lt;!-- lived2d --&gt;</span></span><br><span class="line">&lt;script src=<span class="string">&quot;https://fastly.jsdelivr.net/gh/leafminer/live2d-widget@latest/autoload.js&quot;</span>&gt;</span><br><span class="line">&lt;/script&gt; </span><br></pre></td></tr></table></figure>
+<h2 id="Hexo博客的Next主题">Hexo博客的Next主题</h2>
+<p>修改 /node_modules/hexo-theme-next/layout/_layout.njk 文件，在最后添加下面这行代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/gh/leafminer/live2d-widget@latest/autoload.js&quot;</span>&gt;</span><br><span class="line">&lt;/script &gt;</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730713781467-e9911c1d-c880-4fa5-b310-4806b301513e.png" alt="">​</p>
+<h2 id="自定义">自定义</h2>
+<h3 id="clone-你的项目到本地">clone 你的项目到本地</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/leafminer/live2d-widget.git</span><br></pre></td></tr></table></figure>
+<h3 id="项目文件">项目文件</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>​<code>autoload.js</code>​ ：自动加载看板娘；</p>
+</li>
+<li class="lvl-2">
+<p>​<code>waifu.css</code>​ ：看板娘样式；</p>
+</li>
+<li class="lvl-2">
+<p>​<code>waifu-tips.js </code>​：看板娘说话的脚本；</p>
+</li>
+<li class="lvl-2">
+<p>​<code>waifu-tips.json </code>​：看板娘说话的内容；</p>
+</li>
+</ul>
+<h3 id="路径">路径</h3>
+<p>在<code> autoload.js</code>​ 的开头定义了加载看板娘的路径，注意这里需要使用绝对路径：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//注意：live2d_path参数应使用绝对路径</span></span><br><span class="line"><span class="keyword">const</span> live2d_path = <span class="string">&quot;https://cdn.jsdelivr.net/gh/leafminer/live2d-widget/&quot;</span>;</span><br><span class="line"><span class="comment">//const live2d_path = &quot;/live2d-widget/&quot;;</span></span><br></pre></td></tr></table></figure>
+<h3 id="提交到库">提交到库</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;modify position to right&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<h3 id="发布版本">发布版本</h3>
+<p>是使用了Github免费的CDN服务，所以还需要发布一个新的版本：</p>
+<h2 id="参考">参考</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLjUxY3RvLmNvbS91XzEzNjQwNjI1LzQ5MDcwODY=">【Hexo搭建个人博客】（十二）Next主题中添加超级好玩的看板娘（CDN方式）_51CTO博客_hexo next主题<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>Live2D</tag>
+        <tag>看板娘</tag>
+        <tag>CDN</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客添加关注微信导流</title>
     <url>/2024/11/01/b7b4550e6ac7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>该工具的主要功能是通过隐藏文章的部分内容，引导用户关注您的微信公众号，并回复相关关键词之后，获取解锁链接，以现在用户从网站到公众号的导流。Hexo博客接入该功能有两种方式。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>该工具的主要功能是通过隐藏文章的部分内容，引导用户关注您的微信公众号，并回复相关关键词之后，获取解锁链接，以现在用户从网站到公众号的导流。Hexo博客接入该功能有两种方式。</p>
 <span id="more"></span>
 <h2 id="注册账号">注册账号</h2>
 <ul class="lvl-0">
@@ -78,8 +393,8 @@
 <p>Hexo 整合 OpenWrite 平台的 readmore 插件,实现博客的每一篇文章自动增加阅读更多效果,关注公众号后方可解锁全站文章,从而实现博客流量导流到微信公众号粉丝目的.</p>
 <p>运行 <code>npm install</code>​ 命令安装到本地hexo博客目录，通过<code>hexo g&amp;&amp;hexo d</code>​部署到网站</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-plugin-readmore</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
-<h3 id="更新主题配置文件-config-next-yml​">更新主题配置文件 <code>_config.next.yml</code>​</h3>
-<p>在 <code>_config.next.yml</code>​ 配置文件中,配置 <code>readmore</code>​ 插件相关信息,详情见 <span class="exturl" data-url="aHR0cHM6Ly9vcGVud3JpdGUuY24vZ3VpZGUvcmVhZG1vcmUvaW5zdGFsbC1oZXhvLmh0bWw=">OpenWrite 微信公众号增长神器 &quot;ReadMore&quot; 简介<i class="fa fa-external-link-alt"></i></span>.</p>
+<h3 id="更新博客配置文件-config-yml​">更新博客配置文件 <code>_config.yml</code>​</h3>
+<p>在 <code>_config.yml</code>​ 配置文件中,配置 <code>readmore</code>​ 插件相关信息,详情见 <span class="exturl" data-url="aHR0cHM6Ly9vcGVud3JpdGUuY24vZ3VpZGUvcmVhZG1vcmUvaW5zdGFsbC1oZXhvLmh0bWw=">OpenWrite 微信公众号增长神器 &quot;ReadMore&quot; 简介<i class="fa fa-external-link-alt"></i></span>.</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">plugins:</span></span><br><span class="line">  <span class="attr">readmore:</span></span><br><span class="line">    <span class="attr">blogId:</span> <span class="number">15702</span><span class="number">-1569305559839</span><span class="number">-744</span> <span class="comment"># [必选]OpenWrite 后台申请的博客唯一标识</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">雪之梦技术驿站</span> <span class="comment"># [必选]OpenWrite 后台申请的博客名称</span></span><br><span class="line">    <span class="attr">qrcode:</span> <span class="string">https://snowdreams1006.github.io/snowdreams1006-wechat-public.jpeg</span></span><br><span class="line">    <span class="comment"># [必选]OpenWrite 后台申请的微信公众号二维码</span></span><br><span class="line">    <span class="attr">keyword:</span> <span class="string">vip</span> <span class="comment"># [必选]OpenWrite 后台申请的微信公众号后台回复关键字</span></span><br></pre></td></tr></table></figure>
 <p><strong>要替换成自己的相关配置</strong>!</p>
 <p>其中,配置参数含义如下:</p>
@@ -137,8 +452,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>公众号</tag>
         <tag>导流</tag>
         <tag>阅读全文</tag>
@@ -148,7 +463,7 @@
   <entry>
     <title>Hexo博客Next主题加入音乐播放器-SQPlayer</title>
     <url>/2024/10/30/cf403dbe36d3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>SQPlayer一个简洁到极致的单曲播放器。代码由奇趣保罗(<span class="exturl" data-url="aHR0cHM6Ly9wYXVncmFtLmNvbQ==">https://paugram.com<i class="fa fa-external-link-alt"></i></span>)原创，并遵守 MIT 开源协议。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>SQPlayer一个简洁到极致的单曲播放器。代码由奇趣保罗(<span class="exturl" data-url="aHR0cHM6Ly9wYXVncmFtLmNvbQ==">https://paugram.com<i class="fa fa-external-link-alt"></i></span>)原创，并遵守 MIT 开源协议。</p>
 <span id="more"></span>
 <h2 id="下载播放器">下载播放器</h2>
 <p>网址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RyZWFtZXItUGF1bC9TcXVhcmUtUGxheWVy">github.com<i class="fa fa-external-link-alt"></i></span></p>
@@ -166,6 +481,9 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;SQPlayer.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>/&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>修改<code>\node_modules\hexo-theme-next\layout\_layout.njk</code>​文件，添加<code>&lt;link href=&quot;SQPlayer.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</code>​</p>
 <p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730309377882-54220787-065b-4033-9683-6a36bea1d8ab.png" alt="">​</p>
+<h2 id="引入JS">引入JS</h2>
+<p><code>hexo\node_modules\hexo-theme-next\layout\_scripts\index.njk</code></p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730729590552-7dda6c06-cc97-49db-98e6-6041d6db6a05.png" alt=""></p>
 <h2 id="放置到侧边栏">放置到侧边栏</h2>
 <p>在网页 <code>body</code>​ 标签内的最后一行，或使用 <code>defer</code>​ 属性引用项目的 JS 文件 <code>SQPlayer.js</code>​。</p>
 <p>如果使用 <code>data-cid</code>​ 属性引用播放器，就写成这样，其中 <code>23682511</code>​ 就是网易云音乐一首歌的 ID。</p>
@@ -260,17 +578,17 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
-        <tag>Hexo</tag>
         <tag>音乐</tag>
         <tag>SQPlayer</tag>
+        <tag>Hexo</tag>
         <tag>播放器</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
     <title>【转载】用R语言解读凯利公式</title>
     <url>/2024/10/24/2f91b3f1804e/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1712588344529-c6787778-5607-423b-9ba3-654cac0128b7.png" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1712588344529-c6787778-5607-423b-9ba3-654cac0128b7.png" alt="">​</p>
 <span id="more"></span>
 <blockquote>
 <p><span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVucy5tZS9zZXJpZXMtaXQtZmluYW5jZS8=">用IT技术玩金融系列文章<i class="fa fa-external-link-alt"></i></span>，将介绍如何使用IT技术，处理金融大数据。在互联网混迹多年，已经熟练掌握一些IT技术。单纯地在互联网做开发，总觉得使劲的方式不对。要想靠技术养活自己，就要把技术变现。通过“跨界”可以寻找新的机会，创造技术的壁垒。</p>
@@ -522,7 +840,7 @@
   <entry>
     <title>Hexo博客Next主题启用pdf预览</title>
     <url>/2024/10/24/45415e09698e/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729710044697-25d03133-64ad-4f82-89ae-756f70a8d686.png" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729710044697-25d03133-64ad-4f82-89ae-756f70a8d686.png" alt="">​</p>
 <span id="more"></span>
 <h1>下载安装</h1>
 <p>不需要安装额外的插件，Next主题有自带<code>pdf.js</code>​文件。</p>
@@ -566,8 +884,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>pdf</tag>
         <tag>预览</tag>
         <tag>插件</tag>
@@ -576,7 +894,7 @@
   <entry>
     <title>人类还有95%的问题待解决</title>
     <url>/2024/10/23/7b5efa398b63/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h1><center>《一想到还有95%的问题留给人类，我就放心了》</center></h1>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h1><center>《一想到还有95%的问题留给人类，我就放心了》</center></h1>
 <span id="more"></span>
 <div class="pdf-container" data-target="/uploads/kepu1.pdf" data-height="500px"></div>
 <p>‍</p>
@@ -612,7 +930,7 @@
   <entry>
     <title>Hexo博客Next主题图片懒加载</title>
     <url>/2024/10/22/d852ddbbc257/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R1dXBvbGEvanF1ZXJ5X2xhenlsb2Fk">jquery-lazyload<i class="fa fa-external-link-alt"></i></span> for <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQ=">NexT<i class="fa fa-external-link-alt"></i></span></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R1dXBvbGEvanF1ZXJ5X2xhenlsb2Fk">jquery-lazyload<i class="fa fa-external-link-alt"></i></span> for <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQ=">NexT<i class="fa fa-external-link-alt"></i></span></p>
 <span id="more"></span>
 <h1>下载安装</h1>
 <p>下载<code>theme-next-jquery-lazyload</code>​</p>
@@ -649,16 +967,16 @@
         <category>其他</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>加载</tag>
-        <tag>Hexo</tag>
         <tag>图片</tag>
       </tags>
   </entry>
   <entry>
     <title>Hexo博客Next主题添加丝带背景</title>
     <url>/2024/10/22/e49567454975/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729603831901-97d71810-1f8c-40a4-9abe-bff40b36490e.png" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729603831901-97d71810-1f8c-40a4-9abe-bff40b36490e.png" alt="">​</p>
 <span id="more"></span> 
 <h1>主题配置</h1>
 <p>主题的配置文件<code>_config.next.yml</code>​</p>
@@ -685,17 +1003,17 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
-        <tag>丝带背景</tag>
+        <tag>Next</tag>
         <tag>博客</tag>
         <tag>主题</tag>
+        <tag>丝带背景</tag>
       </tags>
   </entry>
   <entry>
     <title>Hexo博客Next主题添加相关文章推荐功能</title>
     <url>/2024/10/22/9a5a0568022f/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>使用Hexo-Related-Posts插件添加相关文章推荐。<s><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">Hexo-Related-Popular-Posts<i class="fa fa-external-link-alt"></i></span><s>​</s>插件</s>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729707074765-64c65e8e-e07c-4dbe-8b5e-2bcfc623695d.png" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>使用Hexo-Related-Posts插件添加相关文章推荐。<s><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RlYTMvaGV4by1yZWxhdGVkLXBvcHVsYXItcG9zdHM=">Hexo-Related-Popular-Posts<i class="fa fa-external-link-alt"></i></span><s>​</s>插件</s>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729707074765-64c65e8e-e07c-4dbe-8b5e-2bcfc623695d.png" alt="">​</p>
 <span id="more"></span>
 <h1>Hexo-Related-Posts插件</h1>
 <h2 id="安装插件">安装插件</h2>
@@ -750,8 +1068,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>插件</tag>
         <tag>相关文章</tag>
         <tag>推荐</tag>
@@ -760,7 +1078,7 @@
   <entry>
     <title>Hexo博客Next主题添加粒子时钟特效</title>
     <url>/2024/10/22/bdadf3e2dd86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729591197719-65af965b-a50d-422a-9301-db5223ae6cc2.png" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729591197719-65af965b-a50d-422a-9301-db5223ae6cc2.png" alt="">​</p>
 <span id="more"></span>
 <h1>创建njk文件</h1>
 <p>在<code>hexo\node_modules\hexo-theme-next\layout\</code>​目录下，新建<code>clock.njk</code>​文件，内容如下：</p>
@@ -806,8 +1124,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>动态时钟</tag>
         <tag>特效</tag>
         <tag>njk</tag>
@@ -816,7 +1134,7 @@
   <entry>
     <title>【转载】Hexo博客Next主题添加暗黑夜间模式切换</title>
     <url>/2024/10/22/2cc7acb57128/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>使用<code>hexo-next-darkmode</code>​插件实现夜间模式切换。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>使用<code>hexo-next-darkmode</code>​插件实现夜间模式切换。</p>
 <span id="more"></span>
 <h1>安装</h1>
 <p>暗黑/夜间模式切换插件</p>
@@ -871,8 +1189,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>插件</tag>
         <tag>暗黑模式</tag>
       </tags>
@@ -880,7 +1198,7 @@
   <entry>
     <title>Hexo博客Next主题添加动态标签词云</title>
     <url>/2024/10/22/4de2bfd9848b/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>使用&quot;hexo-tag-cloud&quot;插件添加动态标签云。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>使用&quot;hexo-tag-cloud&quot;插件添加动态标签云。</p>
 <span id="more"></span>
 <h2 id="效果">效果</h2>
 <p><a href="https://leafminer.github.io/">损不足 - 奉有余 (leafminer.github.io)</a></p>
@@ -934,8 +1252,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>标签云</tag>
         <tag>动态</tag>
         <tag>tag_cloud</tag>
@@ -944,7 +1262,7 @@
   <entry>
     <title>【转载】 鼠标点击特效</title>
     <url>/2024/10/22/c0d92f275632/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>原文地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcXJrNjY2L3AvMTI4NzgzNjAuaHRtbA==">鼠标点击特效 - 凯哥xyz - 博客园<i class="fa fa-external-link-alt"></i></span></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>原文地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcXJrNjY2L3AvMTI4NzgzNjAuaHRtbA==">鼠标点击特效 - 凯哥xyz - 博客园<i class="fa fa-external-link-alt"></i></span></p>
 <span id="more"></span>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">  <span class="keyword">var</span> a_idx = <span class="number">0</span>;</span><br><span class="line"><span class="title function_">jQuery</span>(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  $(<span class="string">&quot;body&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="string">&quot;富强&quot;</span>, <span class="string">&quot;民主&quot;</span>, <span class="string">&quot;文明&quot;</span>, <span class="string">&quot;和谐&quot;</span>, <span class="string">&quot;自由&quot;</span>, <span class="string">&quot;平等&quot;</span>, <span class="string">&quot;公正&quot;</span> ,<span class="string">&quot;法治&quot;</span>, <span class="string">&quot;爱国&quot;</span>, <span class="string">&quot;敬业&quot;</span>, <span class="string">&quot;诚信&quot;</span>, <span class="string">&quot;友善&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> $i = $(<span class="string">&quot;&lt;span/&gt;&quot;</span>).<span class="title function_">text</span>(a[a_idx]);</span><br><span class="line">    a_idx = (a_idx + <span class="number">1</span>) % a.<span class="property">length</span>;</span><br><span class="line">    <span class="keyword">var</span> x = e.<span class="property">pageX</span>,</span><br><span class="line">      y = e.<span class="property">pageY</span>;</span><br><span class="line">    $i.<span class="title function_">css</span>(&#123;</span><br><span class="line">      <span class="string">&quot;z-index&quot;</span>: <span class="number">999999999999999999999999999999999999999999999999999999999999999999999</span>,</span><br><span class="line">      <span class="string">&quot;top&quot;</span>: y - <span class="number">20</span>,</span><br><span class="line">      <span class="string">&quot;left&quot;</span>: x,</span><br><span class="line">      <span class="string">&quot;position&quot;</span>: <span class="string">&quot;absolute&quot;</span>,</span><br><span class="line">      <span class="string">&quot;font-weight&quot;</span>: <span class="string">&quot;bold&quot;</span>,</span><br><span class="line">      <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#ff6651&quot;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">&quot;body&quot;</span>).<span class="title function_">append</span>($i);</span><br><span class="line">    $i.<span class="title function_">animate</span>(&#123;</span><br><span class="line">      <span class="string">&quot;top&quot;</span>: y - <span class="number">180</span>,</span><br><span class="line">      <span class="string">&quot;opacity&quot;</span>: <span class="number">0</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="number">1500</span>,</span><br><span class="line"><span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">$i.<span class="title function_">remove</span>();</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>接着插入一段引用js</p>
@@ -981,7 +1299,7 @@
   <entry>
     <title>Hexo博客Next主题修改加载特效</title>
     <url>/2024/10/22/f85ae47c487c/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>修改主题配置文件<code>_config.next.yml</code></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>修改主题配置文件<code>_config.next.yml</code></p>
 <span id="more"></span>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pace:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># All available colors:</span></span><br><span class="line">  <span class="comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">black</span></span><br><span class="line">  <span class="comment"># All available themes:</span></span><br><span class="line">  <span class="comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span></span><br><span class="line">  <span class="comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">loading-bar</span></span><br></pre></td></tr></table></figure>
 <h1>参考</h1>
@@ -1008,16 +1326,16 @@
         <category>其他</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>加载</tag>
-        <tag>Hexo</tag>
         <tag>pace</tag>
       </tags>
   </entry>
   <entry>
     <title>Hexo博客Next主题解决不显示外链图片的问题</title>
     <url>/2024/10/22/68f75ac070e2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p><strong>问题描述:</strong> Hexo文章中采用外链加载的图片无法显示。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><strong>问题描述:</strong> Hexo文章中采用外链加载的图片无法显示。</p>
 <span id="more"></span>
 <h1>问题原因</h1>
 <p>防盗链。部分网站不允许图片外链，只允许本网站才能显示图片，外部网站加载图片就会报错。通过对请求方的 <strong>Referer</strong> 进行判断过滤，确认是否可以访问。</p>
@@ -1049,8 +1367,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>图片显示</tag>
         <tag>防盗链</tag>
         <tag>meta</tag>
@@ -1059,7 +1377,7 @@
   <entry>
     <title>Hexo博客Next主题添加动态标题</title>
     <url>/2024/10/21/8803d6a9e06d/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>直接在<code>hexo\node_modules\hexo-theme-next\layout\_layout.njk</code>​文件中添加如下代码：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>直接在<code>hexo\node_modules\hexo-theme-next\layout\_layout.njk</code>​文件中添加如下代码：</p>
 <span id="more"></span>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> <span class="title class_">OriginTitile</span>=<span class="variable language_">document</span>.<span class="property">title</span>,st;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;visibilitychange&quot;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">hidden</span>?(<span class="variable language_">document</span>.<span class="property">title</span>=<span class="string">&quot;ヽ(●-`Д´-)ノ别走啊！&quot;</span>,<span class="built_in">clearTimeout</span>(st)):(<span class="variable language_">document</span>.<span class="property">title</span>=<span class="string">&quot;(Ő∀Ő3)ノ来了啊！&quot;</span>,st=<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">document</span>.<span class="property">title</span>=<span class="title class_">OriginTitile</span>&#125;,<span class="number">3e3</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729158708074-c3c3fbe9-a4ea-45ae-8ba8-760cb5514c17.png" alt="">​</p>
@@ -1087,8 +1405,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>博客</tag>
         <tag>主题</tag>
         <tag>动态标题</tag>
@@ -1097,7 +1415,7 @@
   <entry>
     <title>Hexo博客Next主题添加公众号二维码</title>
     <url>/2024/10/21/be743ddf561b/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>通过改动模板文件，在侧边栏和文章底部添加公众号二维码。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>通过改动模板文件，在侧边栏和文章底部添加公众号二维码。</p>
 <span id="more"></span> 
 <h2 id="添加到Next主题侧边栏">添加到Next主题侧边栏</h2>
 <ol>
@@ -1138,18 +1456,18 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>博客</tag>
-        <tag>主题</tag>
         <tag>公众号</tag>
+        <tag>主题</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
   <entry>
     <title>【转载】 Hexo 的一些冷门小问题——category_map和permalink</title>
     <url>/2024/10/21/b74b8ec7e417/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>初入 Hexo 模板开发，难免要熟悉 Hexo 程序本身的一些特性和使用操作，于是就立下了这篇博文，之后也会陆陆续续进行更新和完善。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>初入 Hexo 模板开发，难免要熟悉 Hexo 程序本身的一些特性和使用操作，于是就立下了这篇博文，之后也会陆陆续续进行更新和完善。</p>
 <span id="more"></span>
 <h2 id="分类名改成英文">分类名改成英文</h2>
 <p>分类名称默认是你在文章里面设置的，如果是中文分类名，那么路径名也是中文了，特别别扭。我在文档上查到了一个名为 <code>category_map</code>​ 的设置项，但文档上并没有详细的说明。直到我看到这个 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcy85MDg=">Issue<i class="fa fa-external-link-alt"></i></span> 之后瞬间明白，就是一个键值对嘛。</p>
@@ -1197,7 +1515,7 @@
   <entry>
     <title>Hexo博客Next主题添加每日早报</title>
     <url>/2024/10/21/1d2a6f85d3f7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>通过Alapi提供的API实现每日早报的生成并在hexo博客中展示。​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729504809997-7a6f9e65-e4bb-41fe-9f1e-8f87be2a1892.png?x-oss-process=image%2Fcrop%2Cx_0%2Cy_0%2Cw_658%2Ch_244" alt="">​</p>
 <span id="more"></span>
 <h1>Alapi官网注册</h1>
 <p>Alapi官网地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxhcGkuY24v">https://www.alapi.cn/<i class="fa fa-external-link-alt"></i></span></p>
@@ -1248,7 +1566,7 @@
   <entry>
     <title>【转载】Hexo博客添加背景动态效果</title>
     <url>/2024/10/19/dc63ecb1142e/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>Next 8.0.2 之后，Canvas_nest不再被原生支持。所以需要在<code>hexo/source/_data/</code>​下创建<code>footer.njk</code>​文件<br>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>Next 8.0.2 之后，Canvas_nest不再被原生支持。所以需要在<code>hexo/source/_data/</code>​下创建<code>footer.njk</code>​文件<br>
 在文件中添加</p>
 <span id="more"></span> 
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script color=<span class="string">&quot;0,0,255&quot;</span> opacity=<span class="string">&quot;0.5&quot;</span> zIndex=<span class="string">&quot;-1&quot;</span> count=<span class="string">&quot;99&quot;</span> src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js&quot;</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -1278,8 +1596,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>博客</tag>
         <tag>动态背景</tag>
       </tags>
@@ -1287,7 +1605,7 @@
   <entry>
     <title>用npm升级Hexo版本</title>
     <url>/2024/10/19/b90e47c7e5a0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>使用npm命令简单快捷的升级Hexo，主题和插件的版本。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>使用npm命令简单快捷的升级Hexo，主题和插件的版本。</p>
 <h2 id="注意：">注意：</h2>
 <p>更新主题和插件，会覆盖修改的内容，提前备份。Next主题配置文件’_config.next.yml’最好放在博客根目录下。</p>
 <span id="more"></span> 
@@ -1332,8 +1650,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>博客</tag>
         <tag>笔记</tag>
         <tag>升级</tag>
@@ -1342,7 +1660,7 @@
   <entry>
     <title>对博客内文章进行分类(categories)和添加标签(tags)</title>
     <url>/2024/10/19/4625d0b7ed27/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>之前在博文没有对分类和标签进行过有序整理，基本上想到什么，就随便写一下。随着博文数量的增多，这种随意性会带来很多麻烦。因此在这里对其定义一下，以整理好当前及之后的博文。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>之前在博文没有对分类和标签进行过有序整理，基本上想到什么，就随便写一下。随着博文数量的增多，这种随意性会带来很多麻烦。因此在这里对其定义一下，以整理好当前及之后的博文。</p>
 <span id="more"></span> 
 <h2 id="原则">原则</h2>
 <table>
@@ -1481,7 +1799,7 @@
   <entry>
     <title>平时使用的字体讲究还挺多</title>
     <url>/2024/10/19/391b7a4df277/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>字体，作为文字的外观形式，具有特定的风格和设计。在计算机领域中，字体是指由一系列具有相同风格或主题的字符（如字母、数字、标点等）所组成的集合，这些字符通常被设计为一个特定的尺寸，但也可以进行缩放以适应不同的显示或打印需求。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>字体，作为文字的外观形式，具有特定的风格和设计。在计算机领域中，字体是指由一系列具有相同风格或主题的字符（如字母、数字、标点等）所组成的集合，这些字符通常被设计为一个特定的尺寸，但也可以进行缩放以适应不同的显示或打印需求。</p>
 <span id="more"></span> 
 <p>从设计角度看，字体不仅仅是文字的外观，更是文化和艺术的一种表现形式。每一种字体都反映了其设计者的审美观念、创作意图和时代背景。字体还承载着信息的传递功能。不同的字体风格可以传达不同的情感和信息。此外，字体的大小、颜色、行距等排版因素也会影响信息的可读性和视觉效果。在排版和设计中，选择合适的字体至关重要。不同的字体适用于不同的场景和目的。例如，在正式的文档或报告中，通常使用简洁、易读的字体，以确保信息的清晰传递；而在广告或宣传材料中，则可能使用更具个性和吸引力的字体来吸引观众的注意力。</p>
 <p><strong>Microsoft office Word 中的字体列表</strong></p>
@@ -1688,7 +2006,7 @@
   <entry>
     <title>Hexo博客Next主题添加algolia搜索</title>
     <url>/2024/10/18/c5cd3b3780fc/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>为Hexo博客系统中的Next主题添加Algolia搜索功能</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>为Hexo博客系统中的Next主题添加Algolia搜索功能</p>
 <span id="more"></span> 
 <h2 id="注册Sign-in-Algolia">注册<span class="exturl" data-url="aHR0cHM6Ly9kYXNoYm9hcmQuYWxnb2xpYS5jb20vdXNlcnMvc2lnbl9pbg==">Sign in | Algolia<i class="fa fa-external-link-alt"></i></span></h2>
 <p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729186832132-e842bb62-33ef-4af4-816a-6ff74a4e093e.png" alt="">​</p>
@@ -1745,10 +2063,10 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
-        <tag>博客</tag>
+        <tag>Next</tag>
         <tag>搜索</tag>
+        <tag>博客</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
       </tags>
@@ -1756,7 +2074,7 @@
   <entry>
     <title>【文献阅读】药食两用的枸杞属</title>
     <url>/2024/10/15/74a70a62f3b4/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>枸杞(<em>Lycium barbarum</em> and <em>Lycium chinense</em>)作为国内的保健品，深受人们喜爱。它既是中药，也是饮食中常用的调料。很多人也将枸杞饮品，当做养生职务。尽管它如此受欢迎，但是现有研究仍缺少对枸杞完整而严格的价值评估。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>枸杞(<em>Lycium barbarum</em> and <em>Lycium chinense</em>)作为国内的保健品，深受人们喜爱。它既是中药，也是饮食中常用的调料。很多人也将枸杞饮品，当做养生职务。尽管它如此受欢迎，但是现有研究仍缺少对枸杞完整而严格的价值评估。</p>
 <span id="more"></span> 
 <hr>
 <h4 id="研究目的">研究目的</h4>
@@ -1812,7 +2130,7 @@
   <entry>
     <title>“病”的来历——病是个体与环境的冲突</title>
     <url>/2024/10/10/ec06eeb0adff/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p><font style="color:rgb(37, 66, 100);">对于“疾病”，新华字典和汉语词典的解释有：</font></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><font style="color:rgb(37, 66, 100);">对于“疾病”，新华字典和汉语词典的解释有：</font></p>
 <blockquote>
 <p><strong><font style="color:rgb(37, 66, 100);">疾</font></strong><font style="color:rgb(37, 66, 100);">： 病，身体不舒适</font></p>
 <p><strong><font style="color:rgb(37, 66, 100);">病</font></strong><font style="color:rgb(37, 66, 100);">：生物体发生不健康的现象</font></p>
@@ -1870,7 +2188,7 @@
   <entry>
     <title>大模型读文献之腾讯元宝--深度阅读</title>
     <url>/2024/09/25/e2a7186bc189/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h2 id="font-style-color-rgba-0-0-0-0-9-简介-font"><font style="color:rgba(0, 0, 0, 0.9);">简介</font></h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="font-style-color-rgba-0-0-0-0-9-简介-font"><font style="color:rgba(0, 0, 0, 0.9);">简介</font></h2>
 <p><font style="color:rgba(0, 0, 0, 0.9);">腾讯元宝的深度阅读模式是一种创新的阅读方式，它利用人工智能技术，为用户提供了一种全新的长文阅读体验。这种模式不仅能够处理大量文本，还能生成图文并茂的内容，极大地提升了阅读效率和理解深度。</font></p>
 <span id="more"></span> 
 <h2 id="font-style-color-rgba-0-0-0-0-9-深度阅读模式的特点-font"><font style="color:rgba(0, 0, 0, 0.9);">深度阅读模式的特点</font></h2>
@@ -1936,7 +2254,7 @@
   <entry>
     <title>蛋白互作网络PPI分析流程示例</title>
     <url>/2024/09/25/35832a441121/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p><font style="color:rgb(25, 27, 31);">蛋白互作网络（PPI, Protein-Protein Interaction Networks）可以查看基因之间的联系，进而锁定关键基因。一般使用STRING数据库获取蛋白互作信息。</font></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><font style="color:rgb(25, 27, 31);">蛋白互作网络（PPI, Protein-Protein Interaction Networks）可以查看基因之间的联系，进而锁定关键基因。一般使用STRING数据库获取蛋白互作信息。</font></p>
 <span id="more"></span> 
 <p><font style="color:rgb(25, 27, 31);">STRING数据库：</font><span class="exturl" data-url="aHR0cHM6Ly9jbi5zdHJpbmctZGIub3JnL2NnaS9pbnB1dD9zZXNzaW9uSWQ9YmRiUXh1UjdWZjFJJmlucHV0X3BhZ2Vfc2hvd19zZWFyY2g9b24=">STRING: functional protein association networks (string-db.org)<i class="fa fa-external-link-alt"></i></span></p>
 <p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1726236168597-fa4b7dc9-3e68-4f4a-a1c4-791d5b326152.png" alt=""></p>
@@ -2069,7 +2387,7 @@
   <entry>
     <title>【翻译】什么是兔子洞效应？--为什么上网有瘾</title>
     <url>/2024/09/07/916f7cda781a/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>原文链接：<span class="exturl" data-url="aHR0cHM6Ly9hd2llYmUub3JnL2VuL3JhYmJpdC1ob2xlLWVmZmVjdC8=">What is the rabbit hole effect? (awiebe.org)<i class="fa fa-external-link-alt"></i></span></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>原文链接：<span class="exturl" data-url="aHR0cHM6Ly9hd2llYmUub3JnL2VuL3JhYmJpdC1ob2xlLWVmZmVjdC8=">What is the rabbit hole effect? (awiebe.org)<i class="fa fa-external-link-alt"></i></span></p>
 <p>&quot;兔子洞效应&quot;一词在当今数字世界中被广泛使用，它描述了这样一种现象：当一个人原本只是在寻找一条简单的信息时，却往往不自觉地深入到一个或一组特定的主题中去。这种现象得名于刘易斯-卡罗尔的《爱丽丝梦游仙境》中著名的兔子洞，爱丽丝掉进兔子洞后，突然发现自己置身于一个奇异而迷人的世界。<u>在数字时代，我们经常在网上体验到这种现象，因为我们会从一个话题转到下一个话题，从而忘记了时间。</u></p>
 <span id="more"></span> 
 <h2 id="起源和意义">起源和意义</h2>
@@ -2130,7 +2448,7 @@
   <entry>
     <title>《高效阅读》--渡边康弘</title>
     <url>/2024/08/20/51029141b91f/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><table>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><table>
 <thead>
 <tr>
 <th><strong>书名</strong></th>
@@ -2227,7 +2545,7 @@
   <entry>
     <title>R语言--果蝇攀爬--ImageJ测量数据处理</title>
     <url>/2024/07/03/c8db0b087a94/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h2 id="目的">目的</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="目的">目的</h2>
 <p>处理ImageJ测量的果蝇攀爬数据</p>
 <span id="more"></span> 
 <h2 id="实例">实例</h2>
@@ -2264,7 +2582,7 @@
   <entry>
     <title>Process--&gt;Noise&#92;Filters笔记</title>
     <url>/2024/06/11/7890000bc707/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h1>Process–&gt;Noise\Filters笔记</h1>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h1>Process–&gt;Noise\Filters笔记</h1>
 <h2 id="Noise">Noise</h2>
 <p><img data-src="./imgs/20240605_223251_00000.png" alt=""><br>
 <strong>Add noise</strong> 对图片增加随机噪声，噪声服从均值为0、标准差为25的高斯分布。<br>
@@ -2332,7 +2650,7 @@
   <entry>
     <title>Web API--学习笔记（1）</title>
     <url>/2024/05/29/15d7b13129c0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h2 id="简介">简介</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="简介">简介</h2>
 <p>应用程序接口（<strong>API</strong>，Application Programming Interface）是基于编程语言构建的结构，使开发人员更容易地创建复杂的功能。它们抽象了复杂的代码，并提供一些简单的接口规则直接使用。</p>
 <span id="more"></span> 
 <blockquote>
@@ -2414,7 +2732,7 @@
   <entry>
     <title>ImageJ--自动将源图或堆栈与目标图配准--StackReg插件</title>
     <url>/2024/05/23/d5d33bdaa68f/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p><a name="e05dce83"></a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><a name="e05dce83"></a></p>
 <h2 id="简介">简介</h2>
 <p>StackReg，用于递归对齐图像堆栈（stack）的 ImageJ 插件。<br /><strong>作者：</strong> Philippe Thévenaz, Biomedical Imaging Group, Swiss Federal Institute of Technology Lausanne</p>
 <span id="more"></span>
@@ -2515,15 +2833,15 @@
       <tags>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>图像配准</tag>
         <tag>stack</tag>
         <tag>StackReg</tag>
+        <tag>图像配准</tag>
       </tags>
   </entry>
   <entry>
     <title>R语言--批量解压文件--示例</title>
     <url>/2024/05/23/979fc3b16655/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h2 id="目的">目的</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="目的">目的</h2>
 <p>用R语言批量解压文件到指定目录</p>
 <span id="more"></span> 
 <h2 id="实例">实例</h2>
@@ -2558,7 +2876,7 @@
   <entry>
     <title>ImageJ--形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释-TrakEM2简介</title>
     <url>/2024/05/16/4681ff84ccf3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>TrakEM2 是一个 ImageJ 插件，用于形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>TrakEM2 是一个 ImageJ 插件，用于形态学数据挖掘、三维建模以及图像拼接、配准、编辑和注释。</p>
 <span id="more"></span> 
 <h2 id="设备要求">设备要求</h2>
 <p>要运行 TrakEM2，该为 Fiji 的 JVM 分配多少内存？<br>
@@ -2704,16 +3022,16 @@
       <tags>
         <tag>笔记</tag>
         <tag>ImageJ</tag>
+        <tag>图像配准</tag>
         <tag>图像拼接</tag>
         <tag>TrakEM2</tag>
         <tag>简介</tag>
-        <tag>图像配准</tag>
       </tags>
   </entry>
   <entry>
     <title>R语言--SimpleITK</title>
     <url>/2024/05/16/ef7e309aa1eb/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p><strong>SimpleITK</strong> 是 Insight 工具包（ITK）算法和数据结构的简化编程接口。它支持多种编程语言的接口，包括 C++、Python、R、Java、C#、Lua、Ruby 和 TCL。这些绑定使科学家能够用他们最熟悉的编程语言开发图像分析工作流。该工具包支持 15 种以上不同的图像文件格式，提供 280 多种图像分析过滤器，并为 ITK 基于强度的配准框架实现了统一接口。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><strong>SimpleITK</strong> 是 Insight 工具包（ITK）算法和数据结构的简化编程接口。它支持多种编程语言的接口，包括 C++、Python、R、Java、C#、Lua、Ruby 和 TCL。这些绑定使科学家能够用他们最熟悉的编程语言开发图像分析工作流。该工具包支持 15 种以上不同的图像文件格式，提供 280 多种图像分析过滤器，并为 ITK 基于强度的配准框架实现了统一接口。</p>
 <span id="more"></span>
 <h2 id="特点">特点</h2>
 <p>使用 Python、R、Java、C#、Lua、Ruby、TCL 和 C++ 进行开源多维图像分析。由 Insight 工具包社区为生物医学科学及其他领域开发。</p>
@@ -2766,7 +3084,7 @@
   <entry>
     <title>从出生那天开始，你就是“局外人”</title>
     <url>/2024/05/10/51fa0d872217/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h2 id="你">你</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="你">你</h2>
 <p>如果你是中国的90后，那你的出生就已经是个错误。这个错是谁跟你定的呢？谁管呢，谁让你赶在了这个糟糕的年代。</p>
 <span id="more"></span>
 <p>20世纪90年代正是计划生育实行最没“人性”的时代，你出生了。不是独生子，就是“计划外”。独生子的你以后要独自承担这个家，而计划外的你现在就要面临活下去的困难。好了，挨过了出生这道屏障。上小学到5年级，突然多了一个6年级。<br>
@@ -2823,7 +3141,7 @@
   <entry>
     <title>ImageJ--Feature Finder插件</title>
     <url>/2024/05/09/0673e2301734/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p><img data-src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><img data-src="/images/feature-finder-screenshot.jpg=100x100" alt=""><br>
 <strong>Feature Finder</strong> 是ImageJ 中的图像模板匹配（Template Matching）插件，用于查找与原型（模板）相同或相似的特征。&quot;相似 &quot;是指图像与原型之间的均方偏差应该很小。</p>
 <span id="more"></span> 
 <p><img data-src="/images/20240509_223918_00000.png" alt=""></p>
@@ -2972,7 +3290,7 @@
   <entry>
     <title>Hexo新建文章及发布指令--笔记</title>
     <url>/2024/05/08/eda54285e852/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>使用Git部署文章的命令</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>使用Git部署文章的命令</p>
 <span id="more"></span> 
 <blockquote>
 <h1>完成后部署</h1>
@@ -3071,7 +3389,7 @@
   <entry>
     <title>RNA-Seq Count数据的标准化(RPKM, FPKM, TPM)-学习笔记</title>
     <url>/2023/09/21/037b43cd53d9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>测序得到的 <strong>read counts</strong> 数量会受到多种因素的影响，如 <strong>测序深度</strong> 和 <strong>基因长度</strong> 。除了上述两个主要因素外，还会有其他因素对read counts的检测有所影响，例如转录组的组成，GC含量，random hexamers引起的测序偏好等等。因此测序得到的read counts需要标准化后才能进行比较。标准化的方式有 <strong>RPKM</strong> ， <strong>FPKM</strong>， <strong>TPM</strong> 。其中TPM被更多人认可。</p>
 <span id="more"></span> 
 <p><strong>RPKM:</strong> Reads per kilo base per million mapped reads (single-end sequencing)</p>
 <p><strong>FPKM:</strong> Fragments per kilo base per million mapped reads (paired-end sequencing)</p>
@@ -3196,7 +3514,7 @@
   <entry>
     <title>R语言--爬取小说-战略级天使</title>
     <url>/2021/05/04/290fbc002946/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><h2 id="目的">目的</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="目的">目的</h2>
 <p>小说离线阅读,保存。练习R语言。示例网站：https://www.-----.com/yuedu/15111/</p>
 <span id="more"></span> 
 <h2 id="实例">实例</h2>
@@ -3231,7 +3549,7 @@
   <entry>
     <title>Hello World</title>
     <url>/2021/01/01/145a1920f348/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="vip-container"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
 <span id="more"></span> 
 <h2 id="快速开始">快速开始</h2>
 <h3 id="创建文章">创建文章</h3>
