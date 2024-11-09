@@ -48,6 +48,37 @@
   </entry>
   
   <entry>
+    <title>快速高效地构建ML树——IQ-TREE安装和使用示例</title>
+    <link href="https://leafminer.github.io/2024/11/06/d4fa8f53fea0/"/>
+    <id>https://leafminer.github.io/2024/11/06/d4fa8f53fea0/</id>
+    <published>2024-11-06T12:19:27.000Z</published>
+    <updated>2024-11-09T04:12:49.122Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731116365649-8f7d2b15-847e-420b-81e9-1d8a0ab96f53.png" alt="">​</p><h3 id="IQ-TREE">IQ-TREE</h3><p>IQ-TREE是一款专为系统发育分析设计的软件工具，其核心功能涵盖系统发育树的推断、统计模型的选择以及结果的综合评估。在系统发育基因组学领域，该学科专注于从全基因组视角探索不同生物种类或个体间的进化联系及其历史背景。通过处理并对比海量的遗传信息，IQ-TREE能够构建出反映这些生物间演化路径的系统发育树。相较于同类软件如RAxML和PhyML，IQ-TREE展现出更为优越的表现力。此外，除了提供传统意义上的本地安装选项外，用户也可以选择访问其在线版本进行操作。</p><span id="more"></span><p><span class="exturl" data-url="aHR0cDovL2lxdHJlZS5jaWJpdi51bml2aWUuYWMuYXQv">http://iqtree.cibiv.univie.ac.at/<i class="fa fa-external-link-alt"></i></span><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731118196330-48ec685b-e807-4905-9e91-77807b7fc142.png" alt="">​</p><h3 id="下载安装">下载安装</h3><p>官网：<span class="exturl" data-url="aHR0cDovL3d3dy5pcXRyZWUub3JnLw==">http://www.iqtree.org/<i class="fa fa-external-link-alt"></i></span> 点击最新版本<code>Download v2.3.6 for Windows</code>​ 下载。</p><p>解压，并将<code>iqtree2</code>​根据文件位置添加到系统路径中。快捷键<code>Win+r</code>​输入<code>cmd</code>​，打开命令提示符，输入：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path %path%;E:\soft\iqtree<span class="literal">-2</span>.<span class="number">3.6</span><span class="literal">-Windows</span>\bin</span><br><span class="line">iqtree2 <span class="literal">-version</span></span><br></pre></td></tr></table></figure><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731117517021-1c807c76-abe1-4cdb-9b70-266e6144046c.png" alt="">​</p><p>输入<code>iqtree2 -version</code>​可以查看是否添加成功。</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731117605573-c06d81fc-cbb5-4d44-a150-fb94dad4ceb8.png" alt="">​</p><h3 id="使用帮助">使用帮助</h3><p>通过<code>iqtree2 -h</code>​命令查看相关命令帮助，</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731117884624-89ad900f-5582-43fa-a095-6eb34ab579c0.png" alt="">​</p><p>也可以看官网上的帮助文档。</p><p><span class="exturl" data-url="aHR0cDovL3d3dy5pcXRyZWUub3JnL2RvYy8=">http://www.iqtree.org/doc/<i class="fa fa-external-link-alt"></i></span>### 使用示例</p><p>准备好已经比对的序列文件，可以是以下这些格式：</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731119661134-32d56b52-a93f-44df-8045-30e7bd44f90d.png" alt="">​</p><h4 id="在线使用">在线使用</h4><ol><li class="lvl-3"><p>导入比对的序列数据。</p></li></ol><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731119632685-e31047bf-bd7c-420d-b840-099a2a4359bc.png" alt="">​</p><ol start="2"><li class="lvl-3"><p>软件会自动选择最佳模型。</p></li></ol><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731119808481-56cb3f96-9ab0-4701-9434-1336468afa4b.png" alt="">​</p><ol start="3"><li class="lvl-3"><p>自举检验1000次，都是默认选项，不用动。</p></li></ol><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731119869446-9935865d-7903-4c78-89d9-8999eec91337.png" alt="">​</p><ol start="4"><li class="lvl-3"><p>IQTree的参数。</p></li></ol><p>对于包含许多短序列的数据集，作者建议使用较小的扰动强度（-pers）和较大的-numstop值。较小的扰动强度意味着算法在搜索过程中的随机性较小，而较大的-numstop值意味着算法会在达到某个阈值之前继续搜索，这有助于算法在短序列数据集中找到更好的解。</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731120304585-7ffd691d-e194-4975-aba9-e1f6bf35d6f5.png" alt="">​</p><ol start="5"><li class="lvl-3"><p>输入邮箱地址，点击提交。运行结束后结果会发送到邮箱。</p></li></ol><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731120470118-63f1fd1a-c4a3-4e27-b3fb-144bee6e877e.png" alt="">​</p><p>保存提交后正在运行的链接，等结束后可以通过该链接下载结果文件。</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731120567802-6438ba0e-1c3d-43ca-8ea0-2a427a9e0bb1.png" alt="">​</p><p><strong>结果文件说明</strong>：</p><table><thead><tr><th><strong>Suffix</strong></th><th><strong>Explanation</strong></th></tr></thead><tbody><tr><td>​<code>.iqtree</code>​</td><td>运行的完整结果，是主报告文件。</td></tr><tr><td>​<code>.log</code>​</td><td>运行日志</td></tr><tr><td>​<code>.treefile</code>​</td><td>最大似然树以NEWICK格式表示，可以使用树形查看器程序进行可视化。</td></tr><tr><td>​<code>.svg</code>​</td><td>SVG格式的树图文件。</td></tr><tr><td>​<code>.pdf</code>​</td><td>pdf格式的树图文件。</td></tr><tr><td>​<code>.contree</code>​</td><td>带有分配的分支支持的<code>Consensus tree</code>​，其中分支长度基于原始比对进行了优化；如果选择了<code>Ultrafast Bootstrap</code>​，则会打印此树。</td></tr><tr><td>​<code>.ckp.gz</code>​</td><td>检查点文件；如果进程因RAM/CPU限制而停止，则会包含此文件。</td></tr></tbody></table><hr><h4 id="本地使用">本地使用</h4><ol><li class="lvl-3"><p>打开命令提示符：</p></li></ol><ul class="lvl-0"><li class="lvl-2"><p>点击Windows屏幕左下角的“开始”菜单。在搜索框中输入“cmd”并按回车键，打开命令提示符窗口。</p></li><li class="lvl-2"><p>或者快捷键<code>Win+r</code>​输入<code>cmd</code>​，打开命令提示符。</p></li></ul><ol start="2"><li class="lvl-3"><p>命令提示符窗口中输入运行示例：</p></li></ol><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iqtree2 <span class="literal">-s</span> E:\Desktop\果蝇心管自噬\<span class="number">2024</span>分析作图原始数据\<span class="number">20241010</span>_DHC_Atgs_pro_align.fas <span class="literal">-m</span> MFP <span class="literal">-B</span> <span class="number">1000</span> <span class="literal">-T</span> AUTO </span><br></pre></td></tr></table></figure><p>​<code>iqtree2 -s E:\Desktop\果蝇心管自噬\2024分析作图原始数据\20241010_DHC_Atgs_pro_align.fas -m MFP -B 1000 -T AUTO -o outgroup_name</code>​</p><ul class="lvl-0"><li class="lvl-2"><p>​<code>-s</code>​：比对好的fas格式文件</p></li><li class="lvl-2"><p>​<code>-m MFP</code>​：自动选择测试的最佳模型并建树</p></li><li class="lvl-2"><p>​<code>-B 1000</code>​：bootstrap检验次数</p></li><li class="lvl-2"><p>​<code>-o outgroup_name</code>​：选择外群</p></li></ul><ol start="3"><li class="lvl-3"><p>等待运行结束，生成的文件在比对文件夹中，比如<code>E:\Desktop\果蝇心管自噬\2024分析作图原始数据\</code>​</p></li></ol><p>生成的文件：</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731125349444-e313d484-78ab-4c50-ae12-4dc9fe02fc5b.png" alt="">​</p><h3 id="参考">参考</h3><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3M/c3JjPTExJnRpbWVzdGFtcD0xNzMxMTE1NTY0JnZlcj01NjE3JnNpZ25hdHVyZT16M2VhY3J6a3ZkTjRFbFByQ2dnemIyRmpUVU5DWlRLZXJoMEtJMXAtQk9wMDVaa1NpVWRCM2JOWnc3SW9EbVZ5Zlp6Q25oTVFHcGdHZUlnbDlRUVdVZ1BxLUpPZE8tRlZVeWo3MjktdHo1VTRSQXZjY1BxUm4xcExGWnJyTWpTRCZuZXc9MQ==">【软件速览】IQ-TREE：构建ML树<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p><span class="exturl" data-url="aHR0cDovL3d3dy5pcXRyZWUub3JnL2RvYy9XZWItU2VydmVyLVR1dG9yaWFs">Web Server Tutorial<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p><span class="exturl" data-url="aHR0cDovL3d3dy5pcXRyZWUub3JnL2RvYy9RdWlja3N0YXJ0">Getting Started<i class="fa fa-external-link-alt"></i></span></p></li></ol></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2024/png/12885947/1731116365649-8f7d2b15-847e-420b-81e9-1d8a0ab96f53.png&quot; alt=&quot;&quot;&gt;​&lt;/p&gt;
+&lt;h3 id=&quot;IQ-TREE&quot;&gt;IQ-TREE&lt;/h3&gt;
+&lt;p&gt;IQ-TREE是一款专为系统发育分析设计的软件工具，其核心功能涵盖系统发育树的推断、统计模型的选择以及结果的综合评估。在系统发育基因组学领域，该学科专注于从全基因组视角探索不同生物种类或个体间的进化联系及其历史背景。通过处理并对比海量的遗传信息，IQ-TREE能够构建出反映这些生物间演化路径的系统发育树。相较于同类软件如RAxML和PhyML，IQ-TREE展现出更为优越的表现力。此外，除了提供传统意义上的本地安装选项外，用户也可以选择访问其在线版本进行操作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="原创" scheme="https://leafminer.github.io/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    <category term="工作" scheme="https://leafminer.github.io/categories/%E5%8E%9F%E5%88%9B/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+    <category term="ML树" scheme="https://leafminer.github.io/tags/ML%E6%A0%91/"/>
+    
+    <category term="IQ-TREE" scheme="https://leafminer.github.io/tags/IQ-TREE/"/>
+    
+    <category term="系统发育" scheme="https://leafminer.github.io/tags/%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2/"/>
+    
+    <category term="发育树" scheme="https://leafminer.github.io/tags/%E5%8F%91%E8%82%B2%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo博客Next主题加入音乐播放器-Aplayer</title>
     <link href="https://leafminer.github.io/2024/11/05/b4e5a4c77d8e/"/>
     <id>https://leafminer.github.io/2024/11/05/b4e5a4c77d8e/</id>
@@ -602,39 +633,6 @@
     <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
     
     <category term="动态标题" scheme="https://leafminer.github.io/tags/%E5%8A%A8%E6%80%81%E6%A0%87%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客Next主题添加公众号二维码</title>
-    <link href="https://leafminer.github.io/2024/10/21/be743ddf561b/"/>
-    <id>https://leafminer.github.io/2024/10/21/be743ddf561b/</id>
-    <published>2024-10-21T13:53:30.000Z</published>
-    <updated>2024-10-23T17:26:22.086Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>通过改动模板文件，在侧边栏和文章底部添加公众号二维码。</p><span id="more"></span> <h2 id="添加到Next主题侧边栏">添加到Next主题侧边栏</h2><ol><li class="lvl-3"><p>将图片放入博客根目录下的./themes/next/source/images/目录中，并将图片改名为wechat_channel.png</p></li><li class="lvl-3"><p>编辑<code>themes/next/layout/_macro/sidebar.njk</code>​文件。</p></li></ol><p>在里面搜索theme.back2top.enable，在这个if语句之后添加下面的代码</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wechat_channel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 这里添加你的二维码图片 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> =<span class="string">&quot;/images/wechat_channel.png&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;span&gt;公众号&lt;/span&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1729194189399-62740420-6785-4412-ae43-3bc898002824.png" alt="">​</p><h2 id="添加到文章底部">添加到文章底部</h2><p>编辑themes/next/layout/_partials/post/post-copyright.njk文件，在底部的&lt;/div&gt;上面增加下述代码，</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wechat_channel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 这里添加你的二维码图片 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> =<span class="string">&quot;/images/wechat_channel.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="参考">参考</h2><p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC80NjM1MzA4OTc=">hexo next主题新增微信公众号二维码显示 - 知乎 (zhihu.com)<i class="fa fa-external-link-alt"></i></span></p></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;通过改动模板文件，在侧边栏和文章底部添加公众号二维码。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="学习" scheme="https://leafminer.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="Hexo" scheme="https://leafminer.github.io/tags/Hexo/"/>
-    
-    <category term="Next" scheme="https://leafminer.github.io/tags/Next/"/>
-    
-    <category term="博客" scheme="https://leafminer.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-    <category term="公众号" scheme="https://leafminer.github.io/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
-    
-    <category term="主题" scheme="https://leafminer.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
-    
-    <category term="二维码" scheme="https://leafminer.github.io/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
     
   </entry>
   
