@@ -1,3 +1,4 @@
+https://leafminer.github.io/about/
 https://leafminer.github.io/2024/11/06/d4fa8f53fea0/
 https://leafminer.github.io/2024/11/08/8eb747462c1d/
 https://leafminer.github.io/2024/11/05/b4e5a4c77d8e/
@@ -21,7 +22,6 @@ https://leafminer.github.io/2021/01/01/145a1920f348/
 https://leafminer.github.io/2024/10/19/dc63ecb1142e/
 https://leafminer.github.io/tags/
 https://leafminer.github.io/categories/
-https://leafminer.github.io/about/
 https://leafminer.github.io/2024/10/22/d852ddbbc257/
 https://leafminer.github.io/2024/10/21/ad715d53afba/
 https://leafminer.github.io/2024/10/22/c0d92f275632/
