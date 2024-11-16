@@ -38,6 +38,44 @@
       </tags>
   </entry>
   <entry>
+    <title>Github中自定义个人主页</title>
+    <url>/2024/11/16/ce7848fe48f6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h1>Github中自定义个人主页</h1>
+<h2 id="​"><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731761417027-80f8993d-9548-4d53-94e2-0533efbe32d7.png" alt="">​</h2>
+<p>在Github中设定一个账号与同名的repository即可在该仓库的<code>readme.md</code>​文件中自定义展示到主页的内容。</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731664630208-26ff787b-dccc-4aed-addf-d78197ea116b.png" alt="">​</p>
+<p><strong>leafminer/leafminer</strong> is a ✨<em>special</em> ✨ repository that you can use to add a <code>README.md</code>​ to your GitHub profile. Make sure it’s public and initialize it with a <strong>README</strong> to get started.</p>
+<h2 id="参考">参考</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xODkyNDkwNTA=">自定义你的github主页 - 知乎<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9iYnMuaHVhd2VpY2xvdWQuY29tL2Jsb2dzLzQyMTgyNQ==">GitHub教程-自定义个人页制作-云社区-华为云<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>主页展示</tag>
+        <tag>Github</tag>
+        <tag>个人主页</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用 vercel + Github 搭建 hexo 博客</title>
     <url>/2024/11/08/8eb747462c1d/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><span class="exturl" data-url="aHR0cHM6Ly92ZXJjZWwuY29tLw==">Vercel<i class="fa fa-external-link-alt"></i></span> 提供了一个云平台，可以优化整个项目开发和部署体验，它有很强大的功能值得去探索，个人使用是免费的，提供了域名访问，使用方便快捷。在vercel上选择New Project，然后如果你是用Github账号登录的话，这边会显示你的所有Github仓库，选择github pages的仓库即可往github上push的任何更改，都会同步到vercel上。把 Hexo 文件放在 Github 上，每次更新文件都推送到 Github 上，由 Vercel 自动拉取构建。</p>
@@ -102,8 +140,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Github</tag>
+        <tag>Hexo</tag>
         <tag>部署</tag>
         <tag>vercel</tag>
         <tag>搭建</tag>
@@ -452,7 +490,7 @@
 <h4 id="在markdown文件中引用：">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% meting &quot;1534866348&quot; &quot;tencent&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
 
-    <div id="aplayer-GwpPldZE" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-QIrDxEha" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1534866348" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 <h4 id="在html页面中引用：">在html页面中引用：</h4>
@@ -463,12 +501,12 @@
 <h4 id="在markdown文件中引用：-2">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;雾里看花&quot; &quot;AI&quot; &quot;/assets/tgAI.mp3&quot; &quot;/assets/WVWAW5KC.png&quot; autoplay %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-PplEbwfI" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-JsskJiWZ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-PplEbwfI"),
+            element: document.getElementById("aplayer-JsskJiWZ"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -520,11 +558,11 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>音乐</tag>
-        <tag>Hexo</tag>
-        <tag>播放器</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>音乐</tag>
         <tag>Aplayer</tag>
+        <tag>播放器</tag>
       </tags>
   </entry>
   <entry>
@@ -594,12 +632,12 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Github</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>Live2D</tag>
         <tag>看板娘</tag>
         <tag>CDN</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -702,8 +740,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>公众号</tag>
         <tag>导流</tag>
         <tag>阅读全文</tag>
@@ -828,11 +866,11 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>音乐</tag>
-        <tag>SQPlayer</tag>
-        <tag>Hexo</tag>
-        <tag>播放器</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>音乐</tag>
+        <tag>播放器</tag>
+        <tag>SQPlayer</tag>
       </tags>
   </entry>
   <entry>
@@ -1134,8 +1172,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>pdf</tag>
         <tag>预览</tag>
         <tag>插件</tag>
@@ -1217,9 +1255,9 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>加载</tag>
+        <tag>Hexo</tag>
         <tag>图片</tag>
       </tags>
   </entry>
@@ -1253,11 +1291,11 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>丝带背景</tag>
         <tag>博客</tag>
         <tag>主题</tag>
-        <tag>丝带背景</tag>
       </tags>
   </entry>
   <entry>
@@ -1318,8 +1356,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>插件</tag>
         <tag>相关文章</tag>
         <tag>推荐</tag>
@@ -1374,8 +1412,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>动态时钟</tag>
         <tag>特效</tag>
         <tag>njk</tag>
@@ -1439,8 +1477,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>插件</tag>
         <tag>暗黑模式</tag>
       </tags>
@@ -1502,8 +1540,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>标签云</tag>
         <tag>动态</tag>
         <tag>tag_cloud</tag>
@@ -1576,9 +1614,9 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>加载</tag>
+        <tag>Hexo</tag>
         <tag>pace</tag>
       </tags>
   </entry>
@@ -1617,8 +1655,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>图片显示</tag>
         <tag>防盗链</tag>
         <tag>meta</tag>
@@ -1655,8 +1693,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>博客</tag>
         <tag>主题</tag>
         <tag>动态标题</tag>
@@ -1706,11 +1744,11 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>博客</tag>
-        <tag>公众号</tag>
         <tag>主题</tag>
+        <tag>公众号</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
@@ -1846,8 +1884,8 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>博客</tag>
         <tag>动态背景</tag>
       </tags>
@@ -1900,8 +1938,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>博客</tag>
         <tag>笔记</tag>
         <tag>升级</tag>
@@ -2313,10 +2351,10 @@
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
-        <tag>搜索</tag>
+        <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>搜索</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
       </tags>
@@ -3083,9 +3121,9 @@
       <tags>
         <tag>ImageJ</tag>
         <tag>图像</tag>
+        <tag>图像配准</tag>
         <tag>stack</tag>
         <tag>StackReg</tag>
-        <tag>图像配准</tag>
       </tags>
   </entry>
   <entry>
@@ -3272,10 +3310,10 @@
       <tags>
         <tag>笔记</tag>
         <tag>ImageJ</tag>
-        <tag>图像配准</tag>
         <tag>图像拼接</tag>
         <tag>TrakEM2</tag>
         <tag>简介</tag>
+        <tag>图像配准</tag>
       </tags>
   </entry>
   <entry>
