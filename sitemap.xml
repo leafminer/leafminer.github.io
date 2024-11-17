@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.leafminer.cn/2024/11/17/1217a8b0bd7f/</loc>
+    
+    <lastmod>2024-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.leafminer.cn/2024/11/16/ce7848fe48f6/</loc>
     
     <lastmod>2024-11-16</lastmod>
@@ -1429,6 +1438,27 @@
   
   <url>
     <loc>https://blog.leafminer.cn/tags/%E8%9B%8B%E7%99%BD%E4%BA%92%E4%BD%9C%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2024-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.leafminer.cn/tags/%E7%99%BE%E5%BA%A6/</loc>
+    <lastmod>2024-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.leafminer.cn/tags/%E7%AB%99%E5%9B%BE/</loc>
+    <lastmod>2024-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.leafminer.cn/tags/sitemap/</loc>
     <lastmod>2024-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
