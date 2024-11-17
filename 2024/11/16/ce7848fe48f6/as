@@ -1,0 +1,67 @@
+---
+title: Hexo博客添加首页文章置顶
+date: 2024-10-22T00:49:35Z
+lastmod: 2024-10-22T00:51:43Z
+categories:
+	- 笔记
+	- 其他
+tags: 
+	- 置顶
+	- 首页
+	- Hexo 
+	- 插件
+comments: true
+---
+
+
+使用"hexo-generator-index-pin-top"插件实现首页文章列表中单篇文章置顶。
+<!--more-->
+
+# 安装插件
+
+[hexo-generator-index-pin-top](https://github.com/netcan/hexo-generator-index-pin-top)插件，实现首页的文章置顶功能
+```
+npm install --save hexo-generator-index-pin-top
+```
+
+# 置顶文章
+
+给文章属性添加`top: true`​就可以实现置顶:
+
+```yaml
+---
+title: 每日早报--认识世界
+date: 2024-10-21T23:57:06Z
+lastmod: 2024-10-21T23:58:02Z
+categories:
+	- 笔记
+	- 其他
+tags: 
+	- 热点
+	- API 
+	- 全球 
+	- 今日
+	- 新闻
+comments: true
+top: true
+---
+```
+
+# 添加置顶图标 
+打开'hexo\node_modules\hexo-theme-next\layout\_macro' 目录下的 post.njk 文件，在标签中插入如下代码： 
+
+```html
+{% if post.top %}
+ <i class="fa fa-thumb-tack"></i>
+ <font color=7D26CD>置顶</font>
+ <span class="post-meta-divider">|</span>
+{% endif %}
+```
+![insert point](https://cdn.nlark.com/yuque/0/2024/png/12885947/1730340888356-bc8d5c69-316e-477a-8888-96ab6fcb0db3.png?x-oss-process=image%2Fformat%2Cwebp)
+
+效果：
+![insert point](https://cdn.nlark.com/yuque/0/2024/png/12885947/1730340918819-c90cd06e-3cea-4d57-92fc-806705e85a5a.png?x-oss-process=image%2Fformat%2Cwebp)
+
+# 参考
+
+[从Hexo文章置顶看需求分析思路 － 小专栏](https://xiaozhuanlan.com/topic/2604957381)
