@@ -536,7 +536,7 @@
 <h4 id="在markdown文件中引用：">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% meting &quot;1534866348&quot; &quot;tencent&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
 
-    <div id="aplayer-QIrDxEha" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-EVzFEqlp" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1534866348" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 <h4 id="在html页面中引用：">在html页面中引用：</h4>
@@ -547,12 +547,12 @@
 <h4 id="在markdown文件中引用：-2">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;雾里看花&quot; &quot;AI&quot; &quot;/assets/tgAI.mp3&quot; &quot;/assets/WVWAW5KC.png&quot; autoplay %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-JsskJiWZ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-WVDUdSgi" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-JsskJiWZ"),
+            element: document.getElementById("aplayer-WVDUdSgi"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -1339,8 +1339,8 @@
       <tags>
         <tag>Next</tag>
         <tag>Hexo</tag>
-        <tag>丝带背景</tag>
         <tag>博客</tag>
+        <tag>丝带背景</tag>
         <tag>主题</tag>
       </tags>
   </entry>
@@ -1535,7 +1535,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>使用&quot;hexo-tag-cloud&quot;插件添加动态标签云。</p>
 <span id="more"></span>
 <h2 id="效果">效果</h2>
-<p><a href="https://leafminer.github.io/">损不足 - 奉有余 (leafminer.github.io)</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZWFmbWluZXIuZ2l0aHViLmlvLw==">损不足 - 奉有余 (leafminer.github.io)<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="安装插件">安装插件</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -2446,8 +2446,8 @@
       <tags>
         <tag>Next</tag>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>搜索</tag>
+        <tag>博客</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
       </tags>
