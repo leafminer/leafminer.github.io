@@ -40,10 +40,10 @@
   <entry>
     <title>Hexo博客Next主题-百度搜索-sitemap</title>
     <url>/2024/11/17/1217a8b0bd7f/</url>
-    <content><![CDATA[<div id="vip-container"><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1>Hexo博客Next主题-百度搜索-sitemap</h1>
-<p>登录<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tLw==">https://ziyuan.baidu.com/<i class="fa fa-external-link-alt"></i></span></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>登录<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tLw==">https://ziyuan.baidu.com/<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="填写信息">填写信息</h2>
 <p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731834662088-782107f2-ddf2-4aaa-ae94-35d10158ec01.png" alt="">​</p>
+<span id="more"></span>
 <h2 id="文件验证">文件验证</h2>
 <p>下载验证文件</p>
 <p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731835416079-0f6e2682-aff9-4767-8573-bdc4f0d250fd.png" alt="">​</p>
@@ -86,9 +86,9 @@
   <entry>
     <title>Github中自定义个人主页</title>
     <url>/2024/11/16/ce7848fe48f6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h1>Github中自定义个人主页</h1>
-<h2 id="​"><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731761417027-80f8993d-9548-4d53-94e2-0533efbe32d7.png" alt="">​</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="​"><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731761417027-80f8993d-9548-4d53-94e2-0533efbe32d7.png" alt="">​</h2>
 <p>在Github中设定一个账号与同名的repository即可在该仓库的<code>readme.md</code>​文件中自定义展示到主页的内容。</p>
+<span id="more"></span>
 <p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1731664630208-26ff787b-dccc-4aed-addf-d78197ea116b.png" alt="">​</p>
 <p><strong>leafminer/leafminer</strong> is a ✨<em>special</em> ✨ repository that you can use to add a <code>README.md</code>​ to your GitHub profile. Make sure it’s public and initialize it with a <strong>README</strong> to get started.</p>
 <h2 id="参考">参考</h2>
@@ -1664,6 +1664,53 @@
         <tag>加载</tag>
         <tag>Hexo</tag>
         <tag>pace</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客添加首页文章置顶</title>
+    <url>/2024/10/22/f157ba7b640c/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>使用&quot;hexo-generator-index-pin-top&quot;插件实现首页文章列表中单篇文章置顶。</p>
+<span id="more"></span>
+<h1>安装插件</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25ldGNhbi9oZXhvLWdlbmVyYXRvci1pbmRleC1waW4tdG9w">hexo-generator-index-pin-top<i class="fa fa-external-link-alt"></i></span>插件，实现首页的文章置顶功能</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">npm install <span class="attr">--save</span> hexo-generator-index-pin-<span class="attribute">top</span></span><br></pre></td></tr></table></figure>
+<h1>置顶文章</h1>
+<p>给文章属性添加<code>top: true</code>​就可以实现置顶:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">每日早报--认识世界</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-10-21T23:57:06Z</span></span><br><span class="line"><span class="attr">lastmod:</span> <span class="number">2024-10-21T23:58:02Z</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">	<span class="bullet">-</span> <span class="string">笔记</span></span><br><span class="line">	<span class="bullet">-</span> <span class="string">其他</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line">	<span class="bullet">-</span> <span class="string">热点</span></span><br><span class="line">	<span class="bullet">-</span> <span class="string">API</span> </span><br><span class="line">	<span class="bullet">-</span> <span class="string">全球</span> </span><br><span class="line">	<span class="bullet">-</span> <span class="string">今日</span></span><br><span class="line">	<span class="bullet">-</span> <span class="string">新闻</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">top:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<h1>添加置顶图标</h1>
+<p>打开’hexo\node_modules\hexo-theme-next\layout_macro’ 目录下的 post.njk 文件，在标签中插入如下代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% if post.top %&#125;</span><br><span class="line"> <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-thumb-tack&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">7D26CD</span>&gt;</span>置顶<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-divider&quot;</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730340888356-bc8d5c69-316e-477a-8888-96ab6fcb0db3.png?x-oss-process=image%2Fformat%2Cwebp" alt="insert point"></p>
+<p>效果：<br>
+<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1730340918819-c90cd06e-3cea-4d57-92fc-806705e85a5a.png?x-oss-process=image%2Fformat%2Cwebp" alt="insert point"></p>
+<h1>参考</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly94aWFvemh1YW5sYW4uY29tL3RvcGljLzI2MDQ5NTczODE=">从Hexo文章置顶看需求分析思路 － 小专栏<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>插件</tag>
+        <tag>置顶</tag>
+        <tag>首页</tag>
       </tags>
   </entry>
   <entry>
