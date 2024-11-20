@@ -38,6 +38,44 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客Next主题-首页文章摘要添加边框</title>
+    <url>/2024/11/20/856d2cdb0f6f/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<code>\hexo\node_modules\hexo-theme-next\source\css\_common\components\post\index.styl</code>​，在该文件中搜索<code>.post-block</code>​，修改如下:</p>
+<span id="more"></span>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">.use-motion</span> &#123;</span><br><span class="line">  <span class="string">if</span> <span class="string">(hexo-config(&#x27;motion.transition.post_block&#x27;))</span> &#123;</span><br><span class="line">    <span class="string">.post-block</span>, &#123;</span><br><span class="line">      <span class="attr">padding:</span> <span class="string">25px;</span></span><br><span class="line">      <span class="string">-webkit-box-shadow:</span> <span class="number">0</span> <span class="number">0</span> <span class="string">5px</span> <span class="string">rgba(202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">0.5</span><span class="string">);</span></span><br><span class="line">      <span class="string">-moz-box-shadow:</span> <span class="number">0</span> <span class="number">0</span> <span class="string">5px</span> <span class="string">rgba(202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">0.5</span><span class="string">);</span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="string">.pagination</span>, <span class="string">.comments</span> &#123;</span><br><span class="line">      <span class="attr">visibility:</span> <span class="string">hidden;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>修改后显示效果如下：</p>
+<p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1732111588492-181c3fbd-b8e7-4544-abaf-1865a2d630d0.png" alt="">​</p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>原创</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+        <tag>首页</tag>
+        <tag>边框</tag>
+        <tag>Next主题</tag>
+        <tag>美化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客Next主题-百度搜索-sitemap</title>
     <url>/2024/11/17/1217a8b0bd7f/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>登录<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tLw==">https://ziyuan.baidu.com/<i class="fa fa-external-link-alt"></i></span></p>
