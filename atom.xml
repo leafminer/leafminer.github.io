@@ -6,7 +6,7 @@
   <link href="https://blog.leafminer.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.leafminer.cn/"/>
-  <updated>2024-11-20T14:10:33.377Z</updated>
+  <updated>2024-11-21T04:21:31.508Z</updated>
   <id>https://blog.leafminer.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客Next主题-首页文章摘要添加边框</title>
+    <link href="https://blog.leafminer.cn/2024/11/21/590f0df602e2/"/>
+    <id>https://blog.leafminer.cn/2024/11/21/590f0df602e2/</id>
+    <published>2024-11-21T04:07:06.000Z</published>
+    <updated>2024-11-21T04:21:31.508Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="Github中新建仓库存储图片">Github中新建仓库存储图片</h2><p>例如新建仓库名为tuchuang</p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121111130.png" alt=""></p><span id="more"></span><h2 id="Token">Token</h2><p>打开你的Github，点击<code>Settings</code></p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121111832.png" alt=""></p><p>选择<code>developer settings</code><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121111724.png" alt=""></p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121113009.png" alt=""></p><p>选择<code>Tokens Classic</code>, 创建新的Token</p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121113021.png" alt=""></p><p>填写<code>Note</code>，<code>Expiration</code>时间按需要选，选中<code>repo</code>，点击最下面的绿色按钮<code>Generate Token</code>生成</p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121120152.png" alt=""></p><p>复制粘贴生成的Token到PicGo中</p><h2 id="PicGo设置">PicGo设置</h2><p>如下所示，图床配置名随便，设定仓库名为GitHub名+仓库名，根据仓库中显示的分支名称设定我这里用的是main（见上面图显示的，master不行）</p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121112203.png" alt=""></p><p>设定自定义域名</p><p><span class="exturl" data-url="aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL2xlYWZtaW5lci90dWNodWFuZ0BtYXN0ZXI=">https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master<i class="fa fa-external-link-alt"></i></span></p><h2 id="参考">参考</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDc4MzkzNC9hcnRpY2xlL2RldGFpbHMvMTA3Nzk4MzI0">https://blog.csdn.net/weixin_44783934/article/details/107798324<i class="fa fa-external-link-alt"></i></span></p></li></ol></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Github中新建仓库存储图片&quot;&gt;Github中新建仓库存储图片&lt;/h2&gt;
+&lt;p&gt;例如新建仓库名为tuchuang&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121111130.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="原创" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    <category term="其他" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="图床" scheme="https://blog.leafminer.cn/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+    <category term="设置" scheme="https://blog.leafminer.cn/tags/%E8%AE%BE%E7%BD%AE/"/>
+    
+    <category term="GitHub" scheme="https://blog.leafminer.cn/tags/GitHub/"/>
+    
+    <category term="PicGo" scheme="https://blog.leafminer.cn/tags/PicGo/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客Next主题-首页文章摘要添加边框</title>
@@ -603,35 +634,6 @@
     <category term="今日" scheme="https://blog.leafminer.cn/tags/%E4%BB%8A%E6%97%A5/"/>
     
     <category term="js" scheme="https://blog.leafminer.cn/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客Next主题修改加载特效</title>
-    <link href="https://blog.leafminer.cn/2024/10/22/f85ae47c487c/"/>
-    <id>https://blog.leafminer.cn/2024/10/22/f85ae47c487c/</id>
-    <published>2024-10-21T16:49:35.000Z</published>
-    <updated>2024-10-21T17:32:36.337Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>修改主题配置文件<code>_config.next.yml</code></p><span id="more"></span><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pace:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># All available colors:</span></span><br><span class="line">  <span class="comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">black</span></span><br><span class="line">  <span class="comment"># All available themes:</span></span><br><span class="line">  <span class="comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span></span><br><span class="line">  <span class="comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">loading-bar</span></span><br></pre></td></tr></table></figure><h1>参考</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vamlud2VpMjYvYXJ0aWNsZXMvMTg0NjAzMTI=">hexo next8.20.0 主题美化 - 悠心不已 - 博客园 (cnblogs.com)<i class="fa fa-external-link-alt"></i></span></p></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;修改主题配置文件&lt;code&gt;_config.next.yml&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://blog.leafminer.cn/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="其他" scheme="https://blog.leafminer.cn/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="Hexo" scheme="https://blog.leafminer.cn/tags/Hexo/"/>
-    
-    <category term="Next" scheme="https://blog.leafminer.cn/tags/Next/"/>
-    
-    <category term="加载" scheme="https://blog.leafminer.cn/tags/%E5%8A%A0%E8%BD%BD/"/>
-    
-    <category term="pace" scheme="https://blog.leafminer.cn/tags/pace/"/>
     
   </entry>
   
