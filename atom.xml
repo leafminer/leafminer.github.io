@@ -6,7 +6,7 @@
   <link href="https://blog.leafminer.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.leafminer.cn/"/>
-  <updated>2024-11-26T01:04:33.921Z</updated>
+  <updated>2024-11-26T13:08:42.373Z</updated>
   <id>https://blog.leafminer.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用R语言通过DIOPT数据库检索同源基因-RDIOPT包</title>
+    <link href="https://blog.leafminer.cn/2024/11/26/59d71c476e67/"/>
+    <id>https://blog.leafminer.cn/2024/11/26/59d71c476e67/</id>
+    <published>2024-11-26T01:50:13.000Z</published>
+    <updated>2024-11-26T13:08:42.373Z</updated>
+    
+    <content type="html"><![CDATA[<div id="vip-container"><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241126153440.png" alt="">​</p><p>RDIOPT包 是 DIOPT 同源基因查找器 (<strong>DIOPT Ortholog Finder</strong>) 的一个简单包装器（wrapper）。这个包（package）的目的是允许用户直接从 R 语言环境中查询同源基因，而不需要复制和粘贴操作。RDIOPT 依赖于 DIOPT API 来执行查询和搜索结果。</p><span id="more"></span> <h2 id="安装">安装</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#install.packages(&quot;devtools&quot;)</span></span><br><span class="line">devtools<span class="operator">::</span>install<span class="punctuation">\</span>_github<span class="punctuation">(</span><span class="string">&quot;myuhao/RDIOPT&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure><h2 id="函数及参数">函数及参数</h2><p>​<code>find_orthologs(genes, from = 9606, to = 7227, filter = &quot;none&quot;, version = 8)</code>​</p><table><thead><tr><th>​<code>genes</code>​</th><th>字符向量，基因的<code>enterzID</code>​。<code>gene symbol</code>​。</th></tr></thead><tbody><tr><td>​<code>from</code>​</td><td>源物种<code>NCBI Taxonomy ID</code>​</td></tr><tr><td>​<code>to</code>​</td><td>目标物种<code>NCBI Taxonomy ID</code>​</td></tr><tr><td>​<code>filter</code>​</td><td>筛选结果，具体参数见后面内容。</td></tr><tr><td>​<code>version</code>​</td><td>版本，<code>8</code>​或者<code>9</code>​</td></tr></tbody></table><p>​<code>from</code>​ 和 <code>to</code>​为<code>NCBI Taxonomy ID</code>​. DIOPT 目前支持以下 IDs (DRSC - DRSC Integrative Ortholog Prediction Tool):</p><ul class="lvl-0"><li class="lvl-2"><p>​<code>all</code>​: 以下所有物种 (仅限<code>to</code>​使用)</p></li><li class="lvl-2"><p>​<code>83333</code>​ Escherichia coli [ E. coli ]</p></li><li class="lvl-2"><p>​<code>3702</code>​ Arabidopsis thaliana [ Thale cress ]</p></li><li class="lvl-2"><p>​<code>4896</code>​ Schizosaccharomyces pombe [ Fission yeast ]</p></li><li class="lvl-2"><p>​<code>4932</code>​ Saccharomyces cerevisiae [ Yeast ]</p></li><li class="lvl-2"><p>​<code>6239</code>​ Caenorhabditis elegans [ Worm ]</p></li><li class="lvl-2"><p>​<code>7165</code>​ Anopheles gambiae [ Mosquito ]</p></li><li class="lvl-2"><p>​<code>7227</code>​ Drosophila melanogaster [ Fly ]</p></li><li class="lvl-2"><p>​<code>7955</code>​ Danio rerio [ Zebrafish ]</p></li><li class="lvl-2"><p>​<code>8364</code>​ Xenopus tropicalis [ Western clawed frog ]</p></li><li class="lvl-2"><p>​<code>10116</code>​ Rattus norvegicus [ Rat ]</p></li><li class="lvl-2"><p>​<code>10090</code>​ Mus musculus [ Mouse ]</p></li><li class="lvl-2"><p>​<code>9606</code>​ Homo sapiens [ Human ]</p></li></ul><p>​<strong>​<code>filter</code>​</strong>​</p><ul class="lvl-0"><li class="lvl-2"><p>​<code>none</code>​ 无过滤，显示所有结果。</p></li><li class="lvl-2"><p>​<code>best_match</code>​ 只有当每个输入基因或蛋白有一个以上匹配时，才返回最佳匹配。</p></li><li class="lvl-2"><p>​<code>exclude_score_less_1</code>​ 排除低diopt得分( score  &gt; 1 ,除非仅匹配得分为1)</p></li><li class="lvl-2"><p>​<code>exclude_score_less_2</code>​ 排除低diopt得分( score  &gt; 2 ,除非仅匹配得分为1或2)</p></li></ul><h2 id="示例">示例</h2><p>以黑腹果蝇 [ <em>Drosophila melanogaster</em> (fruit fly) ] 的Akt, CaMKI基因为例</p><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241126192800.png" alt="">​</p><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241126201505.png" alt="">​</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>RDIOPT<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># Entrez ID</span></span><br><span class="line">gene_of_Dm <span class="operator">&lt;-</span>  <span class="built_in">c</span><span class="punctuation">(</span><span class="number">41957</span><span class="punctuation">,</span><span class="number">43792</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 安装了AnnotationDbi可以使用gene sysmbol</span></span><br><span class="line"><span class="keyword">if</span> <span class="punctuation">(</span>require<span class="punctuation">(</span>org.Dm.eg.db<span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  gene_of_Dm <span class="operator">&lt;-</span>  <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Akt&quot;</span><span class="punctuation">,</span><span class="string">&quot;CaMKI&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="comment"># 果蝇NCBI Taxonomy ID为7227</span></span><br><span class="line">Dm_orthologs  <span class="operator">&lt;-</span>  RDIOPT<span class="operator">::</span>find_orthologs<span class="punctuation">(</span>gene_of_Dm<span class="punctuation">,</span> from <span class="operator">=</span> <span class="number">7227</span><span class="punctuation">,</span> to <span class="operator">=</span> <span class="string">&quot;all&quot;</span><span class="punctuation">,</span> filter <span class="operator">=</span> <span class="string">&quot;best_match&quot;</span><span class="punctuation">)</span></span><br><span class="line">Dm_orthologs</span><br></pre></td></tr></table></figure><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241126202220.png" alt="">​</p><h2 id="参考">参考</h2><ol><li class="lvl-3"><p>myuhao/RDIOPT: R interface to run DIOPT ortholog finders</p></li><li class="lvl-3"><p>DRSC - DRSC Integrative Ortholog Prediction Tool</p></li></ol></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​&lt;img src=&quot;https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241126153440.png&quot; alt=&quot;&quot;&gt;​&lt;/p&gt;
+&lt;p&gt;RDIOPT包 是 DIOPT 同源基因查找器 (&lt;strong&gt;DIOPT Ortholog Finder&lt;/strong&gt;) 的一个简单包装器（wrapper）。这个包（package）的目的是允许用户直接从 R 语言环境中查询同源基因，而不需要复制和粘贴操作。RDIOPT 依赖于 DIOPT API 来执行查询和搜索结果。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="原创" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    <category term="科研" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/%E7%A7%91%E7%A0%94/"/>
+    
+    
+    <category term="R语言" scheme="https://blog.leafminer.cn/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="实例" scheme="https://blog.leafminer.cn/tags/%E5%AE%9E%E4%BE%8B/"/>
+    
+    <category term="果蝇" scheme="https://blog.leafminer.cn/tags/%E6%9E%9C%E8%9D%87/"/>
+    
+    <category term="DIOPT" scheme="https://blog.leafminer.cn/tags/DIOPT/"/>
+    
+    <category term="同源基因" scheme="https://blog.leafminer.cn/tags/%E5%90%8C%E6%BA%90%E5%9F%BA%E5%9B%A0/"/>
+    
+    <category term="RDIOPT包" scheme="https://blog.leafminer.cn/tags/RDIOPT%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>我所说的拼命，只是不顾一切的活着 | 午歌</title>
@@ -623,37 +657,6 @@
     <category term="预览" scheme="https://blog.leafminer.cn/tags/%E9%A2%84%E8%A7%88/"/>
     
     <category term="插件" scheme="https://blog.leafminer.cn/tags/%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人类还有95%的问题待解决</title>
-    <link href="https://blog.leafminer.cn/2024/10/23/7b5efa398b63/"/>
-    <id>https://blog.leafminer.cn/2024/10/23/7b5efa398b63/</id>
-    <published>2024-10-23T01:07:55.000Z</published>
-    <updated>2024-10-23T18:50:03.067Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h1><center>《一想到还有95%的问题留给人类，我就放心了》</center></h1><span id="more"></span><div class="pdf-container" data-target="/uploads/kepu1.pdf" data-height="500px"></div><p>‍</p></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
-    
-    
-    <summary type="html">&lt;h1&gt;&lt;center&gt;《一想到还有95%的问题留给人类，我就放心了》&lt;/center&gt;&lt;/h1&gt;</summary>
-    
-    
-    
-    <category term="转载" scheme="https://blog.leafminer.cn/categories/%E8%BD%AC%E8%BD%BD/"/>
-    
-    <category term="学习" scheme="https://blog.leafminer.cn/categories/%E8%BD%AC%E8%BD%BD/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="pdf" scheme="https://blog.leafminer.cn/tags/pdf/"/>
-    
-    <category term="问题" scheme="https://blog.leafminer.cn/tags/%E9%97%AE%E9%A2%98/"/>
-    
-    <category term="电子书" scheme="https://blog.leafminer.cn/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/"/>
-    
-    <category term="宇宙" scheme="https://blog.leafminer.cn/tags/%E5%AE%87%E5%AE%99/"/>
-    
-    <category term="时空" scheme="https://blog.leafminer.cn/tags/%E6%97%B6%E7%A9%BA/"/>
     
   </entry>
   
