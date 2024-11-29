@@ -38,6 +38,105 @@
       </tags>
   </entry>
   <entry>
+    <title>从UniProtKB数据库检索蛋白信息-queryup包</title>
+    <url>/2024/11/28/a34278e620bd/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>queryup包可以从’ UniProtKB ’ REST API中检索蛋白质信息。</p>
+<p><strong>URL</strong> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1ZvaXNpbm5lRy9xdWVyeXVw">https://github.com/VoisinneG/queryup<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>BugReports</strong> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1ZvaXNpbm5lRy9xdWVyeXVwL2lzc3Vlcw==">https://github.com/VoisinneG/queryup/issues<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span> 
+<h2 id="安装">安装</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">install.packages(&quot;queryup&quot;)</span><br><span class="line"># 或者</span><br><span class="line">devtools::install_github(&quot;VoisinneG/queryup&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="函数及示例">函数及示例</h2>
+<h3 id="可用的查询字段">可用的查询字段</h3>
+<p>查询字段，该字段可用于使用&quot; queryup &quot;生成查询以及相关的示例和描述。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">library(queryup)</span><br><span class="line">query_field</span><br><span class="line"></span><br><span class="line"># 字段</span><br><span class="line">query_fields$field</span><br><span class="line"># 示例</span><br><span class="line">query_fields$example</span><br><span class="line"># 简述</span><br><span class="line">query_fields$description</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241128123616.png" alt="">​</p>
+<h3 id="返回的查询字段">返回的查询字段</h3>
+<p>返回可以使用&quot; queryup &quot;检索的字段，以及它们在检索<code>data.frame</code>​中出现的标签。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return_fields</span><br><span class="line"># 字段</span><br><span class="line">return_fields$field</span><br><span class="line"># 标签</span><br><span class="line">return_fields$label</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241128124242.png" alt="">​</p>
+<h3 id="Mus-musculus中1000个UniProt的条目名称和其他属性">Mus musculus中1000个UniProt的条目名称和其他属性</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uniprot_entries</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="images/clipboard-49488359.png" alt="">​</p>
+<h3 id="查询">查询</h3>
+<p>​<code>get_uniprot_data</code>​ 和<code>query_uniprot</code>​ 均能获取UniProt数据。但<code>query_uniprot</code>​解析错误信息，并从查询中移除无效的条目。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Retrieve data from UniProt using UniProt&#x27;s REST API. To avoid non-responsive queries, they are split into smaller queries with at most max_keys items per query field. </span><br><span class="line">query_uniprot(</span><br><span class="line">  query = NULL,</span><br><span class="line">  base_url = &quot;https://rest.uniprot.org/uniprotkb/&quot;,</span><br><span class="line">  columns = c(&quot;accession&quot;, &quot;id&quot;, &quot;gene_names&quot;, &quot;organism_id&quot;, &quot;reviewed&quot;),</span><br><span class="line">  max_keys = 200,</span><br><span class="line">  updateProgress = NULL,</span><br><span class="line">  show_progress = TRUE</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<code>query</code>​</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>​<code>base_url</code>​</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>​<code>columns</code>​</td>
+<td>同上，例如 “accession”, “id”, “genes”, “keywords”, “sequence”。更多见<code>return_fields</code>​</td>
+</tr>
+<tr>
+<td>​<code>max_keys</code>​</td>
+<td>最大检索数</td>
+</tr>
+<tr>
+<td>​<code>updateProgress</code>​</td>
+<td>在shiny 中显示运行进程</td>
+</tr>
+<tr>
+<td>​<code>show_progress</code>​</td>
+<td>显示进度条</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Retrieve data from UniProt using UniProt&#x27;s REST API</span><br><span class="line">get_uniprot_data(</span><br><span class="line">  query = NULL,</span><br><span class="line">  base_url = &quot;https://rest.uniprot.org/uniprotkb/&quot;,</span><br><span class="line">  columns = c(&quot;accession&quot;, &quot;id&quot;, &quot;gene_names&quot;, &quot;organism_id&quot;, &quot;reviewed&quot;)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">query &lt;- list(&quot;accession_id&quot; = c(&quot;P22682&quot;, &quot;P47941&quot;))</span><br><span class="line">df &lt;- get_uniprot_data(query = query, columns = c(&quot;accession&quot;, &quot;id&quot;, &quot;gene_names&quot;, &quot;keyword&quot;, &quot;sequence&quot;))$content</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#</span><br><span class="line">query &lt;- list(&quot;gene_exact&quot; = &quot;Akt1&quot;)</span><br><span class="line">df &lt;- query_uniprot(query, show_progress = FALSE)</span><br><span class="line"></span><br><span class="line">df &lt;- query_uniprot(query, </span><br><span class="line">                    columns = c(&quot;id&quot;, &quot;sequence&quot;, &quot;keyword&quot;, &quot;gene_primary&quot;),</span><br><span class="line">                    show_progress = FALSE)</span><br><span class="line"># 查询单个基因</span><br><span class="line">query2 &lt;- list(&quot;gene_exact&quot; = &quot;Pik3r1&quot;, </span><br><span class="line">              &quot;reviewed&quot; = &quot;true&quot;, </span><br><span class="line">              &quot;organism_id&quot; = &quot;9606&quot;)</span><br><span class="line">df &lt;- query_uniprot(query, show_progress = FALSE)</span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line"># 查询多个基因</span><br><span class="line">query &lt;- list(&quot;gene_exact&quot; = c(&quot;Itpr&quot;, &quot;CaMKI&quot;), </span><br><span class="line">              &quot;reviewed&quot; = &quot;true&quot;, </span><br><span class="line">              &quot;organism_id&quot; = c(&quot;9606&quot;, &quot;10090&quot;))</span><br><span class="line">df &lt;- query_uniprot(query, show_progress = FALSE)</span><br><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p>VoisinneG/queryup: R client for the UniProt REST API</p>
+</li>
+<li class="lvl-3">
+<p>queryup: Query the ‘UniProtKB’ REST API</p>
+</li>
+</ol>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>原创</category>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>果蝇</tag>
+        <tag>UniProt</tag>
+        <tag>蛋白</tag>
+        <tag>ID转换</tag>
+        <tag>queryup包</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>无从告别的告别 | 里则林</title>
     <url>/2024/11/27/e207cdca9b7a/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>1<br>
