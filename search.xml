@@ -251,7 +251,7 @@
 		]]></content>
       <categories>
         <category>转载</category>
-        <category>其它</category>
+        <category>其他</category>
       </categories>
       <tags>
         <tag>小小说</tag>
@@ -707,7 +707,7 @@
   <entry>
     <title>使用R语言通过DIOPT数据库检索同源基因-RDIOPT包</title>
     <url>/2024/11/26/59d71c476e67/</url>
-    <content><![CDATA[<div id="vip-container"><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241126153440.png" alt="">​</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241126153440.png" alt="">​</p>
 <p>RDIOPT包 是 DIOPT 同源基因查找器 (<strong>DIOPT Ortholog Finder</strong>) 的一个简单包装器（wrapper）。这个包（package）的目的是允许用户直接从 R 语言环境中查询同源基因，而不需要复制和粘贴操作。RDIOPT 依赖于 DIOPT API 来执行查询和搜索结果。</p>
 <span id="more"></span> 
 <h2 id="安装">安装</h2>
@@ -2416,7 +2416,7 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% meting &quot;1534866348&quot; &quot;tencent&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
 
-    <div id="aplayer-YVabESOM" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-MVefNhGS" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1534866348" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 <h4 id="在html页面中引用：">在html页面中引用：</h4>
@@ -2427,12 +2427,12 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：-2">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;雾里看花&quot; &quot;AI&quot; &quot;/assets/tgAI.mp3&quot; &quot;/assets/WVWAW5KC.png&quot; autoplay %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-NSYSHjFK" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-YxZvYtoS" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-NSYSHjFK"),
+            element: document.getElementById("aplayer-YxZvYtoS"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -3220,8 +3220,8 @@ ILOVEU。<br>
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>博客</tag>
-        <tag>丝带背景</tag>
         <tag>主题</tag>
+        <tag>丝带背景</tag>
       </tags>
   </entry>
   <entry>
@@ -3720,8 +3720,8 @@ ILOVEU。<br>
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>博客</tag>
-        <tag>主题</tag>
         <tag>公众号</tag>
+        <tag>主题</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
@@ -4833,8 +4833,8 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>ImageJ</tag>
-        <tag>R语言</tag>
         <tag>批量</tag>
+        <tag>R语言</tag>
         <tag>实例</tag>
         <tag>数据处理</tag>
         <tag>果蝇</tag>
@@ -5094,9 +5094,9 @@ ILOVEU。<br>
       <tags>
         <tag>ImageJ</tag>
         <tag>图像</tag>
-        <tag>图像配准</tag>
         <tag>stack</tag>
         <tag>StackReg</tag>
+        <tag>图像配准</tag>
       </tags>
   </entry>
   <entry>
@@ -5128,9 +5128,9 @@ ILOVEU。<br>
         <category>科研</category>
       </categories>
       <tags>
-        <tag>R语言</tag>
         <tag>批量</tag>
         <tag>解压</tag>
+        <tag>R语言</tag>
         <tag>实例</tag>
       </tags>
   </entry>
@@ -5283,10 +5283,10 @@ ILOVEU。<br>
       <tags>
         <tag>笔记</tag>
         <tag>ImageJ</tag>
+        <tag>图像配准</tag>
         <tag>图像拼接</tag>
         <tag>TrakEM2</tag>
         <tag>简介</tag>
-        <tag>图像配准</tag>
       </tags>
   </entry>
   <entry>
@@ -5765,9 +5765,9 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>笔记</tag>
+        <tag>R语言</tag>
         <tag>RNA-seq</tag>
         <tag>生信</tag>
-        <tag>R语言</tag>
         <tag>测序</tag>
         <tag>标准化</tag>
       </tags>
