@@ -38,6 +38,107 @@
       </tags>
   </entry>
   <entry>
+    <title>使用Rstudio提交到GitHub仓库过程中出现的问题及其解决办法</title>
+    <url>/2024/12/03/20da183667a5/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="问题1：">问题1：</h2>
+<p>在使用Rstudio中的git，提交 (commit) 时会出现以下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">error: gpg failed to sign the data</span><br></pre></td></tr></table></figure>
+<p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241202233315.png" alt="">​</p>
+<span id="more"></span>
+<p>通过搜索，查到以下解决办法，办法可行。</p>
+<p>这是一个常见的错误，通常与与GnuPG（GNU隐私保护）工具集相关的问题有关。GnuPG是一个用于加密和数字签名的免费软件，常用于保护Git提交的完整性和真实性。</p>
+<h2 id="错误原因">错误原因</h2>
+<p>gpg失败签名数据错误可能由以下几个原因引起：</p>
+<h3 id="a-GnuPG未正确配置">a. GnuPG未正确配置</h3>
+<p>在某些情况下，GnuPG未正确配置可能导致无法签名数据。这可能是由于缺少必要的密钥对或不正确的配置文件设置。</p>
+<h3 id="b-缺少GnuPG密钥">b. 缺少GnuPG密钥</h3>
+<p>要对Git提交进行签名，您需要使用GnuPG密钥对。如果您没有生成或导入密钥，那么Git将无法执行签名操作。</p>
+<h3 id="c-Git设置错误">c. Git设置错误</h3>
+<p>有时，Git的设置可能会影响GnuPG的签名功能。可能存在不正确的配置或设置冲突，导致gpg无法成功签名数据。</p>
+<h2 id="解决办法">解决办法</h2>
+<ol>
+<li class="lvl-3">
+<p>查看是否存在GnuPG密钥</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gpg --list-keys</span><br></pre></td></tr></table></figure>
+<p>存在密钥显示如图：<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241202235057737.png" alt="">​</p>
+<ol start="2">
+<li class="lvl-3">
+<p>生成新的密钥</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gpg --gen-key</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li class="lvl-3">
+<p>导入GnuPG密钥</p>
+</li>
+</ol>
+<p>导出新生成的公钥和私钥：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gpg --output pubkey.gpg --armor --export zhang6410319@hotmail.com</span><br><span class="line">gpg --output privkey.gpg --armor --export-secret-key zhang6410319@hotmail.com</span><br></pre></td></tr></table></figure>
+<p>将公钥和私钥导入到GnuPG密钥环中：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gpg --import pubkey.gpg</span><br><span class="line">gpg --allow-secret-key-import --import privkey.gpg</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li class="lvl-3">
+<p>问题解决</p>
+</li>
+</ol>
+<h2 id="问题2：">问题2：</h2>
+<p>Rstudio和VStudio运行Git过程中会弹出账号选择窗口。</p>
+<p>原因：设定了多个账号，未设定默认。</p>
+<h2 id="解决办法-2">解决办法</h2>
+<h3 id="方法一-设定默认账号">方法一 设定默认账号</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git config --global credential.&lt;URL&gt;.username &lt;USERNAME&gt;</span><br><span class="line">git config --global credential.https://github.com.username=leafminer</span><br></pre></td></tr></table></figure>
+<p>关联默认账户与已存在于本地的clone：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote set-url origin https://leafminer@github.com/</span><br><span class="line"># clone时使用下面的方式，可直接关联：</span><br><span class="line"># git clone https://leafminer@github.com/mona/test</span><br></pre></td></tr></table></figure>
+<h3 id="方法二-退出多余账号">方法二 退出多余账号</h3>
+<p>使用<code>git credential-manager github</code>​管理账号</p>
+<p>先查看当前存在的账号：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git credential-manager github</span><br></pre></td></tr></table></figure>
+<p>删除不需要的账号：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git credential-manager github logout 22977646</span><br></pre></td></tr></table></figure>
+<p>示例结果如下图：</p>
+<p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241203002453097.png" alt="">​</p>
+<h2 id="参考">参考</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9nZWVrLWRvY3MuY29tL2dpdC9naXQtcXVlc3Rpb25zLzgwN19naXRfZ2l0X2Vycm9yX2dwZ19mYWlsZWRfdG9fc2lnbl9kYXRhLmh0bWw=">https://geek-docs.com/git/git-questions/807_git_git_error_gpg_failed_to_sign_data.html<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dpdC1lY29zeXN0ZW0vZ2l0LWNyZWRlbnRpYWwtbWFuYWdlci9ibG9iL21haW4vZG9jcy9tdWx0aXBsZS11c2Vycy5tZCN0bGRyLXRlbGwtZ2NtLXRvLXJlbWVtYmVyLXdoaWNoLWFjY291bnQtdG8tdXNl">https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md#tldr-tell-gcm-to-remember-which-account-to-use<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ol>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>Git</tag>
+        <tag>Rstudio</tag>
+        <tag>commit</tag>
+        <tag>gpg</tag>
+        <tag>GnuPG</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用RStudio与Git、GitHub连接起来，实现代码管理和数据分析</title>
     <url>/2024/12/01/0ef357bbdb4c/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241201155718.png" alt="">​</p>

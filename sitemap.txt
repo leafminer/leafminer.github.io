@@ -1,3 +1,4 @@
+https://blog.leafminer.cn/2024/12/03/20da183667a5/
 https://blog.leafminer.cn/2024/12/01/0ef357bbdb4c/
 https://blog.leafminer.cn/2024/11/30/b3793277a33f/
 https://blog.leafminer.cn/db.json
@@ -256,6 +257,9 @@ https://blog.leafminer.cn/tags/%E6%8A%97%E6%8B%92/
 https://blog.leafminer.cn/tags/%E6%9C%BA%E5%88%B6/
 https://blog.leafminer.cn/tags/Rstudio/
 https://blog.leafminer.cn/tags/Token/
+https://blog.leafminer.cn/tags/commit/
+https://blog.leafminer.cn/tags/gpg/
+https://blog.leafminer.cn/tags/GnuPG/
 https://blog.leafminer.cn/categories/%E7%AC%94%E8%AE%B0/
 https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/
 https://blog.leafminer.cn/categories/%E7%AC%94%E8%AE%B0/%E5%85%B6%E4%BB%96/
