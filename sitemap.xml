@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.leafminer.cn/2024/12/03/5a0c328a2fee/</loc>
+    
+    <lastmod>2024-12-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.leafminer.cn/2024/12/03/5b68cbc7ed8f/</loc>
     
     <lastmod>2024-12-03</lastmod>
@@ -2012,6 +2021,20 @@
   
   <url>
     <loc>https://blog.leafminer.cn/tags/403/</loc>
+    <lastmod>2024-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.leafminer.cn/tags/%E5%A5%B3%E4%BA%BA/</loc>
+    <lastmod>2024-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.leafminer.cn/tags/%E9%80%BB%E8%BE%91/</loc>
     <lastmod>2024-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
