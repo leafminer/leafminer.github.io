@@ -38,6 +38,93 @@
       </tags>
   </entry>
   <entry>
+    <title>R语言中多重序列比对（MultipleAlignment）结果导出到文件（fasta文件和Phylip文件）</title>
+    <url>/2024/12/05/9f3e7aa190aa/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/2024/12/20241205102457133.png" alt="">​</p>
+<p>这里是使用<code>Biostrings</code>​包导入fasta格式的多重比对序列，并导出多重序列比对后的数据为fasta和phylip文件。</p>
+<span id="more"></span>
+<h2 id="导入多重比对序列">导入多重比对序列</h2>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">readDNAMultipleAlignment<span class="punctuation">(</span>filepath<span class="punctuation">,</span> format<span class="punctuation">)</span> <span class="comment">#DNA</span></span><br><span class="line">readRNAMultipleAlignment<span class="punctuation">(</span>filepath<span class="punctuation">,</span> format<span class="punctuation">)</span> <span class="comment">#RNA</span></span><br><span class="line">readAAMultipleAlignment<span class="punctuation">(</span>AAMultipleAlignment<span class="punctuation">,</span> format<span class="punctuation">)</span> <span class="comment">#蛋白序列</span></span><br></pre></td></tr></table></figure>
+<h2 id="导出多重比对序列">导出多重比对序列</h2>
+<h3 id="核酸序列">核酸序列</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>导出到fasta文件</strong>：</p>
+</li>
+</ol>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果你需要将你的多重序列比对对象（MultipleAlignment object）导出为fasta文件，你可以将其转换为<code>DNAStringSet</code>​对象，然后像下面这样将其写入fasta文件：</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">DNAStr <span class="operator">&lt;-</span> as<span class="punctuation">(</span>origMAlign<span class="punctuation">,</span> <span class="string">&quot;DNAStringSet&quot;</span><span class="punctuation">)</span></span><br><span class="line">writeXStringSet<span class="punctuation">(</span>DNAStr<span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&quot;myFile.fa&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>这里的<code>as(origMAlign, &quot;DNAStringSet&quot;)</code>​是将<code>origMAlign</code>​（原始的多重序列比对对象）转换为<code>DNAStringSet</code>​类型。<code>writeXStringSet(DNAStr, file=&quot;myFile.fa&quot;)</code>​则是将转换后的<code>DNAStringSet</code>​对象<code>DNAStr</code>​写入名为<code>myFile.fa</code>​的fasta文件中。</p>
+</li>
+</ul>
+<ol start="2">
+<li class="lvl-3">
+<p><strong>导出到Phylip文件</strong>：</p>
+</li>
+</ol>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Phylip格式不仅存储你正在导出的序列，还存储对象的列掩码（column masking）。如果你对序列进行了掩码处理，并且在导出Phylip文件时，这个掩码会被记录到你导出的文件中。</p>
+</li>
+<li class="lvl-2">
+<p>与上面的fasta文件示例类似，任何被你掩码掉的行（rows）也会从导出的文件中移除。</p>
+</li>
+<li class="lvl-2">
+<p>导出Phylip文件的代码如下：</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">write.phylip<span class="punctuation">(</span>phylipMAlign<span class="punctuation">,</span> filepath<span class="operator">=</span><span class="string">&quot;myFile.txt&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>这里的<code>write.phylip(phylipMAlign, filepath=&quot;myFile.txt&quot;)</code>​是将<code>phylipMAlign</code>​（可能是已经进行了某些处理的多重序列比对对象）写入名为<code>myFile.txt</code>​的Phylip文件中。</p>
+</li>
+</ul>
+<h3 id="蛋白序列">蛋白序列</h3>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">AA_MA <span class="operator">&lt;-</span> as<span class="punctuation">(</span>AAMultipleAlignment<span class="punctuation">,</span> <span class="string">&quot;AAStringSet&quot;</span><span class="punctuation">)</span></span><br><span class="line">writeXStringSet<span class="punctuation">(</span>AA_MA<span class="punctuation">,</span> file<span class="operator">=</span><span class="string">&quot;AAMultipleAlignment.fasta&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>这里的<code>as(AAMultipleAlignment, &quot;AAStringSet&quot;)</code>是将<code>AAMultipleAlignment</code>（原始的多重序列比对对象）转换为<code>AAStringSet</code>类型。<code>writeXStringSet(AA_MA, file=&quot;AAMultipleAlignment.fasta&quot;)</code>则是将转换后的<code>AAStringSet</code>对象AA_MA写入名为<code>AAMultipleAlignment</code>的<code>fasta</code>文件中。</p>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9iaW9jb25kdWN0b3Iub3JnL3BhY2thZ2VzL2RldmVsL2Jpb2MvdmlnbmV0dGVzL0Jpb3N0cmluZ3MvaW5zdC9kb2MvTXVsdGlwbGVBbGlnbm1lbnRzLmh0bWwjZXhwb3J0aW5nLXRvLWZpbGU=">https://bioconductor.org/packages/devel/bioc/vignettes/Biostrings/inst/doc/MultipleAlignments.html#exporting-to-file<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>原创</category>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>R语言</tag>
+        <tag>多重序列比对</tag>
+        <tag>MultipleAlignment</tag>
+        <tag>fasta</tag>
+        <tag>保存</tag>
+        <tag>Biostrings包</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>谁说女人不懂逻辑 | 张嘉佳</title>
     <url>/2024/12/03/5a0c328a2fee/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><strong>张嘉佳</strong>，作家，出版作品有长篇小说《几乎成了英雄》，短篇小说集《从你的全世界路过》等.。微信号：justastudio</p>
@@ -140,7 +227,7 @@
   <entry>
     <title>网页请求阿里云 DataV Geo 在线地图，路径访问返回403问题</title>
     <url>/2024/12/03/5b68cbc7ed8f/</url>
-    <content><![CDATA[<div id="vip-container"><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="问题如下：">问题如下：</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="问题如下：">问题如下：</h2>
 <p>部分javascript显示如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;page&quot;</span>).<span class="property">style</span>.<span class="property">background</span> = style[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;main&#x27;</span>));</span><br><span class="line">myChart.<span class="title function_">showLoading</span>();</span><br><span class="line">$.<span class="title function_">get</span>(<span class="string">&#x27;https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json&#x27;</span>, <span class="keyword">function</span> (<span class="params">geoJson</span>) &#123;</span><br><span class="line">  myChart.<span class="title function_">hideLoading</span>();</span><br><span class="line">  echarts.<span class="title function_">registerMap</span>(<span class="string">&#x27;china&#x27;</span>, geoJson);</span><br></pre></td></tr></table></figure>
 <p>本地请求运行正常，上传到GitHub仓库中的网站后请求<span class="exturl" data-url="aHR0cHM6Ly9nZW8uZGF0YXYuYWxpeXVuLmNvbS9hcmVhc192My9ib3VuZC8xMDAwMDBfZnVsbC5qc29u">https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json<i class="fa fa-external-link-alt"></i></span> 返回403，加载失败。</p>
@@ -2869,7 +2956,7 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% meting &quot;1534866348&quot; &quot;tencent&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
 
-    <div id="aplayer-JrwSDIkl" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-GuvJWkKi" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1534866348" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 <h4 id="在html页面中引用：">在html页面中引用：</h4>
@@ -2880,12 +2967,12 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：-2">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;雾里看花&quot; &quot;AI&quot; &quot;/assets/tgAI.mp3&quot; &quot;/assets/WVWAW5KC.png&quot; autoplay %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-wdlrXOsu" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-BSPRfidD" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-wdlrXOsu"),
+            element: document.getElementById("aplayer-BSPRfidD"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -2940,8 +3027,8 @@ ILOVEU。<br>
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>音乐</tag>
-        <tag>播放器</tag>
         <tag>Aplayer</tag>
+        <tag>播放器</tag>
       </tags>
   </entry>
   <entry>
@@ -3248,8 +3335,8 @@ ILOVEU。<br>
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>音乐</tag>
-        <tag>SQPlayer</tag>
         <tag>播放器</tag>
+        <tag>SQPlayer</tag>
       </tags>
   </entry>
   <entry>
@@ -5286,8 +5373,8 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>ImageJ</tag>
-        <tag>R语言</tag>
         <tag>批量</tag>
+        <tag>R语言</tag>
         <tag>实例</tag>
         <tag>数据处理</tag>
         <tag>果蝇</tag>
@@ -5581,9 +5668,9 @@ ILOVEU。<br>
         <category>科研</category>
       </categories>
       <tags>
-        <tag>R语言</tag>
         <tag>批量</tag>
         <tag>解压</tag>
+        <tag>R语言</tag>
         <tag>实例</tag>
       </tags>
   </entry>
@@ -6218,9 +6305,9 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>笔记</tag>
+        <tag>R语言</tag>
         <tag>RNA-seq</tag>
         <tag>生信</tag>
-        <tag>R语言</tag>
         <tag>测序</tag>
         <tag>标准化</tag>
       </tags>
