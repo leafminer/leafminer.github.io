@@ -6,7 +6,7 @@
   <link href="https://blog.leafminer.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.leafminer.cn/"/>
-  <updated>2024-12-05T05:21:31.168Z</updated>
+  <updated>2024-12-06T12:10:42.720Z</updated>
   <id>https://blog.leafminer.cn/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R语言-不同来源（CRAN，Bioconductor，GitHub,GitLab）R包的更新</title>
+    <link href="https://blog.leafminer.cn/2024/12/06/d8e77d0dfb04/"/>
+    <id>https://blog.leafminer.cn/2024/12/06/d8e77d0dfb04/</id>
+    <published>2024-12-06T00:34:41.000Z</published>
+    <updated>2024-12-06T12:10:42.720Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>搜索和安装R包之前说过了，这里记录一下R包的更新。要更新R包需要先知道你的R包来自哪里</p><p><strong>R包可以存放在不同的仓库(repository)里，最常见的repo包括CRAN, github，以及生物er必需的Bioconductor。</strong></p><p>CRAN，官方包CRAN，通常国内选择镜像，方法自行百度。</p><p>Bioconductor，这个通常只有生物信息学的人才用得到。</p><p>Github，大部分CRAN和Bioconductor都是托管在Github上的，一般不太稳定。</p><p><strong>可以直接在谷歌或必应搜索该包名字，即可看到是哪种R包。</strong></p><p>或者直接使用<code>rvcheck</code>​包来更新。</p><span id="more"></span><h2 id="更新R包">更新R包</h2><h4 id="来自CRAN官方的R包">来自CRAN官方的R包</h4><p>设定好国内镜像，使用以下命令：</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">old.packages<span class="punctuation">(</span><span class="punctuation">)</span>      <span class="comment">#检查library里哪些包有更新版本</span></span><br><span class="line">update.packages<span class="punctuation">(</span><span class="punctuation">)</span>    <span class="comment">#更新library里所有包</span></span><br></pre></td></tr></table></figure><p>用Rstudio的话，可以进行点击下面的这个Update：</p><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/2024/12/20241206014028117.png" alt="">​</p><p>或者Rstudio菜单栏点击<code>Tools</code>​，选择<code>Check for Package Updates</code>​</p><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/2024/12/20241206014251995.png" alt="">​</p><h4 id="来自Bioconductor的R包">来自Bioconductor的R包</h4><p>需要使用<code>BiocManager</code>​包，先用上面的方法把该包更新到最新版本：</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="punctuation">(</span><span class="operator">!</span>requireNamespace<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">,</span> quietly <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">  install.packages<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">)</span></span><br><span class="line">BiocManager<span class="operator">::</span>version<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#检查当前Bioconductor版本</span></span><br></pre></td></tr></table></figure><p>更新：</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#更新到最新的release版本，使用ask=FALSE可以跳过询问直接更新</span></span><br><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span>version <span class="operator">=</span> <span class="string">&quot;3.20&quot;</span><span class="punctuation">)</span> <span class="comment">#更新到指定版本</span></span><br></pre></td></tr></table></figure><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/2024/12/20241206022045647.png" alt="">​</p><h4 id="来自GitHub的R包">来自GitHub的R包</h4><p>没有一致的仓库来源，不用工具的话，只能手动一个个的重新安装来更新：</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>devtools<span class="punctuation">)</span></span><br><span class="line">install_github<span class="punctuation">(</span><span class="string">&quot;username/repository&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure><p>还是用<code>rvcheck</code>​包吧。</p><hr><h2 id="用rvcheck​包更新R包">用<code>rvcheck</code>​包更新R包</h2><p>该包会自动判断包的来源(包括CRAN、Bioconductor、GitHub和GitLab)并检查更新。</p><h3 id="安装">安装</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;rvcheck&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure><h3 id="使用">使用</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>rvcheck<span class="punctuation">)</span></span><br><span class="line">check_r<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#检查R版本</span></span><br><span class="line">check_cran<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#检查CRAN来源的最新发布版本</span></span><br><span class="line">check_bioc<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#检查Bioconductor来源的最新发布版本</span></span><br><span class="line">check_github<span class="punctuation">(</span><span class="string">&quot;GuangchuangYu/clusterProfiler&quot;</span><span class="punctuation">)</span> <span class="comment">#检查GitHub来源指定包的最新发布版本</span></span><br><span class="line">check_gitlab<span class="punctuation">(</span><span class="string">&#x27;ezlab/orthodb_r&#x27;</span><span class="punctuation">)</span> <span class="comment">#检查GitLab来源指定包的最新发布版本</span></span><br><span class="line">update_all<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#更新上面所有来源的R包</span></span><br></pre></td></tr></table></figure><h2 id="使用installr​包更新R并迁移R包">使用<code>installr</code>​包更新R并迁移R包</h2><p>该包可以查找最新的R版本，下载并运行安装程序，删除安装文件，将之前的R包复制并更新到新安装的R中。</p><p>此外，它可以安装很多其他软件 (比如:R，’ Rtools ‘，’ RStudio ‘，’ Git '，…等等！)，提供一个软件的下载链接也行。还能关机、重启、睡眠、休眠和锁定操作系统。</p><h3 id="安装-2">安装</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;installr&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure><h3 id="更新R">更新R</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">check.for.updates.R<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#检查是否有更新版本的R</span></span><br><span class="line">get_latest_r_version<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#返回CRAN上可用的R的最新版本作为R系统版本对象</span></span><br><span class="line">updateR<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#或者updater()检查最新的R版本，如果有更新的R版本，下载并安装它</span></span><br></pre></td></tr></table></figure><h3 id="R包迁移">R包迁移</h3><ul class="lvl-0"><li class="lvl-2"><p>将R升级到一个新版本——并将所有的包从旧的R安装复制到新的R中</p></li><li class="lvl-2"><p>移动到一个全局library——想要将所有的包从局部library文件夹复制到全局library文件夹</p></li></ul><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">copy.packages.between.libraries<span class="punctuation">(</span></span><br><span class="line">  from<span class="punctuation">,</span></span><br><span class="line">  to<span class="punctuation">,</span></span><br><span class="line">  ask <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">,</span></span><br><span class="line">  keep_old <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span></span><br><span class="line">  do_NOT_override_packages_in_new_R <span class="operator">=</span> <span class="literal">TRUE</span></span><br><span class="line"><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#示例</span></span><br><span class="line">create.global.library<span class="punctuation">(</span><span class="punctuation">)</span> <span class="comment">#创建全局library，默认位置&quot;R_path/R/library&quot;</span></span><br><span class="line">copy.packages.between.libraries<span class="punctuation">(</span>ask <span class="operator">=</span> <span class="built_in">T</span><span class="punctuation">)</span> <span class="comment">#</span></span><br></pre></td></tr></table></figure><table><thead><tr><th>​<code>from</code>​</th><th>library文件夹位置</th></tr></thead><tbody><tr><td>​<code>to</code>​</td><td>复制到的位置</td></tr><tr><td>​<code>ask</code>​</td><td>是否应该让用户选择从哪两个library中复制包？如果为<code>FALSE</code>​(默认值)，则将library文件夹复制到最新的R安装。这将覆盖&quot;from&quot;和&quot;to&quot;参数</td></tr><tr><td>​<code>keep_old</code>​</td><td>复制还是移动library文件夹</td></tr><tr><td>​<code>do_NOT_override_packages_in_new_R</code>​</td><td>请勿覆盖新的包。默认<code>TRUE</code>​。设定为<code>FALSE</code>​,如果一个包同时存在于&quot;from&quot;和&quot;to&quot; library文件夹中，那么它会将&quot;to&quot;包的版本复制到“to”</td></tr></tbody></table><h2 id="参考：">参考：</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cub21pY3NjbGFzcy5jb20vYXJ0aWNsZS8xOTky">R及R包的更新、移除、卸载 - 组学大讲堂问答社区<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cub21pY3NjbGFzcy5jb20vYXJ0aWNsZS8xOTcw">安装R包的几种方法 - 组学大讲堂问答社区<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3M/c3JjPTExJnRpbWVzdGFtcD0xNzMzNDE4OTcwJnZlcj01NjcwJnNpZ25hdHVyZT1aNjhheWh3YjJxbFA5eHdRa2FheHZDLXoyNlhzeGRkV0tTZG1MSC1wbzhNS0NPd1AyZTRNZHJmazh1SVB1Km84bTVRTUczOTVWcjB0aG5kR0sxUVRYMnMxTjgqeXNoTkNJa1BuaGpnV1dPa3lsSUVLbERoVW5MMkhZcUtraVhEWCZuZXc9MQ==">12. R studio/R 工具指南（十一：R 的更新与R 包的迁移）<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0d1YW5nY2h1YW5nWXUvcnZjaGVjaw==">GitHub - GuangchuangYu/rvcheck: ✅R/Package Version Check<i class="fa fa-external-link-alt"></i></span></p></li></ol><p>‍</p></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;搜索和安装R包之前说过了，这里记录一下R包的更新。要更新R包需要先知道你的R包来自哪里&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;R包可以存放在不同的仓库(repository)里，最常见的repo包括CRAN, github，以及生物er必需的Bioconductor。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;CRAN，官方包CRAN，通常国内选择镜像，方法自行百度。&lt;/p&gt;
+&lt;p&gt;Bioconductor，这个通常只有生物信息学的人才用得到。&lt;/p&gt;
+&lt;p&gt;Github，大部分CRAN和Bioconductor都是托管在Github上的，一般不太稳定。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;可以直接在谷歌或必应搜索该包名字，即可看到是哪种R包。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;或者直接使用&lt;code&gt;rvcheck&lt;/code&gt;​包来更新。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="原创" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    <category term="其他" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="R语言" scheme="https://blog.leafminer.cn/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="BiocManager" scheme="https://blog.leafminer.cn/tags/BiocManager/"/>
+    
+    <category term="更新" scheme="https://blog.leafminer.cn/tags/%E6%9B%B4%E6%96%B0/"/>
+    
+    <category term="R包" scheme="https://blog.leafminer.cn/tags/R%E5%8C%85/"/>
+    
+    <category term="library" scheme="https://blog.leafminer.cn/tags/library/"/>
+    
+    <category term="rvcheck" scheme="https://blog.leafminer.cn/tags/rvcheck/"/>
+    
+    <category term="installr" scheme="https://blog.leafminer.cn/tags/installr/"/>
+    
+  </entry>
   
   <entry>
     <title>R语言中多重序列比对（MultipleAlignment）结果导出到文件（fasta文件和Phylip文件）</title>
@@ -663,37 +704,6 @@
     <category term="繁钦" scheme="https://blog.leafminer.cn/tags/%E7%B9%81%E9%92%A6/"/>
     
     <category term="古诗" scheme="https://blog.leafminer.cn/tags/%E5%8F%A4%E8%AF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客Next主题-首页文章摘要添加边框</title>
-    <link href="https://blog.leafminer.cn/2024/11/21/590f0df602e2/"/>
-    <id>https://blog.leafminer.cn/2024/11/21/590f0df602e2/</id>
-    <published>2024-11-21T04:07:06.000Z</published>
-    <updated>2024-11-30T05:04:16.089Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="Github中新建仓库存储图片">Github中新建仓库存储图片</h2><p>例如新建仓库名为tuchuang</p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121111130.png" alt=""></p><span id="more"></span><h2 id="Token">Token</h2><p>打开你的Github，点击<code>Settings</code></p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121111832.png" alt=""></p><p>选择<code>developer settings</code><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121111724.png" alt=""></p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121113009.png" alt=""></p><p>选择<code>Tokens Classic</code>, 创建新的Token</p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121113021.png" alt=""></p><p>填写<code>Note</code>，<code>Expiration</code>时间按需要选，选中<code>repo</code>，点击最下面的绿色按钮<code>Generate Token</code>生成</p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121120152.png" alt=""></p><p>复制粘贴生成的Token到PicGo中</p><h2 id="PicGo设置">PicGo设置</h2><p>如下所示，图床配置名随便，设定仓库名为GitHub名+仓库名，根据仓库中显示的分支名称设定我这里用的是main（见上面图显示的，master不行）</p><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121112203.png" alt=""></p><p>设定自定义域名</p><p><span class="exturl" data-url="aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL2xlYWZtaW5lci90dWNodWFuZ0BtYXN0ZXI=">https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master<i class="fa fa-external-link-alt"></i></span></p><h2 id="参考">参考</h2><ol><li class="lvl-3"><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDc4MzkzNC9hcnRpY2xlL2RldGFpbHMvMTA3Nzk4MzI0">https://blog.csdn.net/weixin_44783934/article/details/107798324<i class="fa fa-external-link-alt"></i></span></p></li></ol></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Github中新建仓库存储图片&quot;&gt;Github中新建仓库存储图片&lt;/h2&gt;
-&lt;p&gt;例如新建仓库名为tuchuang&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&quot;https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/20241121111130.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="原创" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/"/>
-    
-    <category term="其他" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="设置" scheme="https://blog.leafminer.cn/tags/%E8%AE%BE%E7%BD%AE/"/>
-    
-    <category term="图床" scheme="https://blog.leafminer.cn/tags/%E5%9B%BE%E5%BA%8A/"/>
-    
-    <category term="GitHub" scheme="https://blog.leafminer.cn/tags/GitHub/"/>
-    
-    <category term="PicGo" scheme="https://blog.leafminer.cn/tags/PicGo/"/>
     
   </entry>
   
