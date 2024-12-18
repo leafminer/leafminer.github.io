@@ -60,6 +60,36 @@
   </entry>
   
   <entry>
+    <title>免费语音转文字，还能生成脑图和导读——通义千问</title>
+    <link href="https://blog.leafminer.cn/2024/12/07/96dc055d86c5/"/>
+    <id>https://blog.leafminer.cn/2024/12/07/96dc055d86c5/</id>
+    <published>2024-12-06T16:54:34.000Z</published>
+    <updated>2024-12-17T14:45:05.119Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>通义千问是阿里云自主研发的超大规模语言模型，能够根据用户提供的问题或提示生成相关的回复。它可以理解并处理各种类型的文本内容，包括但不限于日常对话、专业领域知识问答、文本创作、编程咨询等。这里写一下使用通义千问简单的进行语音转文字</p><p>通义千问链接 <span class="exturl" data-url="aHR0cHM6Ly90b25neWkuYWxpeXVuLmNvbS9xaWFud2VuLw==">https://tongyi.aliyun.com/qianwen/<i class="fa fa-external-link-alt"></i></span></p><span id="more"></span> <h2 id="准备">准备</h2><ol><li class="lvl-3"><p><strong>语音文件</strong></p></li></ol><ul class="lvl-0"><li class="lvl-2"><p><strong>视频支持：</strong></p><ul class="lvl-2"><li class="lvl-4">单个文件最长6小时，单次最多可上传50个</li><li class="lvl-4">支持格式：mp4/wmv/m4v/flv/rmvb/dat/mov/mkv/webm/avi/mpeg/3gp/ogg</li><li class="lvl-4">单个最大6G</li></ul></li><li class="lvl-2"><p><strong>音频支持：</strong></p><ul class="lvl-2"><li class="lvl-4">支持格式：mp3/wav/m4a/wma/aac/ogg/amr/flac/aiff</li><li class="lvl-4">单个最大500M</li></ul></li></ul><ol start="2"><li class="lvl-3"><p><strong>联网</strong>的电脑（手机APP上也行）</p></li></ol><h2 id="使用方法">使用方法</h2><ol><li class="lvl-3"><p>打开通义千问链接 <span class="exturl" data-url="aHR0cHM6Ly90b25neWkuYWxpeXVuLmNvbS9xaWFud2VuLw==">https://tongyi.aliyun.com/qianwen/<i class="fa fa-external-link-alt"></i></span> 登录(手机验证码登录，省事）</p></li><li class="lvl-3"><p>点击界面中的<strong>效率</strong>，进入下图界面</p></li></ol><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20241217215801641.png" alt="">​</p><ol start="3"><li class="lvl-3"><p>再点击<strong>音视频速读</strong> 打开文件上传窗口</p></li></ol><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20241217215850904.png" alt="">​</p><ol start="4"><li class="lvl-3"><p>等文件上传并解析成功，可以通过上传记录打开，点击<strong>立即查看</strong></p></li></ol><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20241217215623487.png" alt="">​</p><ol start="5"><li class="lvl-3"><p>可以看到已经转成文字显示的内容，在这里可以下载保存问Word格式，也可以复制</p></li></ol><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-12-17%20214028.png" alt="">​</p><p><strong>导读</strong></p><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20241217215324478.png" alt="">​</p><p><strong>脑图</strong></p><p>​<img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-12-17%20215424.png" alt="">​</p><p><strong>笔记</strong>（你可以在这里编辑记录需要的文字内容）</p><p>​<img data-src="https://cdn.nlark.com/yuque/0/2024/png/12885947/1734445292227-118a311b-ce92-483b-8a5c-c2fcf8ed159a.png" alt="">​</p><p>免费准确，暂时没看到次数限制之类的。</p></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;通义千问是阿里云自主研发的超大规模语言模型，能够根据用户提供的问题或提示生成相关的回复。它可以理解并处理各种类型的文本内容，包括但不限于日常对话、专业领域知识问答、文本创作、编程咨询等。这里写一下使用通义千问简单的进行语音转文字&lt;/p&gt;
+&lt;p&gt;通义千问链接 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly90b25neWkuYWxpeXVuLmNvbS9xaWFud2VuLw==&quot;&gt;https://tongyi.aliyun.com/qianwen/&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="原创" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/"/>
+    
+    <category term="其他" scheme="https://blog.leafminer.cn/categories/%E5%8E%9F%E5%88%9B/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="通义千问" scheme="https://blog.leafminer.cn/tags/%E9%80%9A%E4%B9%89%E5%8D%83%E9%97%AE/"/>
+    
+    <category term="大模型" scheme="https://blog.leafminer.cn/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="语音转文字" scheme="https://blog.leafminer.cn/tags/%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97/"/>
+    
+    <category term="免费" scheme="https://blog.leafminer.cn/tags/%E5%85%8D%E8%B4%B9/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R语言-不同来源（CRAN，Bioconductor，GitHub,GitLab）R包的更新</title>
     <link href="https://blog.leafminer.cn/2024/12/06/d8e77d0dfb04/"/>
     <id>https://blog.leafminer.cn/2024/12/06/d8e77d0dfb04/</id>
@@ -676,41 +706,6 @@
     <category term="姐姐" scheme="https://blog.leafminer.cn/tags/%E5%A7%90%E5%A7%90/"/>
     
     <category term="张嘉佳" scheme="https://blog.leafminer.cn/tags/%E5%BC%A0%E5%98%89%E4%BD%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>青春的纸条 | 余显斌</title>
-    <link href="https://blog.leafminer.cn/2024/11/22/240818cb3e52/"/>
-    <id>https://blog.leafminer.cn/2024/11/22/240818cb3e52/</id>
-    <published>2024-11-22T01:10:28.000Z</published>
-    <updated>2024-11-22T01:22:31.605Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/image.png" alt=""><br>那时，我还在读初三，正是情感懵懂的时候。同桌是个女生，很美，一笑，让人心中一片明亮，好像面对一片春草，一片山花。</p><p>有一天上午第四节课，是班主任王老师的课。他带我们语文，戴着一副眼镜，古诗词基本功很好，随便一首诗词，分析得鸟语花香春光灿烂，让我们沉浸其中，难以自拔。</p><p>可是，他又有一个缺点。他把班上女生男生看得忒紧，不许走得太近，不许有恋爱迹象，用他的话说：“豆子大的娃娃，好好读书。”</p><p>那天上课时，他正在滔滔不绝地讲课，眼睛突然一斜，马上停下了，然后快步走到我面前，伸出手说：“拿出来！”我红了脸，悄悄把手中那张没来得及看的纸条揉成团，丢到地上，左顾右盼，假装不知道他说的是什么意思。他俯下身子，拾起那个纸团，严肃地对大家说：“这是吴晓蒙给周至的纸条。”吴晓蒙，是那个女生。周至，就是我。</p><span id="more"></span><p>他转身问同学们：“我曾经说过，这样的纸条抓住该怎么办？”</p><p>大家听了，异口同声地回答：“读！”</p><p>他打开来看看，眉毛一挑，瞪大了眼。同学们都起哄道：“读，读。”他咳嗽一声，字正腔圆地读起来：“周至同学你好，你的英语那么棒，能教一下我吗？我特想考上重点高中。”</p><p>他读完，大家都不说话了，望着我们俩。</p><p>“不是我们想象的那么回事。”他叹了口气，“看来，是我想错了，把同学们的关系想得太复杂了。现在，我得向他们道歉。”</p><p>他说完，真的向我们道歉了。接着，他向全班同学号召，向吴晓蒙和周至学习，一个桌子组成一个学习小组，互相帮助，共同进步。而且，他当场预言，吴晓蒙同学和周至同学有如此认真的学习态度，一定能考上重点高中。</p><p>全班同学听了，都鼓起掌来。</p><p>他笑着，把纸条随手装入衣兜，也跟着鼓起掌。</p><p>我和吴晓蒙都红了脸，很不好意思地低着头。</p><p>以后，我们班的同学整日挤在一起，叽叽喳喳地讨论着学习，如一群鸟儿。我，还有吴晓蒙，竟然成了大家效仿的对象。我们当然不甘落后，不只是我们成了大家的榜样，更因为，王老师在课堂上为我们打了保票，说我们一定能考上重点高中。</p><p>那年，我们班考得出奇地好。我和吴晓蒙都如愿以偿，考上了重点高中。</p><p>临走，王老师拿出那张纸条，悄悄还给了我。那张纸条上写：周至，我很喜欢你，你呢？</p><hr><p><span class="exturl" data-url="aHR0cHM6Ly9vbGQucWl1cmkub3JnL3Bvc3RzLzM3MjM1MTc3NDgv">青春的纸条 - 秋日 (qiuri.org)<i class="fa fa-external-link-alt"></i></span></p><p>‍</p></div><script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script><script>var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);if (!isMobile) {    var btw = new BTWPlugin();    btw.init({        "id": "vip-container",        "blogId": "33502-1730425843713-524",        "name": "虫子的生存笔记",        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",        "keyword": "more"    });}</script>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img data-src=&quot;https://cdn.jsdelivr.net/gh/leafminer/tuchuang@master/image.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-那时，我还在读初三，正是情感懵懂的时候。同桌是个女生，很美，一笑，让人心中一片明亮，好像面对一片春草，一片山花。&lt;/p&gt;
-&lt;p&gt;有一天上午第四节课，是班主任王老师的课。他带我们语文，戴着一副眼镜，古诗词基本功很好，随便一首诗词，分析得鸟语花香春光灿烂，让我们沉浸其中，难以自拔。&lt;/p&gt;
-&lt;p&gt;可是，他又有一个缺点。他把班上女生男生看得忒紧，不许走得太近，不许有恋爱迹象，用他的话说：“豆子大的娃娃，好好读书。”&lt;/p&gt;
-&lt;p&gt;那天上课时，他正在滔滔不绝地讲课，眼睛突然一斜，马上停下了，然后快步走到我面前，伸出手说：“拿出来！”我红了脸，悄悄把手中那张没来得及看的纸条揉成团，丢到地上，左顾右盼，假装不知道他说的是什么意思。他俯下身子，拾起那个纸团，严肃地对大家说：“这是吴晓蒙给周至的纸条。”吴晓蒙，是那个女生。周至，就是我。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="转载" scheme="https://blog.leafminer.cn/categories/%E8%BD%AC%E8%BD%BD/"/>
-    
-    <category term="生活" scheme="https://blog.leafminer.cn/categories/%E8%BD%AC%E8%BD%BD/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-    <category term="小小说" scheme="https://blog.leafminer.cn/tags/%E5%B0%8F%E5%B0%8F%E8%AF%B4/"/>
-    
-    <category term="转载" scheme="https://blog.leafminer.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-    <category term="故事" scheme="https://blog.leafminer.cn/tags/%E6%95%85%E4%BA%8B/"/>
-    
-    <category term="青春" scheme="https://blog.leafminer.cn/tags/%E9%9D%92%E6%98%A5/"/>
-    
-    <category term="纸条" scheme="https://blog.leafminer.cn/tags/%E7%BA%B8%E6%9D%A1/"/>
     
   </entry>
   

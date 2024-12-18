@@ -13,7 +13,7 @@
   --table-row-odd-bg-color: #f9f9f9;
   --table-row-hover-bg-color: #f5f5f5;
   --menu-item-bg-color: #f5f5f5;
-  --theme-color: #222;
+  --theme-color: #4169e1;
   --btn-default-bg: #fff;
   --btn-default-color: #555;
   --btn-default-border-color: #555;
@@ -1427,7 +1427,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #8f8f08;
+    background: #98b6fc;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1981,7 +1981,7 @@ pre code {
 }
 .reading-progress-bar {
   --progress: 0;
-  background: #37c6c0;
+  background: #0f0;
   height: 3px;
   position: fixed;
   z-index: 50;
