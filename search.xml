@@ -3085,7 +3085,7 @@ ILOVEU。<br>
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客Next主题-首页文章摘要添加边框</title>
+    <title>PicGo图床设置--以github仓库作为存储位置</title>
     <url>/2024/11/21/590f0df602e2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><h2 id="Github中新建仓库存储图片">Github中新建仓库存储图片</h2>
 <p>例如新建仓库名为tuchuang</p>
@@ -3677,7 +3677,7 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% meting &quot;1534866348&quot; &quot;tencent&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
 
-    <div id="aplayer-oYxyYPBZ" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-DLJBdbAV" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1534866348" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 <h4 id="在html页面中引用：">在html页面中引用：</h4>
@@ -3688,12 +3688,12 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：-2">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;雾里看花&quot; &quot;AI&quot; &quot;/assets/tgAI.mp3&quot; &quot;/assets/WVWAW5KC.png&quot; autoplay %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-lKNjFVSg" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-xhudYzpD" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-lKNjFVSg"),
+            element: document.getElementById("aplayer-xhudYzpD"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -3748,8 +3748,8 @@ ILOVEU。<br>
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>音乐</tag>
-        <tag>播放器</tag>
         <tag>Aplayer</tag>
+        <tag>播放器</tag>
       </tags>
   </entry>
   <entry>
@@ -4056,8 +4056,8 @@ ILOVEU。<br>
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>音乐</tag>
-        <tag>SQPlayer</tag>
         <tag>播放器</tag>
+        <tag>SQPlayer</tag>
       </tags>
   </entry>
   <entry>
@@ -4481,8 +4481,8 @@ ILOVEU。<br>
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>博客</tag>
-        <tag>丝带背景</tag>
         <tag>主题</tag>
+        <tag>丝带背景</tag>
       </tags>
   </entry>
   <entry>
@@ -4897,7 +4897,7 @@ ILOVEU。<br>
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客Next主题添加动态标题</title>
+    <title>Hexo博客Next主题添加动态标题显示在浏览器标签中</title>
     <url>/2024/10/21/8803d6a9e06d/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>直接在<code>hexo\node_modules\hexo-theme-next\layout\_layout.njk</code>​文件中添加如下代码：</p>
 <span id="more"></span>
@@ -4981,8 +4981,8 @@ ILOVEU。<br>
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>博客</tag>
-        <tag>主题</tag>
         <tag>公众号</tag>
+        <tag>主题</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
@@ -6354,8 +6354,8 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>ImageJ</tag>
-        <tag>图像配准</tag>
         <tag>图像</tag>
+        <tag>图像配准</tag>
         <tag>stack</tag>
         <tag>StackReg</tag>
       </tags>
@@ -6599,8 +6599,8 @@ ILOVEU。<br>
         <tag>插件</tag>
         <tag>笔记</tag>
         <tag>ImageJ</tag>
-        <tag>简介</tag>
         <tag>图像</tag>
+        <tag>简介</tag>
       </tags>
   </entry>
   <entry>
