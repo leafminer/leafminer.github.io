@@ -68,9 +68,9 @@
     
     <category term="插件" scheme="https://blog.leafminer.cn/tags/%E6%8F%92%E4%BB%B6/"/>
     
-    <category term="R语言" scheme="https://blog.leafminer.cn/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
     <category term="GitHub" scheme="https://blog.leafminer.cn/tags/GitHub/"/>
+    
+    <category term="R语言" scheme="https://blog.leafminer.cn/tags/R%E8%AF%AD%E8%A8%80/"/>
     
     <category term="大模型" scheme="https://blog.leafminer.cn/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
     
@@ -605,11 +605,11 @@
     
     <category term="转载" scheme="https://blog.leafminer.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
     
+    <category term="故事" scheme="https://blog.leafminer.cn/tags/%E6%95%85%E4%BA%8B/"/>
+    
     <category term="恋爱" scheme="https://blog.leafminer.cn/tags/%E6%81%8B%E7%88%B1/"/>
     
     <category term="江湖" scheme="https://blog.leafminer.cn/tags/%E6%B1%9F%E6%B9%96/"/>
-    
-    <category term="故事" scheme="https://blog.leafminer.cn/tags/%E6%95%85%E4%BA%8B/"/>
     
   </entry>
   
@@ -669,11 +669,11 @@
     
     <category term="转载" scheme="https://blog.leafminer.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
     
-    <category term="故事" scheme="https://blog.leafminer.cn/tags/%E6%95%85%E4%BA%8B/"/>
-    
     <category term="后盾" scheme="https://blog.leafminer.cn/tags/%E5%90%8E%E7%9B%BE/"/>
     
     <category term="恐惧" scheme="https://blog.leafminer.cn/tags/%E6%81%90%E6%83%A7/"/>
+    
+    <category term="故事" scheme="https://blog.leafminer.cn/tags/%E6%95%85%E4%BA%8B/"/>
     
   </entry>
   

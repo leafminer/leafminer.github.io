@@ -13,7 +13,7 @@
   --table-row-odd-bg-color: #f9f9f9;
   --table-row-hover-bg-color: #f5f5f5;
   --menu-item-bg-color: #f5f5f5;
-  --theme-color: rgba(255,255,255,0.56);
+  --theme-color: rgba(74,78,164,0.5);
   --btn-default-bg: #fff;
   --btn-default-color: #555;
   --btn-default-border-color: #555;
@@ -1425,7 +1425,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #a10fa6;
+    background: #981614;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
