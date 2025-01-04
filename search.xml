@@ -38,6 +38,45 @@
       </tags>
   </entry>
   <entry>
+    <title>在主页上添加Chatra-聊天挂件</title>
+    <url>/2025/01/04/c458c32b4564/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>因：在<span class="exturl" data-url="aHR0cHM6Ly93d3cua2FhYWFhaS5jbi8=">壹拾肆<i class="fa fa-external-link-alt"></i></span>的博客中看到聊天挂件，我也想有一个。</p>
+<p>简介：这里用免费版的，限制挺多，比如每个月只能 20 条消息。使用起来不麻烦，注册一个账号就好了，免费版的提供了JavaScript 代码，插入到网页中就行，根据需要可以调整图标、位置等。官网在这：<span class="exturl" data-url="aHR0cHM6Ly9hcHAuY2hhdHJhLmlvLw==">Chatra by Brevo<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20250104112325936.png" alt=""></p>
+<p>效果如下：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20250104114031206.png" alt=""></p>
+<p>测试一下，收到的消息：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20250104113725379.png" alt=""></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>原创</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>免费</tag>
+        <tag>聊天</tag>
+        <tag>Chatra</tag>
+        <tag>挂件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>昨天还说它订阅收费，怎么今天就免费了--GitHub 刚刚宣布了免费版 Copilot</title>
     <url>/2024/12/20/d70918eae681/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20241219100729400.png" alt=""></p>
@@ -2561,8 +2600,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>效应</tag>
         <tag>心理</tag>
+        <tag>效应</tag>
         <tag>逆火</tag>
         <tag>抗拒</tag>
         <tag>机制</tag>
@@ -3170,9 +3209,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>边框</tag>
         <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>首页</tag>
         <tag>Next主题</tag>
         <tag>美化</tag>
@@ -3217,9 +3256,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>百度</tag>
         <tag>站图</tag>
+        <tag>Hexo</tag>
         <tag>sitemap</tag>
         <tag>Next</tag>
       </tags>
@@ -3677,7 +3716,7 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% meting &quot;1534866348&quot; &quot;tencent&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
 
-    <div id="aplayer-dBZvpywq" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-WIpSQkeQ" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1534866348" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 <h4 id="在html页面中引用：">在html页面中引用：</h4>
@@ -3688,12 +3727,12 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：-2">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;雾里看花&quot; &quot;AI&quot; &quot;/assets/tgAI.mp3&quot; &quot;/assets/WVWAW5KC.png&quot; autoplay %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-gaynJzxy" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-hAcgzEZu" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-gaynJzxy"),
+            element: document.getElementById("aplayer-hAcgzEZu"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -4478,11 +4517,11 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
         <tag>Next</tag>
-        <tag>丝带背景</tag>
+        <tag>博客</tag>
         <tag>主题</tag>
+        <tag>丝带背景</tag>
       </tags>
   </entry>
   <entry>
@@ -4927,9 +4966,9 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
         <tag>主题</tag>
         <tag>动态标题</tag>
       </tags>
@@ -4978,11 +5017,11 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
         <tag>Next</tag>
-        <tag>主题</tag>
+        <tag>博客</tag>
         <tag>公众号</tag>
+        <tag>主题</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
@@ -5028,8 +5067,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>category_map</tag>
         <tag>permalink</tag>
       </tags>
@@ -5078,8 +5117,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>新闻</tag>
         <tag>API</tag>
         <tag>Html单页</tag>
@@ -5118,9 +5157,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
         <tag>动态背景</tag>
       </tags>
   </entry>
@@ -5172,9 +5211,9 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
         <tag>笔记</tag>
         <tag>升级</tag>
       </tags>
@@ -5312,8 +5351,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>分类</tag>
         <tag>标签</tag>
       </tags>
@@ -5585,9 +5624,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
         <tag>搜索</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
@@ -6094,10 +6133,10 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>ImageJ</tag>
-        <tag>R语言</tag>
         <tag>批量</tag>
-        <tag>实例</tag>
         <tag>数据处理</tag>
+        <tag>R语言</tag>
+        <tag>实例</tag>
         <tag>果蝇</tag>
       </tags>
   </entry>
@@ -6354,8 +6393,8 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>ImageJ</tag>
-        <tag>图像</tag>
         <tag>图像配准</tag>
+        <tag>图像</tag>
         <tag>stack</tag>
         <tag>StackReg</tag>
       </tags>
@@ -6389,10 +6428,10 @@ ILOVEU。<br>
         <category>科研</category>
       </categories>
       <tags>
-        <tag>R语言</tag>
         <tag>批量</tag>
-        <tag>解压</tag>
+        <tag>R语言</tag>
         <tag>实例</tag>
+        <tag>解压</tag>
       </tags>
   </entry>
   <entry>
@@ -6599,8 +6638,8 @@ ILOVEU。<br>
         <tag>插件</tag>
         <tag>笔记</tag>
         <tag>ImageJ</tag>
-        <tag>图像</tag>
         <tag>简介</tag>
+        <tag>图像</tag>
       </tags>
   </entry>
   <entry>
@@ -6902,8 +6941,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>指令</tag>
         <tag>部署</tag>
       </tags>
@@ -7026,9 +7065,9 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>笔记</tag>
+        <tag>R语言</tag>
         <tag>RNA-seq</tag>
         <tag>生信</tag>
-        <tag>R语言</tag>
         <tag>测序</tag>
         <tag>标准化</tag>
       </tags>
