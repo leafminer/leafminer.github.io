@@ -1413,7 +1413,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #aabfb9;
+    background: #9effd9;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3105,4 +3105,13 @@ header.header {
 }
 :root {
   --content-bg-color: rgba(255,255,255,0.64);
+}
+.use-motion .post-block {
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(112,112,112,0.74);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.use-motion .pagination,
+.use-motion .comments {
+  visibility: hidden;
 }
