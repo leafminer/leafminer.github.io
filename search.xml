@@ -39,9 +39,66 @@
   </entry>
   <entry>
     <title>在主页上添加Chatra-聊天挂件</title>
+    <url>/2025/01/10/5c7ad9005b06/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>对于大模型大家已经不算陌生，手机上大模型的 APP 早就有了，如今有了桌面版。前段时间试用一下豆包的桌面版和豆包的浏览器插件，感觉还不错。可以把之前安装的翻译软件卸掉了，用豆包浏览器能做的更好。</p>
+<span id="more"></span>
+<p>豆包这样的大模型应用通过集成到浏览器中，可以提供更加便捷的服务体验，比如即时网页内容翻译、帮助用户理解复杂信息或文章、甚至辅助写作等。此外，桌面版本往往还能提供更多定制化选项，让用户根据自己的需求调整设置，从而获得更佳的使用体验。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2025/01/20250110173920661.png" alt=""></p>
+<h2 id="豆包桌面版">豆包桌面版</h2>
+<p>官方下载链接 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZG91YmFvLmNvbS9kb3dubG9hZC9kZXNrdG9w">https://www.doubao.com/download/desktop<i class="fa fa-external-link-alt"></i></span></p>
+<p>可以当作一个基于 Chrome 的浏览器使用</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2025/01/20250110174555097.png" alt=""></p>
+<h3 id="划词，">划词，</h3>
+<p>不仅翻译总结，还有很多功能，甚至你可以自定义技能。翻译源有必应翻译、火山翻译和豆包翻译</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2025/01/20250110175657497.png" alt=""></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2025/01/20250110172508977.png" alt=""></p>
+<p><strong>豆包设置</strong>，<strong>划词工具栏</strong>，点击<strong>发现更多技能</strong>打开对应按钮可以添加需要的功能到 <strong>AI 划词工具栏</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2025/01/20250110180756869.png" alt=""></p>
+<p><strong>添加技能</strong>则让我们能够自定义</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2025/01/20250110180832192.png" alt=""></p>
+<h3 id="文献阅读">文献阅读</h3>
+<p>总结，生成脑图，截图提问。图片生成的 pdf 也可以 OCR 识别文字。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2025/01/20250110180238649.png" alt=""></p>
+<h2 id="其他功能">其他功能</h2>
+<blockquote>
+<p>除了划词翻译和内容总结，豆包 AI 助手还有超多隐藏技能。写文案时思路卡壳？试试文本扩写功能，输入简短的关键句，它能帮你迅速生成一段逻辑连贯、文采斐然的段落，为创作灵感 “加油”。反之，要是文案冗长，缩写功能一键就能帮你去掉废话，保留精华。想要改变文风，从严肃正式到幽默风趣，从文艺清新到简洁干练，风格修改功能轻松拿捏。要是发现文本有错别字、语病，它还能像语文老师一样，细致批改，给出修改建议，让你的文字完美无瑕。对了，它还有超厉害的图片 OCR 识别，不管是纸质文档上的文字，还是图片里的说明，咔嚓一拍，文字立马提取出来，还能直接翻译、总结，这效率，杠杠的！</p>
+<p>–豆包 AI 生成</p>
+</blockquote>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "33502-1730425843713-524",
+			        "name": "虫子的生存笔记",
+			        "qrcode": "https://leaf-miner.pages.dev/image/%E5%85%AC%E4%BC%97%E5%8F%B7.png",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>原创</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>阅读</tag>
+        <tag>大模型</tag>
+        <tag>浏览器</tag>
+        <tag>豆包</tag>
+        <tag>翻译</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在主页上添加Chatra-聊天挂件</title>
     <url>/2025/01/04/c458c32b4564/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div id="vip-container"><p>因：在<span class="exturl" data-url="aHR0cHM6Ly93d3cua2FhYWFhaS5jbi8=">壹拾肆<i class="fa fa-external-link-alt"></i></span>的博客中看到聊天挂件，我也想有一个。</p>
-<p>简介：这里用免费版的，限制挺多，比如每个月只能 20 条消息。使用起来不麻烦，注册一个账号就好了，免费版的提供了JavaScript 代码，插入到网页中就行，根据需要可以调整图标、位置等。官网在这：<span class="exturl" data-url="aHR0cHM6Ly9hcHAuY2hhdHJhLmlvLw==">Chatra by Brevo<i class="fa fa-external-link-alt"></i></span></p>
+<p>简介：这里用免费版的，限制挺多，比如每个月只能 20 条消息。使用起来不麻烦，注册一个账号就好了，免费版的提供了JavaScript 代码，插入到网页中就行，根据需要可以调整图标、位置等。官网在这：<span class="exturl" data-url="aHR0cHM6Ly9hcHAuY2hhdHJhLmlvLw==">Chatra by Brevo<i class="fa fa-external-link-alt"></i></span><br>
+Hexo博客Next主题配置文件中有对应的开关，只需要打开就行</p>
 <span id="more"></span>
 <p><img data-src="https://cdn.jsdelivr.net/gh/leafminer/tuchuang@main/2024/12/20250104112325936.png" alt=""></p>
 <p>效果如下：</p>
@@ -246,8 +303,8 @@
       </categories>
       <tags>
         <tag>插件</tag>
-        <tag>R语言</tag>
         <tag>GitHub</tag>
+        <tag>R语言</tag>
         <tag>大模型</tag>
         <tag>VSCode</tag>
         <tag>代码助手</tag>
@@ -3212,9 +3269,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>边框</tag>
         <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>首页</tag>
         <tag>Next主题</tag>
         <tag>美化</tag>
@@ -3259,11 +3316,11 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
+        <tag>Next</tag>
         <tag>Hexo</tag>
         <tag>百度</tag>
         <tag>站图</tag>
         <tag>sitemap</tag>
-        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -3723,7 +3780,7 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% meting &quot;1534866348&quot; &quot;tencent&quot; &quot;playlist&quot; &quot;autoplay&quot; &quot;mutex:false&quot; &quot;listmaxheight:340px&quot; &quot;preload:none&quot; &quot;theme:#ad7a86&quot;%&#125;</span><br></pre></td></tr></table></figure>
 
-    <div id="aplayer-EMGduZUf" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-WpeLvQnH" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1534866348" data-server="tencent" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 <h4 id="在html页面中引用：">在html页面中引用：</h4>
@@ -3734,12 +3791,12 @@ ILOVEU。<br>
 <h4 id="在markdown文件中引用：-2">在markdown文件中引用：</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer &quot;雾里看花&quot; &quot;AI&quot; &quot;/assets/tgAI.mp3&quot; &quot;/assets/WVWAW5KC.png&quot; autoplay %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-VLFiTMQt" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-iWzfIrwr" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-VLFiTMQt"),
+            element: document.getElementById("aplayer-iWzfIrwr"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -3791,8 +3848,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>音乐</tag>
         <tag>Aplayer</tag>
         <tag>播放器</tag>
@@ -3870,8 +3927,8 @@ ILOVEU。<br>
       </categories>
       <tags>
         <tag>Github</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>Live2D</tag>
         <tag>看板娘</tag>
         <tag>CDN</tag>
@@ -3977,8 +4034,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>公众号</tag>
         <tag>导流</tag>
         <tag>阅读全文</tag>
@@ -4103,8 +4160,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>音乐</tag>
         <tag>播放器</tag>
         <tag>SQPlayer</tag>
@@ -4409,8 +4466,8 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>pdf</tag>
         <tag>预览</tag>
         <tag>插件</tag>
@@ -4492,9 +4549,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>加载</tag>
+        <tag>Hexo</tag>
         <tag>图片</tag>
       </tags>
   </entry>
@@ -4528,11 +4585,11 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
-        <tag>丝带背景</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>主题</tag>
+        <tag>丝带背景</tag>
       </tags>
   </entry>
   <entry>
@@ -4593,8 +4650,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>插件</tag>
         <tag>相关文章</tag>
         <tag>推荐</tag>
@@ -4653,8 +4710,8 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>动态时钟</tag>
         <tag>特效</tag>
         <tag>njk</tag>
@@ -4718,8 +4775,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>插件</tag>
         <tag>暗黑模式</tag>
       </tags>
@@ -4785,8 +4842,8 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>标签云</tag>
         <tag>动态</tag>
         <tag>tag_cloud</tag>
@@ -4859,9 +4916,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>加载</tag>
+        <tag>Hexo</tag>
         <tag>pace</tag>
       </tags>
   </entry>
@@ -4947,8 +5004,8 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
         <tag>图片显示</tag>
         <tag>防盗链</tag>
         <tag>meta</tag>
@@ -4989,9 +5046,9 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>主题</tag>
         <tag>动态标题</tag>
       </tags>
@@ -5045,11 +5102,11 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
-        <tag>主题</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>公众号</tag>
+        <tag>主题</tag>
         <tag>二维码</tag>
       </tags>
   </entry>
@@ -5095,8 +5152,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>category_map</tag>
         <tag>permalink</tag>
       </tags>
@@ -5145,8 +5202,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>新闻</tag>
         <tag>API</tag>
         <tag>Html单页</tag>
@@ -5185,9 +5242,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>动态背景</tag>
       </tags>
   </entry>
@@ -5239,9 +5296,9 @@ ILOVEU。<br>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>笔记</tag>
         <tag>升级</tag>
       </tags>
@@ -5379,8 +5436,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>分类</tag>
         <tag>标签</tag>
       </tags>
@@ -5652,9 +5709,9 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hexo</tag>
         <tag>Next</tag>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>搜索</tag>
         <tag>笔记</tag>
         <tag>algolia</tag>
@@ -6163,8 +6220,8 @@ ILOVEU。<br>
         <tag>ImageJ</tag>
         <tag>R语言</tag>
         <tag>批量</tag>
-        <tag>实例</tag>
         <tag>数据处理</tag>
+        <tag>实例</tag>
         <tag>果蝇</tag>
       </tags>
   </entry>
@@ -6458,8 +6515,8 @@ ILOVEU。<br>
       <tags>
         <tag>R语言</tag>
         <tag>批量</tag>
-        <tag>解压</tag>
         <tag>实例</tag>
+        <tag>解压</tag>
       </tags>
   </entry>
   <entry>
@@ -6969,8 +7026,8 @@ ILOVEU。<br>
         <category>其他</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>Hexo</tag>
+        <tag>博客</tag>
         <tag>指令</tag>
         <tag>部署</tag>
       </tags>
