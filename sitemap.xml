@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.leafminer.cn/2026/06/16/0c0be299a16c/</loc>
+    <loc>https://blog.leafminer.cn/about/</loc>
     
     <lastmod>2026-06-16</lastmod>
     
@@ -11,9 +11,9 @@
   </url>
   
   <url>
-    <loc>https://blog.leafminer.cn/about/</loc>
+    <loc>https://blog.leafminer.cn/2026/06/16/0c0be299a16c/</loc>
     
-    <lastmod>2026-02-18</lastmod>
+    <lastmod>2026-06-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
