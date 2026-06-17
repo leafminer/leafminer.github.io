@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#238636"/>
+      <stop offset="100%" stop-color="#1a6b2e"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f6feb"/>
+      <stop offset="100%" stop-color="#1859b3"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8957e5"/>
+      <stop offset="100%" stop-color="#6f42c1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="#58a6ff" font-size="28" font-weight="bold">OpenClaw 🦞 架构图</text>
+  <text x="400" y="70" text-anchor="middle" fill="#8b949e" font-size="14">Multi-Channel Gateway for AI Agents</text>
+
+  <!-- User Layer -->
+  <text x="400" y="105" text-anchor="middle" fill="#8b949e" font-size="11" font-weight="bold">用 户 层</text>
+  <!-- Channel boxes -->
+  <rect x="20" y="115" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="75" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11">💬 Telegram</text>
+
+  <rect x="140" y="115" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="195" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11">💬 Discord</text>
+
+  <rect x="260" y="115" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="315" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11">💬 Signal</text>
+
+  <rect x="380" y="115" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="435" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11">💬 微信</text>
+
+  <rect x="500" y="115" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="555" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11">💬 Slack</text>
+
+  <rect x="620" y="115" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="675" y="135" text-anchor="middle" fill="#c9d1d9" font-size="11">💬 WebChat</text>
+
+  <rect x="75" y="155" width="90" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="120" y="175" text-anchor="middle" fill="#c9d1d9" font-size="11">📱 Mobile</text>
+
+  <rect x="215" y="155" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="270" y="175" text-anchor="middle" fill="#c9d1d9" font-size="11">📧 Email</text>
+
+  <rect x="375" y="155" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="430" y="175" text-anchor="middle" fill="#c9d1d9" font-size="11">🌐 API</text>
+
+  <rect x="535" y="155" width="110" height="32" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="590" y="175" text-anchor="middle" fill="#c9d1d9" font-size="11">🤖 Coding Agent</text>
+
+  <!-- Down arrows -->
+  <line x1="75" y1="195" x2="75" y2="220" stroke="#30363d" stroke-width="2"/>
+  <polygon points="75,228 68,218 82,218" fill="#30363d"/>
+  <line x1="270" y1="195" x2="270" y2="220" stroke="#30363d" stroke-width="2"/>
+  <polygon points="270,228 263,218 277,218" fill="#30363d"/>
+  <line x1="430" y1="195" x2="430" y2="220" stroke="#30363d" stroke-width="2"/>
+  <polygon points="430,228 423,218 437,218" fill="#30363d"/>
+  <line x1="590" y1="195" x2="590" y2="220" stroke="#30363d" stroke-width="2"/>
+  <polygon points="590,228 583,218 597,218" fill="#30363d"/>
+
+  <!-- Gateway Layer -->
+  <text x="400" y="250" text-anchor="middle" fill="#8b949e" font-size="11" font-weight="bold">Gateway 层 (OpenClaw)</text>
+
+  <rect x="40" y="260" width="720" height="80" rx="10" fill="#0d2537" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4"/>
+  <text x="400" y="282" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="bold">🔀 OpenClaw Gateway</text>
+
+  <!-- Gateway features -->
+  <rect x="55" y="292" width="130" height="36" rx="5" fill="url(#card2)" filter="url(#glow)"/>
+  <text x="120" y="314" text-anchor="middle" fill="#fff" font-size="11">路由分发</text>
+
+  <rect x="195" y="292" width="130" height="36" rx="5" fill="url(#card2)" filter="url(#glow)"/>
+  <text x="260" y="314" text-anchor="middle" fill="#fff" font-size="11">会话管理</text>
+
+  <rect x="335" y="292" width="130" height="36" rx="5" fill="url(#card2)" filter="url(#glow)"/>
+  <text x="400" y="314" text-anchor="middle" fill="#fff" font-size="11">安全审计</text>
+
+  <rect x="475" y="292" width="130" height="36" rx="5" fill="url(#card2)" filter="url(#glow)"/>
+  <text x="540" y="314" text-anchor="middle" fill="#fff" font-size="11">插件系统</text>
+
+  <rect x="615" y="292" width="130" height="36" rx="5" fill="url(#card2)" filter="url(#glow)"/>
+  <text x="680" y="314" text-anchor="middle" fill="#fff" font-size="11">技能管理</text>
+
+  <!-- Down arrow to agent -->
+  <line x1="400" y1="345" x2="400" y2="370" stroke="#30363d" stroke-width="2"/>
+  <polygon points="400,378 393,368 407,368" fill="#30363d"/>
+
+  <!-- Agent Layer -->
+  <text x="400" y="400" text-anchor="middle" fill="#8b949e" font-size="11" font-weight="bold">Agent 层</text>
+  <rect x="40" y="410" width="250" height="75" rx="8" fill="#1c2128" stroke="#238636" stroke-width="1"/>
+  <text x="165" y="434" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="bold">🤖 Main Agent</text>
+  <text x="165" y="452" text-anchor="middle" fill="#8b949e" font-size="10">记忆系统 · 工具调用</text>
+  <text x="165" y="468" text-anchor="middle" fill="#8b949e" font-size="10">子Agent协管</text>
+
+  <rect x="310" y="410" width="210" height="75" rx="8" fill="#1c2128" stroke="#8957e5" stroke-width="1"/>
+  <text x="415" y="434" text-anchor="middle" fill="#d2a8ff" font-size="12" font-weight="bold">🧩 Skills</text>
+  <text x="415" y="452" text-anchor="middle" fill="#8b949e" font-size="10">自定义工作流</text>
+  <text x="415" y="468" text-anchor="middle" fill="#8b949e" font-size="10">专业知识技能</text>
+
+  <rect x="540" y="410" width="220" height="75" rx="8" fill="#1c2128" stroke="#d29922" stroke-width="1"/>
+  <text x="650" y="434" text-anchor="middle" fill="#d29922" font-size="12" font-weight="bold">🔌 Plugins</text>
+  <text x="650" y="452" text-anchor="middle" fill="#8b949e" font-size="10">频道插件 · Provider</text>
+  <text x="650" y="468" text-anchor="middle" fill="#8b949e" font-size="10">记忆插件 · 搜索</text>
+
+  <!-- Bottom -->
+  <text x="400" y="495" text-anchor="middle" fill="#484f58" font-size="10">自托管 · 跨平台 · 开源</text>
+</svg>
